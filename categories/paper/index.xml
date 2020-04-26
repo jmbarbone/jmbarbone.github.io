@@ -1,94 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>paper on JM Barbone</title>
-    <link>/categories/paper/</link>
-    <description>Recent content in paper on JM Barbone</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-        <atom:link href="/categories/paper/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>It&#39;s Alive</title>
-      <link>/2020/04/its-alive/</link>
-      <pubDate>Sun, 26 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/its-alive/</guid>
-      <description>It’s AliveFirst post. Just testing, right?
-</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/homepage/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/homepage/about/</guid>
-      <description>Visual above made with Nathaniel Phillip’s VisualResume.
-I am currently working as the Principal Data Analyst for Madrigal Pharmaceuticals, helping our Research &amp;amp; Development team monitor our current trials and prepare summary reports.I started learning R in my gradate statistics classes to avoid the future pains of having to use or only being familiar with SPSS.Learning R then launched me into a bigger role at Bracket (now Signant Health) where I had the pleasure to work with our Clinical Science team to understand and interpret their data.</description>
-    </item>
-    
-    <item>
-      <title>Anthology</title>
-      <link>/homepage/anthology/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/homepage/anthology/</guid>
-      <description>Papers201920182017Presentations201820172015Posters2019201820172015Below you may find links to some academic and professional work I have completed.The decision to include papers and presentations from class was not to artificially expand this section but was made to demonstrate the quality of work I aim to put forth.
-Copyright warningPlease note that some material may retain publisher’s copyright and these materials have been made available for personal use.</description>
-    </item>
-    
-    <item>
-      <title>CV and Resume</title>
-      <link>/homepage/cv-resume/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/homepage/cv-resume/</guid>
-      <description>Below you can find my (hopefully) current Curriculum vitae and Resume.
-Curriculum vitaeSingle Page ResumeDownload Resume (PDF) --</description>
-    </item>
-    
-    <item>
-      <title>Dunning Kruger Effect</title>
-      <link>/1/01/dunning-kruger/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/dunning-kruger/</guid>
-      <description>Note: I originally wrote this in February 2019.
-Full code found here:
-IntroductionIn my Organization Psychology graduate class at West Chester University, one of our assigned readings (among others) for our week on emotions and moods was (Sheldon, Dunning, and Ames 2014).
-The Dunning-Kruger effect is founding on the concept that an individual that lacks expertise will be more confident in their abilities than they really are, or overestimate their performance on a task.</description>
-    </item>
-    
-    <item>
-      <title>Psychometrics (class) scale development</title>
-      <link>/1/01/psychometrics-class-paper/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/psychometrics-class-paper/</guid>
-      <description>This is bit of a write up for my graduate class in psychometrics.I thought it would be fun to show the process by which my class designed and tested a scale.I use those accents because this was a class activity and we completed this in a summer semester.This isn’t a valid measure, so please don’t use it.
-IntroductionControlling behaviors have the potential to impact group activities and projects in a disruptive manner.</description>
-    </item>
-    
-    <item>
-      <title>Receiver operator characteristic curve</title>
-      <link>/1/01/roc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/roc/</guid>
-      <description>Until recently, I hadn’t really had to do any receiver operator characteristic curves (ROC) or areas under them (AUROC).After stumbling through documentation and a few videos, I found them a lot less intiminating and rather accessible.I could also be entirely wrong.I hope not.
-We’re also going to challenge ourselves (myself) here and complete this without the use of the almost obligatory library(tidyverse).This isn’t really anything necessary, but I find it nice to understand some of our base R functions - especially the versatile plot().</description>
-    </item>
-    
-    <item>
-      <title>Replication in Psychology</title>
-      <link>/1/01/replication-social-psychology/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/replication-social-psychology/</guid>
-      <description>IntroductionWhat is the “Replication Crisis”?Large-scale Replication AttemptsThe Open Science CollaborationThe “Many Labs” ProjectCase StudiesThe Marshmallow testViolence in video gamesFuture Directions in Social PsychologyConcluding RemarksReferencesAdvanced Social Psychology.A project on contemporary topics in Social Psychology.I managed to weasel around the requirements (social isn’t quite my field) and present and write on research methodologies, specifically on the “replication crisis” and how it relates to Social Psychology.</description>
-    </item>
-    
-  </channel>
-</rss>
