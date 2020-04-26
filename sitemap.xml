@@ -3,64 +3,64 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/2020/04/its-alive/</loc>
+    <loc>https://jmbarbone.github.io/2020/04/its-alive/</loc>
     <lastmod>2020-04-26T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://jmbarbone.github.io/</loc>
     <lastmod>2020-04-26T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://example.com/posts/</loc>
+    <loc>https://jmbarbone.github.io/posts/</loc>
     <lastmod>2020-04-26T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://example.com/homepage/about/</loc>
+    <loc>https://jmbarbone.github.io/homepage/about/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://example.com/homepage/anthology/</loc>
+    <loc>https://jmbarbone.github.io/homepage/anthology/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://jmbarbone.github.io/categories/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://example.com/homepage/cv-resume/</loc>
+    <loc>https://jmbarbone.github.io/homepage/cv-resume/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://example.com/homepage/</loc>
+    <loc>https://jmbarbone.github.io/homepage/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://example.com/series/</loc>
+    <loc>https://jmbarbone.github.io/series/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://jmbarbone.github.io/tags/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
