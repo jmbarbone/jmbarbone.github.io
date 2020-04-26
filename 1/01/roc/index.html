@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        CV and Resume - JM Barbone
+        Receiver operator characteristic curve - JM Barbone
       </title>
     <head>
   <meta charset="utf-8">
@@ -23,34 +23,34 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="Below you can find my (hopefully) current Curriculum vitae and Resume.
-Curriculum vitaeSingle Page ResumeDownload Resume (PDF) --" />
+  <meta name="description" content="Until recently, I hadn’t really had to do any receiver operator characteristic curves (ROC) or areas under them (AUROC).After stumbling through documentation and a few videos, I found them a lot less intiminating and rather accessible.I could also be entirely wrong.I hope not.
+We’re also going to challenge ourselves (myself) here and complete this without the use of the almost obligatory library(tidyverse).This isn’t really anything necessary, but I find it nice to understand some of our base R functions - especially the versatile plot()." />
   <meta name="generator" content="Hugo 0.69.0 with theme pure" />
-  <title>CV and Resume - JM Barbone</title>
+  <title>Receiver operator characteristic curve - JM Barbone</title>
   
   
   <link rel="stylesheet" href="/css/style.min.c4bc7071f132c964c2116bca53b392933f377e5ca7b7051ed245187c621a2d3e.css">
   
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-  <meta property="og:title" content="CV and Resume" />
-<meta property="og:description" content="Below you can find my (hopefully) current Curriculum vitae and Resume.
-Curriculum vitaeSingle Page ResumeDownload Resume (PDF) --" />
+  <meta property="og:title" content="Receiver operator characteristic curve" />
+<meta property="og:description" content="Until recently, I hadn’t really had to do any receiver operator characteristic curves (ROC) or areas under them (AUROC).After stumbling through documentation and a few videos, I found them a lot less intiminating and rather accessible.I could also be entirely wrong.I hope not.
+We’re also going to challenge ourselves (myself) here and complete this without the use of the almost obligatory library(tidyverse).This isn’t really anything necessary, but I find it nice to understand some of our base R functions - especially the versatile plot()." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/homepage/cv-resume/" />
+<meta property="og:url" content="/1/01/roc/" />
 
-<meta itemprop="name" content="CV and Resume">
-<meta itemprop="description" content="Below you can find my (hopefully) current Curriculum vitae and Resume.
-Curriculum vitaeSingle Page ResumeDownload Resume (PDF) --">
+<meta itemprop="name" content="Receiver operator characteristic curve">
+<meta itemprop="description" content="Until recently, I hadn’t really had to do any receiver operator characteristic curves (ROC) or areas under them (AUROC).After stumbling through documentation and a few videos, I found them a lot less intiminating and rather accessible.I could also be entirely wrong.I hope not.
+We’re also going to challenge ourselves (myself) here and complete this without the use of the almost obligatory library(tidyverse).This isn’t really anything necessary, but I find it nice to understand some of our base R functions - especially the versatile plot().">
 
-<meta itemprop="wordCount" content="20">
+<meta itemprop="wordCount" content="1121">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="CV and Resume"/>
-<meta name="twitter:description" content="Below you can find my (hopefully) current Curriculum vitae and Resume.
-Curriculum vitaeSingle Page ResumeDownload Resume (PDF) --"/>
+<meta itemprop="keywords" content="R,roc,pkg:caret,pgk:pROC," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Receiver operator characteristic curve"/>
+<meta name="twitter:description" content="Until recently, I hadn’t really had to do any receiver operator characteristic curves (ROC) or areas under them (AUROC).After stumbling through documentation and a few videos, I found them a lot less intiminating and rather accessible.I could also be entirely wrong.I hope not.
+We’re also going to challenge ourselves (myself) here and complete this without the use of the almost obligatory library(tidyverse).This isn’t really anything necessary, but I find it nice to understand some of our base R functions - especially the versatile plot()."/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -295,18 +295,28 @@ Curriculum vitaeSingle Page ResumeDownload Resume (PDF) --"/>
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/homepage/cv-resume/"
-    >CV and Resume</a
+    href="/1/01/roc/"
+    >Receiver operator characteristic curve</a
   >
 </h1>
 
       <div class="article-meta">
-        
+        <span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/r-code/"> r code </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/r/"> R </a>
+    <a class="article-tag-link" href="/tags/roc/"> roc </a>
+    <a class="article-tag-link" href="/tags/pkgcaret/"> pkg:caret </a>
+    <a class="article-tag-link" href="/tags/pgkproc/"> pgk:pROC </a>
+  </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/homepage/cv-resume/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/1/01/roc/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 20words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1121words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 6minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -314,18 +324,222 @@ Curriculum vitaeSingle Page ResumeDownload Resume (PDF) --"/>
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<p>Below you can find my (hopefully) current Curriculum vitae and Resume.</p>
-<div id="curriculum-vitae" class="section level2">
-<h2>Curriculum vitae</h2>
-<iframe src="https://drive.google.com/file/d/1Pog0qk55pwB5lfx295a6XGreFxZczYmP/preview" width="850px" style="height: 75vh;">
-</iframe>
-</div>
-<div id="single-page-resume" class="section level2">
-<h2>Single Page Resume</h2>
-<!-- <button onclick="window.open('https://drive.google.com/open?id=1DswUgxdgp4-PW2q_mE91Th0us55Yr7Db', '_blank')">Download Resume (PDF)</button> -->
-<iframe seamless src="https://drive.google.com/file/d/1DswUgxdgp4-PW2q_mE91Th0us55Yr7Db/preview" width="100%" style="height: 75vh;">
-</iframe>
-</div>
+<p>Until recently, I hadn’t really had to do any receiver operator characteristic curves (ROC) or areas under them (AUROC).
+After stumbling through documentation and a few videos, I found them a lot less intiminating and rather accessible.
+I could also be entirely wrong.
+I hope not.</p>
+<p>We’re also going to challenge ourselves (myself) here and complete this without the use of the almost obligatory <code>library(tidyverse)</code>.
+This isn’t really anything necessary, but I find it nice to understand some of our <em>base</em> R functions - especially the versatile <code>plot()</code>.</p>
+<p>The code isn’t always the cleanest, so maybe I’ll put together a <code>tidyerse</code> example as well.</p>
+<pre class="r"><code># library(tidyverse)                ## Skip to assure ourselves we can do this with &quot;base&quot; R
+suppressPackageStartupMessages(library(pROC)) ## ROC analyses
+library(caret, quietly = TRUE)                ## confusionMatrix()
+data(MedGPA, package = &quot;Stat2Data&quot;)           ## data set
+# med_gpa &lt;- as_tibble(MedGPA)
+# theme_set(theme_minimal())</code></pre>
+<p>The <code>curve()</code> function is a little bit of a weird one, or at least to me.
+The function creates a <code>call</code> object with the first argument (which consists entirely of <code>predict(mod, data.frame(GPA = x), type = "resp")</code>).</p>
+<pre class="r"><code>form &lt;- formula(Acceptance ~ GPA)
+mod &lt;- glm(form, data = MedGPA, family = binomial)
+plot(form, data = MedGPA)
+curve(predict(mod, data.frame(GPA = x), type = &quot;resp&quot;), add = TRUE)</code></pre>
+<p><img src="/posts/roc_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>mod</code></pre>
+<pre><code>
+Call:  glm(formula = form, family = binomial, data = MedGPA)
+
+Coefficients:
+(Intercept)          GPA  
+    -19.207        5.454  
+
+Degrees of Freedom: 54 Total (i.e. Null);  53 Residual
+Null Deviance:      75.79 
+Residual Deviance: 56.84    AIC: 60.84</code></pre>
+<pre class="r"><code>summary(mod)</code></pre>
+<pre><code>
+Call:
+glm(formula = form, family = binomial, data = MedGPA)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.7805  -0.8522   0.4407   0.7819   2.0967  
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  -19.207      5.629  -3.412 0.000644 ***
+GPA            5.454      1.579   3.454 0.000553 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 75.791  on 54  degrees of freedom
+Residual deviance: 56.839  on 53  degrees of freedom
+AIC: 60.839
+
+Number of Fisher Scoring iterations: 4</code></pre>
+<pre class="r"><code># par(mfrow = c(2, 2))
+# plot(mod)
+# par(mfrow = c(1, 1))</code></pre>
+<p>We have a very (statistically) significant relationship between GPA and Acceptance.</p>
+<p>But what’s the “cutoff” for GPA?
+Can we determine other sorts of “diagnostic” criteria in here?</p>
+<pre class="r"><code>res &lt;- roc(Acceptance ~ GPA,
+           data = MedGPA,
+           levels = c(control = 0,
+                      case = 1),
+           direction = &quot;&lt;&quot;)
+res</code></pre>
+<pre><code>
+Call:
+roc.formula(formula = Acceptance ~ GPA, data = MedGPA, levels = c(control = 0,     case = 1), direction = &quot;&lt;&quot;)
+
+Data: GPA in 25 controls (Acceptance 0) &lt; 30 cases (Acceptance 1).
+Area under the curve: 0.824</code></pre>
+<pre class="r"><code>plot.roc(res,
+         legacy.axes = TRUE,
+         asp = NA,
+         print.auc = TRUE,
+         print.thres = &quot;best&quot;,
+         print.thres.best.method = &quot;youden&quot;)
+plot(smooth(res), add = TRUE, col = &quot;blue&quot;, lwd = 2, lty = 2)
+legend(&quot;bottomright&quot;, legend=c(&quot;Empirical&quot;, &quot;Smoothed&quot;), col=c(par(&quot;fg&quot;), &quot;blue&quot;), lwd=2)</code></pre>
+<p><img src="/posts/roc_files/figure-html/roc%20j-1.png" width="672" /></p>
+<p>The Youden’s J is a simple calculation:</p>
+<p><span class="math display">\[J = \text{sensitivity} + \text{specificity} - 1\]</span></p>
+<p><span class="math display">\[\text{sensitivity} = \frac{\text{true positives}}{\text{true positives} + \text{false negatives}} = \frac{\text{true positives}}{\text{true conditions}}\]</span></p>
+<p><span class="math display">\[\text{specificity} = \frac{\text{true negatives}}{\text{true negatives} + \text{false positives}} = \frac{\text{true negatives}}{\text{false conditions}}\]</span></p>
+<p>But this isn’t the only metric.
+<code>plot.roc()</code> also gives us the option to use <code>closest.topleft</code>.</p>
+<p>This is calculated as:</p>
+<p><span class="math display">\[\text{closest top left} = min((1 - \text{sensitivity})^2 + (1 - \text{specificity})^2)\]</span></p>
+<pre class="r"><code>plot.roc(res,
+         legacy.axes = TRUE,
+         asp = NA,
+         print.auc = TRUE,
+         print.thres = &quot;best&quot;,
+         print.thres.best.method = &quot;closest.topleft&quot;) ## method changed
+plot(smooth(res), add = TRUE, col = &quot;blue&quot;, lwd = 2, lty = 2)
+legend(&quot;bottomright&quot;, legend=c(&quot;Empirical&quot;, &quot;Smoothed&quot;), col=c(par(&quot;fg&quot;), &quot;blue&quot;), lwd=2)</code></pre>
+<p><img src="/posts/roc_files/figure-html/roc%20topleft-1.png" width="672" /></p>
+<p>Our value here is now slightly lower, and maybe more pleasing to undergraduates looking at prospective programs.</p>
+<p>We’ll take a look at our confusion matrix through <code>caret::confusionMatrix()</code> to give us some easy to read values on sensitivity, specificity (which we know from the graph above) as well as overall accuracy, positive predictive value, and negative predictive value.</p>
+<pre class="r"><code>tab1 &lt;- table(
+  Acceptance = factor(MedGPA$Acceptance, levels = c(1, 0), labels = c(&quot;TRUE&quot;, &quot;FALSE&quot;)),
+  GPA_High = factor(MedGPA$GPA &gt; 3.705, levels = c(&quot;TRUE&quot;, &quot;FALSE&quot;)))
+tab1</code></pre>
+<pre><code>          GPA_High
+Acceptance TRUE FALSE
+     TRUE    17    13
+     FALSE    1    24</code></pre>
+<pre class="r"><code>(cm1 &lt;- confusionMatrix(tab1))</code></pre>
+<pre><code>Confusion Matrix and Statistics
+
+          GPA_High
+Acceptance TRUE FALSE
+     TRUE    17    13
+     FALSE    1    24
+                                        
+               Accuracy : 0.7455        
+                 95% CI : (0.61, 0.8533)
+    No Information Rate : 0.6727        
+    P-Value [Acc &gt; NIR] : 0.157130      
+                                        
+                  Kappa : 0.5064        
+                                        
+ Mcnemar&#39;s Test P-Value : 0.003283      
+                                        
+            Sensitivity : 0.9444        
+            Specificity : 0.6486        
+         Pos Pred Value : 0.5667        
+         Neg Pred Value : 0.9600        
+             Prevalence : 0.3273        
+         Detection Rate : 0.3091        
+   Detection Prevalence : 0.5455        
+      Balanced Accuracy : 0.7965        
+                                        
+       &#39;Positive&#39; Class : TRUE          
+                                        </code></pre>
+<pre class="r"><code>tab2 &lt;- table(
+  Acceptance = factor(MedGPA$Acceptance, levels = c(1, 0), labels = c(&quot;TRUE&quot;, &quot;FALSE&quot;)),
+  GPA_High = factor(MedGPA$GPA &gt; 3.460, levels = c(&quot;TRUE&quot;, &quot;FALSE&quot;)))
+tab2</code></pre>
+<pre><code>          GPA_High
+Acceptance TRUE FALSE
+     TRUE    26     4
+     FALSE    9    16</code></pre>
+<pre class="r"><code>(cm2 &lt;- confusionMatrix(tab2))</code></pre>
+<pre><code>Confusion Matrix and Statistics
+
+          GPA_High
+Acceptance TRUE FALSE
+     TRUE    26     4
+     FALSE    9    16
+                                          
+               Accuracy : 0.7636          
+                 95% CI : (0.6298, 0.8677)
+    No Information Rate : 0.6364          
+    P-Value [Acc &gt; NIR] : 0.03133         
+                                          
+                  Kappa : 0.5153          
+                                          
+ Mcnemar&#39;s Test P-Value : 0.26726         
+                                          
+            Sensitivity : 0.7429          
+            Specificity : 0.8000          
+         Pos Pred Value : 0.8667          
+         Neg Pred Value : 0.6400          
+             Prevalence : 0.6364          
+         Detection Rate : 0.4727          
+   Detection Prevalence : 0.5455          
+      Balanced Accuracy : 0.7714          
+                                          
+       &#39;Positive&#39; Class : TRUE            
+                                          </code></pre>
+<p>Let’s make this a little easier to compare these differences.
+We can take apart the confusionMatrix objects and put them side-by-side.</p>
+<pre class="r"><code>t(rbind(youden = c(cm1$overall, cm1$byClass),
+        topleft = c(cm2$overall, cm2$byClass)))</code></pre>
+<pre><code>                          youden    topleft
+Accuracy             0.745454545 0.76363636
+Kappa                0.506410256 0.51525424
+AccuracyLower        0.609971557 0.62980492
+AccuracyUpper        0.853299554 0.86772101
+AccuracyNull         0.672727273 0.63636364
+AccuracyPValue       0.157130233 0.03133271
+McnemarPValue        0.003283461 0.26725749
+Sensitivity          0.944444444 0.74285714
+Specificity          0.648648649 0.80000000
+Pos Pred Value       0.566666667 0.86666667
+Neg Pred Value       0.960000000 0.64000000
+Precision            0.566666667 0.86666667
+Recall               0.944444444 0.74285714
+F1                   0.708333333 0.80000000
+Prevalence           0.327272727 0.63636364
+Detection Rate       0.309090909 0.47272727
+Detection Prevalence 0.545454545 0.54545455
+Balanced Accuracy    0.796546547 0.77142857</code></pre>
+<p>One interest between these two thresholds is the result of the McNemar’s Chi-squared test conducted on the contingency tables we produced.
+This is a test for the null hypothesis that the marginal proportions are the same.
+By this we mean that the test’s false positive and false negative rates are the same.</p>
+<p>Take our first example:</p>
+<pre><code>          GPA_High
+Acceptance TRUE FALSE
+     TRUE    17    13
+     FALSE    1    24</code></pre>
+<p>And understand that we will code the conditions as followed:</p>
+<pre><code>          GPA_High
+Acceptance TRUE FALSE
+     TRUE     A     B
+     FALSE    C     D</code></pre>
+<p>The test statistic is derived as:</p>
+<p><span class="math display">\[\chi^2 = \frac{(B - C)^2}{B + C}\]</span></p>
+<p>We can expand this with a continuity correction, which is reported by default in the <code>stats::mcnemar.test()</code> employed in the confusion matrix results.</p>
+<p><span class="math display">\[\chi^2 = \frac{(|B - C| - 1)^2}{B + C}\]</span></p>
+<p>We see a significant difference using the Youden’s J statistic but not from the second threshold generated.</p>
+<p>The downside to the McNemar test is that it does not take into account the diagonals.
+Another metric calculated in the confusion matrix function.
+The accuracy is tested against the larger class proportion.</p>
 
     </div>
     <div class="article-footer">
@@ -333,7 +547,7 @@ Curriculum vitaeSingle Page ResumeDownload Resume (PDF) --"/>
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="/homepage/cv-resume/" title="CV and Resume" target="_blank" rel="external">/homepage/cv-resume/</a>
+      <a href="/1/01/roc/" title="Receiver operator characteristic curve" target="_blank" rel="external">/1/01/roc/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -365,13 +579,13 @@ Curriculum vitaeSingle Page ResumeDownload Resume (PDF) --"/>
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="/1/01/dunning-kruger/" title="Dunning Kruger Effect"><i
+                <a href="/1/01/replication-social-psychology/" title="Replication in Psychology"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
             </li>
             <li class="next">
-                <a href="/homepage/anthology/"
-                    title="Anthology"><span>Newer&nbsp;&nbsp;</span><i
+                <a href="/1/01/psychometrics-class-paper/"
+                    title="Psychometrics (class) scale development"><span>Newer&nbsp;&nbsp;</span><i
                         class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
@@ -473,6 +687,7 @@ Curriculum vitaeSingle Page ResumeDownload Resume (PDF) --"/>
         hasInnerContainers: true,
     });
 </script>
+
 
   </body>
 </html>
