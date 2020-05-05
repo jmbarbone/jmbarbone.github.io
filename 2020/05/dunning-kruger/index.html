@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Dunning Kruger Effect - JM Barbone
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Note: I originally wrote this in February 2019.Also, don’t hate me for putting some links to Wikipedia, you were going to go there anyway.This isn’t a research paper.
+IntroductionIn my Organization Psychology graduate class at West Chester University, one of our assigned readings (among others) for our week on emotions and moods was (Sheldon, Dunning, and Ames 2014).This article focused on another finding relating to the Dunning-Kruger effect in the workplace." />
+  <meta name="generator" content="Hugo 0.69.2 with theme pure" />
+  <title>Dunning Kruger Effect - JM Barbone</title>
+  
+  
+  <link rel="stylesheet" href="https://jmbarbone.github.io/css/style.min.c4bc7071f132c964c2116bca53b392933f377e5ca7b7051ed245187c621a2d3e.css">
+  
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+  <meta property="og:title" content="Dunning Kruger Effect" />
+<meta property="og:description" content="Note: I originally wrote this in February 2019.Also, don’t hate me for putting some links to Wikipedia, you were going to go there anyway.This isn’t a research paper.
+IntroductionIn my Organization Psychology graduate class at West Chester University, one of our assigned readings (among others) for our week on emotions and moods was (Sheldon, Dunning, and Ames 2014).This article focused on another finding relating to the Dunning-Kruger effect in the workplace." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jmbarbone.github.io/2020/05/dunning-kruger/" />
+<meta property="article:published_time" content="2020-05-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-04T00:00:00+00:00" />
+<meta itemprop="name" content="Dunning Kruger Effect">
+<meta itemprop="description" content="Note: I originally wrote this in February 2019.Also, don’t hate me for putting some links to Wikipedia, you were going to go there anyway.This isn’t a research paper.
+IntroductionIn my Organization Psychology graduate class at West Chester University, one of our assigned readings (among others) for our week on emotions and moods was (Sheldon, Dunning, and Ames 2014).This article focused on another finding relating to the Dunning-Kruger effect in the workplace.">
+<meta itemprop="datePublished" content="2020-05-04T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-04T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2061">
+
+
+
+<meta itemprop="keywords" content="psychology,datavis," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Dunning Kruger Effect"/>
+<meta name="twitter:description" content="Note: I originally wrote this in February 2019.Also, don’t hate me for putting some links to Wikipedia, you were going to go there anyway.This isn’t a research paper.
+IntroductionIn my Organization Psychology graduate class at West Chester University, one of our assigned readings (among others) for our week on emotions and moods was (Sheldon, Dunning, and Ames 2014).This article focused on another finding relating to the Dunning-Kruger effect in the workplace."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+
+  
+  
+
+  <body class="main-center theme-grey" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/jmbarbone" target="_blank">
+            <img class="img-circle img-rotate" src="https://jmbarbone.github.io/myAvatar.svg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">Jordan Mark Barbone, M.A.</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">R &amp; Psychology</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>King of Prussia, PA USA</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/homepage/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-cvresume">
+                <a href="/homepage/cv-resume/">
+                    <i class="icon icon-profile"></i>
+                  <span class="menu-title">CV Resume</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-anthology">
+                <a href="/homepage/anthology/">
+                    <i class="icon icon-book-shelf"></i>
+                  <span class="menu-title">Anthology</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://jmbarbone.github.io/categories/r-code/" class="category-list-link">r-code</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://jmbarbone.github.io/tags/datavis/" class="tag-list-link">datavis</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://jmbarbone.github.io/tags/psychology/" class="tag-list-link">psychology</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://jmbarbone.github.io/2020/05/dunning-kruger/" class="title">Dunning Kruger Effect</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-05-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-04</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://jmbarbone.github.io/2020/04/its-alive/" class="title">It&#39;s Alive</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-26 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-26</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/05/dunning-kruger/"
+    >Dunning Kruger Effect</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://jmbarbone.github.io/2020/05/dunning-kruger/" class="article-date">
+  <time datetime="2020-05-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-05-04</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/r-code/"> r code </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/psychology/"> psychology </a>
+    <a class="article-tag-link" href="/tags/datavis/"> datavis </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/05/dunning-kruger/#comments"
+            class="article-comment-link">Comments</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2061words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 10minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<blockquote>
+<p>Note: I originally wrote this in February 2019.
+Also, don’t hate me for putting some links to Wikipedia, you were going to go there anyway.
+This isn’t a research paper.</p>
+</blockquote>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>In my Organization Psychology graduate class at West Chester University, one of our assigned readings (among others) for our week on emotions and moods was <span class="citation">(Sheldon, Dunning, and Ames 2014)</span>.
+This article focused on another finding relating to the <a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect">Dunning-Kruger effect</a> in the workplace.
+This time, in a task related to <a href="https://en.wikipedia.org/wiki/Emotional_intelligence">emotional intelligence (EI)</a>.
+During the time I remember vaguely hearing somewhere I will never recall, some mathematical issues relating to this well-known psychological phenomenon mentioned in many introductory text books.</p>
+<p>The Dunning-Kruger effect is founding on the concept that an individual that lacks expertise will be more confident in their abilities than they really are, or overestimate their performance on a task.
+Yet experts may underestimate their own performance or abilities or be more accurate in their estimations.
+One thing we can derive from this is possibly that those with lower skill will overestimate their abilities while those more skilled will underestimate their abilities.</p>
+<p>The following is in direct relation to an article by <span class="citation">(Sheldon, Dunning, and Ames 2014)</span>.
+They report a significant relationship between an individual’s actual performance and the difference between their perceived ability and actual performance in three conditions (<span class="math inline">\(r_1 = -0.83\)</span>, <span class="math inline">\(p_1 &lt; .001\)</span>; <span class="math inline">\(r_2 = -0.87\)</span>, <span class="math inline">\(p_2 &lt; .001\)</span>; <span class="math inline">\(r_3 = -0.84\)</span>, <span class="math inline">\(p_3 &lt; .001\)</span>).</p>
+<p>They also used these two graphs to representing their findings:</p>
+<div class="figure">
+<img src="images/sheldon2014emotionally_figure1.PNG" alt="" />
+<p class="caption"><em>Figure 1</em>. Overestimation of emotional intelligence (left panel) and performance on the Mayer-Salovey-Caruso Emotional Intelligence Test (MSCEIT; right panel) as a function of actual performance on the MSCEIT</p>
+</div>
+<p>We’ll go through and understand why this can be misleading and how to replicate the Dunning-Kruger effect <strong>with random data</strong>.
+Yes, <em>random data</em>.
+Data that are random.</p>
+</div>
+<div id="set-up" class="section level2">
+<h2>Set up</h2>
+<p>So let’s place with some data and see what we get.
+First, let’s setup our <code>.Rmd</code> file and choose a specific randomization seed so we can come back to our results <span class="citation">(Douglas 1989)</span>:</p>
+<pre class="r"><code>set.seed(42)
+
+options(tidyverse.quiet = TRUE) ## silences warnings
+library(tidyverse)
+library(jordan)                 ## percentile_rank() | github.com/jmbarbone/jordan
+library(broom)                  ## tidying statistical outputs into tables
+theme_set(theme_minimal())</code></pre>
+</div>
+<div id="random-data" class="section level2">
+<h2>Random data</h2>
+<p>We’ll start by creating a data frame with two vectors of independent, random data.
+These will be our randomly assigned percentile ranks of <code>actual</code> and <code>estimate</code>’d performance.</p>
+<p>To clarify, the calculation of <a href="https://github.com/jmbarbone/jordan/blob/master/R/percentile-rank.R">percentile rank</a> is as follows:</p>
+<p><span class="math display">\[\text{PR}_i = \frac{c_\ell + 0.5 f_i}{N} \times 100%\]</span></p>
+<p>Where <span class="math inline">\(c_\ell\)</span> is the count of scores lower than the score of interest, <span class="math inline">\(f_i\)</span> is the frequency of the score of interest, and <span class="math inline">\(N\)</span> is the total number of scores.
+With this formula, our percentile ranks will always be 0 &lt; <span class="math inline">\(PR_i\)</span> &lt; 100.</p>
+<pre class="r"><code>random_data &lt;- tibble(actual = rnorm(1000),
+                      estimate = rnorm(1000)) %&gt;% 
+  mutate_all(percentile_rank)
+random_data</code></pre>
+<pre><code># A tibble: 1,000 x 2
+   actual estimate
+    &lt;dbl&gt;    &lt;dbl&gt;
+ 1   92.0    98.8 
+ 2   29.2    70.4 
+ 3   65.6    84.6 
+ 4   73.8    64.6 
+ 5   67.0    15.0 
+ 6   46.2    27.4 
+ 7   94.6    57.6 
+ 8   46.4     0.05
+ 9   97.9    19.8 
+10   47.9    79.8 
+# ... with 990 more rows</code></pre>
+<p>We also want to bin our data together just like in the article.</p>
+<pre class="r"><code>bins &lt;- random_data %&gt;% 
+  mutate(difference = estimate - actual,
+         bin = ntile(actual, 5) * 20 - 10) %&gt;% 
+  group_by(bin) %&gt;% 
+  summarise(n = n(),
+            mean = mean(difference))
+bins</code></pre>
+<pre><code># A tibble: 5 x 3
+    bin     n   mean
+  &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt;
+1    10   200  39.8 
+2    30   200  20.8 
+3    50   200   1.20
+4    70   200 -21.5 
+5    90   200 -40.2 </code></pre>
+<p>Now we’ll plot the data and take a look at this.</p>
+<pre class="r"><code>ggplot(random_data, aes(x = actual, y = estimate - actual)) +
+  geom_point(alpha = .2) +
+  geom_smooth(formula = &quot;y ~ x&quot;, method = lm, se = FALSE, col = &quot;red&quot;) +
+  geom_point(data = bins, aes(x = bin, y = mean), col = &quot;blue&quot;, shape = 1, size = 5) +
+  geom_line(data = bins, aes(x = bin, y = mean), col = &quot;blue&quot;, size = 1) +
+  geom_hline(yintercept = 0, linetype = 2) +
+  labs(title = &quot;Independent random samples of &#39;Actual&#39; and &#39;Estimate&#39; performance&quot;,
+       x = &quot;&#39;Actual&#39; performance (Percentile Rank)&quot;,
+       y = &quot;Percentile Overestimation\n(estimate - actual)&quot;)</code></pre>
+<p><img src="/posts/dunning-kruger_files/figure-html/random-plot-1.png" width="672" /></p>
+<p>Already we’re seeing a trend very similar to that reported in the article.
+What we also notice is that there are bounds to the overestimation value as a factor of the individual’s actual performance.
+An individual that performs at the 99th percentile cannot overestimate their own performance (but can be accurate) - much like an individual in the lower percentiles would unlikely underestimate.
+These is additionally worse by the use of a score derived in reference to others.</p>
+</div>
+<div id="adjusting-random-data" class="section level2">
+<h2>Adjusting random data</h2>
+<p>So now we’re going to take some data and use some rough estimates for means.
+We’ll use the results from the study of interest.
+So simplicity, I’ll just use the rough means of the n, means, and sd reported from the first two studies.</p>
+<p><img src="images/sheldon2014emotionally_table1.PNG" /></p>
+<p>We’ll shape our normal distributions around the values found in the paper.
+These values, to be clear, are the percentile ranks either estimated from the participant or the actual ones as they compare to percentile ranking among U.S. adults in EI.
+As such, we won’t need to use the <code>percentile_rank()</code> again.</p>
+<!-- What? SD of a uniform is like .28 -- what are these numbers? -->
+<!-- Are they reporting out on the average percentile ranks? -->
+<pre class="r"><code>adj_random &lt;- tibble(actual     = rnorm(161, 42.2, sd = 25.1),
+                     estimate   = rnorm(161, 77.5, sd = 13.1),
+                     difference = actual - estimate,
+                     bin        = ntile(actual, 5) * 20 - 10)
+
+adj_bins &lt;- adj_random  %&gt;% 
+  group_by(bin) %&gt;% 
+  summarise(n = n(),
+            mean = mean(difference))</code></pre>
+<p>Let’s also take a look at the correlations we have.
+As expected, we have no correlation with random data.
+The article reported correlations of <code>.20</code> and <code>.19</code> between estimated and actual performance.
+Clearly, people are not that great at estimating their own performance.</p>
+<pre class="r"><code>cor.test(~ actual + estimate, data = adj_random)</code></pre>
+<pre><code>
+    Pearson&#39;s product-moment correlation
+
+data:  actual and estimate
+t = 1.3, df = 159, p-value = 0.1955
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.05296245  0.25321085
+sample estimates:
+      cor 
+0.1025525 </code></pre>
+<p>Well, no surprise that that our correlations are a weaker and less statistically significant, we’re using random data after all.</p>
+<p>Now we’re going to run a correlation on the <code>actual</code> scores and the difference between the <code>estimated</code> and <code>actual</code> performance.</p>
+<pre class="r"><code>(cor_test_result &lt;- cor.test(~ actual + difference, data = adj_random))</code></pre>
+<pre><code>
+    Pearson&#39;s product-moment correlation
+
+data:  actual and difference
+t = 21.717, df = 159, p-value &lt; 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.8197724 0.8991906
+sample estimates:
+      cor 
+0.8647931 </code></pre>
+<p>Now, look at that.
+We have found an even more significant, negative correlation.
+This is roughly similar to those reported by in this article.
+This is with data that has absolutely no relationship between the two variables, as we have justed established.</p>
+<p>So why is this?</p>
+</div>
+<div id="plotting-adjusted-random-data" class="section level2">
+<h2>Plotting adjusted random data</h2>
+<p>Let’s graph out our results with a little more care this time.</p>
+<pre class="r"><code>ggplot(adj_random, aes(x = actual, y = difference)) +
+  geom_hline(yintercept = 0, linetype = 2) +
+  geom_point(alpha = .1) +
+  geom_smooth(formula = &quot;y ~ x&quot;,
+              method  = &quot;lm&quot;,
+              se      = FALSE,
+              col     = &quot;red&quot;) +
+  geom_point(data     = adj_bins,
+             aes(x    = bin, y = mean),
+             col      = &quot;blue&quot;,
+             shape    = 1,
+             size     = 5) +
+  geom_line(data      = adj_bins,
+            aes(x     = bin, y = mean),
+            col       = &quot;blue&quot;,
+            size      = 1) +
+  labs(title    = &quot;Randomly generated differences in &#39;actual&#39; vs &#39;estimated&#39; performance&quot;,
+       subtitle = &quot;Estimate: M = 75, SD = 15; Actual: M = 5, SD = 25&quot;,
+       x        = &quot;Actual performance&quot;,
+       y        = &quot;Estimated - Actual performance&quot;) +
+  annotate(geom  = &quot;text&quot;,
+           label = glue::glue_data(
+             cor_test_result,
+             &quot;r = {round(estimate, 3)}, p = {format(p.value)}&quot;),
+           x     = 65,
+           y     = 50,
+           hjust = &quot;left&quot;)</code></pre>
+<p><img src="/posts/dunning-kruger_files/figure-html/adj-plot-1.png" width="672" /></p>
+</div>
+<div id="more-random-data" class="section level2">
+<h2>More random data</h2>
+<p>So what if we repeated this several times?</p>
+<pre class="r"><code>random_helper &lt;- function(x) {
+  set.seed(42 + x)
+  tibble(actual   = rnorm(161, 42.2, sd = 25.1),
+         estimate = rnorm(161, 77.5, sd = 13.1)) %&gt;%
+    mutate_all(percentile_rank)
+}
+
+sev_random &lt;- as.list(seq(100)) %&gt;% 
+  map(random_helper) %&gt;% 
+  bind_rows(.id = &quot;id&quot;) %&gt;% 
+  mutate(id = as.numeric(id))
+
+sev_bins &lt;- sev_random %&gt;% 
+  group_by(id) %&gt;% 
+  mutate(difference = estimate - actual,
+         bin = ntile(actual, 5) * 20 - 10) %&gt;% 
+  group_by(id, bin) %&gt;% 
+  summarise(n = n(),
+            mean_est = mean(estimate),
+            mean_diff = mean(difference))
+
+ggplot(sev_bins, aes(x = bin, y = mean_est, col = factor(id))) +
+  geom_point() +
+  geom_line() +
+  # scale_color_discrete(name = &quot;Randomization&quot;) +
+  scale_color_discrete(guide = FALSE) +
+  scale_y_continuous(limits = c(0, 99)) + 
+  labs(x = &quot;Actual&quot;,
+       y = &quot;Estimate&quot;)</code></pre>
+<p><img src="/posts/dunning-kruger_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>So what if we actually run a correlation on these numbers?
+We’ll create a nested function and install the <code>broom</code> package to help tidy up our results.</p>
+<pre class="r"><code>run_correlations &lt;- function(x, item_x, item_y) {
+  corr_helper &lt;- function(x, item_x, item_y) {
+    formula &lt;- str_c(&quot;~&quot;, item_x, &quot;+&quot;, item_y, sep = &quot; &quot;)
+    cor.test(eval(parse(text = formula)), data = x)
+  }
+  x %&gt;% 
+    nest(data = -id) %&gt;% 
+    mutate(corr = map(data, corr_helper, item_x, item_y),
+           tidy = map(corr, tidy)) %&gt;% 
+    unnest(tidy) %&gt;% 
+    select_if(negate(is.list))
+}
+
+(x &lt;- run_correlations(sev_random, &quot;actual&quot;, &quot;estimate&quot;) %&gt;% arrange(p.value))</code></pre>
+<pre><code># A tibble: 100 x 9
+      id estimate statistic p.value parameter conf.low conf.high method
+   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; 
+ 1    35   -0.207     -2.67 0.00830       159 -0.351    -0.0545  Pears~
+ 2    24    0.185      2.37 0.0188        159  0.0312    0.330   Pears~
+ 3    99    0.170      2.17 0.0314        159  0.0154    0.316   Pears~
+ 4    22   -0.164     -2.09 0.0379        159 -0.311    -0.00930 Pears~
+ 5    90   -0.159     -2.03 0.0443        159 -0.306    -0.00417 Pears~
+ 6     6    0.148      1.89 0.0610        159 -0.00685   0.296   Pears~
+ 7     9    0.141      1.79 0.0747        159 -0.0141    0.289   Pears~
+ 8    97    0.133      1.70 0.0914        159 -0.0216    0.282   Pears~
+ 9    51   -0.127     -1.61 0.109         159 -0.276     0.0285  Pears~
+10    89   -0.124     -1.57 0.118         159 -0.273     0.0316  Pears~
+# ... with 90 more rows, and 1 more variable: alternative &lt;chr&gt;</code></pre>
+<pre class="r"><code>(y &lt;- run_correlations(sev_bins, &quot;bin&quot;, &quot;mean_est&quot;) %&gt;% arrange(p.value))</code></pre>
+<pre><code># A tibble: 100 x 9
+# Groups:   id [100]
+      id estimate statistic p.value parameter conf.low conf.high method
+   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; 
+ 1    99    0.936      4.62  0.0191         3    0.312     0.996 Pears~
+ 2    35   -0.936     -4.61  0.0192         3   -0.996    -0.309 Pears~
+ 3    28   -0.907     -3.72  0.0337         3   -0.994    -0.122 Pears~
+ 4    41    0.845      2.74  0.0715         3   -0.146     0.990 Pears~
+ 5    68    0.836      2.64  0.0780         3   -0.177     0.989 Pears~
+ 6     5   -0.804     -2.34  0.101          3   -0.987     0.269 Pears~
+ 7     6    0.796      2.28  0.107          3   -0.290     0.986 Pears~
+ 8    10    0.786      2.20  0.115          3   -0.314     0.985 Pears~
+ 9    89   -0.761     -2.03  0.135          3   -0.983     0.369 Pears~
+10    13   -0.758     -2.01  0.138          3   -0.983     0.376 Pears~
+# ... with 90 more rows, and 1 more variable: alternative &lt;chr&gt;</code></pre>
+<pre class="r"><code>mean(x$p.value &lt; .05)</code></pre>
+<pre><code>[1] 0.05</code></pre>
+<pre class="r"><code>mean(y$p.value &lt; .05)</code></pre>
+<pre><code>[1] 0.03</code></pre>
+<p>When we calculated a correlation with the mean estimates we actually got a significant result from a few of our runs.
+If fact, about 5% or less are statistically significant…
+Let’s pull that one out to look at it again.</p>
+<pre class="r"><code>significant_ids &lt;- x %&gt;% filter(p.value &lt; .05) %&gt;% pull(id) %&gt;% as.character()
+temp &lt;- sev_bins %&gt;% filter(id %in% significant_ids)
+
+sev_random %&gt;% 
+  filter(id %in% significant_ids) %&gt;% 
+  ggplot(aes(x = actual, y = estimate, group = factor(id), color = factor(id))) +
+  geom_point(alpha = .2) +
+  geom_point(data = temp, aes(x = bin, y = mean_est)) +
+  geom_line(data = temp, aes(x = bin, y = mean_est))</code></pre>
+<p><img src="/posts/dunning-kruger_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>So there you have it.
+A successful replication of this ‘effect’ with random data.</p>
+<p>But why is this?
+This is partly because individuals at the lowest quantiles will have a greater likelihood of over-estimating their performance and those at the highest quantiles will underestimate.
+An individual that performs at the 99th quantile will have almost no choice but to estimate their performance to be below that of reality (see also <span class="citation">(Nuhfer et al. 2016)</span>).
+This seems to be further worsened by the bound nature of the scores.
+Were these scores and estimates to be something not bound in such a way (for instance the speed in which an individual could complete an assessment) examning the relationship between actual and estimate performance could yield more valid results.
+These graphical representations and analyses should be cautioned as they are not very meaningful to understanding their effects.</p>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references hanging-indent">
+<div id="ref-adams1979hitchhikers">
+<p>Douglas, Adams. 1989. <em>The Hitchhiker’s Guide to the Galaxy</em>. New York: Harmony Books.</p>
+</div>
+<div id="ref-nuhfer2016random">
+<p>Nuhfer, Edward, Christopher Cogan, Steven Fleisher, Eric Gaze, and Karl Wirth. 2016. “Random Number Simulations Reveal How Random Noise Affects the Measurements and Graphical Portrayals of Self-Assessed Competency.” <em>Numeracy: Advancing Education in Quantitative Literacy</em> 9 (1). <a href="https://doi.org/10.5038/1936-4660.9.1.4">https://doi.org/10.5038/1936-4660.9.1.4</a>.</p>
+</div>
+<div id="ref-sheldon2014emotionally">
+<p>Sheldon, Oliver J, David Dunning, and Daniel R Ames. 2014. “Emotionally Unskilled, Unaware, and Uninterested in Learning More: Reactions to Feedback About Deficits in Emotional Intelligence.” <em>Journal of Applied Psychology</em> 99 (1): 125. <a href="https://doi.org/10.1037/a0034138">https://doi.org/10.1037/a0034138</a>.</p>
+</div>
+</div>
+</div>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://jmbarbone.github.io/2020/05/dunning-kruger/" title="Dunning Kruger Effect" target="_blank" rel="external">https://jmbarbone.github.io/2020/05/dunning-kruger/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/jmbarbone" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://jmbarbone.github.io/myAvatar.svg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/jmbarbone" target="_blank"><span class="text-dark">Jordan Mark Barbone, M.A.</span><small class="ml-1x">R &amp; Psychology</small></a></h3>
+        <div>Just trying to make it</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://jmbarbone.github.io/2020/04/its-alive/" title="It&#39;s Alive"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="facebook,twitter,linkedin"
+                data-mobile-sites="facebook,twitter,linkedin"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/jmbarbone" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://scholar.google.com/citations?authuser=1&amp;user=R6GyUVYAAAAJ" target="_blank" title="googlescholar" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-googlescholar"></i></a></li>
+    <li><a href="https://linkedin.com/in/jmbarbone" target="_blank" title="linkedin" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-linkedin"></i></a></li>
+    <li><a href="https://researchgate.net/profile/Jordan_Barbone" target="_blank" title="researchgate" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-researchgate"></i></a></li>
+    <li><a href="https://jmbarbone.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2020  -
+    2020
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/r.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://jmbarbone.github.io/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="https://jmbarbone.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/jmbarbone.github.io\/',
+            CONTENT_URL: 'https:\/\/jmbarbone.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://jmbarbone.github.io/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

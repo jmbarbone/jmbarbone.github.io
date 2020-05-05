@@ -5,18 +5,19 @@
     <link>https://jmbarbone.github.io/posts/</link>
     <description>Recent content in Posts on JM Barbone</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 28 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 May 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://jmbarbone.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Dirty Dates</title>
-      <link>https://jmbarbone.github.io/2020/04/dirty-dates/</link>
-      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
+      <title>Dunning Kruger Effect</title>
+      <link>https://jmbarbone.github.io/2020/05/dunning-kruger/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jmbarbone.github.io/2020/04/dirty-dates/</guid>
-      <description>I’ve spent a lot of time working with clinical trial data, and sometimes that means working with values that are not, eh, clean.One larger issue I’ve had to resolve over and over again has been inprecise dates.I’ve incorporated a few functions into an experimental package I’ve been working on: dirtyr.I’m still working out some things and it, so hopefully this post is still accurate by the time I’m happy with a first real release.</description>
+      <guid>https://jmbarbone.github.io/2020/05/dunning-kruger/</guid>
+      <description>Note: I originally wrote this in February 2019.Also, don’t hate me for putting some links to Wikipedia, you were going to go there anyway.This isn’t a research paper.
+IntroductionIn my Organization Psychology graduate class at West Chester University, one of our assigned readings (among others) for our week on emotions and moods was (Sheldon, Dunning, and Ames 2014).This article focused on another finding relating to the Dunning-Kruger effect in the workplace.</description>
     </item>
     
     <item>
