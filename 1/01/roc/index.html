@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Receiver operator characteristic curve - JM Barbone
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Until recently, I hadn’t really had to do any receiver operator characteristic curves (ROC) or areas under them (AUROC).After stumbling through documentation and a few videos, I found them a lot less intiminating and rather accessible.I could also be entirely wrong.I hope not.
+We’re also going to challenge ourselves (myself) here and complete this without the use of the almost obligatory library(tidyverse).This isn’t really anything necessary, but I find it nice to understand some of our base R functions - especially the versatile plot()." />
+  <meta name="generator" content="Hugo 0.69.2 with theme pure" />
+  <title>Receiver operator characteristic curve - JM Barbone</title>
+  
+  
+  <link rel="stylesheet" href="/css/style.min.c4bc7071f132c964c2116bca53b392933f377e5ca7b7051ed245187c621a2d3e.css">
+  
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+  <meta property="og:title" content="Receiver operator characteristic curve" />
+<meta property="og:description" content="Until recently, I hadn’t really had to do any receiver operator characteristic curves (ROC) or areas under them (AUROC).After stumbling through documentation and a few videos, I found them a lot less intiminating and rather accessible.I could also be entirely wrong.I hope not.
+We’re also going to challenge ourselves (myself) here and complete this without the use of the almost obligatory library(tidyverse).This isn’t really anything necessary, but I find it nice to understand some of our base R functions - especially the versatile plot()." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/1/01/roc/" />
+
+<meta itemprop="name" content="Receiver operator characteristic curve">
+<meta itemprop="description" content="Until recently, I hadn’t really had to do any receiver operator characteristic curves (ROC) or areas under them (AUROC).After stumbling through documentation and a few videos, I found them a lot less intiminating and rather accessible.I could also be entirely wrong.I hope not.
+We’re also going to challenge ourselves (myself) here and complete this without the use of the almost obligatory library(tidyverse).This isn’t really anything necessary, but I find it nice to understand some of our base R functions - especially the versatile plot().">
+
+<meta itemprop="wordCount" content="1110">
+
+
+
+<meta itemprop="keywords" content="R,roc,pkg:caret,pgk:pROC," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Receiver operator characteristic curve"/>
+<meta name="twitter:description" content="Until recently, I hadn’t really had to do any receiver operator characteristic curves (ROC) or areas under them (AUROC).After stumbling through documentation and a few videos, I found them a lot less intiminating and rather accessible.I could also be entirely wrong.I hope not.
+We’re also going to challenge ourselves (myself) here and complete this without the use of the almost obligatory library(tidyverse).This isn’t really anything necessary, but I find it nice to understand some of our base R functions - especially the versatile plot()."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+
+  
+  
+
+  <body class="main-center theme-grey" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/jmbarbone" target="_blank">
+            <img class="img-circle img-rotate" src="/myAvatar.svg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">Jordan Mark Barbone, M.A.</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">R &amp; Psychology</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>King of Prussia, PA USA</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/homepage/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-cvresume">
+                <a href="/homepage/cv-resume/">
+                    <i class="icon icon-profile"></i>
+                  <span class="menu-title">CV Resume</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-anthology">
+                <a href="/homepage/anthology/">
+                    <i class="icon icon-book-shelf"></i>
+                  <span class="menu-title">Anthology</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="/categories/paper/" class="category-list-link">paper</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="/categories/presentation/" class="category-list-link">presentation</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="/categories/r-code/" class="category-list-link">r-code</a><span class="category-list-count">3</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="/tags/datavis/" class="tag-list-link">datavis</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="/tags/factor-analysis/" class="tag-list-link">factor-analysis</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="/tags/pgkproc/" class="tag-list-link">pgkproc</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="/tags/pkgcaret/" class="tag-list-link">pkgcaret</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="/tags/psychology/" class="tag-list-link">psychology</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="/tags/psychometrics/" class="tag-list-link">psychometrics</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="/tags/r/" class="tag-list-link">r</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="/tags/replication/" class="tag-list-link">replication</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="/tags/roc/" class="tag-list-link">roc</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="/2020/04/dunning-kruger/" class="title">Dunning Kruger Effect</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-26 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-26</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="/2020/04/its-alive/" class="title">It&#39;s Alive</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-04-26 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-26</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="/1/01/psychometrics-class-paper/" class="title">Psychometrics (class) scale development</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="/1/01/roc/" class="title">Receiver operator characteristic curve</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="/1/01/replication-social-psychology/" class="title">Replication in Psychology</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/1/01/roc/"
+    >Receiver operator characteristic curve</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/r-code/"> r code </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/r/"> R </a>
+    <a class="article-tag-link" href="/tags/roc/"> roc </a>
+    <a class="article-tag-link" href="/tags/pkgcaret/"> pkg:caret </a>
+    <a class="article-tag-link" href="/tags/pgkproc/"> pgk:pROC </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/1/01/roc/#comments"
+            class="article-comment-link">Comments</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1110words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 6minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Until recently, I hadn’t really had to do any receiver operator characteristic curves (ROC) or areas under them (AUROC).
+After stumbling through documentation and a few videos, I found them a lot less intiminating and rather accessible.
+I could also be entirely wrong.
+I hope not.</p>
+<p>We’re also going to challenge ourselves (myself) here and complete this without the use of the almost obligatory <code>library(tidyverse)</code>.
+This isn’t really anything necessary, but I find it nice to understand some of our <em>base</em> R functions - especially the versatile <code>plot()</code>.</p>
+<p>The code isn’t always the cleanest, so maybe I’ll put together a <code>tidyerse</code> example as well.</p>
+<pre class="r"><code># library(tidyverse)                          ## Skip to assure ourselves we can do this with &quot;base&quot; R
+suppressPackageStartupMessages(library(pROC)) ## ROC analyses (don&#39;t need the citation note on attach`)
+library(caret, quietly = TRUE)                ## confusionMatrix()
+data(MedGPA, package = &quot;Stat2Data&quot;)           ## data set</code></pre>
+<p>The <code>curve()</code> function is a little bit of a weird one, or at least to me.
+The function creates a <code>call</code> object with the first argument (which consists entirely of <code>predict(mod, data.frame(GPA = x), type = "resp")</code>).</p>
+<pre class="r"><code>form &lt;- formula(Acceptance ~ GPA)
+mod &lt;- glm(form, data = MedGPA, family = binomial)
+plot(form, data = MedGPA)
+curve(predict(mod, data.frame(GPA = x), type = &quot;resp&quot;), add = TRUE)</code></pre>
+<p><img src="/posts/roc_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>mod</code></pre>
+<pre><code>
+Call:  glm(formula = form, family = binomial, data = MedGPA)
+
+Coefficients:
+(Intercept)          GPA  
+    -19.207        5.454  
+
+Degrees of Freedom: 54 Total (i.e. Null);  53 Residual
+Null Deviance:      75.79 
+Residual Deviance: 56.84    AIC: 60.84</code></pre>
+<pre class="r"><code>summary(mod)</code></pre>
+<pre><code>
+Call:
+glm(formula = form, family = binomial, data = MedGPA)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.7805  -0.8522   0.4407   0.7819   2.0967  
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  -19.207      5.629  -3.412 0.000644 ***
+GPA            5.454      1.579   3.454 0.000553 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 75.791  on 54  degrees of freedom
+Residual deviance: 56.839  on 53  degrees of freedom
+AIC: 60.839
+
+Number of Fisher Scoring iterations: 4</code></pre>
+<p>We have a very (statistically) significant relationship between GPA and Acceptance.</p>
+<p>But what’s the “cutoff” for GPA?
+Can we determine other sorts of “diagnostic” criteria in here?</p>
+<pre class="r"><code>res &lt;- roc(Acceptance ~ GPA,
+           data = MedGPA,
+           levels = c(control = 0,
+                      case = 1),
+           direction = &quot;&lt;&quot;)
+res</code></pre>
+<pre><code>
+Call:
+roc.formula(formula = Acceptance ~ GPA, data = MedGPA, levels = c(control = 0,     case = 1), direction = &quot;&lt;&quot;)
+
+Data: GPA in 25 controls (Acceptance 0) &lt; 30 cases (Acceptance 1).
+Area under the curve: 0.824</code></pre>
+<pre class="r"><code>plot.roc(res,
+         legacy.axes = TRUE,
+         asp = NA,
+         print.auc = TRUE,
+         print.thres = &quot;best&quot;,
+         print.thres.best.method = &quot;youden&quot;)
+plot(smooth(res), add = TRUE, col = &quot;blue&quot;, lwd = 2, lty = 2)
+legend(&quot;bottomright&quot;, legend=c(&quot;Empirical&quot;, &quot;Smoothed&quot;), col=c(par(&quot;fg&quot;), &quot;blue&quot;), lwd=2)</code></pre>
+<p><img src="/posts/roc_files/figure-html/roc%20j-1.png" width="672" /></p>
+<p>The Youden’s J is a simple calculation:</p>
+<p><span class="math display">\[J = \text{sensitivity} + \text{specificity} - 1\]</span></p>
+<p><span class="math display">\[\text{sensitivity} = \frac{\text{true positives}}{\text{true positives} + \text{false negatives}} = \frac{\text{true positives}}{\text{true conditions}}\]</span></p>
+<p><span class="math display">\[\text{specificity} = \frac{\text{true negatives}}{\text{true negatives} + \text{false positives}} = \frac{\text{true negatives}}{\text{false conditions}}\]</span></p>
+<p>But this isn’t the only metric.
+<code>plot.roc()</code> also gives us the option to use <code>closest.topleft</code>.</p>
+<p>This is calculated as:</p>
+<p><span class="math display">\[\text{closest top left} = min((1 - \text{sensitivity})^2 + (1 - \text{specificity})^2)\]</span></p>
+<pre class="r"><code>plot.roc(res,
+         legacy.axes = TRUE,
+         asp = NA,
+         print.auc = TRUE,
+         print.thres = &quot;best&quot;,
+         print.thres.best.method = &quot;closest.topleft&quot;) ## method changed
+plot(smooth(res), add = TRUE, col = &quot;blue&quot;, lwd = 2, lty = 2)
+legend(&quot;bottomright&quot;, legend=c(&quot;Empirical&quot;, &quot;Smoothed&quot;), col=c(par(&quot;fg&quot;), &quot;blue&quot;), lwd=2)</code></pre>
+<p><img src="/posts/roc_files/figure-html/roc%20topleft-1.png" width="672" /></p>
+<p>Our value here is now slightly lower, and maybe more pleasing to undergraduates looking at prospective programs.</p>
+<p>We’ll take a look at our confusion matrix through <code>caret::confusionMatrix()</code> to give us some easy to read values on sensitivity, specificity (which we know from the graph above) as well as overall accuracy, positive predictive value, and negative predictive value.</p>
+<pre class="r"><code>tab1 &lt;- table(
+  Acceptance = factor(MedGPA$Acceptance, levels = c(1, 0), labels = c(&quot;TRUE&quot;, &quot;FALSE&quot;)),
+  GPA_High = factor(MedGPA$GPA &gt; 3.705, levels = c(&quot;TRUE&quot;, &quot;FALSE&quot;)))
+tab1</code></pre>
+<pre><code>          GPA_High
+Acceptance TRUE FALSE
+     TRUE    17    13
+     FALSE    1    24</code></pre>
+<pre class="r"><code>(cm1 &lt;- confusionMatrix(tab1))</code></pre>
+<pre><code>Confusion Matrix and Statistics
+
+          GPA_High
+Acceptance TRUE FALSE
+     TRUE    17    13
+     FALSE    1    24
+                                        
+               Accuracy : 0.7455        
+                 95% CI : (0.61, 0.8533)
+    No Information Rate : 0.6727        
+    P-Value [Acc &gt; NIR] : 0.157130      
+                                        
+                  Kappa : 0.5064        
+                                        
+ Mcnemar&#39;s Test P-Value : 0.003283      
+                                        
+            Sensitivity : 0.9444        
+            Specificity : 0.6486        
+         Pos Pred Value : 0.5667        
+         Neg Pred Value : 0.9600        
+             Prevalence : 0.3273        
+         Detection Rate : 0.3091        
+   Detection Prevalence : 0.5455        
+      Balanced Accuracy : 0.7965        
+                                        
+       &#39;Positive&#39; Class : TRUE          
+                                        </code></pre>
+<pre class="r"><code>tab2 &lt;- table(
+  Acceptance = factor(MedGPA$Acceptance, levels = c(1, 0), labels = c(&quot;TRUE&quot;, &quot;FALSE&quot;)),
+  GPA_High = factor(MedGPA$GPA &gt; 3.460, levels = c(&quot;TRUE&quot;, &quot;FALSE&quot;)))
+tab2</code></pre>
+<pre><code>          GPA_High
+Acceptance TRUE FALSE
+     TRUE    26     4
+     FALSE    9    16</code></pre>
+<pre class="r"><code>(cm2 &lt;- confusionMatrix(tab2))</code></pre>
+<pre><code>Confusion Matrix and Statistics
+
+          GPA_High
+Acceptance TRUE FALSE
+     TRUE    26     4
+     FALSE    9    16
+                                          
+               Accuracy : 0.7636          
+                 95% CI : (0.6298, 0.8677)
+    No Information Rate : 0.6364          
+    P-Value [Acc &gt; NIR] : 0.03133         
+                                          
+                  Kappa : 0.5153          
+                                          
+ Mcnemar&#39;s Test P-Value : 0.26726         
+                                          
+            Sensitivity : 0.7429          
+            Specificity : 0.8000          
+         Pos Pred Value : 0.8667          
+         Neg Pred Value : 0.6400          
+             Prevalence : 0.6364          
+         Detection Rate : 0.4727          
+   Detection Prevalence : 0.5455          
+      Balanced Accuracy : 0.7714          
+                                          
+       &#39;Positive&#39; Class : TRUE            
+                                          </code></pre>
+<p>Let’s make this a little easier to compare these differences.
+We can take apart the confusionMatrix objects and put them side-by-side.</p>
+<pre class="r"><code>t(rbind(youden = c(cm1$overall, cm1$byClass),
+        topleft = c(cm2$overall, cm2$byClass)))</code></pre>
+<pre><code>                          youden    topleft
+Accuracy             0.745454545 0.76363636
+Kappa                0.506410256 0.51525424
+AccuracyLower        0.609971557 0.62980492
+AccuracyUpper        0.853299554 0.86772101
+AccuracyNull         0.672727273 0.63636364
+AccuracyPValue       0.157130233 0.03133271
+McnemarPValue        0.003283461 0.26725749
+Sensitivity          0.944444444 0.74285714
+Specificity          0.648648649 0.80000000
+Pos Pred Value       0.566666667 0.86666667
+Neg Pred Value       0.960000000 0.64000000
+Precision            0.566666667 0.86666667
+Recall               0.944444444 0.74285714
+F1                   0.708333333 0.80000000
+Prevalence           0.327272727 0.63636364
+Detection Rate       0.309090909 0.47272727
+Detection Prevalence 0.545454545 0.54545455
+Balanced Accuracy    0.796546547 0.77142857</code></pre>
+<p>One interest between these two thresholds is the result of the McNemar’s Chi-squared test conducted on the contingency tables we produced.
+This is a test for the null hypothesis that the marginal proportions are the same.
+By this we mean that the test’s false positive and false negative rates are the same.</p>
+<p>Take our first example:</p>
+<pre><code>          GPA_High
+Acceptance TRUE FALSE
+     TRUE    17    13
+     FALSE    1    24</code></pre>
+<p>And understand that we will code the conditions as followed:</p>
+<pre><code>          GPA_High
+Acceptance TRUE FALSE
+     TRUE     A     B
+     FALSE    C     D</code></pre>
+<p>The test statistic is derived as:</p>
+<p><span class="math display">\[\chi^2 = \frac{(B - C)^2}{B + C}\]</span></p>
+<p>We can expand this with a continuity correction, which is reported by default in the <code>stats::mcnemar.test()</code> employed in the confusion matrix results.</p>
+<p><span class="math display">\[\chi^2 = \frac{(|B - C| - 1)^2}{B + C}\]</span></p>
+<p>We see a significant difference using the Youden’s J statistic but not from the second threshold generated.</p>
+<p>The downside to the McNemar test is that it does not take into account the diagonals.
+Another metric calculated in the confusion matrix function.
+The accuracy is tested against the larger class proportion.</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="/1/01/roc/" title="Receiver operator characteristic curve" target="_blank" rel="external">/1/01/roc/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/jmbarbone" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/myAvatar.svg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/jmbarbone" target="_blank"><span class="text-dark">Jordan Mark Barbone, M.A.</span><small class="ml-1x">R &amp; Psychology</small></a></h3>
+        <div>Just trying to make it</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="/1/01/replication-social-psychology/" title="Replication in Psychology"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="/1/01/psychometrics-class-paper/"
+                    title="Psychometrics (class) scale development"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="facebook,twitter,linkedin"
+                data-mobile-sites="facebook,twitter,linkedin"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/jmbarbone" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://scholar.google.com/citations?authuser=1&amp;user=R6GyUVYAAAAJ" target="_blank" title="googlescholar" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-googlescholar"></i></a></li>
+    <li><a href="https://linkedin.com/in/jmbarbone" target="_blank" title="linkedin" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-linkedin"></i></a></li>
+    <li><a href="https://researchgate.net/profile/Jordan_Barbone" target="_blank" title="researchgate" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-researchgate"></i></a></li>
+    <li><a href="/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2020  -
+    2020
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/r.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: '\/',
+            CONTENT_URL: '\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

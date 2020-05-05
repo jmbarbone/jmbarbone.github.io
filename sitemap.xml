@@ -3,21 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jmbarbone.github.io/2020/04/its-alive/</loc>
-    <lastmod>2020-04-26T00:00:00+00:00</lastmod>
+    <loc>https://jmbarbone.github.io/2020/04/dirty-dates/</loc>
+    <lastmod>2020-04-28T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jmbarbone.github.io/</loc>
-    <lastmod>2020-04-26T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-28T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jmbarbone.github.io/posts/</loc>
+    <lastmod>2020-04-28T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jmbarbone.github.io/2020/04/its-alive/</loc>
     <lastmod>2020-04-26T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
