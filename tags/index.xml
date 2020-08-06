@@ -5,59 +5,18 @@
     <link>https://jmbarbone.github.io/tags/</link>
     <description>Recent content in Tags on JM Barbone</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 05 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://jmbarbone.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Dunning Kruger Effect</title>
-      <link>https://jmbarbone.github.io/2020/05/dunning-kruger/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      <title>Three Methods of Completion</title>
+      <link>https://jmbarbone.github.io/2020/08/three-ways/</link>
+      <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jmbarbone.github.io/2020/05/dunning-kruger/</guid>
-      <description>Note: I originally wrote this in February 2019.Also, don’t hate me for putting some links to Wikipedia, you were going to go there anyway.This isn’t a research paper.
-IntroductionIn my Organization Psychology graduate class at West Chester University, one of our assigned readings (among others) for our week on emotions and moods was (Sheldon, Dunning, and Ames 2014).This article focused on another finding relating to the Dunning-Kruger effect in the workplace.</description>
-    </item>
-    
-    <item>
-      <title>It&#39;s Alive</title>
-      <link>https://jmbarbone.github.io/2020/04/its-alive/</link>
-      <pubDate>Sun, 26 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jmbarbone.github.io/2020/04/its-alive/</guid>
-      <description>It’s AliveFirst post. Just testing, right?
-</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://jmbarbone.github.io/homepage/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jmbarbone.github.io/homepage/about/</guid>
-      <description>Visual above made with Nathaniel Phillip’s VisualResume.
-I am currently working as the Principal Data Analyst for Madrigal Pharmaceuticals, helping our Research &amp;amp; Development team monitor our current trials and prepare summary reports.I started learning R in my gradate statistics classes to avoid the future pains of having to use or only being familiar with SPSS.Learning R then launched me into a bigger role at Bracket (now Signant Health) where I had the pleasure to work with our Clinical Science team to understand and interpret their data.</description>
-    </item>
-    
-    <item>
-      <title>Anthology</title>
-      <link>https://jmbarbone.github.io/homepage/anthology/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jmbarbone.github.io/homepage/anthology/</guid>
-      <description>Papers201920182017Presentations201820172015Posters2019201820172015Below you may find links to some academic and professional work I have completed.The decision to include papers and presentations from class was not to artificially expand this section but was made to demonstrate the quality of work I aim to put forth.
-Copyright warningPlease note that some material may retain publisher’s copyright and these materials have been made available for personal use.</description>
-    </item>
-    
-    <item>
-      <title>CV and Resume</title>
-      <link>https://jmbarbone.github.io/homepage/cv-resume/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jmbarbone.github.io/homepage/cv-resume/</guid>
-      <description>Below you can find my (hopefully) current Curriculum vitae and Resume.
-Curriculum vitaeSingle Page ResumeDownload Resume (PDF) --</description>
+      <guid>https://jmbarbone.github.io/2020/08/three-ways/</guid>
+      <description>I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose.</description>
     </item>
     
   </channel>

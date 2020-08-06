@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Three Methods of Completion - JM Barbone
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose." />
+  <meta name="generator" content="Hugo 0.69.2 with theme pure" />
+  <title>Three Methods of Completion - JM Barbone</title>
+  
+  
+  <link rel="stylesheet" href="https://jmbarbone.github.io/css/style.min.c4bc7071f132c964c2116bca53b392933f377e5ca7b7051ed245187c621a2d3e.css">
+  
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+  <meta property="og:title" content="Three Methods of Completion" />
+<meta property="og:description" content="I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jmbarbone.github.io/2020/08/three-ways/" />
+<meta property="article:published_time" content="2020-08-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-05T00:00:00+00:00" />
+<meta itemprop="name" content="Three Methods of Completion">
+<meta itemprop="description" content="I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose.">
+<meta itemprop="datePublished" content="2020-08-05T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-08-05T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1783">
+
+
+
+<meta itemprop="keywords" content="R,benchmark," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Three Methods of Completion"/>
+<meta name="twitter:description" content="I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose."/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+
+  
+  
+
+  <body class="main-center theme-grey" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/jmbarbone" target="_blank">
+            <img class="img-circle img-rotate" src="https://jmbarbone.github.io/myAvatar.svg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">Jordan Mark Barbone, M.A.</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">R &amp; Psychology</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>King of Prussia, PA USA</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/homepage/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-cvresume">
+                <a href="/homepage/cv-resume/">
+                    <i class="icon icon-profile"></i>
+                  <span class="menu-title">CV Resume</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-anthology">
+                <a href="/homepage/anthology/">
+                    <i class="icon icon-book-shelf"></i>
+                  <span class="menu-title">Anthology</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://jmbarbone.github.io/categories/r-code/" class="category-list-link">r-code</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://jmbarbone.github.io/tags/benchmark/" class="tag-list-link">benchmark</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://jmbarbone.github.io/tags/r/" class="tag-list-link">r</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://jmbarbone.github.io/2020/08/three-ways/" class="title">Three Methods of Completion</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-08-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-05</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/08/three-ways/"
+    >Three Methods of Completion</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://jmbarbone.github.io/2020/08/three-ways/" class="article-date">
+  <time datetime="2020-08-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-05</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/r-code/"> r code </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/r/"> R </a>
+    <a class="article-tag-link" href="/tags/benchmark/"> benchmark </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/08/three-ways/#comments"
+            class="article-comment-link">Comments</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1783words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 9minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>I can spend a lot of time trying in futility to optimize custom functions and code.
+I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.
+Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.
+I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose.
+However, subjects had doses adjusted through the study for optimization.
+Further, we also needed to count the dosing based on the lowest dose provided.</p>
+<blockquote>
+<p>For example, how long was Subject A on a &gt;= 10mg dose?</p>
+</blockquote>
+<p>So, let’s explore three different ways to solve this problem and why all three are valid and just as efficient.</p>
+<div id="set-up" class="section level2">
+<h2>Set up</h2>
+<p>Loading our <code>tidyverse</code> packages first.
+Because we will be grouping and summarising data in a data.frame, I really don’t feel like going through the trouble of using <code>base</code> solutions.</p>
+<pre class="r"><code>options(tidyverse.quiet = TRUE) # Silences messages
+library(tidyverse)</code></pre>
+<p>Let’s create some random data to represent our subjects, our doses, and an arbitrary time metric.
+We’re also going to make this harder by using the <code>difftime</code>.</p>
+<p>We’re also going to grab some names using a function from the <a href="https://github.com/trinker/wakefield"><code>wakefield</code> package</a> which you can use to create fake data, appropriately named. [^note]</p>
+<p>^note: I’m not too savvy with this package yet but would like to experiment more for building dummy data sets.</p>
+<pre class="r"><code>subj &lt;- sort(sample(wakefield::name(500), 1e4, TRUE))
+dose &lt;- sample(seq.int(10, 80, 10), 1e4, TRUE)
+time &lt;- as.difftime(runif(1e4) * 100, units = &quot;days&quot;)
+
+df &lt;- tibble(subj, dose, time)
+df</code></pre>
+<pre><code># A tibble: 10,000 x 3
+   subj     dose time          
+   &lt;chr&gt;   &lt;dbl&gt; &lt;drtn&gt;        
+ 1 Aadhya     10 81.430584 days
+ 2 Aadhya     10 80.324186 days
+ 3 Aadhya     40 64.917350 days
+ 4 Aadhya     80 17.631323 days
+ 5 Aadhya     40  8.970711 days
+ 6 Aadhya     20 96.518079 days
+ 7 Aadhya     60 61.493537 days
+ 8 Aadhya     20 29.073014 days
+ 9 Aadhya     80  6.221622 days
+10 Aaditri    50 54.387006 days
+# ... with 9,990 more rows</code></pre>
+<p>Finding the total sum of time at each dose is easy:</p>
+<pre class="r"><code>df %&gt;% 
+  group_by(subj, dose) %&gt;% 
+  summarise(time = sum(time), .groups = &quot;drop&quot;) %&gt;% 
+  pivot_wider(names_from = &quot;dose&quot;,
+              names_sort = TRUE,
+              values_from = &quot;time&quot;)</code></pre>
+<pre><code># A tibble: 500 x 9
+   subj   `10`      `20`     `30`     `40`      `50`     `60`    `70`    `80`   
+   &lt;chr&gt;  &lt;drtn&gt;    &lt;drtn&gt;   &lt;drtn&gt;   &lt;drtn&gt;    &lt;drtn&gt;   &lt;drtn&gt;  &lt;drtn&gt;  &lt;drtn&gt; 
+ 1 Aadhya 161.7547~ 125.591~        ~  73.8880~        ~  61.49~       ~  23.85~
+ 2 Aadit~  30.6712~ 172.203~        ~ 224.9110~ 131.421~ 193.56~  67.98~  93.22~
+ 3 Aalee~ 174.6785~ 115.274~ 159.963~ 198.0695~ 184.672~  77.62~ 214.77~ 292.39~
+ 4 Aaley~ 183.8605~  88.263~        ~   9.1255~ 261.859~ 259.78~ 214.15~ 100.03~
+ 5 Aamia   70.4298~ 149.781~ 122.847~  40.4504~  32.994~  74.87~ 116.54~ 161.57~
+ 6 Aarish 232.1889~ 234.424~  70.517~         ~   7.558~ 111.19~ 153.24~ 118.05~
+ 7 Abdul~   8.8906~  37.666~ 130.246~         ~        ~ 215.40~ 159.77~ 162.15~
+ 8 Abhin~ 221.3729~ 108.876~ 114.363~ 280.9107~ 136.460~ 100.08~  97.43~  95.31~
+ 9 Abhir~  73.2359~ 182.813~ 295.836~ 107.8884~  96.700~ 137.15~ 123.40~  68.99~
+10 Abyade 107.6382~ 596.182~ 168.711~ 146.6280~  61.121~  34.35~ 281.28~ 149.84~
+# ... with 490 more rows</code></pre>
+<p>Oh, it looks like we have some missing values (see the first line where we are missing doses of <code>30</code>, <code>50</code>, and <code>70</code> for <code>Aadhya</code>.).
+<code>tidyr::pivot_wider()</code> allows us to fill in the missing values but like many <code>tidyverse</code> functions, we’ll have to be explicit with the type so as to not case any accidental issues.</p>
+<pre class="r"><code>difftime0 &lt;- as.difftime(0, units = &quot;days&quot;)
+
+res &lt;- df %&gt;% 
+  group_by(subj, dose) %&gt;% 
+  summarise(time = sum(time), .groups = &quot;drop&quot;) %&gt;% 
+  pivot_wider(names_from = &quot;dose&quot;,
+              names_sort = TRUE,
+              values_from = &quot;time&quot;,
+              values_fill = difftime0)
+res</code></pre>
+<pre><code># A tibble: 500 x 9
+   subj   `10`      `20`     `30`     `40`      `50`     `60`    `70`    `80`   
+   &lt;chr&gt;  &lt;drtn&gt;    &lt;drtn&gt;   &lt;drtn&gt;   &lt;drtn&gt;    &lt;drtn&gt;   &lt;drtn&gt;  &lt;drtn&gt;  &lt;drtn&gt; 
+ 1 Aadhya 161.7547~ 125.591~   0.000~  73.8880~   0.000~  61.49~   0.00~  23.85~
+ 2 Aadit~  30.6712~ 172.203~   0.000~ 224.9110~ 131.421~ 193.56~  67.98~  93.22~
+ 3 Aalee~ 174.6785~ 115.274~ 159.963~ 198.0695~ 184.672~  77.62~ 214.77~ 292.39~
+ 4 Aaley~ 183.8605~  88.263~   0.000~   9.1255~ 261.859~ 259.78~ 214.15~ 100.03~
+ 5 Aamia   70.4298~ 149.781~ 122.847~  40.4504~  32.994~  74.87~ 116.54~ 161.57~
+ 6 Aarish 232.1889~ 234.424~  70.517~   0.0000~   7.558~ 111.19~ 153.24~ 118.05~
+ 7 Abdul~   8.8906~  37.666~ 130.246~   0.0000~   0.000~ 215.40~ 159.77~ 162.15~
+ 8 Abhin~ 221.3729~ 108.876~ 114.363~ 280.9107~ 136.460~ 100.08~  97.43~  95.31~
+ 9 Abhir~  73.2359~ 182.813~ 295.836~ 107.8884~  96.700~ 137.15~ 123.40~  68.99~
+10 Abyade 107.6382~ 596.182~ 168.711~ 146.6280~  61.121~  34.35~ 281.28~ 149.84~
+# ... with 490 more rows</code></pre>
+<p>This is much more troublesome as we have to create single length <code>difftime</code> vector.</p>
+<p>Now, we need to find the total length of time a subject was at each dose or greater..
+This I wasn’t able to do with any built in functions (although I could have missed it).
+I’m not claiming this is the best function or anything, it’s not, but I have 3 different solutions and thought it was enough to spend my evening writing a blog post.</p>
+<div id="solution-1-the-for-loop" class="section level3">
+<h3>Solution 1: The For Loop</h3>
+<p>Never use a for loop, except if you have to.
+We’ll start with</p>
+<pre class="r"><code>foo1 &lt;- function(x, y) {
+  out &lt;- y
+  
+  for (i in seq_along(y)) {
+    out[i] &lt;- sum(y[x &gt;= x[i]])
+  }
+  
+  out
+}</code></pre>
+</div>
+<div id="solution-2-combining-lapply" class="section level3">
+<h3>Solution 2: Combining lapply</h3>
+<p>When having to play with dates before, I found that the way I could retain the date values and still use a function from the <code>apply</code> family was to stick with the <code>lapply()</code> and then use the <code>do.call()</code> function to apply the <code>c</code>ombine function over my list.
+<code>lapply()</code> retains the original classes and using the <code>do.call(c, ...)</code> method will turn my list into a vector without removing the structure of the output</p>
+<pre class="r"><code>foo2 &lt;- function(x, y) {
+  out &lt;- lapply(x, function(xx) sum(y[x &gt;= xx]))
+  do.call(c, out)
+}</code></pre>
+<p>Let’s see how this plays out.
+If we use other methods, we lose the difftime class, which is noticeable as we don’t get our message of <code>Time differences in days</code> before our results.</p>
+<pre class="r"><code>x &lt;- lapply(dose, function(xx) sum(time[dose &gt;= xx])) %&gt;% unlist() %&gt;% head()
+x; class(x); typeof(x)</code></pre>
+<pre><code>[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
+<pre><code>[1] &quot;numeric&quot;</code></pre>
+<pre><code>[1] &quot;double&quot;</code></pre>
+<pre class="r"><code>x &lt;- sapply(dose, function(xx) sum(time[dose &gt;= xx])) %&gt;% head()
+x; class(x); typeof(x)</code></pre>
+<pre><code>[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
+<pre><code>[1] &quot;numeric&quot;</code></pre>
+<pre><code>[1] &quot;double&quot;</code></pre>
+<pre class="r"><code>x &lt;- foo2(dose, time) %&gt;% head()
+x; class(x); typeof(x)</code></pre>
+<pre><code>Time differences in days
+[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
+<pre><code>[1] &quot;difftime&quot;</code></pre>
+<pre><code>[1] &quot;double&quot;</code></pre>
+</div>
+<div id="solution-3-vapply-with-subset-assigning" class="section level3">
+<h3>Solution 3: Vapply with subset assigning</h3>
+<p>Here’s another neat little trick that with a good use case.
+We’re going to subset our <code>out</code> object (again, a copy of the <code>y</code> intput) and assign over it the result of our <code>vapply</code>.
+We’re also going to <em>cheat</em> and use the first position of <code>y</code> as our <code>FUN.VALUE</code>.</p>
+<pre class="r"><code>foo3 &lt;- function(x, y) {
+  out &lt;- y
+  out[] &lt;- vapply(x, function(xx) sum(y[x &gt;= xx]), time[1], USE.NAMES = FALSE)
+  out
+}</code></pre>
+<p>Let’s take look just like before.
+<code>vapply()</code> will try to simplify the <code>FUN.VALUE</code> but as long as we use a single vector from the original input we can safely assign it back into our mock subset without worrying about losing our classes.</p>
+<pre class="r"><code>x &lt;- vapply(dose, function(xx) sum(time[dose &gt;= xx]), time[1]) %&gt;% head()
+x; class(x); typeof(x)</code></pre>
+<pre><code>[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
+<pre><code>[1] &quot;numeric&quot;</code></pre>
+<pre><code>[1] &quot;double&quot;</code></pre>
+<pre class="r"><code>x &lt; -foo3(dose, time) %&gt;% head()</code></pre>
+<pre><code>[1] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<pre class="r"><code>x; class(x); typeof(x)</code></pre>
+<pre><code>[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
+<pre><code>[1] &quot;numeric&quot;</code></pre>
+<pre><code>[1] &quot;double&quot;</code></pre>
+</div>
+</div>
+<div id="benchmarks" class="section level2">
+<h2>Benchmarks</h2>
+<p>Now, all three of these solutions produce the same results and are fairly equivalent in human legibility.
+This means, for me at least, that the function which runs the fastest would be the result I keep.
+We’ll employ the <code>microbenchmark</code> package and eponymous name for our consideration.</p>
+<p>Of course, for this we’ll be running on the vectors first.
+We’ll also make certain that all of our outputs are the same with <code>check = "equal"</code> to make sure we didn’t miss anything either.</p>
+<pre class="r"><code>microbenchmark::microbenchmark(
+  foo1(dose, time),
+  foo2(dose, time),
+  foo3(dose, time),
+  times = 20,
+  check = &quot;equal&quot;
+)</code></pre>
+<pre><code>Unit: seconds
+             expr      min       lq     mean   median       uq      max neval
+ foo1(dose, time) 1.983364 2.085853 2.257241 2.166570 2.253940 4.024464    20
+ foo2(dose, time) 2.011665 2.095127 2.242120 2.148517 2.246046 3.469991    20
+ foo3(dose, time) 1.994900 2.068829 2.272299 2.153669 2.414414 2.972942    20
+ cld
+   a
+   a
+   a</code></pre>
+<p>And, well, they all run about the same.
+That kind of just leaves us with the sinking feeling that all of this was futile and that <code>for</code> loops really aren’t that bad.
+In fact, the <code>for</code> loop solution may be the easiest to read and doesn’t use any tricks that someone reviewing your code may not understand at first.</p>
+<p>We know we have some missing values in our data, so we’re going to use the the <code>tidyr::complete()</code> function to help with that.</p>
+<pre class="r"><code>res</code></pre>
+<pre><code># A tibble: 500 x 9
+   subj   `10`      `20`     `30`     `40`      `50`     `60`    `70`    `80`   
+   &lt;chr&gt;  &lt;drtn&gt;    &lt;drtn&gt;   &lt;drtn&gt;   &lt;drtn&gt;    &lt;drtn&gt;   &lt;drtn&gt;  &lt;drtn&gt;  &lt;drtn&gt; 
+ 1 Aadhya 161.7547~ 125.591~   0.000~  73.8880~   0.000~  61.49~   0.00~  23.85~
+ 2 Aadit~  30.6712~ 172.203~   0.000~ 224.9110~ 131.421~ 193.56~  67.98~  93.22~
+ 3 Aalee~ 174.6785~ 115.274~ 159.963~ 198.0695~ 184.672~  77.62~ 214.77~ 292.39~
+ 4 Aaley~ 183.8605~  88.263~   0.000~   9.1255~ 261.859~ 259.78~ 214.15~ 100.03~
+ 5 Aamia   70.4298~ 149.781~ 122.847~  40.4504~  32.994~  74.87~ 116.54~ 161.57~
+ 6 Aarish 232.1889~ 234.424~  70.517~   0.0000~   7.558~ 111.19~ 153.24~ 118.05~
+ 7 Abdul~   8.8906~  37.666~ 130.246~   0.0000~   0.000~ 215.40~ 159.77~ 162.15~
+ 8 Abhin~ 221.3729~ 108.876~ 114.363~ 280.9107~ 136.460~ 100.08~  97.43~  95.31~
+ 9 Abhir~  73.2359~ 182.813~ 295.836~ 107.8884~  96.700~ 137.15~ 123.40~  68.99~
+10 Abyade 107.6382~ 596.182~ 168.711~ 146.6280~  61.121~  34.35~ 281.28~ 149.84~
+# ... with 490 more rows</code></pre>
+<pre class="r"><code>df %&gt;% 
+  complete(subj, dose, fill = list(time = difftime0)) %&gt;% 
+  group_by(subj, dose) %&gt;% 
+  summarise(time = sum(time), .groups = &quot;drop_last&quot;) %&gt;%
+  mutate(time = foo1(dose, time)) %&gt;% 
+  pivot_wider(names_from = &quot;dose&quot;,
+              names_sort = TRUE,
+              values_from = &quot;time&quot;)</code></pre>
+<pre><code># A tibble: 500 x 9
+# Groups:   subj [500]
+   subj   `10`     `20`     `30`     `40`     `50`     `60`     `70`     `80`   
+   &lt;chr&gt;  &lt;drtn&gt;   &lt;drtn&gt;   &lt;drtn&gt;   &lt;drtn&gt;   &lt;drtn&gt;   &lt;drtn&gt;   &lt;drtn&gt;   &lt;drtn&gt; 
+ 1 Aadhya  446.58~  284.82~  159.23~ 159.234~  85.346~  85.346~  23.852~  23.85~
+ 2 Aadit~  913.98~  883.31~  711.10~ 711.108~ 486.197~ 354.775~ 161.214~  93.22~
+ 3 Aalee~ 1417.45~ 1242.77~ 1127.50~ 967.539~ 769.470~ 584.797~ 507.168~ 292.39~
+ 4 Aaley~ 1117.08~  933.22~  844.96~ 844.960~ 835.834~ 573.975~ 314.189~ 100.03~
+ 5 Aamia   769.48~  699.05~  549.27~ 426.427~ 385.976~ 352.982~ 278.111~ 161.57~
+ 6 Aarish  927.18~  694.99~  460.56~ 390.051~ 390.051~ 382.493~ 271.300~ 118.05~
+ 7 Abdul~  714.13~  705.24~  667.57~ 537.329~ 537.328~ 537.328~ 321.928~ 162.15~
+ 8 Abhin~ 1154.81~  933.44~  824.57~ 710.207~ 429.296~ 292.835~ 192.746~  95.31~
+ 9 Abhir~ 1086.02~ 1012.79~  829.97~ 534.142~ 426.253~ 329.553~ 192.403~  68.99~
+10 Abyade 1545.76~ 1438.12~  841.94~ 673.233~ 526.605~ 465.484~ 431.129~ 149.84~
+# ... with 490 more rows</code></pre>
+<p>And there you go.
+Three solutions, all the same.</p>
+<p>Sometimes it’s useful to try to optimize code.
+Other times it’s just results in a blog post.</p>
+<p>As long as your code is easy to read and not apparently slow, it’s probably fine.</p>
+</div>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://jmbarbone.github.io/2020/08/three-ways/" title="Three Methods of Completion" target="_blank" rel="external">https://jmbarbone.github.io/2020/08/three-ways/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/jmbarbone" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://jmbarbone.github.io/myAvatar.svg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/jmbarbone" target="_blank"><span class="text-dark">Jordan Mark Barbone, M.A.</span><small class="ml-1x">R &amp; Psychology</small></a></h3>
+        <div>Just trying to make it</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <div class="bar-right">
+            <div class="share-component" data-sites="facebook,twitter,linkedin"
+                data-mobile-sites="facebook,twitter,linkedin"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/jmbarbone" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://scholar.google.com/citations?authuser=1&amp;user=R6GyUVYAAAAJ" target="_blank" title="googlescholar" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-googlescholar"></i></a></li>
+    <li><a href="https://linkedin.com/in/jmbarbone" target="_blank" title="linkedin" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-linkedin"></i></a></li>
+    <li><a href="https://researchgate.net/profile/Jordan_Barbone" target="_blank" title="researchgate" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-researchgate"></i></a></li>
+    <li><a href="https://jmbarbone.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2020  -
+    2020
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/r.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://jmbarbone.github.io/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="https://jmbarbone.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/jmbarbone.github.io\/',
+            CONTENT_URL: 'https:\/\/jmbarbone.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://jmbarbone.github.io/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>
