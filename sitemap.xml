@@ -59,6 +59,34 @@
   </url>
   
   <url>
+    <loc>https://jmbarbone.github.io/tags/datavis/</loc>
+    <lastmod>2020-05-05T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jmbarbone.github.io/2020/05/dunning-kruger/</loc>
+    <lastmod>2020-05-05T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jmbarbone.github.io/tags/psychology/</loc>
+    <lastmod>2020-05-05T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jmbarbone.github.io/2020/04/its-alive/</loc>
+    <lastmod>2020-04-26T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://jmbarbone.github.io/series/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
