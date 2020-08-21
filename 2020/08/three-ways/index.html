@@ -42,7 +42,7 @@
 <meta itemprop="description" content="I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose.">
 <meta itemprop="datePublished" content="2020-08-05T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-08-05T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1783">
+<meta itemprop="wordCount" content="1772">
 
 
 
@@ -276,7 +276,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/08/three-ways/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1783words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1772words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 9minutes </span>
       </div>
     </div>
@@ -401,21 +401,20 @@ We’ll start with</p>
 <p>Let’s see how this plays out.
 If we use other methods, we lose the difftime class, which is noticeable as we don’t get our message of <code>Time differences in days</code> before our results.</p>
 <pre class="r"><code>x &lt;- lapply(dose, function(xx) sum(time[dose &gt;= xx])) %&gt;% unlist() %&gt;% head()
-x; class(x); typeof(x)</code></pre>
-<pre><code>[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
-<pre><code>[1] &quot;numeric&quot;</code></pre>
-<pre><code>[1] &quot;double&quot;</code></pre>
-<pre class="r"><code>x &lt;- sapply(dose, function(xx) sum(time[dose &gt;= xx])) %&gt;% head()
-x; class(x); typeof(x)</code></pre>
-<pre><code>[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
-<pre><code>[1] &quot;numeric&quot;</code></pre>
-<pre><code>[1] &quot;double&quot;</code></pre>
-<pre class="r"><code>x &lt;- foo2(dose, time) %&gt;% head()
-x; class(x); typeof(x)</code></pre>
-<pre><code>Time differences in days
+print_with_class_type(x)</code></pre>
+<pre><code>class  numeric
+typeof double
 [1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
-<pre><code>[1] &quot;difftime&quot;</code></pre>
-<pre><code>[1] &quot;double&quot;</code></pre>
+<pre class="r"><code>x &lt;- sapply(dose, function(xx) sum(time[dose &gt;= xx])) %&gt;% head()
+print_with_class_type(x)</code></pre>
+<pre><code>class  numeric
+typeof double
+[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
+<pre class="r"><code>x &lt;- foo2(dose, time) %&gt;% head()
+print_with_class_type(x)</code></pre>
+<pre><code>class  difftime
+typeof double
+Time differences in days[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
 </div>
 <div id="solution-3-vapply-with-subset-assigning" class="section level3">
 <h3>Solution 3: vapply with subset assigning</h3>
@@ -430,16 +429,16 @@ We’re also going to <em>cheat</em> and use the first position of <code>y</code
 <p>Let’s take look just like before.
 <code>vapply()</code> will try to simplify the <code>FUN.VALUE</code> but as long as we use a single vector from the original input we can safely assign it back into our mock subset without worrying about losing our classes.</p>
 <pre class="r"><code>x &lt;- vapply(dose, function(xx) sum(time[dose &gt;= xx]), time[1]) %&gt;% head()
-x; class(x); typeof(x)</code></pre>
-<pre><code>[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
-<pre><code>[1] &quot;numeric&quot;</code></pre>
-<pre><code>[1] &quot;double&quot;</code></pre>
+print_with_class_type(x)</code></pre>
+<pre><code>class  numeric
+typeof double
+[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
 <pre class="r"><code>x &lt; -foo3(dose, time) %&gt;% head()</code></pre>
 <pre><code>[1] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
-<pre class="r"><code>x; class(x); typeof(x)</code></pre>
-<pre><code>[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
-<pre><code>[1] &quot;numeric&quot;</code></pre>
-<pre><code>[1] &quot;double&quot;</code></pre>
+<pre class="r"><code>print_with_class_type(x)</code></pre>
+<pre><code>class  numeric
+typeof double
+[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
 </div>
 </div>
 <div id="benchmarks" class="section level2">
@@ -458,9 +457,9 @@ We’ll also make certain that all of our outputs are the same with <code>check 
 )</code></pre>
 <pre><code>Unit: seconds
              expr      min       lq     mean   median       uq      max neval
- foo1(dose, time) 3.392135 3.576787 3.763056 3.680602 3.963503 4.550814    20
- foo2(dose, time) 3.039349 3.555780 3.842543 3.778649 4.076408 4.944108    20
- foo3(dose, time) 3.268139 3.520684 3.742662 3.699236 3.841602 4.564705    20
+ foo1(dose, time) 4.110110 4.524022 4.788118 4.793319 5.076733 5.502034    20
+ foo2(dose, time) 3.827206 4.289617 4.870859 4.811716 5.442835 6.015909    20
+ foo3(dose, time) 3.795733 4.397685 4.742220 4.762306 5.000434 5.781140    20
  cld
    a
    a
