@@ -45,14 +45,14 @@
   </url>
   
   <url>
-    <loc>https://jmbarbone.github.io/tags/</loc>
+    <loc>https://jmbarbone.github.io/2020/08/three-ways/</loc>
     <lastmod>2020-08-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jmbarbone.github.io/2020/08/three-ways/</loc>
+    <loc>https://jmbarbone.github.io/tags/</loc>
     <lastmod>2020-08-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -82,6 +82,30 @@
   <url>
     <loc>https://jmbarbone.github.io/2020/04/its-alive/</loc>
     <lastmod>2020-04-26T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jmbarbone.github.io/homepage/about/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jmbarbone.github.io/homepage/anthology/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jmbarbone.github.io/homepage/cv-resume/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jmbarbone.github.io/homepage/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

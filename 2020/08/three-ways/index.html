@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Three Methods of Completion - JM Barbone
+        Solving one task with three equivalent solutions: for, do.call, vapply - JM Barbone
       </title>
     <head>
   <meta charset="utf-8">
@@ -25,20 +25,20 @@
   
   <meta name="description" content="I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose." />
   <meta name="generator" content="Hugo 0.69.2 with theme pure" />
-  <title>Three Methods of Completion - JM Barbone</title>
+  <title>Solving one task with three equivalent solutions: for, do.call, vapply - JM Barbone</title>
   
   
   <link rel="stylesheet" href="https://jmbarbone.github.io/css/style.min.c4bc7071f132c964c2116bca53b392933f377e5ca7b7051ed245187c621a2d3e.css">
   
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-  <meta property="og:title" content="Three Methods of Completion" />
+  <meta property="og:title" content="Solving one task with three equivalent solutions: for, do.call, vapply" />
 <meta property="og:description" content="I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jmbarbone.github.io/2020/08/three-ways/" />
 <meta property="article:published_time" content="2020-08-05T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-08-05T00:00:00+00:00" />
-<meta itemprop="name" content="Three Methods of Completion">
+<meta itemprop="name" content="Solving one task with three equivalent solutions: for, do.call, vapply">
 <meta itemprop="description" content="I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose.">
 <meta itemprop="datePublished" content="2020-08-05T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-08-05T00:00:00&#43;00:00" />
@@ -47,7 +47,7 @@
 
 
 <meta itemprop="keywords" content="R,benchmark," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Three Methods of Completion"/>
+<meta name="twitter:title" content="Solving one task with three equivalent solutions: for, do.call, vapply"/>
 <meta name="twitter:description" content="I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose."/>
 
   <!--[if lte IE 9]>
@@ -200,7 +200,7 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://jmbarbone.github.io/2020/08/three-ways/" class="title">Three Methods of Completion</a>
+                        <a href="https://jmbarbone.github.io/2020/08/three-ways/" class="title">Solving one task with three equivalent solutions: for, do.call, vapply</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-08-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-05</time>
@@ -252,7 +252,7 @@
   <a
     class="article-title"
     href="/2020/08/three-ways/"
-    >Three Methods of Completion</a
+    >Solving one task with three equivalent solutions: for, do.call, vapply</a
   >
 </h1>
 
@@ -260,7 +260,7 @@
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://jmbarbone.github.io/2020/08/three-ways/" class="">
+<a href="https://jmbarbone.github.io/2020/08/three-ways/" class="article-date">
   <time datetime="2020-08-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-08-05</time>
 </a>
 </span>
@@ -377,7 +377,7 @@ res</code></pre>
 This I wasn’t able to do with any built in functions (although I could have missed it).
 I’m not claiming this is the best function or anything, it’s not, but I have 3 different solutions and thought it was enough to spend my evening writing a blog post.</p>
 <div id="solution-1-the-for-loop" class="section level3">
-<h3>Solution 1: The For Loop</h3>
+<h3>Solution 1: The for Loop</h3>
 <p>Never use a for loop, except if you have to.
 We’ll start with</p>
 <pre class="r"><code>foo1 &lt;- function(x, y) {
@@ -418,7 +418,7 @@ x; class(x); typeof(x)</code></pre>
 <pre><code>[1] &quot;double&quot;</code></pre>
 </div>
 <div id="solution-3-vapply-with-subset-assigning" class="section level3">
-<h3>Solution 3: Vapply with subset assigning</h3>
+<h3>Solution 3: vapply with subset assigning</h3>
 <p>Here’s another neat little trick that with a good use case.
 We’re going to subset our <code>out</code> object (again, a copy of the <code>y</code> intput) and assign over it the result of our <code>vapply</code>.
 We’re also going to <em>cheat</em> and use the first position of <code>y</code> as our <code>FUN.VALUE</code>.</p>
@@ -458,9 +458,9 @@ We’ll also make certain that all of our outputs are the same with <code>check 
 )</code></pre>
 <pre><code>Unit: seconds
              expr      min       lq     mean   median       uq      max neval
- foo1(dose, time) 2.005636 2.081873 2.294350 2.203065 2.371209 2.956136    20
- foo2(dose, time) 2.024553 2.102614 2.260503 2.189546 2.242420 3.179027    20
- foo3(dose, time) 1.953111 2.075693 2.216881 2.195237 2.327781 2.700802    20
+ foo1(dose, time) 3.392135 3.576787 3.763056 3.680602 3.963503 4.550814    20
+ foo2(dose, time) 3.039349 3.555780 3.842543 3.778649 4.076408 4.944108    20
+ foo3(dose, time) 3.268139 3.520684 3.742662 3.699236 3.841602 4.564705    20
  cld
    a
    a
@@ -520,7 +520,7 @@ Other times it’s just results in a blog post.</p>
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="https://jmbarbone.github.io/2020/08/three-ways/" title="Three Methods of Completion" target="_blank" rel="external">https://jmbarbone.github.io/2020/08/three-ways/</a>
+      <a href="https://jmbarbone.github.io/2020/08/three-ways/" title="Solving one task with three equivalent solutions: for, do.call, vapply" target="_blank" rel="external">https://jmbarbone.github.io/2020/08/three-ways/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>

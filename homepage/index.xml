@@ -10,6 +10,15 @@
     
     
     <item>
+      <title>Solving one task with three equivalent solutions: for, do.call, vapply</title>
+      <link>https://jmbarbone.github.io/2020/08/three-ways/</link>
+      <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jmbarbone.github.io/2020/08/three-ways/</guid>
+      <description>I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose.</description>
+    </item>
+    
+    <item>
       <title>Dunning Kruger Effect</title>
       <link>https://jmbarbone.github.io/2020/05/dunning-kruger/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
