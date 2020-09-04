@@ -24,11 +24,11 @@
   
   
   <meta name="description" content="I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose." />
-  <meta name="generator" content="Hugo 0.69.2 with theme pure" />
+  <meta name="generator" content="Hugo 0.74.3 with theme pure" />
   <title>Solving one task with three equivalent solutions: for, do.call, vapply - JM Barbone</title>
   
   
-  <link rel="stylesheet" href="https://jmbarbone.github.io/css/style.min.c4bc7071f132c964c2116bca53b392933f377e5ca7b7051ed245187c621a2d3e.css">
+  <link rel="stylesheet" href="https://jmbarbone.github.io/css/style.min.4cfc53f9f5eb423eefd2d8ba68820a3d6c2e3b116ccc39514221c2d399f8a5b8.css">
   
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
@@ -40,13 +40,14 @@
 <meta property="article:modified_time" content="2020-08-05T00:00:00+00:00" />
 <meta itemprop="name" content="Solving one task with three equivalent solutions: for, do.call, vapply">
 <meta itemprop="description" content="I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose.">
-<meta itemprop="datePublished" content="2020-08-05T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-08-05T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1772">
+<meta itemprop="datePublished" content="2020-08-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1774">
 
 
 
-<meta itemprop="keywords" content="R,benchmark," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="R,benchmark," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Solving one task with three equivalent solutions: for, do.call, vapply"/>
 <meta name="twitter:description" content="I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose."/>
 
@@ -276,7 +277,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/08/three-ways/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1772words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1774words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 9minutes </span>
       </div>
     </div>
@@ -423,7 +424,7 @@ We’re going to subset our <code>out</code> object (again, a copy of the <code>
 We’re also going to <em>cheat</em> and use the first position of <code>y</code> as our <code>FUN.VALUE</code>.</p>
 <pre class="r"><code>foo3 &lt;- function(x, y) {
   out &lt;- y
-  out[] &lt;- vapply(x, function(xx) sum(y[x &gt;= xx]), time[1], USE.NAMES = FALSE)
+  out[] &lt;- vapply(x, function(xx) sum(y[x &gt;= xx]), y[1], USE.NAMES = FALSE)
   out
 }</code></pre>
 <p>Let’s take look just like before.
@@ -448,22 +449,18 @@ This means, for me at least, that the function which runs the fastest would be t
 We’ll employ the <code>microbenchmark</code> package and eponymous name for our consideration.</p>
 <p>Of course, for this we’ll be running on the vectors first.
 We’ll also make certain that all of our outputs are the same with <code>check = "equal"</code> to make sure we didn’t miss anything either.</p>
-<pre class="r"><code>microbenchmark::microbenchmark(
-  foo1(dose, time),
-  foo2(dose, time),
-  foo3(dose, time),
-  times = 20,
-  check = &quot;equal&quot;
-)</code></pre>
-<pre><code>Unit: seconds
-             expr      min       lq     mean   median       uq      max neval
- foo1(dose, time) 4.110110 4.524022 4.788118 4.793319 5.076733 5.502034    20
- foo2(dose, time) 3.827206 4.289617 4.870859 4.811716 5.442835 6.015909    20
- foo3(dose, time) 3.795733 4.397685 4.742220 4.762306 5.000434 5.781140    20
- cld
-   a
-   a
-   a</code></pre>
+<pre class="r"><code>bench::mark(
+  `1` = foo1(dose, time),
+  `2` = foo2(dose, time),
+  `3` = foo3(dose, time)
+)[c(2:5, 9)]</code></pre>
+<pre><code>Warning: Some expressions had a GC in every iteration; so filtering is disabled.</code></pre>
+<pre><code># A tibble: 3 x 4
+       min   median `itr/sec` mem_alloc
+  &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;
+1    2.14s    2.14s     0.467    2.21GB
+2    1.63s    1.63s     0.614    2.22GB
+3    1.59s    1.59s     0.630    2.21GB</code></pre>
 <p>And, well, they all run about the same.
 That kind of just leaves us with the sinking feeling that all of this was futile and that <code>for</code> loops really aren’t that bad.
 In fact, the <code>for</code> loop solution may be the easiest to read and doesn’t use any tricks that someone reviewing your code may not understand at first.</p>
