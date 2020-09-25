@@ -411,8 +411,8 @@ The first 8 columns will be renamed and the demographic information will be move
 <pre><code># A tibble: 2 x 6
   expression          min   median `itr/sec` mem_alloc `gc/sec`
   &lt;bch:expr&gt;     &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
-1 foo_external()   1.99ms   2.65ms      333.    4.55KB     6.24
-2 foo_select()     6.65ms   7.65ms      119.   15.02KB     8.83</code></pre>
+1 foo_external()   2.14ms   2.89ms      304.    4.55KB     6.17
+2 foo_select()     7.27ms   8.23ms      108.   15.02KB     8.82</code></pre>
 <p>Yes.</p>
 </details>
 <p>We get the same result and don’t need to clog up the piped if we need to do some mutation, grouping, summarising, etc.
