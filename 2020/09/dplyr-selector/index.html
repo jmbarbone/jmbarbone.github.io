@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        It&#39;s Alive - JM Barbone
+        Selecting columns in dplyr - JM Barbone
       </title>
     <head>
   <meta charset="utf-8">
@@ -23,37 +23,33 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="It’s AliveFirst post. Just testing, right?
-" />
+  <meta name="description" content="One feature of report building that has always bothered me was adjusting column names in final so I could have something prettier than a series of columns_with_underscores that people who use too much Excel find repulsive.The same is true of anyType of CamelCase.There is a functionality with dplyr that let’s me manage updating these names through a clean, reversible, and friendly manner.I discovered this like a toddler just seeing what could happen if I passed a named vector into a select() function and delighted with the result." />
   <meta name="generator" content="Hugo 0.74.3 with theme pure" />
-  <title>It&#39;s Alive - JM Barbone</title>
+  <title>Selecting columns in dplyr - JM Barbone</title>
   
   
   <link rel="stylesheet" href="/css/style.min.4cfc53f9f5eb423eefd2d8ba68820a3d6c2e3b116ccc39514221c2d399f8a5b8.css">
   
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-  <meta property="og:title" content="It&#39;s Alive" />
-<meta property="og:description" content="It’s AliveFirst post. Just testing, right?
-" />
+  <meta property="og:title" content="Selecting columns in dplyr" />
+<meta property="og:description" content="One feature of report building that has always bothered me was adjusting column names in final so I could have something prettier than a series of columns_with_underscores that people who use too much Excel find repulsive.The same is true of anyType of CamelCase.There is a functionality with dplyr that let’s me manage updating these names through a clean, reversible, and friendly manner.I discovered this like a toddler just seeing what could happen if I passed a named vector into a select() function and delighted with the result." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/2020/04/its-alive/" />
-<meta property="article:published_time" content="2020-04-26T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-04-26T00:00:00+00:00" />
-<meta itemprop="name" content="It&#39;s Alive">
-<meta itemprop="description" content="It’s AliveFirst post. Just testing, right?
-">
-<meta itemprop="datePublished" content="2020-04-26T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-04-26T00:00:00+00:00" />
-<meta itemprop="wordCount" content="7">
+<meta property="og:url" content="/2020/09/dplyr-selector/" />
+<meta property="article:published_time" content="2020-09-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-24T00:00:00+00:00" />
+<meta itemprop="name" content="Selecting columns in dplyr">
+<meta itemprop="description" content="One feature of report building that has always bothered me was adjusting column names in final so I could have something prettier than a series of columns_with_underscores that people who use too much Excel find repulsive.The same is true of anyType of CamelCase.There is a functionality with dplyr that let’s me manage updating these names through a clean, reversible, and friendly manner.I discovered this like a toddler just seeing what could happen if I passed a named vector into a select() function and delighted with the result.">
+<meta itemprop="datePublished" content="2020-09-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-09-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1242">
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="R,dplyr,tidyselect," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="It&#39;s Alive"/>
-<meta name="twitter:description" content="It’s AliveFirst post. Just testing, right?
-"/>
+<meta name="twitter:title" content="Selecting columns in dplyr"/>
+<meta name="twitter:description" content="One feature of report building that has always bothered me was adjusting column names in final so I could have something prettier than a series of columns_with_underscores that people who use too much Excel find repulsive.The same is true of anyType of CamelCase.There is a functionality with dplyr that let’s me manage updating these names through a clean, reversible, and friendly manner.I discovered this like a toddler just seeing what could happen if I passed a named vector into a select() function and delighted with the result."/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -274,8 +270,8 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2020/04/its-alive/"
-    >It&#39;s Alive</a
+    href="/2020/09/dplyr-selector/"
+    >Selecting columns in dplyr</a
   >
 </h1>
 
@@ -283,16 +279,25 @@
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="/2020/04/its-alive/" class="article-date">
-  <time datetime="2020-04-26 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-04-26</time>
+<a href="/2020/09/dplyr-selector/" class="article-date">
+  <time datetime="2020-09-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-09-24</time>
 </a>
 </span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/r-code/"> r code </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/r/"> R </a>
+    <a class="article-tag-link" href="/tags/dplyr/"> dplyr </a>
+    <a class="article-tag-link" href="/tags/tidyselect/"> tidyselect </a>
+  </span>
 
-
-        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/04/its-alive/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/09/dplyr-selector/#comments"
             class="article-comment-link">Comments</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 7words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1242words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 6minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -300,10 +305,177 @@
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<div id="its-alive" class="section level2">
-<h2>It’s Alive</h2>
-<p>First post. Just testing, right?</p>
-</div>
+<p>One feature of report building that has always bothered me was adjusting column names in final so I could have something prettier than a series of columns_with_underscores that people who use too much Excel find repulsive.
+The same is true of anyType of CamelCase.
+There is a functionality with <code>dplyr</code> that let’s me manage updating these names through a clean, reversible, and friendly manner.
+I discovered this like a toddler just seeing what could happen if I passed a named vector into a <code>select()</code> function and delighted with the result.
+Weird though because I didn’t remember seeing this in any of the documentation, and when I searched harder through <code>dplyr</code> and <code>tidyselect</code> I found nothing except for a sort of close but not really close enough reference in an <a href="https://github.com/r-lib/tidyselect/blob/master/man/faq/external-vector.Rmd">faq in from <code>tidyselect</code></a> which warns against the use of external vectors.
+However, we should be safeguarded against accidents (and warnings) if we employ <code>all_of()</code> (and <code>any_of()</code>).</p>
+<p>Let’s walk through an example.</p>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>
+Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>The following objects are masked from &#39;package:stats&#39;:
+
+    filter, lag</code></pre>
+<pre><code>The following objects are masked from &#39;package:base&#39;:
+
+    intersect, setdiff, setequal, union</code></pre>
+<p>We’ll use a data set from the <code>psych</code> package that has relatively, very short column names.
+We’ll want to take these and make them a bit more specific without incurring much penalty with ourselves.
+Trying to manage column names with spaces and other special characters can be a real thorn in the index finger.</p>
+<pre class="r"><code>data(&quot;bfi&quot;, package = &quot;psych&quot;)
+sapa &lt;- tibble::as_tibble(bfi)[1:100, c(1:2, 6:7, 11:12, 16:17, 26:28)] # shorter
+sapa</code></pre>
+<pre><code># A tibble: 100 x 11
+      A1    A2    C1    C2    E1    E2    N1    N2 gender education   age
+   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt;     &lt;int&gt; &lt;int&gt;
+ 1     2     4     2     3     3     3     3     4      1        NA    16
+ 2     2     4     5     4     1     1     3     3      2        NA    18
+ 3     5     4     4     5     2     4     4     5      2        NA    17
+ 4     4     4     4     4     5     3     2     5      2        NA    17
+ 5     2     3     4     4     2     2     2     3      1        NA    17
+ 6     6     6     6     6     2     1     3     5      2         3    21
+ 7     2     5     5     4     4     3     1     2      1        NA    18
+ 8     4     3     3     2     3     6     6     3      1         2    19
+ 9     4     3     6     6     5     3     5     5      1         1    19
+10     2     5     6     5     2     2     5     5      2        NA    17
+# ... with 90 more rows</code></pre>
+<p>We can create a named vector to help keep track of the longer, more specific names of our output data.
+The first 8 columns will be renamed and the demographic information will be moved to the start.</p>
+<pre class="r"><code>long_names &lt;- c(
+  &quot;gender&quot;,
+  &quot;education&quot;,
+  &quot;age&quot;,
+  &quot;Indifferent to feelings&quot;      = &quot;A1&quot;,
+  &quot;Inquire about well-being&quot;     = &quot;A2&quot;,
+  &quot;Exacting about work&quot;          = &quot;C1&quot;,
+  &quot;Continue until perfection&quot;    = &quot;C2&quot;,
+  &quot;Don&#39;t talk a lot&quot;             = &quot;E1&quot;,
+  &quot;Difficult to approach others&quot; = &quot;E2&quot;,
+  &quot;Get angry easily&quot;             = &quot;N1&quot;,
+  &quot;Get irritated easily&quot;         = &quot;N2&quot;
+)</code></pre>
+<p>Here’s the typical solution.</p>
+<pre class="r"><code>sapa %&gt;% 
+  select(
+    gender,
+    education,
+    age,
+    `Indifferent to feelings`      = A1,
+    `Inquire about well-being`     = A2,
+    `Exacting about work`          = C1,
+    `Continue until perfection`    = C2,
+    `Don&#39;t talk a lot`             = E1,
+    `Difficult to approach others` = E2,
+    `Get angry easily`             = N1,
+    `Get irritated easily`         = N2
+  )</code></pre>
+<pre><code># A tibble: 100 x 11
+   gender education   age `Indifferent to~ `Inquire about ~ `Exacting about~
+    &lt;int&gt;     &lt;int&gt; &lt;int&gt;            &lt;int&gt;            &lt;int&gt;            &lt;int&gt;
+ 1      1        NA    16                2                4                2
+ 2      2        NA    18                2                4                5
+ 3      2        NA    17                5                4                4
+ 4      2        NA    17                4                4                4
+ 5      1        NA    17                2                3                4
+ 6      2         3    21                6                6                6
+ 7      1        NA    18                2                5                5
+ 8      1         2    19                4                3                3
+ 9      1         1    19                4                3                6
+10      2        NA    17                2                5                6
+# ... with 90 more rows, and 5 more variables: `Continue until
+#   perfection` &lt;int&gt;, `Don&#39;t talk a lot` &lt;int&gt;, `Difficult to approach
+#   others` &lt;int&gt;, `Get angry easily` &lt;int&gt;, `Get irritated easily` &lt;int&gt;</code></pre>
+<p>We can use the <code>tidyselect::all_of()</code> function without as it is reexported with <code>dplyr</code>.</p>
+<pre class="r"><code>sapa %&gt;% 
+  select(all_of(long_names))</code></pre>
+<pre><code># A tibble: 100 x 11
+   gender education   age `Indifferent to~ `Inquire about ~ `Exacting about~
+    &lt;int&gt;     &lt;int&gt; &lt;int&gt;            &lt;int&gt;            &lt;int&gt;            &lt;int&gt;
+ 1      1        NA    16                2                4                2
+ 2      2        NA    18                2                4                5
+ 3      2        NA    17                5                4                4
+ 4      2        NA    17                4                4                4
+ 5      1        NA    17                2                3                4
+ 6      2         3    21                6                6                6
+ 7      1        NA    18                2                5                5
+ 8      1         2    19                4                3                3
+ 9      1         1    19                4                3                6
+10      2        NA    17                2                5                6
+# ... with 90 more rows, and 5 more variables: `Continue until
+#   perfection` &lt;int&gt;, `Don&#39;t talk a lot` &lt;int&gt;, `Difficult to approach
+#   others` &lt;int&gt;, `Get angry easily` &lt;int&gt;, `Get irritated easily` &lt;int&gt;</code></pre>
+<details>
+<p><summary>But is it faster?</summary></p>
+<pre><code># A tibble: 2 x 6
+  expression          min   median `itr/sec` mem_alloc `gc/sec`
+  &lt;bch:expr&gt;     &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
+1 foo_external()   1.99ms   2.65ms      333.    4.55KB     6.24
+2 foo_select()     6.65ms   7.65ms      119.   15.02KB     8.83</code></pre>
+<p>Yes.</p>
+</details>
+<p>We get the same result and don’t need to clog up the piped if we need to do some mutation, grouping, summarising, etc.
+This also lets us separate out definitions of the data in case we need to change things:</p>
+<pre class="r"><code>long_names_less &lt;- long_names[c(1, 3, grep(&quot;about&quot;, names(long_names)))]
+
+sapa %&gt;% 
+  select(all_of(long_names_less))</code></pre>
+<pre><code># A tibble: 100 x 4
+   gender   age `Inquire about well-being` `Exacting about work`
+    &lt;int&gt; &lt;int&gt;                      &lt;int&gt;                 &lt;int&gt;
+ 1      1    16                          4                     2
+ 2      2    18                          4                     5
+ 3      2    17                          4                     4
+ 4      2    17                          4                     4
+ 5      1    17                          3                     4
+ 6      2    21                          6                     6
+ 7      1    18                          5                     5
+ 8      1    19                          3                     3
+ 9      1    19                          3                     6
+10      2    17                          5                     6
+# ... with 90 more rows</code></pre>
+<blockquote>
+<blockquote>
+<p>Using <code>any_of()</code> instead we could essentially pre-define more “programming” and “output” names and pass it to whatever you are working with.
+This has been useful by establishing a saved vector of names and using it across multiple reports to keep our naming convention consistent.</p>
+</blockquote>
+</blockquote>
+<p>We can even write some short functions in case we need to use an output we’ve created before:</p>
+<pre class="r"><code>fill_names &lt;- function(x) {
+  nm &lt;- names(x)
+  blanks &lt;- nm == &quot;&quot;
+  names(x)[blanks] &lt;- x[blanks]
+  x
+}
+
+invert_names &lt;- function(x) {
+  x &lt;- fill_names(x)
+  out &lt;- names(x)
+  names(out) &lt;- x
+  out
+}</code></pre>
+<pre class="r"><code>sapa2 &lt;- sapa %&gt;% select(all_of(long_names))
+
+long_names_inverted &lt;- invert_names(long_names)
+
+sapa2 %&gt;% 
+  select(all_of(long_names_inverted))</code></pre>
+<pre><code># A tibble: 100 x 11
+   gender education   age    A1    A2    C1    C2    E1    E2    N1    N2
+    &lt;int&gt;     &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+ 1      1        NA    16     2     4     2     3     3     3     3     4
+ 2      2        NA    18     2     4     5     4     1     1     3     3
+ 3      2        NA    17     5     4     4     5     2     4     4     5
+ 4      2        NA    17     4     4     4     4     5     3     2     5
+ 5      1        NA    17     2     3     4     4     2     2     2     3
+ 6      2         3    21     6     6     6     6     2     1     3     5
+ 7      1        NA    18     2     5     5     4     4     3     1     2
+ 8      1         2    19     4     3     3     2     3     6     6     3
+ 9      1         1    19     4     3     6     6     5     3     5     5
+10      2        NA    17     2     5     6     5     2     2     5     5
+# ... with 90 more rows</code></pre>
+<p>And now our names are back to normal.</p>
 
     </div>
     <div class="article-footer">
@@ -311,7 +483,7 @@
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="/2020/04/its-alive/" title="It&#39;s Alive" target="_blank" rel="external">/2020/04/its-alive/</a>
+      <a href="/2020/09/dplyr-selector/" title="Selecting columns in dplyr" target="_blank" rel="external">/2020/09/dplyr-selector/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -343,14 +515,9 @@
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="/homepage/about/" title="About"><i
+                <a href="/2020/08/three-ways/" title="Solving one task with three equivalent solutions: for, do.call, vapply"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
-            </li>
-            <li class="next">
-                <a href="/2020/05/dunning-kruger/"
-                    title="Dunning Kruger Effect"><span>Newer&nbsp;&nbsp;</span><i
-                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">

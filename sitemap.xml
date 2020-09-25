@@ -3,115 +3,136 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jmbarbone.github.io/tags/benchmark/</loc>
+    <loc>/categories/</loc>
+    <lastmod>2020-09-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/dplyr/</loc>
+    <lastmod>2020-09-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-09-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-09-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2020-09-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/r-code/</loc>
+    <lastmod>2020-09-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/2020/09/dplyr-selector/</loc>
+    <lastmod>2020-09-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-09-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/tidyselect/</loc>
+    <lastmod>2020-09-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/benchmark/</loc>
     <lastmod>2020-08-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jmbarbone.github.io/categories/</loc>
+    <loc>/2020/08/three-ways/</loc>
     <lastmod>2020-08-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jmbarbone.github.io/</loc>
-    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jmbarbone.github.io/posts/</loc>
-    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jmbarbone.github.io/tags/r/</loc>
-    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jmbarbone.github.io/categories/r-code/</loc>
-    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jmbarbone.github.io/2020/08/three-ways/</loc>
-    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jmbarbone.github.io/tags/</loc>
-    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jmbarbone.github.io/tags/datavis/</loc>
+    <loc>/tags/datavis/</loc>
     <lastmod>2020-05-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jmbarbone.github.io/2020/05/dunning-kruger/</loc>
+    <loc>/2020/05/dunning-kruger/</loc>
     <lastmod>2020-05-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jmbarbone.github.io/tags/psychology/</loc>
+    <loc>/tags/psychology/</loc>
     <lastmod>2020-05-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jmbarbone.github.io/2020/04/its-alive/</loc>
+    <loc>/2020/04/its-alive/</loc>
     <lastmod>2020-04-26T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jmbarbone.github.io/homepage/about/</loc>
+    <loc>/homepage/about/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jmbarbone.github.io/homepage/anthology/</loc>
+    <loc>/homepage/anthology/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jmbarbone.github.io/homepage/cv-resume/</loc>
+    <loc>/homepage/cv-resume/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jmbarbone.github.io/homepage/</loc>
+    <loc>/homepage/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jmbarbone.github.io/series/</loc>
+    <loc>/series/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
