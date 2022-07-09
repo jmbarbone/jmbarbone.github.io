@@ -1,0 +1,18 @@
+---
+title: Site update
+subtitle: Now with quarto!
+date: "2022-07-09"
+categories: [meta]
+---
+
+I finally got around to updating this out-of-date site with some new information in my [About](../../about.qmd) and [Anthology](../../anthology.qmd).
+Even more, I [_nuked_](https://github.com/jmbarbone/jmbarbone.github.io/commit/33400d3a940971764393656e091b7faad6688e7d) the whole thing and remade the website as a [quarto-blog](https://quarto.org/docs/websites/website-blog.html).
+
+I've started using [`{quarto}`](https://quarto.org/) for work reports and have been impressed with some of the functionality.
+While I've spend years with [`{knitr}`](https://yihui.org/knitr/) (thanks Yihui Xie), `{quarto}` feels like a refreshing _re-do_ and feels a little easier to use in some cases.
+One particularly good feature is the [article layout](https://quarto.org/docs/authoring/article-layout.html), which feels particularly easy to use.
+There's an example of this in the [About](../../about.qmd) page where a large graphic is nicely displayed without too much effort.
+This has been very help.
+
+While `{quarto}` feels nice, it still feels a little _fresh_ and it seems some functionality might be pending.
+I've already had to [write a quick wrapper](https://gist.github.com/jmbarbone/ea2a24b724c076ac27da44bfb1b7258e) for an easier replacement to [`rmarkdown::render()`](https://rmarkdown.rstudio.com/docs/reference/render.html).
