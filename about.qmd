@@ -1,0 +1,24 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/jmbarbone
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/jmbarbone
+    - icon: github
+      text: Github
+      href: https://github.com/jmbarbone
+
+---
+
+## Two hash title
+
+About this blog.
+More about this blog.
+
+Even more things.
