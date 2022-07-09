@@ -22,6 +22,10 @@ website:
         href: https://www.researchgate.net/profile/Jordan-Barbone-2
       - icon: google
         href: https://scholar.google.com/citations?user=R6GyUVYAAAAJ&hl=en&oi=ao
+      - icon: flower3
+        href: anthology.html
+      - icon: file-text
+        href: https://github.com/jmbarbone/barbone-cv/blob/master/Barbone-CV.pdf
 format:
   html:
     theme: flatly

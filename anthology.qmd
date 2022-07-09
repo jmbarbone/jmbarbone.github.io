@@ -1,0 +1,115 @@
+---
+title: "Anthology"
+# image: profile.jpg
+subtitle: "Pretty, Pressed Flowers"
+format:
+  html:
+    toc: true
+---
+
+Below you may find links to some academic and professional work I have completed.
+The decision to include papers and presentations from class was not to artificially expand this section but was made to demonstrate the quality of work I aim to put forth.
+
+| | |
+|:-|:-----|
+| **Copyright warning** | _Please note that some material may retain publisher's copyright and these materials have been made available for personal use._ |
+
+_Italicized_ authors represent co-primary authorship.
+
+## Papers
+
+### 2019
+
+**Barbone, J. M.** (2019) [_The effects of participant-selected background music on executive function task performance_](https://www.researchgate.net/publication/332778825_The_effects_of_participant-selected_background_music_on_executive_function_task_performance).  Unpublished Masters thesis.  West Chester University of Pennsylvania.  https://digitalcommons.wcupa.edu/all_theses/42.
+
+Solomon, T. M., **Barbone, J. M.**, Feaster, H. T., & Miller, D.S. (2019) [Pilot validation of an electronic Alzheimer’s Disease Assessment Scale – cognitive subscale (eADAS-cog)](https://www.researchgate.net/publication/333728148_Comparing_the_Standard_and_Electronic_Versions_of_the_Alzheimer's_Disease_Assessment_Scale_-_Cognitive_Subscale_A_Validation_Study). _The Journal of Prevention of Alzheimer's Disease, 6_, 237-241. doi: [10.14283/jpad.2019.27](https://doi.org/10.14283/jpad.2019.27).
+
+### 2018
+
+**Barbone, J. M.** (2018, December) [_Replication in Social Psychology_](https://drive.google.com/open?id=141XT5MjTjY-4xExvXjA9HAwznymOIsQa).  Final paper for Advanced Social Psychology at West Chester University, PA, USA.  [_**University paper**_]
+
+**Barbone, J. M.** (2018, May) [_Emotionally salient music with word list presentation_](https://drive.google.com/open?id=1uUMYXN6061XSiquioZWGTuRI6DgZcMUb).  Final paper/research proposal for Cognitive-Affective Bases of Behavior at West Chester University, PA, USA.  [_**University paper**_]
+
+### 2017
+
+**Barbone, J. M.** (2017, December) [_On music and language: Benefits of formal training for school-age children’s literacy and linguistic development_](https://drive.google.com/file/d/1T7-iJ6x6m0It_IJ2NMq_x7jKZfGsMbZS/view).  Final paper for Developmental Bases of Psychology at West Chester University, PA, USA. [_**University paper**_]
+
+**Barbone, J. M.** (2017, June) [_A scale for rating the need  of control in social settings: Initial development and reliability_](https://drive.google.com/open?id=0B_tRibdNORNJNkJEXzRwVGlhSVE).  Final paper for Psychometrics at West Chester University, PA, USA. [_**University paper**_]
+
+Irani, F., **Barbone, J. M.**, Beausoleil, J., & Gerald, L. B. (2017) [Is asthma associated with impaired cognition? A meta-analytic review](https://www.google.com/url?q=https://drive.google.com/open%3Fid%3D0B_tRibdNORNJVTA0bUl3QlNWWWs&ust=1537119840000000&usg=AFQjCNHS3wEydjulM8Ip0ELinHfbuKazbw&hl=en). _Journal of Clinical and Experimental Neuropsychology, 39_(10), 956-978. doi: [10.1080/13803395.2017.1288802](https://doi.org/10.1080/13803395.2017.1288802).
+
+## Presentations
+
+### 2018
+
+**Barbone, J. M.** (2018, December) [_Replication in Social Psychology_](https://jmbarbone.github.io/psy609/fdsp_presentation#1).  Slides presented for Advanced Social Psychology at West Chester University of Pennsylvania, PA, USA. [_**University presentation**_]
+
+Wessels, A. M., **Barbone, J. M.**, DiGregorio, D. T., Miller, D. S., Mullen, J. A., & Sims, J. R. (2018, October) _Lanabecestat: Rater performance and error characteristics of efficacy assessments in the DAYBREAK-ALK study_.  Slides presented at Clinical Trials for Alzheimer’s Disease, Barcelona, Spain.
+
+**Barbone, J. M.** (2018, May) [_Music, Memory, and Emotion_](https://drive.google.com/open?id=1uuGC-Kkt9ZRtpLFyL7uzn-HCoLnhIs_A4U8Z9i6R9Jg).  Slides presented for Cognitive-Affective Basis of Behavior at West Chester Unviversity of Pennsylvania, PA, USA. [_**University presentation**_]
+
+**Barbone, J. M.** (2018, April) [_Efficacy of PECS in children with ASD and severe language impairment_](https://drive.google.com/open?id=14v-OrqkYqNiv6VE9Kb1N6VM5e59DPWPi).  Slides presented for Issues in Autism at West Chester University of Pennsylvania, PA, USA. [_**University presentation**_]. [Part I](https://drive.google.com/open?id=1HtLLQ2SmyqE32N6rMpzyQcxggKF-F2dj). [Part III](https://drive.google.com/open?id=1X4RZoq57UTOjqW4Y6ehhCiLnpVhyWe0m).
+
+_Note_: the above presentation reported on results from a hypothetical study.
+
+### 2017
+
+**Barbone, J. M.** & Griffing, C. (2017, November) [_The effect of drug use and pregnancy_](https://drive.google.com/open?id=1Fpj-4wN0uW14gpKpcsplUIKL64gd57NbjEI8uzsMSaM).  Slides presented for Developmental Bases of Psychology at West Chester University of Pennsylvania, PA, USA. [_**University presentation**_]
+
+### 2015
+
+Irani, F., **Barbone, J. M.**, & Beausoleil, J. (2015, August) [_The impact of asthma on cognitive functioning_](https://www.researchgate.net/publication/319271343_Abstract_The_impact_of_asthma_on_cognitive_functioning?_sg=OkDiZKP7cVjIQZqeuSpRGIltjSLEPsB0GT86QX1LeE7vXbi0zLvA-jgCOkRSmtg-XKT7J7ZKS5tjXQHXNwB1X5oaURb6rHz3MEyRPE5u.i60iCDy1C_D49Y4Am2iksn_71Vq1DCYX-h4-_RCwV5RVpACYNZEzfjhTUlPEyabNBRS5wAqm_BA5TvMgY4WTEw).  Slides presented at the American Psychological Association Convention, Toronto, Canada.
+
+## Posters
+
+### 2019
+
+Feaster, H. T., **Barbone, J. M.**, Miller, D. S., & Solomon, T. M. (2019, July) [_Rater remediation on the ADAS-cog leads to longitudinal improvement in clinical trial data quality_](https://www.researchgate.net/publication/336662510_RATER_REMEDIATION_ON_THE_ADAS-COG_LEADS_TO_LONGITUDINAL_IMPROVEMENT_IN_CLINICAL_TRIAL_DATA_QUALITY). Poster to be presented at the Alzheimer’s Association International Conference (AAIC), Los Angeles, C.A., USA.
+
+Karas, S. M, **Barbone**, J. M., Hong, B., Solomon, T. M., & Feaster, H. T. (2019, July) [_Impact of data quality programs on MMSE inclusion criteria in Alzheimer’s disease clinical research trials_](https://www.researchgate.net/publication/336644754_IMPACT_OF_DATA_QUALITY_PROGRAMS_ON_MMSE_INCLUSION_CRITERIA_IN_ALZHEIMER'S_DISEASE_CLINICAL_RESEARCH_TRIALS). Poster presented at the Alzheimer’s Association International Conference (AAIC), Los Angeles, C.A., USA.
+
+**Solomon, T. M., Feaster, H. T., Karas, S. M., Garcia-Valdecasas Colell, M., **Barbone, J. M.**, DiGregorio, D. T., DeBonis, D., & Miller, D. S. (2019, July) [The evolution of technology in data quality programs for Alzheimer's disease clinical trials: What have we learned and where are we going?](https://www.researchgate.net/publication/336664154_THE_EVOLUTION_OF_TECHNOLOGY_IN_DATA_QUALITY_PROGRAMS_FOR_ALZHEIMER'S_DISEASE_CLINICAL_TRIALS_WHAT_HAVE_WE_LEARNED_AND_WHERE_ARE_WE_GOING).   Poster presented at the Alzheimer’s Association International Conference (AAIC), Los Angeles, C.A., USA.
+
+Olt, J., Khan, R., Feaster, H. T., Solomon, T. M., **Barbone, J. M.**, Platko, J. V., Sanderson, B., Bodart, S., Garner, K. S.,  & Byrom, B. (2019, May) [_clinician training reduces variability in clinician reported outcomes of skin surface symptoms in a dermatology study_](https://www.researchgate.net/publication/334698037_Clinician_training_reduces_variability_in_clinician-reported_outcomes_of_skin_surface_symptoms_in_a_dermatology_study).  Poster presented at ISPOR 2019, New Orleans, L.A., USA.
+
+**Barbone, J. M.** & Shivde, G. (2019, May) [_The effects of participant selected background music on executive task performance_](https://www.researchgate.net/publication/332778750_The_effects_of_participant_selected_background_music_on_executive_task_performance).  Poster presented at the Association for Psychological Science, Washington, D.C., USA.
+
+### 2018
+
+**Barbone, J. M.** (2018, November) [_Trends in self-reported music use while studying: Implications for research_](https://www.researchgate.net/publication/328808418_Trends_in_self-reported_use_of_music_while_studying_Implications_for_research?_sg=yPBq4n1DN_WPJhwrmIsz--2s7b1-dyZbt0qgMlhx97KOLB5j_DgtQm6A80cqBtsT0IVLQc8-tNTwZNdA4U2MZ3DeOFDzNNK3W0wX_4VJ.KnsJVocsAkEX6DUijgJVcoYliwQlG9F0djv7Sy6dINVAsc2yohG2AE5yh4uzEqklz_Ja7f9tU4djl2LFwEaBXQ).  Poster  presented at Research & Creative Activity Day at West Chester University, West Chester, PA, USA.
+
+**Barbone, J. M.**, _Solomon, T. M._, Feaster, H. T., Garcia-Valdecasas Colell, M., & Miller, D. S.  (2018, September) [_MMSE screening data quality for Alzheimer’s disease studies across countries_](https://www.researchgate.net/publication/328304922_MMSE_screening_data_quality_for_Alzheimer's_disease_studies_across_countries?_sg=6q01VXwXMStMuHbJ85w6vEGz9R5Qmh9qgsxBEqiDEUg3QJt_Z5khyhE-Sf7T-svYQE6gthTQ5zU50-LfXa2XueT4JtMsXB_eec3tJOhH.StW8q5ZX5oYXLKrgAAaMwYZGAIQu8WLbRSWK4e9jJz7j6rAojd5s7umqEZX7oGa6-1hAUaP0bEFnBgaZcb2eVw.)  Poster presented at Clinical Trials for Alzheimer’s Disease, Barcelona, Spain.
+
+Garcia-Valdecasas Colell, M., _**Barbone, J. M.**_, Solomon, T. M., Feaster, H. T., Tott, N., & Miller, D. S. (2018, September) _Identifying the impact of rater change on Mini-mental State Examination and Clinical Dementia Rating scale data in multi-national Alzheimer’s disease clinical trials_.  Poster presented at Clinical Trials for Alzheimer’s Disease, Barcelona, Spain.  [Link pending](https://www.researchgate.net/publication/328304937_Identifying_impact_of_rater_change_on_MMSE_and_CDR_data_in_multi-national_Alzheimer's_disease_clinical_trials?_sg=6q01VXwXMStMuHbJ85w6vEGz9R5Qmh9qgsxBEqiDEUg3QJt_Z5khyhE-Sf7T-svYQE6gthTQ5zU50-LfXa2XueT4JtMsXB_eec3tJOhH.StW8q5ZX5oYXLKrgAAaMwYZGAIQu8WLbRSWK4e9jJz7j6rAojd5s7umqEZX7oGa6-1hAUaP0bEFnBgaZcb2eVw).
+
+Solomon, T. M., _**Barbone, J. M.**_, Feaster, H. T., Garcia-Valdecases Colell, M., DiGregorio, D. T., Karas, S. M., Maddock, M. R., & Miller, D. S. (2018, September).  [_The presence of identical scoring on the MMSE and ADCS-ADL in Alzheimer’s disease clinical trials using enhanced electronic Clinical Outcome Assessment (eCOA) devices_](https://www.researchgate.net/publication/328304499_The_presence_of_identical_scoring_on_the_MMSE_and_ADCS-ADL_in_Alzheimer's_disease_clinical_trials_using_enhanced_eCOA_devices?_sg=6q01VXwXMStMuHbJ85w6vEGz9R5Qmh9qgsxBEqiDEUg3QJt_Z5khyhE-Sf7T-svYQE6gthTQ5zU50-LfXa2XueT4JtMsXB_eec3tJOhH.StW8q5ZX5oYXLKrgAAaMwYZGAIQu8WLbRSWK4e9jJz7j6rAojd5s7umqEZX7oGa6-1hAUaP0bEFnBgaZcb2eVw).  Poster presented at Clinical Trials for Alzheimer’s Disease, Barcelona, Spain.
+
+Karas, S. M., _**Barbone, J. M.**_, DeBonis, D., & Solomon, T. M. (2018, July).  [_The use of statistical modeling to complement data quality programs_](https://www.researchgate.net/publication/326694122_The_use_of_statistical_modeling_to_complement_data_quality_programs?_sg=giW8c_1natjshu3AWiVtdjuA_lraY7JSvhY3XeDH-B32Ah8e-I-iQj_D_VXtIX6rzkE2il57oyt0eSHq_5e40FP_q-gpNd1evvbUx7aW.yU-7xbCMfQGqBk0Id7yFu8gFTTIYwqY2jgrRzbpJwQJ2TuhFzr6WjzHRCZ-HEUJT61-DqEeQEU19kWScPIkiUQ). Poster presented at the Alzheimer’s Disease Association International Conference, Chicago, IL, USA.
+
+Feaster, H. T., **Barbone, J. M.**, Garcia-Valdecasas Colell, M., Miller, D. S., & Solomon, T. M. (2018, July).  [_Electronic ADAS-Cog (eADAS-Cog) data quality: How do countries compare?_](https://www.researchgate.net/publication/326786385_Electronic_ADAS-Cog_eADAS-Cog_data_quality_How_do_countries_compare?_sg=wnr73oOSPGkdwqMr0JfUntdIEddSEjkBGMT62LYvYEAcxaMtHihfuusOc8dR6KD7fLLJFtozvrh7Rzesya_uPnnzurFMaqO95ftGJd5J.p42op0TqMxzIL1aYNEu0cDLL4TASiBQyTqoS-3CPxJ-us8r8WwBS7LoOCSFBg5ophLj8zB6JCYUjDuFhRmTyXg) Poster presented at the Alzheimer’s Disease Association International Conference, Chicago, IL, USA.
+
+Solomon, T. M., **Barbone, J. M.**, Miller, D. S., & Feaster, H. T. (2018, July) [_Pilot validation of an electronic Alzheimer’s Disease Assessment Scale – Cognitive subscale (eADAS-Cog)_](https://www.researchgate.net/publication/326693870_Pilot_Validation_of_an_Electronic_Alzheimer's_Disease_Assessment_Scale_-_Cognitive_Subscale_eADAS-Cog?_sg=giW8c_1natjshu3AWiVtdjuA_lraY7JSvhY3XeDH-B32Ah8e-I-iQj_D_VXtIX6rzkE2il57oyt0eSHq_5e40FP_q-gpNd1evvbUx7aW.yU-7xbCMfQGqBk0Id7yFu8gFTTIYwqY2jgrRzbpJwQJ2TuhFzr6WjzHRCZ-HEUJT61-DqEeQEU19kWScPIkiUQ).  Poster presented at the Alzheimer’s Disease Association International Conference, Chicago, IL, USA.
+
+Solomon, T. M., Karas, S. M., **Barbone, J. M.**, DiGregorio, D. T., Miller, D. S., & Feaster, H. T.  (2018, July) [_Analysis of the rates and types of errors on enhanced eCOA version of the Alzheimer’s Disease Assessment Scale – Cognitive Subscale and Mini-Mental State Examination used in clinical trials of dementia_](https://www.researchgate.net/publication/326694114_Analysis_of_the_rates_and_types_of_errors_on_the_enhanced_eCOA_version_of_the_Alzheimer's_Disease_Assessment_Scale_-_Cognitive_subscale_and_Mini-mental_State_Examination_used_in_dementia_clinical_tria?_sg=giW8c_1natjshu3AWiVtdjuA_lraY7JSvhY3XeDH-B32Ah8e-I-iQj_D_VXtIX6rzkE2il57oyt0eSHq_5e40FP_q-gpNd1evvbUx7aW.yU-7xbCMfQGqBk0Id7yFu8gFTTIYwqY2jgrRzbpJwQJ2TuhFzr6WjzHRCZ-HEUJT61-DqEeQEU19kWScPIkiUQ).  Poster presented at the Alzheimer’s Association International Conference, Chicago, IL, USA.
+
+Seichepine, D. R., Solomon, T. M., Jacobs, E. B., **Barbone, J. M.**, DiGregorio, D. T., & Miller, D. S. (2018, February) [_Comparison between flat and enhanced eCOA of MMSE Attention and Calculation in clinical trials of Alzheimer’s disease_](https://www.researchgate.net/publication/323126441_Comparison_between_flat_and_enhanced_eCOA_of_MMSE_Attention_and_Calculation_in_clinical_trials_of_Alzheimer's_disease?_sg=OkDiZKP7cVjIQZqeuSpRGIltjSLEPsB0GT86QX1LeE7vXbi0zLvA-jgCOkRSmtg-XKT7J7ZKS5tjXQHXNwB1X5oaURb6rHz3MEyRPE5u.i60iCDy1C_D49Y4Am2iksn_71Vq1DCYX-h4-_RCwV5RVpACYNZEzfjhTUlPEyabNBRS5wAqm_BA5TvMgY4WTEw).  Poster presented at the International Society for CNS Clinical Trials and Methodology Autumn 14th Annual Scientific Meeting, Washington, DC, USA.
+
+### 2017
+
+Enger, B. & _**Barbone, J. M.**_ (2017, November) [_Distribution of performance and incorrect ratings in qualification video scoring_](https://www.researchgate.net/publication/321293341_Distribution_of_performance_and_incorrect_ratings_in_qualification_video_scoring?_sg=OkDiZKP7cVjIQZqeuSpRGIltjSLEPsB0GT86QX1LeE7vXbi0zLvA-jgCOkRSmtg-XKT7J7ZKS5tjXQHXNwB1X5oaURb6rHz3MEyRPE5u.i60iCDy1C_D49Y4Am2iksn_71Vq1DCYX-h4-_RCwV5RVpACYNZEzfjhTUlPEyabNBRS5wAqm_BA5TvMgY4WTEw).  Poster presented at CNS Summit, Boca Raton, FL, USA.
+
+Solomon, T. M, Feaster, H .T., **Barbone, J. M.**, & Miller, D. S. (2017, November) [_Utilizing audio review to improve ADCS-ADL data quality_](https://www.researchgate.net/publication/319271153_Utilizing_audio_review_to_improve_ADCS-ADL_data_quality?_sg=OkDiZKP7cVjIQZqeuSpRGIltjSLEPsB0GT86QX1LeE7vXbi0zLvA-jgCOkRSmtg-XKT7J7ZKS5tjXQHXNwB1X5oaURb6rHz3MEyRPE5u.i60iCDy1C_D49Y4Am2iksn_71Vq1DCYX-h4-_RCwV5RVpACYNZEzfjhTUlPEyabNBRS5wAqm_BA5TvMgY4WTEw).  Poster presented at Clinical Trials on Alzheimer's Disease, Boston, MA, USA.
+
+Solomon, T. M., **Barbone, J. M.**, Karas, S. M, & Feaster, H. T. (2017, November) [_Longitudinal impact of audio review on data quality_](https://www.researchgate.net/publication/319271153_Utilizing_audio_review_to_improve_ADCS-ADL_data_quality?_sg=OkDiZKP7cVjIQZqeuSpRGIltjSLEPsB0GT86QX1LeE7vXbi0zLvA-jgCOkRSmtg-XKT7J7ZKS5tjXQHXNwB1X5oaURb6rHz3MEyRPE5u.i60iCDy1C_D49Y4Am2iksn_71Vq1DCYX-h4-_RCwV5RVpACYNZEzfjhTUlPEyabNBRS5wAqm_BA5TvMgY4WTEw). Poster presented at the Clinical Trials on Alzheimer's Disease, Boston, MA, USA.
+
+Feaster, H. T., Solomon, T. M., Abi-Saab, D., Vogt, A., **Barbone, J. M.**, Harrison, J., & Miller, D. S. (2017, July) [_The impact of electronic clinical outcome assessments (eCOA) on Alzheimer’s disease clinical trial data quality_](https://www.researchgate.net/publication/319271323_The_impact_of_clinical_outcome_assessments_eCOA_on_Alzheimer's_disease_clinical_trial_data_quality?_sg=OkDiZKP7cVjIQZqeuSpRGIltjSLEPsB0GT86QX1LeE7vXbi0zLvA-jgCOkRSmtg-XKT7J7ZKS5tjXQHXNwB1X5oaURb6rHz3MEyRPE5u.i60iCDy1C_D49Y4Am2iksn_71Vq1DCYX-h4-_RCwV5RVpACYNZEzfjhTUlPEyabNBRS5wAqm_BA5TvMgY4WTEw).  Poster to be presented at the Alzheimer's Association International Conference, London, England, UK.
+
+Feaster, H. T., Solomon, T. M., **Barbone, J. M.**, & Miller, D. S. (2017, May) [_Using iterative user experience design to improve electronic clinical outcomes assessment data quality_](https://www.researchgate.net/publication/319271075_Using_Iterative_User_Experience_Design_to_Improve_Electronic_Clinical_Outcomes_Assessment_Data_Quality?_sg=OkDiZKP7cVjIQZqeuSpRGIltjSLEPsB0GT86QX1LeE7vXbi0zLvA-jgCOkRSmtg-XKT7J7ZKS5tjXQHXNwB1X5oaURb6rHz3MEyRPE5u.i60iCDy1C_D49Y4Am2iksn_71Vq1DCYX-h4-_RCwV5RVpACYNZEzfjhTUlPEyabNBRS5wAqm_BA5TvMgY4WTEw).  Poster presented at the International Society for Pharmacoeconomics and Outcomes Research, Boston, MA, USA.
+
+### 2015
+
+**Barbone, J. M.**, Saxena, S. & Irani, F. (2015, August) [_Does asthma effect neuropsychological performance?  A meta-analysis_](https://www.researchgate.net/publication/319271263_Does_asthma_effect_neuropsychological_performance_A_meta-analysis?_sg=OkDiZKP7cVjIQZqeuSpRGIltjSLEPsB0GT86QX1LeE7vXbi0zLvA-jgCOkRSmtg-XKT7J7ZKS5tjXQHXNwB1X5oaURb6rHz3MEyRPE5u.i60iCDy1C_D49Y4Am2iksn_71Vq1DCYX-h4-_RCwV5RVpACYNZEzfjhTUlPEyabNBRS5wAqm_BA5TvMgY4WTEw).  Poster presented at the American Psychological Association Convention Program, Toronto, Canada.
+
+Mulligan, R. D., **Barbone, J. M.**, Saxena, S., Carey, D., & Clappsy, J. (2015, April) [_Asthma cognition data collection_](https://www.researchgate.net/publication/319271254_Asthma_cognition_data_collection?_sg=OkDiZKP7cVjIQZqeuSpRGIltjSLEPsB0GT86QX1LeE7vXbi0zLvA-jgCOkRSmtg-XKT7J7ZKS5tjXQHXNwB1X5oaURb6rHz3MEyRPE5u.i60iCDy1C_D49Y4Am2iksn_71Vq1DCYX-h4-_RCwV5RVpACYNZEzfjhTUlPEyabNBRS5wAqm_BA5TvMgY4WTEw).  Poster presented at West Chester University's Psychology Research Day, West Chester, PA, USA.
+
+**Barbone, J. M.**, Saxena, S., & Irani, F. (2015, March) [_Neuropsychological performance in individuals with asthma: two meta-analyses_](https://www.researchgate.net/publication/319271100_Neuropsychological_performance_in_individuals_with_asthma_Two_meta-analyses?_sg=OkDiZKP7cVjIQZqeuSpRGIltjSLEPsB0GT86QX1LeE7vXbi0zLvA-jgCOkRSmtg-XKT7J7ZKS5tjXQHXNwB1X5oaURb6rHz3MEyRPE5u.i60iCDy1C_D49Y4Am2iksn_71Vq1DCYX-h4-_RCwV5RVpACYNZEzfjhTUlPEyabNBRS5wAqm_BA5TvMgY4WTEw).  Poster presented at the Eastern Psychological Association Conference, Philadelphia, PA, USA.
