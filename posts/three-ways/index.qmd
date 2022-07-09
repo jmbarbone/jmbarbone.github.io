@@ -1,7 +1,8 @@
 ---
-title: "Solving one task with three equivalent solutions: for, do.call, vapply"
+title: Solving one task with three equivalent solutions
+subtitle: "`for`, `do.call`, `vapply`"
 date: "2020-08-05"
-categories: ["R", "benchmark"]
+categories: ["R", "{bench}"]
 ---
 
 I can spend a lot of time trying in futility to optimize custom functions and code.

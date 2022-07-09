@@ -1,6 +1,8 @@
 ---
-title: "It's Alive"
+title: It's alive!
+subtitle: First
 date: "2020-04-26"
+categories: [meta]
 ---
 
 ## It's Alive

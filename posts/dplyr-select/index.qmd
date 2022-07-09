@@ -1,7 +1,8 @@
 ---
-title: "Selecting columns in dplyr"
+title: "Selecting columns in `{dplyr}`"
+subtitle: Quick tips
 date: "2020-09-24"
-categories: ["R", "dplyr", "tidyselect"]
+categories: ["R", "{dplyr}", "{tidyselect}"]
 ---
 
 
