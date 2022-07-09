@@ -1,82 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>JM Barbone</title>
-    <link>https://jmbarbone.github.io/</link>
-    <description>Recent content on JM Barbone</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 24 Sep 2020 00:00:00 +0000</lastBuildDate>
-    
-        <atom:link href="https://jmbarbone.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Selecting columns in dplyr</title>
-      <link>https://jmbarbone.github.io/2020/09/dplyr-selector/</link>
-      <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jmbarbone.github.io/2020/09/dplyr-selector/</guid>
-      <description>One feature of report building that has always bothered me was adjusting column names in final so I could have something prettier than a series of columns_with_underscores that people who use too much Excel find repulsive.The same is true of anyType of CamelCase.There is a functionality with dplyr that let’s me manage updating these names through a clean, reversible, and friendly manner.I discovered this like a toddler just seeing what could happen if I passed a named vector into a select() function and delighted with the result.</description>
-    </item>
-    
-    <item>
-      <title>Solving one task with three equivalent solutions: for, do.call, vapply</title>
-      <link>https://jmbarbone.github.io/2020/08/three-ways/</link>
-      <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jmbarbone.github.io/2020/08/three-ways/</guid>
-      <description>I can spend a lot of time trying in futility to optimize custom functions and code.I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose.</description>
-    </item>
-    
-    <item>
-      <title>Dunning Kruger Effect</title>
-      <link>https://jmbarbone.github.io/2020/05/dunning-kruger/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jmbarbone.github.io/2020/05/dunning-kruger/</guid>
-      <description>Note: I originally wrote this in February 2019.Also, don’t hate me for putting some links to Wikipedia, you were going to go there anyway.This isn’t a research paper.
-IntroductionIn my Organization Psychology graduate class at West Chester University, one of our assigned readings (among others) for our week on emotions and moods was (Sheldon, Dunning, and Ames 2014).This article focused on another finding relating to the Dunning-Kruger effect in the workplace.</description>
-    </item>
-    
-    <item>
-      <title>It&#39;s Alive</title>
-      <link>https://jmbarbone.github.io/2020/04/its-alive/</link>
-      <pubDate>Sun, 26 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jmbarbone.github.io/2020/04/its-alive/</guid>
-      <description>It’s AliveFirst post. Just testing, right?
-</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://jmbarbone.github.io/homepage/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jmbarbone.github.io/homepage/about/</guid>
-      <description>Visual above made with Nathaniel Phillip’s VisualResume.
-I am currently working as the Principal Data Analyst for Madrigal Pharmaceuticals, helping our Research &amp;amp; Development team monitor our current trials and prepare summary reports.I started learning R in my gradate statistics classes to avoid the future pains of having to use or only being familiar with SPSS.Learning R then launched me into a bigger role at Bracket (now Signant Health) where I had the pleasure to work with our Clinical Science team to understand and interpret their data.</description>
-    </item>
-    
-    <item>
-      <title>Anthology</title>
-      <link>https://jmbarbone.github.io/homepage/anthology/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jmbarbone.github.io/homepage/anthology/</guid>
-      <description>Papers201920182017Presentations201820172015Posters2019201820172015Below you may find links to some academic and professional work I have completed.The decision to include papers and presentations from class was not to artificially expand this section but was made to demonstrate the quality of work I aim to put forth.
-Copyright warningPlease note that some material may retain publisher’s copyright and these materials have been made available for personal use.</description>
-    </item>
-    
-    <item>
-      <title>Curriculum vitae</title>
-      <link>https://jmbarbone.github.io/homepage/cv-resume/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jmbarbone.github.io/homepage/cv-resume/</guid>
-      <description>Hosted and saved at github.com/jmbarbone/barbone-cv
- --</description>
-    </item>
-    
-  </channel>
-</rss>
