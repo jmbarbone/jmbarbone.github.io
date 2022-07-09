@@ -1,6 +1,5 @@
 ---
 title: "About"
-# image: profile.jpg
 about:
   template: jolla
   links:
@@ -13,7 +12,6 @@ about:
     - icon: github
       text: Github
       href: https://github.com/jmbarbone
-
 ---
 
 ```{r}
@@ -85,11 +83,15 @@ Visual above made with [Nathaniel Phillip's VisualResume](https://github.com/ndp
 
 <!-- # TODO update for Cogstate -->
 
-I am currently working as the Principal Data Analyst for [Madrigal Pharmaceuticals](https://madrigalpharma.com/), helping our Research & Development team monitor our current trials and prepare summary reports.
+I am currently working as a Data Scientist at [Cogstate](https://cogstate.com) where I get to work with our Science and Data teams work with outcomes from computerized, cognitive assessments and other outcomes data (e.g., COA, ClinRO, PRO).
+
 I started learning R in my gradate statistics classes to avoid the future pains of having to use or only being familiar with SPSS.
 Learning R then launched me into a bigger role at Bracket (now [Signant Health](https://signanthealth.com/)) where I had the pleasure to work with our Clinical Science team to understand and interpret their data.
 This gave us the opportunity to learn more about our technologies, approaches, and quality of reporting in the clinical trials we were assisting.
 Here I was a charter member of the Data Science team and have the pleasure of enhancing our trial monitoring products, training other Data Science programmers, and contributing to automation and reporting efforts of our Clinical Data Management team.
+I worked as the Principal Data Analyst for [Madrigal Pharmaceuticals](https://madrigalpharma.com/), helping our Research & Development team monitor our current trials and prepare summary reports.
+This was a bit of a departure for me to work with more lab and imaging data and in an area I didn't have any experience: liver disease.
+Despite that, there were plenty of data I recognized: from clinical operations, data management, and even some interested PRO QoL data.
 
 I have a Masters of Art in Psychology and have spent my graduate and undergrad classes engaging in Neuropsychology and Cognitive topics.
 Some of these topics have included understanding how music affects our ability on tests of aptitude.

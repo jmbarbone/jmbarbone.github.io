@@ -10,7 +10,8 @@ website:
   title: "J M Barbone"
   navbar:
     right:
-      - about.qmd
+      - icon: person-circle
+        href: about.html
       - icon: github
         href: https://github.com/jmbarbone
       - icon: twitter
