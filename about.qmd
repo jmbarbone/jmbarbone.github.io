@@ -1,7 +1,7 @@
 ---
 title: "About"
 about:
-  template: jolla
+  template: marquee
   links:
     - icon: twitter
       text: Twitter
@@ -19,11 +19,22 @@ about:
 #| column: screen-inset-shaded
 #| message: false
 #| fig-width: 12
-#| fig-height: 6
+#| fig-height: 8
+#| fig-align: center
 
-# TODO update visual resume with Cogstate info
+now_ym <- function() {
+  now <- Sys.Date()
+  year <- as.double(format(now, "%Y"))
+  month <- as.double(format(now, "%m"))
+  year + round(month / 12, 2)
+}
+
+now_year1 <- function() {
+  as.double(format(Sys.Date(), "%Y")) + 1.0
+}
+
 VisualResume::VisualResume(
-  titles.left      = c("Jordan Mark Barbone, M.A.", "R Programmer", "Data Analyst"),
+  titles.left      = c("Jordan Mark Barbone, M.A.", "R Developer", "Scientist, Data"),
   titles.left.cex  = c(3, 2, 2),
   titles.right     = c("", ""),
   titles.right.cex = c(1, 1),
@@ -39,7 +50,8 @@ VisualResume::VisualResume(
     "WCU",                      "Grad Psych Student",       1,     2017.75, 2019.50,
     "Bracket",                  "Clinical Data Specialist", 0,     2018.00, 2019.00,
     "Signant Health",           "Clinical Data Scientist",  0,     2019.00, 2019.92,
-    "Madrigal Pharmaceuticals", "Principal Data Analyst",   0,     2019.92, 2021.00
+    "Madrigal Pharmaceuticals", "Principal Data Analyst",   0,     2019.92, 2021.50,
+    "Cogstate Ltd",             "Data Scientist",           0,     2021.50, now_year1()
   )),
   timeline.cex = c(1.1, 0.95),
   milestones = tibble::tribble(
@@ -52,15 +64,16 @@ VisualResume::VisualResume(
     2016.50, "Adopted Buckley, the best black lab",
     2017.33, paste("Irani, Barbone, Beausoleil, & Gerald (2017)",
                    "Is asthma associated with impaired cognition?",
-                   "J Clin Exp Neuropsych",
                    sep = "\n"),
     # 2018.50, "Made this website",
     2019.00, "Charter Member of Data Science Team",
     2019.25, paste("Solomon, Barbone, et al. (2019)",
-                   "Comparing the standard and electronic versions of the",
-                   "ADAS-cog:  A validation study - JPAD",
+                   "Comparing the standard and electronic versions of the ADAS-cog ",
                    sep = "\n"),
-    # TODO add QoL paper
+    2021.50, "First R package on CRAN: {mark}",
+    2021.58, paste("Younossi, et al. (2021)",
+                   "Hepatic fat reduction ... in patients with NASH ... improvement of QoL",
+                   sep = "\n")
   )),
   events.cex = 1.25,
   interests = list(
@@ -80,8 +93,6 @@ VisualResume::VisualResume(
 ```
 
 Visual above made with [Nathaniel Phillip's VisualResume](https://github.com/ndphillips/VisualResume).
-
-<!-- # TODO update for Cogstate -->
 
 I am currently working as a Data Scientist at [Cogstate](https://cogstate.com) where I get to work with our Science and Data teams work with outcomes from computerized, cognitive assessments and other outcomes data (e.g., COA, ClinRO, PRO).
 
