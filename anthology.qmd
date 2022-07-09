@@ -18,6 +18,10 @@ _Italicized_ authors represent co-primary authorship.
 
 ## Papers
 
+### 2021
+
+Younossi, Z. M., Stepanova, M., Taub, R. A., **Barbone, J. M.**, & Harrison, S. A. (2021) [_Hepatic fat reduction due to resmetirom in patients with nonalcoholic steatohepatitis is associated with improvement of quality of life_](https://dx.doi.org/10.1016/j.cgh.2021.07.039).
+
 ### 2019
 
 **Barbone, J. M.** (2019) [_The effects of participant-selected background music on executive function task performance_](https://www.researchgate.net/publication/332778825_The_effects_of_participant-selected_background_music_on_executive_function_task_performance).  Unpublished Masters thesis.  West Chester University of Pennsylvania.  https://digitalcommons.wcupa.edu/all_theses/42.
@@ -61,6 +65,18 @@ _Note_: the above presentation reported on results from a hypothetical study.
 Irani, F., **Barbone, J. M.**, & Beausoleil, J. (2015, August) [_The impact of asthma on cognitive functioning_](https://www.researchgate.net/publication/319271343_Abstract_The_impact_of_asthma_on_cognitive_functioning?_sg=OkDiZKP7cVjIQZqeuSpRGIltjSLEPsB0GT86QX1LeE7vXbi0zLvA-jgCOkRSmtg-XKT7J7ZKS5tjXQHXNwB1X5oaURb6rHz3MEyRPE5u.i60iCDy1C_D49Y4Am2iksn_71Vq1DCYX-h4-_RCwV5RVpACYNZEzfjhTUlPEyabNBRS5wAqm_BA5TvMgY4WTEw).  Slides presented at the American Psychological Association Convention, Toronto, Canada.
 
 ## Posters
+
+### 2020
+
+Harrison, S. A., Taub, R. A. Karsdal, M. A., Franc, J. Bashir, M. R., **Barbone, J. M.**, Neff, G., Gunn, N. T., & Moussa, S. (2020, November). [_Algorithm for predicting advanced NASH fibrosis on screening biopsy in resmetirom phase 3 MAESTRO-NASH clinical trial_](https://aasld.confex.com/aasld/2020/meetingapp.cgi/Paper/22418).  Poster presented at the AASLD Liver Meeting Digit Experience conference.
+
+Younossi, Z. M., Stepanova, M., Taub, R. A., **Barbone, J. M.**, Moussa, S., Harrison, S. A. (2020, November) [_Improvement of health-related quality of life is associated with improvement of fat fraction by MRI-PDFF in patients with nonalcoholic steatohepatitis treated with resmetirom_](https://aasld.confex.com/aasld/2020/meetingapp.cgi/Paper/21174).  Poster presented at the AASLD Liver Meeting Digit Experience conference.
+
+Roy, M, Brown, J., Hong, B, Benecke, R., Chen-Tackett, Z., Zhou, W., **Barbone, J. M.**, Feaster, H. T., & Sachs G. (2020, September) [_eCOA prompted MADRS interview: Balancing through assessment and efficiency_](https://isctm.org/public_access/Autumn2020/Abstracts/Roy_Abstract.pdf).  Poster presented at ISCTM.
+
+Crittenden, K., Machizawa, S., Feaster, H. T., **Barbone, J. M.**, Hong, B., Verma, P., and Zhou, W. (2021, April) [_Cross-Cultural differences in PANSS item ratings: Comparisons of six geo-cultural regions_](https://www.researchgate.net/publication/341467760_S37_CROSS-CULTURAL_DIFFERENCES_IN_PANSS_ITEM_RATINGS_COMPARISONS_OF_SIX_GEO-CULTURAL_REGIONS).  Poster presented at the 2020 Schizophrenia International Research Society (SIRS) Conference, Florence, Italy.
+
+Harrison, S. A., Taub, R. A, **Barbone, J. M.**, Franc, J., & Karsdal, M. A. (2020, March) [_Resmetirom, a beta selective thyroid hormone receptor agonist, reduces net collagen III deposition in nonalcoholic Steatohepatitis_](). Poster to have been presented at American Association for the Study of Liver Diseases (AASLD) Emerging Topic Conference 2020, Nuclear Receptors in Nonalcoholic Fatty Liver Diseases (conference cancelled).
 
 ### 2019
 
