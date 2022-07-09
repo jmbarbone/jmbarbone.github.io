@@ -1,6 +1,6 @@
 ---
 title: "About"
-image: profile.jpg
+# image: profile.jpg
 about:
   template: jolla
   links:
@@ -16,9 +16,86 @@ about:
 
 ---
 
-## Two hash title
+```{r}
+#| echo: false
+#| column: screen-inset-shaded
+#| message: false
+#| fig-width: 12
+#| fig-height: 6
 
-About this blog.
-More about this blog.
+# TODO update visual resume with Cogstate info
+VisualResume::VisualResume(
+  titles.left      = c("Jordan Mark Barbone, M.A.", "R Programmer", "Data Analyst"),
+  titles.left.cex  = c(3, 2, 2),
+  titles.right     = c("", ""),
+  titles.right.cex = c(1, 1),
+  timeline.labels  = c("Education/Academic",
+                       "Work/Professional"),
+  timeline = as.data.frame(tibble::tribble(
+    ~title,                     ~sub,                       ~side, ~start,  ~end,
+    "WCU",                      "UG Psych Student",         1,     2011.75, 2015.50,
+    "LARC",                     "Writing Tutor",            1,     2014.75, 2015.50,
+    "Bracket",                  "Clinical Assistant",       0,     2015.75, 2016.50,
+    "Bracket",                  "Clinical Associate",       0,     2016.50, 2018.00,
+    "WCU",                      "Non-degree Grad Student",  1,     2016.75, 2017.75,
+    "WCU",                      "Grad Psych Student",       1,     2017.75, 2019.50,
+    "Bracket",                  "Clinical Data Specialist", 0,     2018.00, 2019.00,
+    "Signant Health",           "Clinical Data Scientist",  0,     2019.00, 2019.92,
+    "Madrigal Pharmaceuticals", "Principal Data Analyst",   0,     2019.92, 2021.00
+  )),
+  timeline.cex = c(1.1, 0.95),
+  milestones = tibble::tribble(
+    ~title,            ~sub,                        ~year,
+    "Bachelor of Art", "Psychology, minor Biology", 2015.50,
+    "Master of Art",   "General Psychology",        2019.50,
+  ),
+  events = as.data.frame(tibble::tribble(
+    ~year,   ~title,
+    2016.50, "Adopted Buckley, the best black lab",
+    2017.33, paste("Irani, Barbone, Beausoleil, & Gerald (2017)",
+                   "Is asthma associated with impaired cognition?",
+                   "J Clin Exp Neuropsych",
+                   sep = "\n"),
+    # 2018.50, "Made this website",
+    2019.00, "Charter Member of Data Science Team",
+    2019.25, paste("Solomon, Barbone, et al. (2019)",
+                   "Comparing the standard and electronic versions of the",
+                   "ADAS-cog:  A validation study - JPAD",
+                   sep = "\n"),
+    # TODO add QoL paper
+  )),
+  events.cex = 1.25,
+  interests = list(
+    "Psychology" = c(rep("Cog", 2),
+                     rep("Neuropsych", 1),
+                     rep("Quant", 3),
+                     rep("Clinical", 1)),
+    "R"          = c(rep("Stat program", 2),
+                     rep("Data manip", 2),
+                     rep("Pkg dev", 2),
+                     rep("Data Vis", 2)),
+    "Other"      = c(rep("Buckley (dog)", 3),
+                     rep("Bowie", 3),
+                     rep("Coffee", 3))),
+  year.steps = 1
+)
+```
 
-Even more things.
+Visual above made with [Nathaniel Phillip's VisualResume](https://github.com/ndphillips/VisualResume).
+
+<!-- # TODO update for Cogstate -->
+
+I am currently working as the Principal Data Analyst for [Madrigal Pharmaceuticals](https://madrigalpharma.com/), helping our Research & Development team monitor our current trials and prepare summary reports.
+I started learning R in my gradate statistics classes to avoid the future pains of having to use or only being familiar with SPSS.
+Learning R then launched me into a bigger role at Bracket (now [Signant Health](https://signanthealth.com/)) where I had the pleasure to work with our Clinical Science team to understand and interpret their data.
+This gave us the opportunity to learn more about our technologies, approaches, and quality of reporting in the clinical trials we were assisting.
+Here I was a charter member of the Data Science team and have the pleasure of enhancing our trial monitoring products, training other Data Science programmers, and contributing to automation and reporting efforts of our Clinical Data Management team.
+
+I have a Masters of Art in Psychology and have spent my graduate and undergrad classes engaging in Neuropsychology and Cognitive topics.
+Some of these topics have included understanding how music affects our ability on tests of aptitude.
+This, of course, was the basis of my Masters Thesis and hours of reading journal article after journal article.
+Of course I've also been very interested in immersing myself more into statistics, statistical programming, and special psychometric subjects.
+Please browse the [Anthology page](https://jmbarbone.github.io/homepage/anthology) where I have tried to compile projects, papers, and presentations I've written in and out of class.
+
+And of course, here is my dog's IG [TheLabBuckley](https://www.instagram.com/thelabbuckley/).
+It's mostly him sleeping.

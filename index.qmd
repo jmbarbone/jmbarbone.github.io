@@ -1,5 +1,5 @@
 ---
-title: "quarto-blog"
+title: "J M Barbone"
 listing:
   contents: posts
   sort: "date desc"
