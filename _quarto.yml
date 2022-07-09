@@ -1,8 +1,9 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  title: "quarto-blog"
+  title: "J M Barbone"
   navbar:
     right:
       - about.qmd
@@ -20,6 +21,3 @@ format:
   html:
     theme: solar
     css: styles.css
-
-
-
