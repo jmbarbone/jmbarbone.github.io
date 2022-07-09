@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.80">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="dcterms.date" content="2020-08-05">
+  <title>J M Barbone - Solving one task with three equivalent solutions: for, do.call, vapply</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+  <script src="../../site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="../../">
+  <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="../../site_libs/quarto-search/fuse.min.js"></script>
+  <script src="../../site_libs/quarto-search/quarto-search.js"></script>
+  <script src="../../site_libs/quarto-html/quarto.js"></script>
+  <script src="../../site_libs/quarto-html/popper.min.js"></script>
+  <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="../../site_libs/quarto-html/anchor.min.js"></script>
+  <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet">
+  <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "navbar",
+    "copy-button": false,
+    "collapse-after": 2,
+    "panel-placement": "end",
+    "type": "overlay",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="fullcontent">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">J M Barbone</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jmbarbone"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/jmbarbone"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/jmbarbone"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Jordan-Barbone-2"><i class="bi bi-folder" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=R6GyUVYAAAAJ&amp;hl=en&amp;oi=ao"><i class="bi bi-google" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full" data-sidebar-align="true">
+
+
+<div class="quarto-title-banner color-navbar page-columns page-full"><div class="quarto-title column-body"><h1 class="title display-7">Solving one task with three equivalent solutions: for, do.call, vapply</h1><div class="quarto-categories"><div class="quarto-category">R</div><div class="quarto-category">benchmark</div></div></div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">August 4, 2020</p></div></div></div></header>
+<p>I can spend a lot of time trying in futility to optimize custom functions and code. I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences. Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems. I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose. However, subjects had doses adjusted through the study for optimization. Further, we also needed to count the dosing based on the lowest dose provided.</p>
+<blockquote class="blockquote">
+<p>For example, how long was Subject A on a &gt;= 10mg dose?</p>
+</blockquote>
+<p>So, let’s explore three different ways to solve this problem and why all three are valid and just as efficient.</p>
+<section id="set-up" class="level2">
+<h2 class="anchored" data-anchor-id="set-up">Set up</h2>
+<p>Loading our <code>tidyverse</code> packages first. Because we will be grouping and summarising data in a data.frame, I really don’t feel like going through the trouble of using <code>base</code> solutions.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">tidyverse.quiet =</span> <span class="cn">TRUE</span>) <span class="co"># Silences messages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s create some random data to represent our subjects, our doses, and an arbitrary time metric. We’re also going to make this harder by using the <code>difftime</code>.</p>
+<p>We’re also going to grab some names using a function from the <a href="https://github.com/trinker/wakefield"><code>wakefield</code> package</a> which you can use to create fake data, appropriately named. [^note]</p>
+<p>^note: I’m not too savvy with this package yet but would like to experiment more for building dummy data sets.</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>subj <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">sample</span>(wakefield<span class="sc">::</span><span class="fu">name</span>(<span class="dv">500</span>), <span class="fl">1e4</span>, <span class="cn">TRUE</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dose <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq.int</span>(<span class="dv">10</span>, <span class="dv">80</span>, <span class="dv">10</span>), <span class="fl">1e4</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="fu">as.difftime</span>(<span class="fu">runif</span>(<span class="fl">1e4</span>) <span class="sc">*</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">"days"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(subj, dose, time)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 10,000 × 3
+   subj     dose time          
+   &lt;chr&gt;   &lt;dbl&gt; &lt;drtn&gt;        
+ 1 Aadhya     10 81.430584 days
+ 2 Aadhya     10 80.324186 days
+ 3 Aadhya     40 64.917350 days
+ 4 Aadhya     80 17.631323 days
+ 5 Aadhya     40  8.970711 days
+ 6 Aadhya     20 96.518079 days
+ 7 Aadhya     60 61.493537 days
+ 8 Aadhya     20 29.073014 days
+ 9 Aadhya     80  6.221622 days
+10 Aaditri    50 54.387006 days
+# … with 9,990 more rows</code></pre>
+</div>
+</div>
+<p>Finding the total sum of time at each dose is easy:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subj, dose) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">time =</span> <span class="fu">sum</span>(time), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">"dose"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_sort =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="st">"time"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 500 × 9
+   subj    `10`            `20`           `30`     `40`  `50`  `60`  `70`  `80` 
+   &lt;chr&gt;   &lt;drtn&gt;          &lt;drtn&gt;         &lt;drtn&gt;   &lt;drt&gt; &lt;drt&gt; &lt;drt&gt; &lt;drt&gt; &lt;drt&gt;
+ 1 Aadhya  161.754770 days 125.59109 days        …  73.…     …  61.…     …  23.…
+ 2 Aaditri  30.671230 days 172.20370 days        … 224.… 131.… 193.…  67.…  93.…
+ 3 Aaleeya 174.678539 days 115.27412 days 159.963… 198.… 184.…  77.… 214.… 292.…
+ 4 Aaleyah 183.860531 days  88.26322 days        …   9.… 261.… 259.… 214.… 100.…
+ 5 Aamia    70.429895 days 149.78110 days 122.847…  40.…  32.…  74.… 116.… 161.…
+ 6 Aarish  232.188970 days 234.42468 days  70.517…     …   7.… 111.… 153.… 118.…
+ 7 Abdulah   8.890604 days  37.66665 days 130.246…     …     … 215.… 159.… 162.…
+ 8 Abhinav 221.372920 days 108.87628 days 114.363… 280.… 136.… 100.…  97.…  95.…
+ 9 Abhiram  73.235939 days 182.81309 days 295.836… 107.…  96.… 137.… 123.…  68.…
+10 Abyade  107.638230 days 596.18206 days 168.711… 146.…  61.…  34.… 281.… 149.…
+# … with 490 more rows</code></pre>
+</div>
+</div>
+<p>Oh, it looks like we have some missing values (see the first line where we are missing doses of <code>30</code>, <code>50</code>, and <code>70</code> for <code>Aadhya</code>.). <code>tidyr::pivot_wider()</code> allows us to fill in the missing values but like many <code>tidyverse</code> functions, we’ll have to be explicit with the type so as to not case any accidental issues.</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>difftime0 <span class="ot">&lt;-</span> <span class="fu">as.difftime</span>(<span class="dv">0</span>, <span class="at">units =</span> <span class="st">"days"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subj, dose) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">time =</span> <span class="fu">sum</span>(time), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">"dose"</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_sort =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="st">"time"</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_fill =</span> difftime0</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>res</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 500 × 9
+   subj    `10`            `20`           `30`     `40`  `50`  `60`  `70`  `80` 
+   &lt;chr&gt;   &lt;drtn&gt;          &lt;drtn&gt;         &lt;drtn&gt;   &lt;drt&gt; &lt;drt&gt; &lt;drt&gt; &lt;drt&gt; &lt;drt&gt;
+ 1 Aadhya  161.754770 days 125.59109 days   0.000…  73.…   0.…  61.…   0.…  23.…
+ 2 Aaditri  30.671230 days 172.20370 days   0.000… 224.… 131.… 193.…  67.…  93.…
+ 3 Aaleeya 174.678539 days 115.27412 days 159.963… 198.… 184.…  77.… 214.… 292.…
+ 4 Aaleyah 183.860531 days  88.26322 days   0.000…   9.… 261.… 259.… 214.… 100.…
+ 5 Aamia    70.429895 days 149.78110 days 122.847…  40.…  32.…  74.… 116.… 161.…
+ 6 Aarish  232.188970 days 234.42468 days  70.517…   0.…   7.… 111.… 153.… 118.…
+ 7 Abdulah   8.890604 days  37.66665 days 130.246…   0.…   0.… 215.… 159.… 162.…
+ 8 Abhinav 221.372920 days 108.87628 days 114.363… 280.… 136.… 100.…  97.…  95.…
+ 9 Abhiram  73.235939 days 182.81309 days 295.836… 107.…  96.… 137.… 123.…  68.…
+10 Abyade  107.638230 days 596.18206 days 168.711… 146.…  61.…  34.… 281.… 149.…
+# … with 490 more rows</code></pre>
+</div>
+</div>
+<p>This is much more troublesome as we have to create single length <code>difftime</code> vector.</p>
+<p>Now, we need to find the total length of time a subject was at each dose or greater.. This I wasn’t able to do with any built in functions (although I could have missed it). I’m not claiming this is the best function or anything, it’s not, but I have 3 different solutions and thought it was enough to spend my evening writing a blog post.</p>
+<section id="solution-1-the-for-loop" class="level3">
+<h3 class="anchored" data-anchor-id="solution-1-the-for-loop">Solution 1: The for Loop</h3>
+<p>Never use a for loop, except if you have to. We’ll start with</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>foo1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> y</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(y)) {</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    out[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(y[x <span class="sc">&gt;=</span> x[i]])</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  out</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="solution-2-combining-lapply" class="level3">
+<h3 class="anchored" data-anchor-id="solution-2-combining-lapply">Solution 2: Combining lapply</h3>
+<p>When having to play with dates before, I found that the way I could retain the date values and still use a function from the <code>apply</code> family was to stick with the <code>lapply()</code> and then use the <code>do.call()</code> function to apply the <code>c</code>ombine function over my list. <code>lapply()</code> retains the original classes and using the <code>do.call(c, ...)</code> method will turn my list into a vector without removing the structure of the output</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>foo2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">lapply</span>(x, <span class="cf">function</span>(xx) <span class="fu">sum</span>(y[x <span class="sc">&gt;=</span> xx]))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do.call</span>(c, out)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s see how this plays out. If we use other methods, we lose the difftime class, which is noticeable as we don’t get our message of <code>Time differences in days</code> before our results.</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">lapply</span>(dose, <span class="cf">function</span>(xx) <span class="fu">sum</span>(time[dose <span class="sc">&gt;=</span> xx])) <span class="sc">%&gt;%</span> <span class="fu">unlist</span>() <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print_with_class_type</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>class  numeric
+typeof double
+[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sapply</span>(dose, <span class="cf">function</span>(xx) <span class="fu">sum</span>(time[dose <span class="sc">&gt;=</span> xx])) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print_with_class_type</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>class  numeric
+typeof double
+[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
+</div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">foo2</span>(dose, time) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print_with_class_type</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>class  difftime
+typeof double
+Time differences in days[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
+</div>
+</div>
+</section>
+<section id="solution-3-vapply-with-subset-assigning" class="level3">
+<h3 class="anchored" data-anchor-id="solution-3-vapply-with-subset-assigning">Solution 3: vapply with subset assigning</h3>
+<p>Here’s another neat little trick that with a good use case. We’re going to subset our <code>out</code> object (again, a copy of the <code>y</code> intput) and assign over it the result of our <code>vapply</code>. We’re also going to <em>cheat</em> and use the first position of <code>y</code> as our <code>FUN.VALUE</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>foo3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> y</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  out[] <span class="ot">&lt;-</span> <span class="fu">vapply</span>(x, <span class="cf">function</span>(xx) <span class="fu">sum</span>(y[x <span class="sc">&gt;=</span> xx]), y[<span class="dv">1</span>], <span class="at">USE.NAMES =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  out</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s take look just like before. <code>vapply()</code> will try to simplify the <code>FUN.VALUE</code> but as long as we use a single vector from the original input we can safely assign it back into our mock subset without worrying about losing our classes.</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">vapply</span>(dose, <span class="cf">function</span>(xx) <span class="fu">sum</span>(time[dose <span class="sc">&gt;=</span> xx]), time[<span class="dv">1</span>]) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print_with_class_type</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>class  numeric
+typeof double
+[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
+</div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&lt;</span> <span class="sc">-</span><span class="fu">foo3</span>(dose, time) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+</div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_with_class_type</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>class  numeric
+typeof double
+[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="benchmarks" class="level2">
+<h2 class="anchored" data-anchor-id="benchmarks">Benchmarks</h2>
+<p>Now, all three of these solutions produce the same results and are fairly equivalent in human legibility. This means, for me at least, that the function which runs the fastest would be the result I keep. We’ll employ the <code>bench</code> package and eponymous name for our consideration.</p>
+<p>Of course, for this we’ll be running on the vectors first. We’ll also make certain that all of our outputs are the same with <code>check = TRUE</code> (default) to make sure we didn’t miss anything either.</p>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>bench<span class="sc">::</span><span class="fu">mark</span>(</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">foo1</span>(dose, time),</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">foo2</span>(dose, time),</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">3</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">foo3</span>(dose, time),</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">check =</span> <span class="cn">TRUE</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>Warning: Some expressions had a GC in every iteration; so filtering is disabled.</code></pre>
+</div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 3 × 6
+  expression      min   median `itr/sec` mem_alloc `gc/sec`
+  &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
+1 1             3.89s    3.89s     0.257    2.96GB     14.9
+2 2             2.86s    2.86s     0.350    2.22GB     12.2
+3 3             2.81s    2.81s     0.356    2.21GB     12.8</code></pre>
+</div>
+</div>
+<p>And, well, they all run about the same. That kind of just leaves us with the sinking feeling that all of this was futile and that <code>for</code> loops really aren’t that bad. In fact, the <code>for</code> loop solution may be the easiest to read and doesn’t use any tricks that someone reviewing your code may not understand at first.</p>
+<p>We know we have some missing values in our data, so we’re going to use the the <code>tidyr::complete()</code> function to help with that.</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>res</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 500 × 9
+   subj    `10`            `20`           `30`     `40`  `50`  `60`  `70`  `80` 
+   &lt;chr&gt;   &lt;drtn&gt;          &lt;drtn&gt;         &lt;drtn&gt;   &lt;drt&gt; &lt;drt&gt; &lt;drt&gt; &lt;drt&gt; &lt;drt&gt;
+ 1 Aadhya  161.754770 days 125.59109 days   0.000…  73.…   0.…  61.…   0.…  23.…
+ 2 Aaditri  30.671230 days 172.20370 days   0.000… 224.… 131.… 193.…  67.…  93.…
+ 3 Aaleeya 174.678539 days 115.27412 days 159.963… 198.… 184.…  77.… 214.… 292.…
+ 4 Aaleyah 183.860531 days  88.26322 days   0.000…   9.… 261.… 259.… 214.… 100.…
+ 5 Aamia    70.429895 days 149.78110 days 122.847…  40.…  32.…  74.… 116.… 161.…
+ 6 Aarish  232.188970 days 234.42468 days  70.517…   0.…   7.… 111.… 153.… 118.…
+ 7 Abdulah   8.890604 days  37.66665 days 130.246…   0.…   0.… 215.… 159.… 162.…
+ 8 Abhinav 221.372920 days 108.87628 days 114.363… 280.… 136.… 100.…  97.…  95.…
+ 9 Abhiram  73.235939 days 182.81309 days 295.836… 107.…  96.… 137.… 123.…  68.…
+10 Abyade  107.638230 days 596.18206 days 168.711… 146.…  61.…  34.… 281.… 149.…
+# … with 490 more rows</code></pre>
+</div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(subj, dose, <span class="at">fill =</span> <span class="fu">list</span>(<span class="at">time =</span> difftime0)) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subj, dose) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">time =</span> <span class="fu">sum</span>(time), <span class="at">.groups =</span> <span class="st">"drop_last"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">foo1</span>(dose, time)) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">"dose"</span>,</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_sort =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="st">"time"</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 500 × 9
+# Groups:   subj [500]
+   subj    `10`           `20`           `30`      `40`  `50`  `60`  `70`  `80` 
+   &lt;chr&gt;   &lt;drtn&gt;         &lt;drtn&gt;         &lt;drtn&gt;    &lt;drt&gt; &lt;drt&gt; &lt;drt&gt; &lt;drt&gt; &lt;drt&gt;
+ 1 Aadhya   446.5804 days  284.8256 days  159.234… 159.…  85.…  85.…  23.…  23.…
+ 2 Aaditri  913.9830 days  883.3118 days  711.108… 711.… 486.… 354.… 161.…  93.…
+ 3 Aaleeya 1417.4559 days 1242.7773 days 1127.503… 967.… 769.… 584.… 507.… 292.…
+ 4 Aaleyah 1117.0842 days  933.2237 days  844.960… 844.… 835.… 573.… 314.… 100.…
+ 5 Aamia    769.4857 days  699.0558 days  549.274… 426.… 385.… 352.… 278.… 161.…
+ 6 Aarish   927.1830 days  694.9940 days  460.569… 390.… 390.… 382.… 271.… 118.…
+ 7 Abdulah  714.1323 days  705.2417 days  667.575… 537.… 537.… 537.… 321.… 162.…
+ 8 Abhinav 1154.8195 days  933.4466 days  824.570… 710.… 429.… 292.… 192.…  95.…
+ 9 Abhiram 1086.0283 days 1012.7924 days  829.979… 534.… 426.… 329.… 192.…  68.…
+10 Abyade  1545.7654 days 1438.1272 days  841.945… 673.… 526.… 465.… 431.… 149.…
+# … with 490 more rows</code></pre>
+</div>
+</div>
+<p>And there you go. Three solutions, all the same.</p>
+<p>Sometimes it’s useful to try to optimize code. Other times it’s just results in a blog post.</p>
+<p>As long as your code is easy to read and not apparently slow, it’s probably fine.</p>
+
+
+</section>
+</main> <!-- /main -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+</body></html>

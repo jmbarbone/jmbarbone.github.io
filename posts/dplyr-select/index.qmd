@@ -1,0 +1,160 @@
+---
+title: "Selecting columns in dplyr"
+date: "2020-09-24"
+categories: ["R", "dplyr", "tidyselect"]
+---
+
+
+One feature of report building that has always bothered me was adjusting column names in final so I could have something prettier than a series of columns_with_underscores that people who use too much Excel find repulsive.
+The same is true of anyType of CamelCase.
+There is a functionality with `dplyr` that let's me manage updating these names through a clean, reversible, and friendly manner.
+I discovered this like a toddler just seeing what could happen if I passed a named vector into a `select()` function and delighted with the result.
+Weird though because I didn't remember seeing this in any of the documentation, and when I searched harder through `dplyr` and `tidyselect` I found nothing except for a sort of close but not really close enough reference  in an [faq in from `tidyselect`](https://github.com/r-lib/tidyselect/blob/master/man/faq/external-vector.Rmd) which warns against the use of external vectors.
+However, we should be safeguarded against accidents (and warnings) if we employ `all_of()` (and `any_of()`).
+
+Let's walk through an example.
+
+```{r}
+library(dplyr, warn.conflicts = FALSE)
+```
+
+We'll use a data set from the `psych` package that has relatively, very short column names.
+We'll want to take these and make them a bit more specific without incurring much penalty with ourselves.
+Trying to manage column names with spaces and other special characters can be a real thorn in the index finger.
+
+```{r}
+data("bfi", package = "psych")
+sapa <- tibble::as_tibble(bfi)[1:100, c(1:2, 6:7, 11:12, 16:17, 26:28)] # shorter
+sapa
+```
+
+We can create a named vector to help keep track of the longer, more specific names of our output data.
+The first 8 columns will be renamed and the demographic information will be moved to the start.
+
+```{r}
+long_names <- c(
+  "gender",
+  "education",
+  "age",
+  "Indifferent to feelings"      = "A1",
+  "Inquire about well-being"     = "A2",
+  "Exacting about work"          = "C1",
+  "Continue until perfection"    = "C2",
+  "Don't talk a lot"             = "E1",
+  "Difficult to approach others" = "E2",
+  "Get angry easily"             = "N1",
+  "Get irritated easily"         = "N2"
+)
+```
+
+Here's the typical solution.
+
+```{r}
+sapa %>% 
+  select(
+    gender,
+    education,
+    age,
+    `Indifferent to feelings`      = A1,
+    `Inquire about well-being`     = A2,
+    `Exacting about work`          = C1,
+    `Continue until perfection`    = C2,
+    `Don't talk a lot`             = E1,
+    `Difficult to approach others` = E2,
+    `Get angry easily`             = N1,
+    `Get irritated easily`         = N2
+  )
+```
+
+We can use the `tidyselect::all_of()` function without as it is reexported with `dplyr`.
+
+```{r}
+sapa %>% 
+  select(all_of(long_names))
+```
+
+<details>
+  <summary>But is it faster?</summary>
+
+```{r benchmark}
+foo_select_all_of <- function() {
+  long_names <- c(
+    "gender",
+    "education",
+    "age",
+    "Indifferent to feelings"      = "A1",
+    "Inquire about well-being"     = "A2",
+    "Exacting about work"          = "C1",
+    "Continue until perfection"    = "C2",
+    "Don't talk a lot"             = "E1",
+    "Difficult to approach others" = "E2",
+    "Get angry easily"             = "N1",
+    "Get irritated easily"         = "N2"
+  )
+  
+  sapa %>% 
+  select(all_of(long_names))
+}
+
+foo_select <- function() {
+  sapa %>% 
+  select(
+    gender,
+    education,
+    age,
+    `Indifferent to feelings`      = A1,
+    `Inquire about well-being`     = A2,
+    `Exacting about work`          = C1,
+    `Continue until perfection`    = C2,
+    `Don't talk a lot`             = E1,
+    `Difficult to approach others` = E2,
+    `Get angry easily`             = N1,
+    `Get irritated easily`         = N2
+  )
+}
+
+bench::mark(
+  foo_select_all_of(),
+  foo_select()
+)
+```
+
+Yes.
+
+</details>
+
+We get the same result and don't need to clog up the piped if we need to do some mutation, grouping, summarising, etc.
+This also lets us separate out definitions of the data in case we need to change things:
+
+```{r}
+long_names_less <- long_names[c(1, 3, grep("about", names(long_names)))]
+
+sapa %>% 
+  select(all_of(long_names_less))
+```
+
+> Using `any_of()` instead we could essentially pre-define more "programming" and "output" names and pass it to whatever you are working with.
+This has been useful by establishing a saved vector of names and using it across multiple reports to keep our naming convention consistent.
+
+We can even write some short functions in case we need to use an output we've created before:
+
+```{r}
+names_fill <- function(x) {
+  nm <- names(x)
+  blanks <- nm == ""
+  names(x)[blanks] <- x[blanks]
+  x
+}
+```
+
+```{r}
+sapa2 <- sapa %>% select(all_of(long_names))
+long_names_switched <- mark::names_switch(names_fill(long_names))
+long_names
+long_names_switched
+
+sapa2 %>% 
+  select(all_of(long_names_switched))
+```
+
+And now our names are back to normal.

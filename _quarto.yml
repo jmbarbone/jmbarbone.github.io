@@ -1,6 +1,10 @@
 project:
   type: website
   output-dir: docs
+  knitr:
+    opts_chunk:
+      collapse: true
+      comment: "#>"
 
 website:
   title: "J M Barbone"
@@ -19,5 +23,6 @@ website:
         href: https://scholar.google.com/citations?user=R6GyUVYAAAAJ&hl=en&oi=ao
 format:
   html:
-    theme: solar
+    theme: flatly
     css: styles.css
+

@@ -1,0 +1,210 @@
+---
+title: "Solving one task with three equivalent solutions: for, do.call, vapply"
+date: "2020-08-05"
+categories: ["R", "benchmark"]
+---
+
+I can spend a lot of time trying in futility to optimize custom functions and code.
+I'll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences.
+Most of the time I'm just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems.
+I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose.
+However, subjects had doses adjusted through the study for optimization.
+Further, we also needed to count the dosing based on the lowest dose provided.
+
+> For example, how long was Subject A on a >= 10mg dose?
+
+So, let's explore three different ways to solve this problem and why all three are valid and just as efficient.
+
+## Set up
+
+Loading our `tidyverse` packages first.
+Because we will be grouping and summarising data in a data.frame, I really don't feel like going through the trouble of using `base` solutions.
+
+```{r setup}
+#| include: false
+set.seed(42)
+print_with_class_type <- function(x) {
+  co <- capture.output(x)
+  cl <- class(x)
+  to <- typeof(x)
+  cat("class  ", cl, "\n",
+      "typeof ", to,  "\n",
+      co, sep = "")
+  invisible(x)
+}
+```
+
+```{r}
+options(tidyverse.quiet = TRUE) # Silences messages
+library(tidyverse)
+```
+
+Let's create some random data to represent our subjects, our doses, and an arbitrary time metric.
+We're also going to make this harder by using the `difftime`.
+
+We're also going to grab some names using a function from the [`wakefield` package](https://github.com/trinker/wakefield) which you can use to create fake data, appropriately named. [^note]
+
+^note: I'm not too savvy with this package yet but would like to experiment more for building dummy data sets.
+
+```{r generating the data} 
+subj <- sort(sample(wakefield::name(500), 1e4, TRUE))
+dose <- sample(seq.int(10, 80, 10), 1e4, TRUE)
+time <- as.difftime(runif(1e4) * 100, units = "days")
+
+df <- tibble(subj, dose, time)
+df
+```
+
+Finding the total sum of time at each dose is easy:
+
+```{r time for each dose}
+df %>% 
+  group_by(subj, dose) %>% 
+  summarise(time = sum(time), .groups = "drop") %>% 
+  pivot_wider(
+    names_from = "dose",
+    names_sort = TRUE,
+    values_from = "time"
+    )
+```
+
+Oh, it looks like we have some missing values (see the first line where we are missing doses of `30`, `50`, and `70` for `Aadhya`.).
+`tidyr::pivot_wider()` allows us to fill in the missing values but like many `tidyverse` functions, we'll have to be explicit with the type so as to not case any accidental issues.
+
+```{r time for each dose fill}
+difftime0 <- as.difftime(0, units = "days")
+
+res <- df %>% 
+  group_by(subj, dose) %>% 
+  summarise(time = sum(time), .groups = "drop") %>% 
+  pivot_wider(
+    names_from = "dose",
+    names_sort = TRUE,
+    values_from = "time",
+    values_fill = difftime0
+  )
+res
+```
+
+This is much more troublesome as we have to create single length `difftime` vector.
+
+Now, we need to find the total length of time a subject was at each dose or greater..
+This I wasn't able to do with any built in functions (although I could have missed it).
+I'm not claiming this is the best function or anything, it's not, but I have 3 different solutions and thought it was enough to spend my evening writing a blog post.
+
+### Solution 1: The for Loop
+
+Never use a for loop, except if you have to.
+We'll start with
+
+```{r for loop}
+foo1 <- function(x, y) {
+  out <- y
+  
+  for (i in seq_along(y)) {
+    out[i] <- sum(y[x >= x[i]])
+  }
+  
+  out
+}
+```
+
+### Solution 2: Combining lapply
+
+When having to play with dates before, I found that the way I could retain the date values and still use a function from the `apply` family was to stick with the `lapply()` and then use the `do.call()` function to apply the `c`ombine function over my list.
+`lapply()` retains the original classes and using the `do.call(c, ...)` method will turn my list into a vector without removing the structure of the output
+
+```{r lapply}
+foo2 <- function(x, y) {
+  out <- lapply(x, function(xx) sum(y[x >= xx]))
+  do.call(c, out)
+}
+```
+
+Let's see how this plays out.
+If we use other methods, we lose the difftime class, which is noticeable as we don't get our message of `Time differences in days` before our results.
+
+```{r}
+x <- lapply(dose, function(xx) sum(time[dose >= xx])) %>% unlist() %>% head()
+print_with_class_type(x)
+
+x <- sapply(dose, function(xx) sum(time[dose >= xx])) %>% head()
+print_with_class_type(x)
+
+x <- foo2(dose, time) %>% head()
+print_with_class_type(x)
+```
+
+
+### Solution 3: vapply with subset assigning
+
+Here's another neat little trick that with a good use case.
+We're going to subset our `out` object (again, a copy of the `y` intput) and assign over it the result of our `vapply`.
+We're also going to _cheat_ and use the first position of `y` as our `FUN.VALUE`.
+
+
+```{r vapply}
+foo3 <- function(x, y) {
+  out <- y
+  out[] <- vapply(x, function(xx) sum(y[x >= xx]), y[1], USE.NAMES = FALSE)
+  out
+}
+```
+
+Let's take look just like before.
+`vapply()` will try to simplify the `FUN.VALUE` but as long as we use a single vector from the original input we can safely assign it back into our mock subset without worrying about losing our classes.
+
+```{r vapply example}
+x <- vapply(dose, function(xx) sum(time[dose >= xx]), time[1]) %>% head()
+print_with_class_type(x)
+
+x < -foo3(dose, time) %>% head()
+print_with_class_type(x)
+```
+
+## Benchmarks
+
+Now, all three of these solutions produce the same results and are fairly equivalent in human legibility.
+This means, for me at least, that the function which runs the fastest would be the result I keep.
+We'll employ the `bench` package and eponymous name for our consideration.
+
+Of course, for this we'll be running on the vectors first.
+We'll also make certain that all of our outputs are the same with `check = TRUE` (default) to make sure we didn't miss anything either.
+
+```{r benchmarking}
+bench::mark(
+  `1` = foo1(dose, time),
+  `2` = foo2(dose, time),
+  `3` = foo3(dose, time),
+  check = TRUE
+)
+```
+
+And, well, they all run about the same.
+That kind of just leaves us with the sinking feeling that all of this was futile and that `for` loops really aren't that bad.
+In fact, the `for` loop solution may be the easiest to read and doesn't use any tricks that someone reviewing your code may not understand at first.
+
+We know we have some missing values in our data, so we're going to use the the `tidyr::complete()` function to help with that.
+
+```{r final output}
+res
+
+df %>% 
+  complete(subj, dose, fill = list(time = difftime0)) %>% 
+  group_by(subj, dose) %>% 
+  summarise(time = sum(time), .groups = "drop_last") %>%
+  mutate(time = foo1(dose, time)) %>% 
+  pivot_wider(
+    names_from = "dose",
+    names_sort = TRUE,
+    values_from = "time"
+  )
+```
+
+And there you go.
+Three solutions, all the same.
+
+Sometimes it's useful to try to optimize code.
+Other times it's just results in a blog post.
+
+As long as your code is easy to read and not apparently slow, it's probably fine.
