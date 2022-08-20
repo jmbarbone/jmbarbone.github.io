@@ -29,7 +29,7 @@ $$
 
 ```{r}
 #| results: asis
-set.seed(20220717)
+set.seed(20220804)
 n <- 100
 mu <- 5
 sigma <- 2
