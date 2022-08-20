@@ -107,8 +107,8 @@ mean(are_between)
 
 ### Plotting confidence intervals (objective 3)
 
-We're seeing that 97 of our 100 replications do contain the true population mean, \mu.
-These are estimations, so we're not likely to get exactly 95 of 100, but this is fairly close.
+We're seeing that `sum(are_between)` of our 100 replications do contain the true population mean, \mu.
+These are estimations, so we're always going to get exactly 95 of 100.
 
 We can also plot these confidence intervals.
 
