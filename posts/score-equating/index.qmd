@@ -1,0 +1,133 @@
+---
+title: Score equating
+subtitle: With the `{equate}` package
+date: "2022-08-27"
+categories: ["R", "statistics"]
+draft: true
+---
+
+Something about equating.
+
+```{r}
+library(equate)
+```
+
+The data we'll be using is from the `{psych}` package.
+
+```{r}
+data(sat.act, package = "psych")
+```
+
+## Equivalent group design
+
+```{r}
+act_ft  <- freqtab(sat.act$ACT, 3:36)
+satv_ft <- freqtab(sat.act$SATV, 200:800)
+satq_ft <- freqtab(sat.act$SATQ, 200:800)
+sat_ft  <- freqtab(sat.act$SATV + sat.act$SATQ, 400:1600)
+
+eq_act_satv <- equate(act_ft, satv_ft, type = "equipercentile")
+eq_act_satq <- equate(act_ft, satq_ft, type = "equipercentile")
+eq_act_sat  <- equate(act_ft, sat_ft,  type = "equipercentile")
+```
+
+```{r}
+#| layout: [[1,1,1,1],[1]]
+#| fig-align: center
+#| column: screen-inset-shaded
+plot(act_ft) 
+plot(satq_ft)
+plot(sat_ft)
+plot(satv_ft)
+
+plot(
+  eq_act_satv,
+  eq_act_satq,
+  eq_act_sat,
+  legendtext = c("SAT-V", "SAT-Q", "SAT"),
+  xlab = "ACT",
+  addident = FALSE
+)
+```
+
+Generate a concordance table.
+The `{gt}` package provides some great options for formatting clean tables.
+
+```{r}
+library(gt)
+```
+
+
+```{r}
+#| column: screen-inset-shaded
+tab <- cbind(
+  eq_act_satv$concordance,
+  eq_act_satq$concordance[-1],
+  eq_act_sat$concordance[-1]
+)
+
+tab |> 
+  mark::flip() |> 
+  setNames(c("act", "satv", "satv_se", "satq", "satq_se", "sat", "sat_se")) |> 
+  gt(NULL, "ACT") |>
+  fmt_integer(c(act, satv, satq, sat)) |> 
+  fmt_number(ends_with("_se"), decimals = 2) |> 
+  cols_merge(c(satv, satv_se), pattern = "{1} ({2})") |> 
+  cols_merge(c(satq, satq_se), pattern = "{1} ({2})") |> 
+  cols_merge(c(sat,  sat_se),  pattern = "{1} ({2})") |> 
+  cols_label(act = "ACT", satv = "SAT-V", satq = "SAT-Q", sat = "SAT") |> 
+  tab_options()
+```
+
+## Single group design
+
+```{r}
+act_satv_ft <- freqtab(sat.act[, c("ACT", "SATV")], list(3:36, 200:800))
+act_satq_ft <- freqtab(sat.act[, c("ACT", "SATQ")], list(3:36, 200:800))
+act_sat_ft  <- with(sat.act, freqtab(list(ACT, SATV + SATQ), list(3:36, 400:1600)))
+
+eq_act_satv_sg <- equate(act_satv_ft, type = "equipercentile")
+eq_act_satq_sg <- equate(act_satq_ft, type = "equipercentile")
+eq_act_sat_sg  <- equate(act_sat_ft,  type = "equipercentile")
+```
+
+
+```{r}
+#| layout: [[1,1,1],[1]]
+#| fig-align: center
+#| column: screen-inset-shaded
+plot(act_satv_ft)
+plot(act_satq_ft)
+plot(act_sat_ft)
+
+plot(
+  eq_act_satv_sg, 
+  eq_act_satq_sg, 
+  eq_act_sat_sg,
+  legendtext = c("SAT-V", "SAT-Q", "SAT"),
+  xlab = "ACT",
+  addident = FALSE
+)
+```
+
+We can construct the same concordance table as we did before.
+However, because we are using a single group design, we won't be reporting any standard error values.
+
+```{r}
+#| column: screen-inset-shaded
+tab <- cbind(
+  eq_act_satv_sg$concordance,
+  eq_act_satq_sg$concordance[-1],
+  eq_act_sat_sg$concordance[-1]
+)
+
+tab |> 
+  setNames(c("act", "satv", "satq", "sat")) |>
+  mark::flip() |> 
+  gt(NULL, "ACT") |>
+  fmt_integer(c(act, satv, satq, sat)) |> 
+  fmt_number(ends_with("_se"), decimals = 2) |> 
+  cols_label(act = "ACT", satv = "SAT-V", satq = "SAT-Q", sat = "SAT") |> 
+  tab_options()
+```
+
