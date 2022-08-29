@@ -7,15 +7,18 @@ draft: true
 ---
 
 Something about equating.
+The `{gt}` package provides some great options for formatting clean tables.
 
 ```{r}
 library(equate)
+library(gt)
 ```
 
 The data we'll be using is from the `{psych}` package.
 
-```{r}
+```{r data}
 data(sat.act, package = "psych")
+str(data)
 ```
 
 <!-- TODO add information on published concordance tables. -->
@@ -24,7 +27,9 @@ data(sat.act, package = "psych")
 
 ## Equivalent group design
 
-```{r}
+The anchors we're using are the range of the scores in the current data set.
+
+```{r eg-design}
 act_ft  <- freqtab(sat.act$ACT, 3:36)
 satv_ft <- freqtab(sat.act$SATV, 200:800)
 satq_ft <- freqtab(sat.act$SATQ, 200:800)
@@ -35,7 +40,7 @@ eq_act_satq <- equate(act_ft, satq_ft, type = "equipercentile")
 eq_act_sat  <- equate(act_ft, sat_ft,  type = "equipercentile")
 ```
 
-```{r}
+```{r eg-plot}
 #| layout: [[1,1,1,1],[1]]
 #| fig-align: center
 #| column: screen-inset-shaded
@@ -55,14 +60,9 @@ plot(
 ```
 
 Generate a concordance table.
-The `{gt}` package provides some great options for formatting clean tables.
+This table will allow us to match scores on the ACT to scores on the SAT.
 
-```{r}
-library(gt)
-```
-
-
-```{r}
+```{r eg-table}
 #| column: screen-inset-shaded
 tab <- cbind(
   eq_act_satv$concordance,
@@ -85,7 +85,7 @@ tab |>
 
 ## Single group design
 
-```{r}
+```{r sg-design}
 act_satv_ft <- freqtab(sat.act[, c("ACT", "SATV")], list(3:36, 200:800))
 act_satq_ft <- freqtab(sat.act[, c("ACT", "SATQ")], list(3:36, 200:800))
 act_sat_ft  <- with(sat.act, freqtab(list(ACT, SATV + SATQ), list(3:36, 400:1600)))
@@ -96,7 +96,7 @@ eq_act_sat_sg  <- equate(act_sat_ft,  type = "equipercentile")
 ```
 
 
-```{r}
+```{r sg-plot}
 #| layout: [[1,1,1],[1]]
 #| fig-align: center
 #| column: screen-inset-shaded
@@ -117,7 +117,7 @@ plot(
 We can construct the same concordance table as we did before.
 However, because we are using a single group design, we won't be reporting any standard error values.
 
-```{r}
+```{r sg-table}
 #| column: screen-inset-shaded
 tab <- cbind(
   eq_act_satv_sg$concordance,
