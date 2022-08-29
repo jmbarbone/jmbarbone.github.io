@@ -18,6 +18,10 @@ The data we'll be using is from the `{psych}` package.
 data(sat.act, package = "psych")
 ```
 
+<!-- TODO add information on published concordance tables. -->
+<!-- https://www.act.org/content/dam/act/unsecured/documents/ACT-SAT-Concordance-Tables.pdf -->
+<!-- Our results won't be exact but maybe close enough. -->
+
 ## Equivalent group design
 
 ```{r}
