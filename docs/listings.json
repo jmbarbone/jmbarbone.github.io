@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/confidence-intervals/index.html",
       "/posts/quarto-update/index.html",
       "/posts/dplyr-select/index.html",
       "/posts/three-ways/index.html",
