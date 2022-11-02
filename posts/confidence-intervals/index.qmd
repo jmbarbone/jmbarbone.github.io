@@ -8,7 +8,7 @@ draft: true
 
 Confidence intervals (CIs) provide an estimation of a true value within a population, and some type of certainty around that value.
 The certainty that is constructed can be a little confusion, and perhaps misleading.
-It is often communicated with less-than-desireable terminology and phrasing.
+It is often communicated with less-than-desirable terminology and phrasing.
 
 ## Objectives
 

@@ -3,7 +3,7 @@ title: "Dunning-Kruger effect"
 subtitle: "A case of itself?"
 date: "2020-05-05"
 updated: "2022-07-09"
-bibliography: "C:/Users/jmbar/Documents/GitHub/bib-references/references.bib"
+bibliography: "references.bib"
 categories: ["R", "psychology", "datavis"]
 ---
 

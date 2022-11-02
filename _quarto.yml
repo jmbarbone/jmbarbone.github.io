@@ -28,6 +28,13 @@ website:
         href: https://github.com/jmbarbone/barbone-cv/blob/master/Barbone-CV.pdf
 format:
   html:
-    theme: flatly
+    theme:
+      light: flatly
+      dark: darkly
     css: styles.css
-
+    code-copy: true
+    code-fold: show
+    code-tools: true
+footnotes-hover: true
+reference-location: margin
+highlight-style: github
