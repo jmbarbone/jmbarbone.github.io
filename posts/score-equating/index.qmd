@@ -18,10 +18,14 @@ The data we'll be using is from the `{psych}` package.
 
 ```{r data}
 data(sat.act, package = "psych")
-str(data)
+str(sat.act)
 ```
 
 ```{r published-tables}
+#| eval: false
+#| include: false
+#| echo: false
+
 # math
 ref_act_satq = data.frame(
   ACT = c(36L,35L,34L,33L,32L,31L,30L,29L,28L,
@@ -33,7 +37,7 @@ ref_act_satq = data.frame(
 )
 
 # reading
-data.frame(
+ref_act_satv <- data.frame(
   ACT = c(72L,71L,70L,69L,68L,67L,66L,65L,64L,
           63L,62L,61L,60L,59L,58L,57L,56L,55L,54L,53L,52L,
           51L,50L,49L,48L,47L,46L,45L,44L,43L,42L,41L,40L,39L,
@@ -47,7 +51,7 @@ data.frame(
            370L,360L,350L,340L,330L,320L,310L,300L,290L,280L)
 )
 
-data.frame(
+  data.frame(
   stringsAsFactors = FALSE,
   check.names = FALSE,
   ACT = c(36L,35L,34L,33L,32L,31L,
@@ -67,6 +71,35 @@ data.frame(
 )
 ```
 
+```{r funs}
+#| class-source: fold-hide
+
+# TODO check if class-source works
+
+f_build_sat_act_gt <- function(...) {
+  ls <- list(...)
+  ls <- lapply(ls, `[[`, "concordance")
+  
+  for (i in seq_along(ls)[-1]) {
+    ls[[i]] <- ls[[i]][-1]
+  }
+  
+  tab <- do.call(cbind, ls)
+  names(tab) <- c("act", "satv", "satv_se", "satq", "satq_se", "sat", "sat_se")
+  
+  tab |> 
+    fuj::flip() |> 
+    gt::gt(NULL, "ACT") |>
+    gt::fmt_integer(c(act, satv, satq, sat)) |> 
+    gt::fmt_number(tidyselect::ends_with("_se"), decimals = 2) |> 
+    gt::cols_merge(c(satv, satv_se), pattern = "{1} ({2})") |> 
+    gt::cols_merge(c(satq, satq_se), pattern = "{1} ({2})") |> 
+    gt::cols_merge(c(sat,  sat_se),  pattern = "{1} ({2})") |> 
+    gt::cols_label(act = "ACT", satv = "SAT-V", satq = "SAT-Q", sat = "SAT") |> 
+    gt::tab_options()
+}
+```
+
 
 <!-- TODO add information on published concordance tables. -->
 <!-- https://www.act.org/content/dam/act/unsecured/documents/ACT-SAT-Concordance-Tables.pdf -->
@@ -82,9 +115,13 @@ satv_ft <- freqtab(sat.act$SATV, 200:800)
 satq_ft <- freqtab(sat.act$SATQ, 200:800)
 sat_ft  <- freqtab(sat.act$SATV + sat.act$SATQ, 400:1600)
 
-eq_act_satv <- equate(act_ft, satv_ft, type = "equipercentile")
-eq_act_satq <- equate(act_ft, satq_ft, type = "equipercentile")
-eq_act_sat  <- equate(act_ft, sat_ft,  type = "equipercentile")
+eq_equiperc_eg <- function(x, y) {
+  equate::equate(x, y, type = "equipercentile", reps = 201)
+}
+
+eq_act_satv <- eq_equiperc_eg(act_ft, satv_ft)
+eq_act_satq <- eq_equiperc_eg(act_ft, satq_ft)
+eq_act_sat  <- eq_equiperc_eg(act_ft, sat_ft)
 ```
 
 ```{r eg-plot}
@@ -111,23 +148,7 @@ This table will allow us to match scores on the ACT to scores on the SAT.
 
 ```{r eg-table}
 #| column: screen-inset-shaded
-tab <- cbind(
-  eq_act_satv$concordance,
-  eq_act_satq$concordance[-1],
-  eq_act_sat$concordance[-1]
-)
-
-tab |> 
-  mark::flip() |> 
-  setNames(c("act", "satv", "satv_se", "satq", "satq_se", "sat", "sat_se")) |> 
-  gt(NULL, "ACT") |>
-  fmt_integer(c(act, satv, satq, sat)) |> 
-  fmt_number(ends_with("_se"), decimals = 2) |> 
-  cols_merge(c(satv, satv_se), pattern = "{1} ({2})") |> 
-  cols_merge(c(satq, satq_se), pattern = "{1} ({2})") |> 
-  cols_merge(c(sat,  sat_se),  pattern = "{1} ({2})") |> 
-  cols_label(act = "ACT", satv = "SAT-V", satq = "SAT-Q", sat = "SAT") |> 
-  tab_options()
+f_build_sat_act_gt(eq_act_satv, eq_act_satq, eq_act_sat)
 ```
 
 ## Single group design
@@ -137,9 +158,13 @@ act_satv_ft <- freqtab(sat.act[, c("ACT", "SATV")], list(3:36, 200:800))
 act_satq_ft <- freqtab(sat.act[, c("ACT", "SATQ")], list(3:36, 200:800))
 act_sat_ft  <- with(sat.act, freqtab(list(ACT, SATV + SATQ), list(3:36, 400:1600)))
 
-eq_act_satv_sg <- equate(act_satv_ft, type = "equipercentile")
-eq_act_satq_sg <- equate(act_satq_ft, type = "equipercentile")
-eq_act_sat_sg  <- equate(act_sat_ft,  type = "equipercentile")
+eq_equiperc_sg <- function(x) {
+  equate::equate(x, type = "equipercentile", boot = TRUE, reps = 201)
+}
+
+eq_act_satv_sg <- eq_equiperc_sg(act_satv_ft)
+eq_act_satq_sg <- eq_equiperc_sg(act_satq_ft)
+eq_act_sat_sg  <- eq_equiperc_sg(act_sat_ft)
 ```
 
 
@@ -166,19 +191,6 @@ However, because we are using a single group design, we won't be reporting any s
 
 ```{r sg-table}
 #| column: screen-inset-shaded
-tab <- cbind(
-  eq_act_satv_sg$concordance,
-  eq_act_satq_sg$concordance[-1],
-  eq_act_sat_sg$concordance[-1]
-)
-
-tab |> 
-  setNames(c("act", "satv", "satq", "sat")) |>
-  mark::flip() |> 
-  gt(NULL, "ACT") |>
-  fmt_integer(c(act, satv, satq, sat)) |> 
-  fmt_number(ends_with("_se"), decimals = 2) |> 
-  cols_label(act = "ACT", satv = "SAT-V", satq = "SAT-Q", sat = "SAT") |> 
-  tab_options()
+f_build_sat_act_gt(eq_act_satv_sg, eq_act_satq_sg, eq_act_sat_sg)
 ```
 

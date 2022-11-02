@@ -94,10 +94,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -177,6 +179,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  </a>
   </li>  
 </ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -186,7 +191,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Score equating</h1>
+      <div class="quarto-title-block"><div><h1 class="title">Score equating</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
             <p class="subtitle lead">With the <code>{equate}</code> package</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">R</div>
@@ -219,67 +224,129 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<p>Something about equating.</p>
+<p>Something about equating. The <code>{gt}</code> package provides some great options for formatting clean tables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(equate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(equate)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: 'gt'</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following object is masked from 'package:equate':</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     px</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>The data we’ll be using is from the <code>{psych}</code> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sat.act, <span class="at">package =</span> <span class="st">"psych"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sat.act, <span class="at">package =</span> <span class="st">"psych"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sat.act)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 'data.frame':    700 obs. of  6 variables:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ gender   : int  2 2 2 1 1 1 2 1 2 2 ...</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ education: int  3 3 3 4 2 5 5 3 4 5 ...</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ age      : int  19 23 20 27 33 26 30 19 23 40 ...</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ ACT      : int  24 35 21 26 31 28 36 22 22 35 ...</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ SATV     : int  500 600 480 550 600 640 610 520 400 730 ...</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ SATQ     : int  500 500 470 520 550 640 500 560 600 800 ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r fold-hide code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>f_build_sat_act_gt <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  ls <span class="ot">&lt;-</span> <span class="fu">list</span>(...)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  ls <span class="ot">&lt;-</span> <span class="fu">lapply</span>(ls, <span class="st">`</span><span class="at">[[</span><span class="st">`</span>, <span class="st">"concordance"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(ls)[<span class="sc">-</span><span class="dv">1</span>]) {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    ls[[i]] <span class="ot">&lt;-</span> ls[[i]][<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  tab <span class="ot">&lt;-</span> <span class="fu">do.call</span>(cbind, ls)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"act"</span>, <span class="st">"satv"</span>, <span class="st">"satv_se"</span>, <span class="st">"satq"</span>, <span class="st">"satq_se"</span>, <span class="st">"sat"</span>, <span class="st">"sat_se"</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  tab <span class="sc">|&gt;</span> </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    fuj<span class="sc">::</span><span class="fu">flip</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">gt</span>(<span class="cn">NULL</span>, <span class="st">"ACT"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">fmt_integer</span>(<span class="fu">c</span>(act, satv, satq, sat)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">fmt_number</span>(tidyselect<span class="sc">::</span><span class="fu">ends_with</span>(<span class="st">"_se"</span>), <span class="at">decimals =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_merge</span>(<span class="fu">c</span>(satv, satv_se), <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_merge</span>(<span class="fu">c</span>(satq, satq_se), <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_merge</span>(<span class="fu">c</span>(sat,  sat_se),  <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_label</span>(<span class="at">act =</span> <span class="st">"ACT"</span>, <span class="at">satv =</span> <span class="st">"SAT-V"</span>, <span class="at">satq =</span> <span class="st">"SAT-Q"</span>, <span class="at">sat =</span> <span class="st">"SAT"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">tab_options</span>()</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+<!-- TODO add information on published concordance tables. -->
+<!-- https://www.act.org/content/dam/act/unsecured/documents/ACT-SAT-Concordance-Tables.pdf -->
+<!-- Our results won't be exact but maybe close enough. -->
 <section id="equivalent-group-design" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="equivalent-group-design">Equivalent group design</h2>
+<p>The anchors we’re using are the range of the scores in the current data set.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>act_ft  <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>ACT, <span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>satv_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATV, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>satq_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATQ, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>sat_ft  <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATV <span class="sc">+</span> sat.act<span class="sc">$</span>SATQ, <span class="dv">400</span><span class="sc">:</span><span class="dv">1600</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>eq_act_satv <span class="ot">&lt;-</span> <span class="fu">equate</span>(act_ft, satv_ft, <span class="at">type =</span> <span class="st">"equipercentile"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>eq_act_satq <span class="ot">&lt;-</span> <span class="fu">equate</span>(act_ft, satq_ft, <span class="at">type =</span> <span class="st">"equipercentile"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>eq_act_sat  <span class="ot">&lt;-</span> <span class="fu">equate</span>(act_ft, sat_ft,  <span class="at">type =</span> <span class="st">"equipercentile"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>act_ft  <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>ACT, <span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>satv_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATV, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>satq_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATQ, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>sat_ft  <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATV <span class="sc">+</span> sat.act<span class="sc">$</span>SATQ, <span class="dv">400</span><span class="sc">:</span><span class="dv">1600</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>eq_equiperc_eg <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  equate<span class="sc">::</span><span class="fu">equate</span>(x, y, <span class="at">type =</span> <span class="st">"equipercentile"</span>, <span class="at">reps =</span> <span class="dv">201</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>eq_act_satv <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_eg</span>(act_ft, satv_ft)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>eq_act_satq <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_eg</span>(act_ft, satq_ft)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>eq_act_sat  <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_eg</span>(act_ft, sat_ft)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="page-columns page-full">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_ft) </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(satq_ft)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sat_ft)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(satv_ft)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  eq_act_satv,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  eq_act_satq,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  eq_act_sat,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">legendtext =</span> <span class="fu">c</span>(<span class="st">"SAT-V"</span>, <span class="st">"SAT-Q"</span>, <span class="st">"SAT"</span>),</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"ACT"</span>,</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">addident =</span> <span class="cn">FALSE</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_ft) </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(satq_ft)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sat_ft)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(satv_ft)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  eq_act_satv,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  eq_act_satq,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  eq_act_sat,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">legendtext =</span> <span class="fu">c</span>(<span class="st">"SAT-V"</span>, <span class="st">"SAT-Q"</span>, <span class="st">"SAT"</span>),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"ACT"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">addident =</span> <span class="cn">FALSE</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell column-screen-inset-shaded quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/eg-plot-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/eg-plot-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/eg-plot-3.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-4.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/eg-plot-4.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -288,48 +355,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-5.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/eg-plot-5.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </div>
-<p>Generate a concordance table. The <code>{gt}</code> package provides some great options for formatting clean tables.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: 'gt'</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following object is masked from 'package:equate':</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     px</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Generate a concordance table. This table will allow us to match scores on the ACT to scores on the SAT.</p>
 <div class="cell page-columns page-full">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">cbind</span>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  eq_act_satv<span class="sc">$</span>concordance,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  eq_act_satq<span class="sc">$</span>concordance[<span class="sc">-</span><span class="dv">1</span>],</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  eq_act_sat<span class="sc">$</span>concordance[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span> </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  mark<span class="sc">::</span><span class="fu">flip</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">"act"</span>, <span class="st">"satv"</span>, <span class="st">"satv_se"</span>, <span class="st">"satq"</span>, <span class="st">"satq_se"</span>, <span class="st">"sat"</span>, <span class="st">"sat_se"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>(<span class="cn">NULL</span>, <span class="st">"ACT"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_integer</span>(<span class="fu">c</span>(act, satv, satq, sat)) <span class="sc">|&gt;</span> </span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="fu">ends_with</span>(<span class="st">"_se"</span>), <span class="at">decimals =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_merge</span>(<span class="fu">c</span>(satv, satv_se), <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_merge</span>(<span class="fu">c</span>(satq, satq_se), <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_merge</span>(<span class="fu">c</span>(sat,  sat_se),  <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(<span class="at">act =</span> <span class="st">"ACT"</span>, <span class="at">satv =</span> <span class="st">"SAT-V"</span>, <span class="at">satq =</span> <span class="st">"SAT-Q"</span>, <span class="at">sat =</span> <span class="st">"SAT"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">f_build_sat_act_gt</span>(eq_act_satv, eq_act_satq, eq_act_sat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display column-screen-inset-shaded">
 
-<div id="akpymrsqoz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="eaekiykoiu" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#akpymrsqoz .gt_table {
+#eaekiykoiu .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -354,7 +400,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-#akpymrsqoz .gt_heading {
+#eaekiykoiu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -366,7 +412,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#akpymrsqoz .gt_title {
+#eaekiykoiu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -378,7 +424,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-#akpymrsqoz .gt_subtitle {
+#eaekiykoiu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -390,13 +436,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-#akpymrsqoz .gt_bottom_border {
+#eaekiykoiu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#akpymrsqoz .gt_col_headings {
+#eaekiykoiu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -411,7 +457,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#akpymrsqoz .gt_col_heading {
+#eaekiykoiu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -431,7 +477,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#akpymrsqoz .gt_column_spanner_outer {
+#eaekiykoiu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -443,15 +489,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-#akpymrsqoz .gt_column_spanner_outer:first-child {
+#eaekiykoiu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#akpymrsqoz .gt_column_spanner_outer:last-child {
+#eaekiykoiu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#akpymrsqoz .gt_column_spanner {
+#eaekiykoiu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -463,7 +509,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-#akpymrsqoz .gt_group_heading {
+#eaekiykoiu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -488,7 +534,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#akpymrsqoz .gt_empty_group_heading {
+#eaekiykoiu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -503,15 +549,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#akpymrsqoz .gt_from_md > :first-child {
+#eaekiykoiu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#akpymrsqoz .gt_from_md > :last-child {
+#eaekiykoiu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#akpymrsqoz .gt_row {
+#eaekiykoiu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -530,7 +576,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#akpymrsqoz .gt_stub {
+#eaekiykoiu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -543,7 +589,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#akpymrsqoz .gt_stub_row_group {
+#eaekiykoiu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -557,11 +603,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-#akpymrsqoz .gt_row_group_first td {
+#eaekiykoiu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#akpymrsqoz .gt_summary_row {
+#eaekiykoiu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -571,16 +617,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#akpymrsqoz .gt_first_summary_row {
+#eaekiykoiu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#akpymrsqoz .gt_first_summary_row.thick {
+#eaekiykoiu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#akpymrsqoz .gt_last_summary_row {
+#eaekiykoiu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -590,7 +636,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#akpymrsqoz .gt_grand_summary_row {
+#eaekiykoiu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -600,7 +646,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#akpymrsqoz .gt_first_grand_summary_row {
+#eaekiykoiu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -610,11 +656,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-#akpymrsqoz .gt_striped {
+#eaekiykoiu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#akpymrsqoz .gt_table_body {
+#eaekiykoiu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -623,7 +669,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#akpymrsqoz .gt_footnotes {
+#eaekiykoiu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -637,7 +683,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#akpymrsqoz .gt_footnote {
+#eaekiykoiu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -646,7 +692,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#akpymrsqoz .gt_sourcenotes {
+#eaekiykoiu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -660,7 +706,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#akpymrsqoz .gt_sourcenote {
+#eaekiykoiu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -668,64 +714,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#akpymrsqoz .gt_left {
+#eaekiykoiu .gt_left {
   text-align: left;
 }
 
-#akpymrsqoz .gt_center {
+#eaekiykoiu .gt_center {
   text-align: center;
 }
 
-#akpymrsqoz .gt_right {
+#eaekiykoiu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#akpymrsqoz .gt_font_normal {
+#eaekiykoiu .gt_font_normal {
   font-weight: normal;
 }
 
-#akpymrsqoz .gt_font_bold {
+#eaekiykoiu .gt_font_bold {
   font-weight: bold;
 }
 
-#akpymrsqoz .gt_font_italic {
+#eaekiykoiu .gt_font_italic {
   font-style: italic;
 }
 
-#akpymrsqoz .gt_super {
+#eaekiykoiu .gt_super {
   font-size: 65%;
 }
 
-#akpymrsqoz .gt_footnote_marks {
+#eaekiykoiu .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#akpymrsqoz .gt_asterisk {
+#eaekiykoiu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#akpymrsqoz .gt_indent_1 {
+#eaekiykoiu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#akpymrsqoz .gt_indent_2 {
+#eaekiykoiu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#akpymrsqoz .gt_indent_3 {
+#eaekiykoiu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#akpymrsqoz .gt_indent_4 {
+#eaekiykoiu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#akpymrsqoz .gt_indent_5 {
+#eaekiykoiu .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -887,15 +933,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="single-group-design" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="single-group-design">Single group design</h2>
 <div class="cell">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>act_satv_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act[, <span class="fu">c</span>(<span class="st">"ACT"</span>, <span class="st">"SATV"</span>)], <span class="fu">list</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>act_satq_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act[, <span class="fu">c</span>(<span class="st">"ACT"</span>, <span class="st">"SATQ"</span>)], <span class="fu">list</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>))</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>act_sat_ft  <span class="ot">&lt;-</span> <span class="fu">with</span>(sat.act, <span class="fu">freqtab</span>(<span class="fu">list</span>(ACT, SATV <span class="sc">+</span> SATQ), <span class="fu">list</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>, <span class="dv">400</span><span class="sc">:</span><span class="dv">1600</span>)))</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>eq_act_satv_sg <span class="ot">&lt;-</span> <span class="fu">equate</span>(act_satv_ft, <span class="at">type =</span> <span class="st">"equipercentile"</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>eq_act_satq_sg <span class="ot">&lt;-</span> <span class="fu">equate</span>(act_satq_ft, <span class="at">type =</span> <span class="st">"equipercentile"</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>eq_act_sat_sg  <span class="ot">&lt;-</span> <span class="fu">equate</span>(act_sat_ft,  <span class="at">type =</span> <span class="st">"equipercentile"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>eq_equiperc_sg <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  equate<span class="sc">::</span><span class="fu">equate</span>(x, <span class="at">type =</span> <span class="st">"equipercentile"</span>, <span class="at">boot =</span> <span class="cn">TRUE</span>, <span class="at">reps =</span> <span class="dv">201</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>eq_act_satv_sg <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_sg</span>(act_satv_ft)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>eq_act_satq_sg <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_sg</span>(act_satq_ft)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>eq_act_sat_sg  <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_sg</span>(act_sat_ft)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="page-columns page-full">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_satv_ft)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_satq_ft)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_sat_ft)</span>
@@ -908,26 +963,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"ACT"</span>,</span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">addident =</span> <span class="cn">FALSE</span></span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell column-screen-inset-shaded quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/sg-plot-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/sg-plot-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-8-3.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/sg-plot-3.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -936,7 +992,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-8-4.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/sg-plot-4.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -945,28 +1001,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>We can construct the same concordance table as we did before. However, because we are using a single group design, we won’t be reporting any standard error values.</p>
 <div class="cell page-columns page-full">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">cbind</span>(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  eq_act_satv_sg<span class="sc">$</span>concordance,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  eq_act_satq_sg<span class="sc">$</span>concordance[<span class="sc">-</span><span class="dv">1</span>],</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  eq_act_sat_sg<span class="sc">$</span>concordance[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span> </span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">"act"</span>, <span class="st">"satv"</span>, <span class="st">"satq"</span>, <span class="st">"sat"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  mark<span class="sc">::</span><span class="fu">flip</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>(<span class="cn">NULL</span>, <span class="st">"ACT"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_integer</span>(<span class="fu">c</span>(act, satv, satq, sat)) <span class="sc">|&gt;</span> </span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="fu">ends_with</span>(<span class="st">"_se"</span>), <span class="at">decimals =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(<span class="at">act =</span> <span class="st">"ACT"</span>, <span class="at">satv =</span> <span class="st">"SAT-V"</span>, <span class="at">satq =</span> <span class="st">"SAT-Q"</span>, <span class="at">sat =</span> <span class="st">"SAT"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">f_build_sat_act_gt</span>(eq_act_satv_sg, eq_act_satq_sg, eq_act_sat_sg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display column-screen-inset-shaded">
 
-<div id="weahszjunl" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="czqxbjqhbh" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#weahszjunl .gt_table {
+#czqxbjqhbh .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -991,7 +1037,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-#weahszjunl .gt_heading {
+#czqxbjqhbh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1003,7 +1049,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#weahszjunl .gt_title {
+#czqxbjqhbh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1015,7 +1061,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-#weahszjunl .gt_subtitle {
+#czqxbjqhbh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1027,13 +1073,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-#weahszjunl .gt_bottom_border {
+#czqxbjqhbh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#weahszjunl .gt_col_headings {
+#czqxbjqhbh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1048,7 +1094,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#weahszjunl .gt_col_heading {
+#czqxbjqhbh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1068,7 +1114,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#weahszjunl .gt_column_spanner_outer {
+#czqxbjqhbh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1080,15 +1126,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-#weahszjunl .gt_column_spanner_outer:first-child {
+#czqxbjqhbh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#weahszjunl .gt_column_spanner_outer:last-child {
+#czqxbjqhbh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#weahszjunl .gt_column_spanner {
+#czqxbjqhbh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1100,7 +1146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-#weahszjunl .gt_group_heading {
+#czqxbjqhbh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1125,7 +1171,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#weahszjunl .gt_empty_group_heading {
+#czqxbjqhbh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1140,15 +1186,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#weahszjunl .gt_from_md > :first-child {
+#czqxbjqhbh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#weahszjunl .gt_from_md > :last-child {
+#czqxbjqhbh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#weahszjunl .gt_row {
+#czqxbjqhbh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1167,7 +1213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#weahszjunl .gt_stub {
+#czqxbjqhbh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1180,7 +1226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#weahszjunl .gt_stub_row_group {
+#czqxbjqhbh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1194,11 +1240,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-#weahszjunl .gt_row_group_first td {
+#czqxbjqhbh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#weahszjunl .gt_summary_row {
+#czqxbjqhbh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1208,16 +1254,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#weahszjunl .gt_first_summary_row {
+#czqxbjqhbh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#weahszjunl .gt_first_summary_row.thick {
+#czqxbjqhbh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#weahszjunl .gt_last_summary_row {
+#czqxbjqhbh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1227,7 +1273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#weahszjunl .gt_grand_summary_row {
+#czqxbjqhbh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1237,7 +1283,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#weahszjunl .gt_first_grand_summary_row {
+#czqxbjqhbh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1247,11 +1293,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-#weahszjunl .gt_striped {
+#czqxbjqhbh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#weahszjunl .gt_table_body {
+#czqxbjqhbh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1260,7 +1306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#weahszjunl .gt_footnotes {
+#czqxbjqhbh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1274,7 +1320,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#weahszjunl .gt_footnote {
+#czqxbjqhbh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1283,7 +1329,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#weahszjunl .gt_sourcenotes {
+#czqxbjqhbh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1297,7 +1343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#weahszjunl .gt_sourcenote {
+#czqxbjqhbh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1305,64 +1351,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#weahszjunl .gt_left {
+#czqxbjqhbh .gt_left {
   text-align: left;
 }
 
-#weahszjunl .gt_center {
+#czqxbjqhbh .gt_center {
   text-align: center;
 }
 
-#weahszjunl .gt_right {
+#czqxbjqhbh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#weahszjunl .gt_font_normal {
+#czqxbjqhbh .gt_font_normal {
   font-weight: normal;
 }
 
-#weahszjunl .gt_font_bold {
+#czqxbjqhbh .gt_font_bold {
   font-weight: bold;
 }
 
-#weahszjunl .gt_font_italic {
+#czqxbjqhbh .gt_font_italic {
   font-style: italic;
 }
 
-#weahszjunl .gt_super {
+#czqxbjqhbh .gt_super {
   font-size: 65%;
 }
 
-#weahszjunl .gt_footnote_marks {
+#czqxbjqhbh .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#weahszjunl .gt_asterisk {
+#czqxbjqhbh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#weahszjunl .gt_indent_1 {
+#czqxbjqhbh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#weahszjunl .gt_indent_2 {
+#czqxbjqhbh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#weahszjunl .gt_indent_3 {
+#czqxbjqhbh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#weahszjunl .gt_indent_4 {
+#czqxbjqhbh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#weahszjunl .gt_indent_5 {
+#czqxbjqhbh .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1378,141 +1424,141 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </thead>
   <tbody class="gt_table_body">
     <tr><td class="gt_row gt_right">36</td>
-<td class="gt_row gt_right">800</td>
-<td class="gt_row gt_right">800</td>
-<td class="gt_row gt_right">1,550</td></tr>
+<td class="gt_row gt_right">800 (2.99)</td>
+<td class="gt_row gt_right">800 (3.67)</td>
+<td class="gt_row gt_right">1,550 (14.91)</td></tr>
     <tr><td class="gt_row gt_right">35</td>
-<td class="gt_row gt_right">760</td>
-<td class="gt_row gt_right">760</td>
-<td class="gt_row gt_right">1,480</td></tr>
+<td class="gt_row gt_right">760 (8.02)</td>
+<td class="gt_row gt_right">760 (7.26)</td>
+<td class="gt_row gt_right">1,480 (14.31)</td></tr>
     <tr><td class="gt_row gt_right">34</td>
-<td class="gt_row gt_right">740</td>
-<td class="gt_row gt_right">740</td>
-<td class="gt_row gt_right">1,440</td></tr>
+<td class="gt_row gt_right">740 (9.34)</td>
+<td class="gt_row gt_right">740 (9.93)</td>
+<td class="gt_row gt_right">1,440 (8.55)</td></tr>
     <tr><td class="gt_row gt_right">33</td>
-<td class="gt_row gt_right">710</td>
-<td class="gt_row gt_right">710</td>
-<td class="gt_row gt_right">1,410</td></tr>
+<td class="gt_row gt_right">710 (8.82)</td>
+<td class="gt_row gt_right">710 (8.13)</td>
+<td class="gt_row gt_right">1,410 (11.47)</td></tr>
     <tr><td class="gt_row gt_right">32</td>
-<td class="gt_row gt_right">700</td>
-<td class="gt_row gt_right">700</td>
-<td class="gt_row gt_right">1,380</td></tr>
+<td class="gt_row gt_right">700 (7.23)</td>
+<td class="gt_row gt_right">700 (6.43)</td>
+<td class="gt_row gt_right">1,380 (13.74)</td></tr>
     <tr><td class="gt_row gt_right">31</td>
-<td class="gt_row gt_right">660</td>
-<td class="gt_row gt_right">670</td>
-<td class="gt_row gt_right">1,320</td></tr>
+<td class="gt_row gt_right">660 (9.40)</td>
+<td class="gt_row gt_right">670 (10.04)</td>
+<td class="gt_row gt_right">1,320 (15.29)</td></tr>
     <tr><td class="gt_row gt_right">30</td>
-<td class="gt_row gt_right">640</td>
-<td class="gt_row gt_right">650</td>
-<td class="gt_row gt_right">1,280</td></tr>
+<td class="gt_row gt_right">640 (7.05)</td>
+<td class="gt_row gt_right">650 (7.68)</td>
+<td class="gt_row gt_right">1,280 (15.22)</td></tr>
     <tr><td class="gt_row gt_right">29</td>
-<td class="gt_row gt_right">620</td>
-<td class="gt_row gt_right">620</td>
-<td class="gt_row gt_right">1,240</td></tr>
+<td class="gt_row gt_right">620 (12.40)</td>
+<td class="gt_row gt_right">620 (12.67)</td>
+<td class="gt_row gt_right">1,240 (20.73)</td></tr>
     <tr><td class="gt_row gt_right">28</td>
-<td class="gt_row gt_right">600</td>
-<td class="gt_row gt_right">600</td>
-<td class="gt_row gt_right">1,200</td></tr>
+<td class="gt_row gt_right">600 (1.69)</td>
+<td class="gt_row gt_right">600 (2.54)</td>
+<td class="gt_row gt_right">1,200 (8.05)</td></tr>
     <tr><td class="gt_row gt_right">27</td>
-<td class="gt_row gt_right">595</td>
-<td class="gt_row gt_right">580</td>
-<td class="gt_row gt_right">1,170</td></tr>
+<td class="gt_row gt_right">595 (11.39)</td>
+<td class="gt_row gt_right">580 (15.53)</td>
+<td class="gt_row gt_right">1,170 (19.87)</td></tr>
     <tr><td class="gt_row gt_right">26</td>
-<td class="gt_row gt_right">560</td>
-<td class="gt_row gt_right">550</td>
-<td class="gt_row gt_right">1,120</td></tr>
+<td class="gt_row gt_right">560 (12.48)</td>
+<td class="gt_row gt_right">550 (12.78)</td>
+<td class="gt_row gt_right">1,120 (19.40)</td></tr>
     <tr><td class="gt_row gt_right">25</td>
-<td class="gt_row gt_right">535</td>
-<td class="gt_row gt_right">510</td>
-<td class="gt_row gt_right">1,080</td></tr>
+<td class="gt_row gt_right">535 (15.39)</td>
+<td class="gt_row gt_right">510 (14.63)</td>
+<td class="gt_row gt_right">1,080 (17.55)</td></tr>
     <tr><td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">500</td>
-<td class="gt_row gt_right">500</td>
-<td class="gt_row gt_right">1,040</td></tr>
+<td class="gt_row gt_right">500 (10.73)</td>
+<td class="gt_row gt_right">500 (3.93)</td>
+<td class="gt_row gt_right">1,040 (26.59)</td></tr>
     <tr><td class="gt_row gt_right">23</td>
-<td class="gt_row gt_right">500</td>
-<td class="gt_row gt_right">490</td>
-<td class="gt_row gt_right">1,000</td></tr>
+<td class="gt_row gt_right">500 (10.92)</td>
+<td class="gt_row gt_right">490 (13.82)</td>
+<td class="gt_row gt_right">1,000 (14.00)</td></tr>
     <tr><td class="gt_row gt_right">22</td>
-<td class="gt_row gt_right">460</td>
-<td class="gt_row gt_right">450</td>
-<td class="gt_row gt_right">955</td></tr>
+<td class="gt_row gt_right">460 (17.40)</td>
+<td class="gt_row gt_right">450 (13.01)</td>
+<td class="gt_row gt_right">955 (26.53)</td></tr>
     <tr><td class="gt_row gt_right">21</td>
-<td class="gt_row gt_right">440</td>
-<td class="gt_row gt_right">430</td>
-<td class="gt_row gt_right">900</td></tr>
+<td class="gt_row gt_right">440 (16.29)</td>
+<td class="gt_row gt_right">430 (15.13)</td>
+<td class="gt_row gt_right">900 (28.92)</td></tr>
     <tr><td class="gt_row gt_right">20</td>
-<td class="gt_row gt_right">400</td>
-<td class="gt_row gt_right">400</td>
-<td class="gt_row gt_right">840</td></tr>
+<td class="gt_row gt_right">400 (14.28)</td>
+<td class="gt_row gt_right">400 (13.68)</td>
+<td class="gt_row gt_right">840 (39.79)</td></tr>
     <tr><td class="gt_row gt_right">19</td>
-<td class="gt_row gt_right">395</td>
-<td class="gt_row gt_right">392</td>
-<td class="gt_row gt_right">800</td></tr>
+<td class="gt_row gt_right">395 (26.21)</td>
+<td class="gt_row gt_right">392 (28.89)</td>
+<td class="gt_row gt_right">800 (47.49)</td></tr>
     <tr><td class="gt_row gt_right">18</td>
-<td class="gt_row gt_right">350</td>
-<td class="gt_row gt_right">350</td>
-<td class="gt_row gt_right">740</td></tr>
+<td class="gt_row gt_right">350 (34.56)</td>
+<td class="gt_row gt_right">350 (33.15)</td>
+<td class="gt_row gt_right">740 (58.88)</td></tr>
     <tr><td class="gt_row gt_right">17</td>
-<td class="gt_row gt_right">300</td>
-<td class="gt_row gt_right">300</td>
-<td class="gt_row gt_right">675</td></tr>
+<td class="gt_row gt_right">300 (29.76)</td>
+<td class="gt_row gt_right">300 (25.50)</td>
+<td class="gt_row gt_right">675 (61.24)</td></tr>
     <tr><td class="gt_row gt_right">16</td>
-<td class="gt_row gt_right">300</td>
-<td class="gt_row gt_right">300</td>
-<td class="gt_row gt_right">600</td></tr>
+<td class="gt_row gt_right">300 (26.55)</td>
+<td class="gt_row gt_right">300 (22.02)</td>
+<td class="gt_row gt_right">600 (49.50)</td></tr>
     <tr><td class="gt_row gt_right">15</td>
-<td class="gt_row gt_right">242</td>
-<td class="gt_row gt_right">275</td>
-<td class="gt_row gt_right">598</td></tr>
+<td class="gt_row gt_right">242 (37.70)</td>
+<td class="gt_row gt_right">275 (35.90)</td>
+<td class="gt_row gt_right">598 (58.99)</td></tr>
     <tr><td class="gt_row gt_right">14</td>
-<td class="gt_row gt_right">200</td>
-<td class="gt_row gt_right">230</td>
-<td class="gt_row gt_right">580</td></tr>
+<td class="gt_row gt_right">200 (30.40)</td>
+<td class="gt_row gt_right">230 (33.69)</td>
+<td class="gt_row gt_right">580 (95.00)</td></tr>
     <tr><td class="gt_row gt_right">13</td>
-<td class="gt_row gt_right">200</td>
-<td class="gt_row gt_right">230</td>
-<td class="gt_row gt_right">580</td></tr>
+<td class="gt_row gt_right">200 (30.40)</td>
+<td class="gt_row gt_right">230 (33.69)</td>
+<td class="gt_row gt_right">580 (95.00)</td></tr>
     <tr><td class="gt_row gt_right">12</td>
-<td class="gt_row gt_right">200</td>
-<td class="gt_row gt_right">230</td>
-<td class="gt_row gt_right">580</td></tr>
+<td class="gt_row gt_right">200 (30.40)</td>
+<td class="gt_row gt_right">230 (33.69)</td>
+<td class="gt_row gt_right">580 (95.00)</td></tr>
     <tr><td class="gt_row gt_right">11</td>
-<td class="gt_row gt_right">200</td>
-<td class="gt_row gt_right">230</td>
-<td class="gt_row gt_right">580</td></tr>
+<td class="gt_row gt_right">200 (30.40)</td>
+<td class="gt_row gt_right">230 (33.69)</td>
+<td class="gt_row gt_right">580 (95.00)</td></tr>
     <tr><td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">200</td>
-<td class="gt_row gt_right">230</td>
-<td class="gt_row gt_right">580</td></tr>
+<td class="gt_row gt_right">200 (30.40)</td>
+<td class="gt_row gt_right">230 (33.69)</td>
+<td class="gt_row gt_right">580 (95.00)</td></tr>
     <tr><td class="gt_row gt_right">9</td>
-<td class="gt_row gt_right">200</td>
-<td class="gt_row gt_right">230</td>
-<td class="gt_row gt_right">580</td></tr>
+<td class="gt_row gt_right">200 (30.40)</td>
+<td class="gt_row gt_right">230 (33.69)</td>
+<td class="gt_row gt_right">580 (95.00)</td></tr>
     <tr><td class="gt_row gt_right">8</td>
-<td class="gt_row gt_right">200</td>
-<td class="gt_row gt_right">230</td>
-<td class="gt_row gt_right">580</td></tr>
+<td class="gt_row gt_right">200 (30.40)</td>
+<td class="gt_row gt_right">230 (33.69)</td>
+<td class="gt_row gt_right">580 (95.00)</td></tr>
     <tr><td class="gt_row gt_right">7</td>
-<td class="gt_row gt_right">200</td>
-<td class="gt_row gt_right">230</td>
-<td class="gt_row gt_right">580</td></tr>
+<td class="gt_row gt_right">200 (30.40)</td>
+<td class="gt_row gt_right">230 (33.69)</td>
+<td class="gt_row gt_right">580 (95.00)</td></tr>
     <tr><td class="gt_row gt_right">6</td>
-<td class="gt_row gt_right">200</td>
-<td class="gt_row gt_right">230</td>
-<td class="gt_row gt_right">580</td></tr>
+<td class="gt_row gt_right">200 (30.40)</td>
+<td class="gt_row gt_right">230 (33.69)</td>
+<td class="gt_row gt_right">580 (95.00)</td></tr>
     <tr><td class="gt_row gt_right">5</td>
-<td class="gt_row gt_right">200</td>
-<td class="gt_row gt_right">230</td>
-<td class="gt_row gt_right">580</td></tr>
+<td class="gt_row gt_right">200 (30.40)</td>
+<td class="gt_row gt_right">230 (33.69)</td>
+<td class="gt_row gt_right">580 (95.00)</td></tr>
     <tr><td class="gt_row gt_right">4</td>
-<td class="gt_row gt_right">200</td>
-<td class="gt_row gt_right">230</td>
-<td class="gt_row gt_right">580</td></tr>
+<td class="gt_row gt_right">200 (30.40)</td>
+<td class="gt_row gt_right">230 (33.69)</td>
+<td class="gt_row gt_right">580 (95.00)</td></tr>
     <tr><td class="gt_row gt_right">3</td>
-<td class="gt_row gt_right">200</td>
-<td class="gt_row gt_right">200</td>
-<td class="gt_row gt_right">400</td></tr>
+<td class="gt_row gt_right">200 (22.85)</td>
+<td class="gt_row gt_right">200 (25.50)</td>
+<td class="gt_row gt_right">400 (90.14)</td></tr>
   </tbody>
   
   
@@ -1521,6 +1567,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 
+
+<!-- -->
 
 </section>
 
@@ -1545,6 +1593,109 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -1573,6 +1724,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -1621,7 +1823,201 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Score equating</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> With the `{equate}` package</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2022-08-27"</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> ["R", "statistics"]</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="an">draft:</span><span class="co"> true</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>Something about equating.</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>The <span class="in">`{gt}`</span> package provides some great options for formatting clean tables.</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(equate)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>The data we'll be using is from the <span class="in">`{psych}`</span> package.</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="in">```{r data}</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sat.act, <span class="at">package =</span> <span class="st">"psych"</span>)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sat.act)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="in">```{r published-tables}</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="co"># math</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>ref_act_satq <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">ACT =</span> <span class="fu">c</span>(36L,35L,34L,33L,32L,31L,30L,29L,28L,</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>          27L,26L,25L,24L,23L,22L,21L,20L,19L,18L,17L,16L,</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>          15L,14L,13L,12L,11L,10L),</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">SATQ =</span> <span class="fu">c</span>(800L,780L,760L,740L,720L,710L,700L,</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>           680L,660L,640L,610L,590L,580L,560L,540L,530L,520L,510L,</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>           500L,470L,430L,400L,360L,330L,310L,280L,260L)</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="co"># reading</span></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>ref_act_satv <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">ACT =</span> <span class="fu">c</span>(72L,71L,70L,69L,68L,67L,66L,65L,64L,</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>          63L,62L,61L,60L,59L,58L,57L,56L,55L,54L,53L,52L,</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>          51L,50L,49L,48L,47L,46L,45L,44L,43L,42L,41L,40L,39L,</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>          38L,37L,36L,35L,34L,33L,32L,31L,30L,29L,28L,27L,</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>          26L,25L,24L,23L,22L,21L,20L,19L,18L,17L,16L,15L,14L),</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>  <span class="at">SATV =</span> <span class="fu">c</span>(790L,770L,750L,740L,730L,720L,710L,</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>           700L,700L,690L,680L,680L,670L,660L,660L,650L,640L,640L,</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>           630L,630L,620L,610L,610L,600L,590L,580L,580L,570L,</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>           560L,550L,540L,540L,530L,520L,510L,500L,500L,490L,480L,</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>           470L,460L,450L,440L,430L,420L,410L,400L,390L,380L,</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>           370L,360L,350L,340L,330L,320L,310L,300L,290L,280L)</span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>  <span class="at">ACT =</span> <span class="fu">c</span>(36L,35L,34L,33L,32L,31L,</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>          30L,29L,28L,27L,26L,25L,24L,23L,22L,21L,20L,19L,</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>          18L,17L,16L,15L,14L,13L,12L,11L,10L,9L),</span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>  <span class="at">SATQ =</span> <span class="fu">c</span>(1590L,1540L,1500L,1460L,</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>          1430L,1400L,1370L,1340L,1310L,1280L,1240L,1210L,</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>          1180L,1140L,1110L,1080L,1040L,1010L,970L,930L,890L,</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>          850L,800L,760L,710L,670L,630L,590L),</span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">SAT Range</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"1570-1600"</span>,<span class="st">"1530-1560"</span>,</span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"1490-1520"</span>,<span class="st">"1450-1480"</span>,<span class="st">"1420-1440"</span>,<span class="st">"1390-1410"</span>,</span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"1360-1380"</span>,<span class="st">"1330-1350"</span>,<span class="st">"1300-1320"</span>,<span class="st">"1260-1290"</span>,<span class="st">"1230-1250"</span>,</span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"1200-1220"</span>,<span class="st">"1160-1190"</span>,<span class="st">"1130-1150"</span>,<span class="st">"1100-1120"</span>,</span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"1060-1090"</span>,<span class="st">"1030-1050"</span>,<span class="st">"990-1020"</span>,<span class="st">"960-980"</span>,<span class="st">"920-950"</span>,</span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"880-910"</span>,<span class="st">"830-870"</span>,<span class="st">"780-820"</span>,<span class="st">"730-770"</span>,<span class="st">"690-720"</span>,</span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"650-680"</span>,<span class="st">"620–640"</span>,<span class="st">"590–610"</span>)</span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{r funs}</span></span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a><span class="co">#| class-source: fold-hide</span></span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a>f_build_sat_act_gt <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a>  ls <span class="ot">&lt;-</span> <span class="fu">list</span>(...)</span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a>  ls <span class="ot">&lt;-</span> <span class="fu">lapply</span>(ls, <span class="st">`</span><span class="at">[[</span><span class="st">`</span>, <span class="st">"concordance"</span>)</span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(ls)[<span class="sc">-</span><span class="dv">1</span>]) {</span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a>    ls[[i]] <span class="ot">&lt;-</span> ls[[i]][<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>  tab <span class="ot">&lt;-</span> <span class="fu">do.call</span>(cbind, ls)</span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"act"</span>, <span class="st">"satv"</span>, <span class="st">"satv_se"</span>, <span class="st">"satq"</span>, <span class="st">"satq_se"</span>, <span class="st">"sat"</span>, <span class="st">"sat_se"</span>)</span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a>  tab <span class="sc">|&gt;</span> </span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>    fuj<span class="sc">::</span><span class="fu">flip</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">gt</span>(<span class="cn">NULL</span>, <span class="st">"ACT"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">fmt_integer</span>(<span class="fu">c</span>(act, satv, satq, sat)) <span class="sc">|&gt;</span> </span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">fmt_number</span>(tidyselect<span class="sc">::</span><span class="fu">ends_with</span>(<span class="st">"_se"</span>), <span class="at">decimals =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_merge</span>(<span class="fu">c</span>(satv, satv_se), <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_merge</span>(<span class="fu">c</span>(satq, satq_se), <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_merge</span>(<span class="fu">c</span>(sat,  sat_se),  <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_label</span>(<span class="at">act =</span> <span class="st">"ACT"</span>, <span class="at">satv =</span> <span class="st">"SAT-V"</span>, <span class="at">satq =</span> <span class="st">"SAT-Q"</span>, <span class="at">sat =</span> <span class="st">"SAT"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">tab_options</span>()</span>
+<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- </span><span class="al">TODO</span><span class="co"> add information on published concordance tables. --&gt;</span></span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- https://www.act.org/content/dam/act/unsecured/documents/ACT-SAT-Concordance-Tables.pdf --&gt;</span></span>
+<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Our results won't be exact but maybe close enough. --&gt;</span></span>
+<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## Equivalent group design</span></span>
+<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a>The anchors we're using are the range of the scores in the current data set.</span>
+<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eg-design}</span></span>
+<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a>act_ft  <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>ACT, <span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>)</span>
+<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a>satv_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATV, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>)</span>
+<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a>satq_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATQ, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>)</span>
+<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a>sat_ft  <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATV <span class="sc">+</span> sat.act<span class="sc">$</span>SATQ, <span class="dv">400</span><span class="sc">:</span><span class="dv">1600</span>)</span>
+<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a>eq_equiperc_eg <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a>  equate<span class="sc">::</span><span class="fu">equate</span>(x, y, <span class="at">type =</span> <span class="st">"equipercentile"</span>, <span class="at">reps =</span> <span class="dv">201</span>)</span>
+<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a>eq_act_satv <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_eg</span>(act_ft, satv_ft)</span>
+<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a>eq_act_satq <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_eg</span>(act_ft, satq_ft)</span>
+<span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a>eq_act_sat  <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_eg</span>(act_ft, sat_ft)</span>
+<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eg-plot}</span></span>
+<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout: [[1,1,1,1],[1]]</span></span>
+<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-align: center</span></span>
+<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: screen-inset-shaded</span></span>
+<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_ft) </span>
+<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(satq_ft)</span>
+<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sat_ft)</span>
+<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(satv_ft)</span>
+<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a>  eq_act_satv,</span>
+<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a>  eq_act_satq,</span>
+<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a>  eq_act_sat,</span>
+<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a>  <span class="at">legendtext =</span> <span class="fu">c</span>(<span class="st">"SAT-V"</span>, <span class="st">"SAT-Q"</span>, <span class="st">"SAT"</span>),</span>
+<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"ACT"</span>,</span>
+<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a>  <span class="at">addident =</span> <span class="cn">FALSE</span></span>
+<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a>Generate a concordance table.</span>
+<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a>This table will allow us to match scores on the ACT to scores on the SAT.</span>
+<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eg-table}</span></span>
+<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: screen-inset-shaded</span></span>
+<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a><span class="fu">f_build_sat_act_gt</span>(eq_act_satv, eq_act_satq, eq_act_sat)</span>
+<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a><span class="fu">## Single group design</span></span>
+<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r sg-design}</span></span>
+<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a>act_satv_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act[, <span class="fu">c</span>(<span class="st">"ACT"</span>, <span class="st">"SATV"</span>)], <span class="fu">list</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>))</span>
+<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a>act_satq_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act[, <span class="fu">c</span>(<span class="st">"ACT"</span>, <span class="st">"SATQ"</span>)], <span class="fu">list</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>))</span>
+<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a>act_sat_ft  <span class="ot">&lt;-</span> <span class="fu">with</span>(sat.act, <span class="fu">freqtab</span>(<span class="fu">list</span>(ACT, SATV <span class="sc">+</span> SATQ), <span class="fu">list</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>, <span class="dv">400</span><span class="sc">:</span><span class="dv">1600</span>)))</span>
+<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-160"><a href="#cb10-160" aria-hidden="true" tabindex="-1"></a>eq_equiperc_sg <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb10-161"><a href="#cb10-161" aria-hidden="true" tabindex="-1"></a>  equate<span class="sc">::</span><span class="fu">equate</span>(x, <span class="at">type =</span> <span class="st">"equipercentile"</span>, <span class="at">boot =</span> <span class="cn">TRUE</span>, <span class="at">reps =</span> <span class="dv">201</span>)</span>
+<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a>eq_act_satv_sg <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_sg</span>(act_satv_ft)</span>
+<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a>eq_act_satq_sg <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_sg</span>(act_satq_ft)</span>
+<span id="cb10-166"><a href="#cb10-166" aria-hidden="true" tabindex="-1"></a>eq_act_sat_sg  <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_sg</span>(act_sat_ft)</span>
+<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-170"><a href="#cb10-170" aria-hidden="true" tabindex="-1"></a><span class="in">```{r sg-plot}</span></span>
+<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout: [[1,1,1],[1]]</span></span>
+<span id="cb10-172"><a href="#cb10-172" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-align: center</span></span>
+<span id="cb10-173"><a href="#cb10-173" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: screen-inset-shaded</span></span>
+<span id="cb10-174"><a href="#cb10-174" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_satv_ft)</span>
+<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_satq_ft)</span>
+<span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_sat_ft)</span>
+<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a>  eq_act_satv_sg, </span>
+<span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a>  eq_act_satq_sg, </span>
+<span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a>  eq_act_sat_sg,</span>
+<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a>  <span class="at">legendtext =</span> <span class="fu">c</span>(<span class="st">"SAT-V"</span>, <span class="st">"SAT-Q"</span>, <span class="st">"SAT"</span>),</span>
+<span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"ACT"</span>,</span>
+<span id="cb10-184"><a href="#cb10-184" aria-hidden="true" tabindex="-1"></a>  <span class="at">addident =</span> <span class="cn">FALSE</span></span>
+<span id="cb10-185"><a href="#cb10-185" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a>We can construct the same concordance table as we did before.</span>
+<span id="cb10-189"><a href="#cb10-189" aria-hidden="true" tabindex="-1"></a>However, because we are using a single group design, we won't be reporting any standard error values.</span>
+<span id="cb10-190"><a href="#cb10-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-191"><a href="#cb10-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{r sg-table}</span></span>
+<span id="cb10-192"><a href="#cb10-192" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: screen-inset-shaded</span></span>
+<span id="cb10-193"><a href="#cb10-193" aria-hidden="true" tabindex="-1"></a><span class="fu">f_build_sat_act_gt</span>(eq_act_satv_sg, eq_act_satq_sg, eq_act_sat_sg)</span>
+<span id="cb10-194"><a href="#cb10-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

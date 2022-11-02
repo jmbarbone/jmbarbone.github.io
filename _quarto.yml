@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  editor_options:
+    chunk_output_type: console
   knitr:
     opts_chunk:
       collapse: true
