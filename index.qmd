@@ -10,3 +10,10 @@ listing:
 page-layout: full
 title-block-banner: true
 ---
+
+<p hidden>
+Hello, did you find some hidden content?
+This should allow me to link  back to mastodon to show that the profiles that are mine are me.
+<a rel="me" href="https://fosstodon.org/@barbone">Mastodon</a>
+<a rel="me" href="https://mastodon.online/@barbone">Mastodon</a>
+</p>

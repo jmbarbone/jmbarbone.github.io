@@ -3,9 +3,9 @@ title: "About"
 about:
   template: marquee
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/jmbarbone
+    - icon: mastodon
+      text: Fosstodon
+      href: https://fosstodon.org/@barbone
     - icon: linkedin
       text: LinkedIn
       href: https://linkedin.com/in/jmbarbone

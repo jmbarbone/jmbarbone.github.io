@@ -16,8 +16,8 @@ website:
         href: about.html
       - icon: github
         href: https://github.com/jmbarbone
-      - icon: twitter
-        href: https://twitter.com/jmbarbone
+      - icon: mastodon
+        href: https://fosstodon.org/@barbone
       - icon: linkedin
         href: https://linkedin.com/in/jmbarbone
       - icon: folder
