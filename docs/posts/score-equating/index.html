@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  </a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/jmbarbone"><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://fosstodon.org/@barbone"><i class="bi bi-mastodon" role="img">
 </i> 
  </a>
   </li>  
@@ -1836,186 +1836,190 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>The <span class="in">`{gt}`</span> package provides some great options for formatting clean tables.</span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(equate)</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>The data we'll be using is from the <span class="in">`{psych}`</span> package.</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="in">```{r data}</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sat.act, <span class="at">package =</span> <span class="st">"psych"</span>)</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sat.act)</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="in">```{r published-tables}</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="co"># math</span></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>ref_act_satq <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">ACT =</span> <span class="fu">c</span>(36L,35L,34L,33L,32L,31L,30L,29L,28L,</span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>          27L,26L,25L,24L,23L,22L,21L,20L,19L,18L,17L,16L,</span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>          15L,14L,13L,12L,11L,10L),</span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">SATQ =</span> <span class="fu">c</span>(800L,780L,760L,740L,720L,710L,700L,</span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>           680L,660L,640L,610L,590L,580L,560L,540L,530L,520L,510L,</span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>           500L,470L,430L,400L,360L,330L,310L,280L,260L)</span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="co"># reading</span></span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>ref_act_satv <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">ACT =</span> <span class="fu">c</span>(72L,71L,70L,69L,68L,67L,66L,65L,64L,</span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>          63L,62L,61L,60L,59L,58L,57L,56L,55L,54L,53L,52L,</span>
-<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>          51L,50L,49L,48L,47L,46L,45L,44L,43L,42L,41L,40L,39L,</span>
-<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>          38L,37L,36L,35L,34L,33L,32L,31L,30L,29L,28L,27L,</span>
-<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>          26L,25L,24L,23L,22L,21L,20L,19L,18L,17L,16L,15L,14L),</span>
-<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>  <span class="at">SATV =</span> <span class="fu">c</span>(790L,770L,750L,740L,730L,720L,710L,</span>
-<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>           700L,700L,690L,680L,680L,670L,660L,660L,650L,640L,640L,</span>
-<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>           630L,630L,620L,610L,610L,600L,590L,580L,580L,570L,</span>
-<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>           560L,550L,540L,540L,530L,520L,510L,500L,500L,490L,480L,</span>
-<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>           470L,460L,450L,440L,430L,420L,410L,400L,390L,380L,</span>
-<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>           370L,360L,350L,340L,330L,320L,310L,300L,290L,280L)</span>
-<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
-<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>  <span class="at">ACT =</span> <span class="fu">c</span>(36L,35L,34L,33L,32L,31L,</span>
-<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>          30L,29L,28L,27L,26L,25L,24L,23L,22L,21L,20L,19L,</span>
-<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>          18L,17L,16L,15L,14L,13L,12L,11L,10L,9L),</span>
-<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>  <span class="at">SATQ =</span> <span class="fu">c</span>(1590L,1540L,1500L,1460L,</span>
-<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>          1430L,1400L,1370L,1340L,1310L,1280L,1240L,1210L,</span>
-<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>          1180L,1140L,1110L,1080L,1040L,1010L,970L,930L,890L,</span>
-<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>          850L,800L,760L,710L,670L,630L,590L),</span>
-<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">SAT Range</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"1570-1600"</span>,<span class="st">"1530-1560"</span>,</span>
-<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"1490-1520"</span>,<span class="st">"1450-1480"</span>,<span class="st">"1420-1440"</span>,<span class="st">"1390-1410"</span>,</span>
-<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"1360-1380"</span>,<span class="st">"1330-1350"</span>,<span class="st">"1300-1320"</span>,<span class="st">"1260-1290"</span>,<span class="st">"1230-1250"</span>,</span>
-<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"1200-1220"</span>,<span class="st">"1160-1190"</span>,<span class="st">"1130-1150"</span>,<span class="st">"1100-1120"</span>,</span>
-<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"1060-1090"</span>,<span class="st">"1030-1050"</span>,<span class="st">"990-1020"</span>,<span class="st">"960-980"</span>,<span class="st">"920-950"</span>,</span>
-<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"880-910"</span>,<span class="st">"830-870"</span>,<span class="st">"780-820"</span>,<span class="st">"730-770"</span>,<span class="st">"690-720"</span>,</span>
-<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"650-680"</span>,<span class="st">"620–640"</span>,<span class="st">"590–610"</span>)</span>
-<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{r funs}</span></span>
-<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a><span class="co">#| class-source: fold-hide</span></span>
-<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a>f_build_sat_act_gt <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
-<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a>  ls <span class="ot">&lt;-</span> <span class="fu">list</span>(...)</span>
-<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a>  ls <span class="ot">&lt;-</span> <span class="fu">lapply</span>(ls, <span class="st">`</span><span class="at">[[</span><span class="st">`</span>, <span class="st">"concordance"</span>)</span>
-<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(ls)[<span class="sc">-</span><span class="dv">1</span>]) {</span>
-<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a>    ls[[i]] <span class="ot">&lt;-</span> ls[[i]][<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">20220827</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(equate)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>The data we'll be using is from the <span class="in">`{psych}`</span> package.</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{r data}</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sat.act, <span class="at">package =</span> <span class="st">"psych"</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sat.act)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{r published-tables}</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="co"># math</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>ref_act_satq <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">ACT =</span> <span class="fu">c</span>(36L,35L,34L,33L,32L,31L,30L,29L,28L,</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>          27L,26L,25L,24L,23L,22L,21L,20L,19L,18L,17L,16L,</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>          15L,14L,13L,12L,11L,10L),</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">SATQ =</span> <span class="fu">c</span>(800L,780L,760L,740L,720L,710L,700L,</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>           680L,660L,640L,610L,590L,580L,560L,540L,530L,520L,510L,</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>           500L,470L,430L,400L,360L,330L,310L,280L,260L)</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a><span class="co"># reading</span></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>ref_act_satv <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>  <span class="at">ACT =</span> <span class="fu">c</span>(72L,71L,70L,69L,68L,67L,66L,65L,64L,</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>          63L,62L,61L,60L,59L,58L,57L,56L,55L,54L,53L,52L,</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>          51L,50L,49L,48L,47L,46L,45L,44L,43L,42L,41L,40L,39L,</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>          38L,37L,36L,35L,34L,33L,32L,31L,30L,29L,28L,27L,</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>          26L,25L,24L,23L,22L,21L,20L,19L,18L,17L,16L,15L,14L),</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>  <span class="at">SATV =</span> <span class="fu">c</span>(790L,770L,750L,740L,730L,720L,710L,</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>           700L,700L,690L,680L,680L,670L,660L,660L,650L,640L,640L,</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>           630L,630L,620L,610L,610L,600L,590L,580L,580L,570L,</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>           560L,550L,540L,540L,530L,520L,510L,500L,500L,490L,480L,</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>           470L,460L,450L,440L,430L,420L,410L,400L,390L,380L,</span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>           370L,360L,350L,340L,330L,320L,310L,300L,290L,280L)</span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>  <span class="at">ACT =</span> <span class="fu">c</span>(36L,35L,34L,33L,32L,31L,</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>          30L,29L,28L,27L,26L,25L,24L,23L,22L,21L,20L,19L,</span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>          18L,17L,16L,15L,14L,13L,12L,11L,10L,9L),</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>  <span class="at">SATQ =</span> <span class="fu">c</span>(1590L,1540L,1500L,1460L,</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>          1430L,1400L,1370L,1340L,1310L,1280L,1240L,1210L,</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>          1180L,1140L,1110L,1080L,1040L,1010L,970L,930L,890L,</span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>          850L,800L,760L,710L,670L,630L,590L),</span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">SAT Range</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"1570-1600"</span>,<span class="st">"1530-1560"</span>,</span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"1490-1520"</span>,<span class="st">"1450-1480"</span>,<span class="st">"1420-1440"</span>,<span class="st">"1390-1410"</span>,</span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"1360-1380"</span>,<span class="st">"1330-1350"</span>,<span class="st">"1300-1320"</span>,<span class="st">"1260-1290"</span>,<span class="st">"1230-1250"</span>,</span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"1200-1220"</span>,<span class="st">"1160-1190"</span>,<span class="st">"1130-1150"</span>,<span class="st">"1100-1120"</span>,</span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"1060-1090"</span>,<span class="st">"1030-1050"</span>,<span class="st">"990-1020"</span>,<span class="st">"960-980"</span>,<span class="st">"920-950"</span>,</span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"880-910"</span>,<span class="st">"830-870"</span>,<span class="st">"780-820"</span>,<span class="st">"730-770"</span>,<span class="st">"690-720"</span>,</span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"650-680"</span>,<span class="st">"620–640"</span>,<span class="st">"590–610"</span>)</span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{r funs}</span></span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a><span class="co">#| class-source: fold-hide</span></span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co"> check if class-source works</span></span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>f_build_sat_act_gt <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a>  ls <span class="ot">&lt;-</span> <span class="fu">list</span>(...)</span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>  ls <span class="ot">&lt;-</span> <span class="fu">lapply</span>(ls, <span class="st">`</span><span class="at">[[</span><span class="st">`</span>, <span class="st">"concordance"</span>)</span>
 <span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>  tab <span class="ot">&lt;-</span> <span class="fu">do.call</span>(cbind, ls)</span>
-<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"act"</span>, <span class="st">"satv"</span>, <span class="st">"satv_se"</span>, <span class="st">"satq"</span>, <span class="st">"satq_se"</span>, <span class="st">"sat"</span>, <span class="st">"sat_se"</span>)</span>
-<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a>  tab <span class="sc">|&gt;</span> </span>
-<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>    fuj<span class="sc">::</span><span class="fu">flip</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">gt</span>(<span class="cn">NULL</span>, <span class="st">"ACT"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">fmt_integer</span>(<span class="fu">c</span>(act, satv, satq, sat)) <span class="sc">|&gt;</span> </span>
-<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">fmt_number</span>(tidyselect<span class="sc">::</span><span class="fu">ends_with</span>(<span class="st">"_se"</span>), <span class="at">decimals =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_merge</span>(<span class="fu">c</span>(satv, satv_se), <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_merge</span>(<span class="fu">c</span>(satq, satq_se), <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_merge</span>(<span class="fu">c</span>(sat,  sat_se),  <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_label</span>(<span class="at">act =</span> <span class="st">"ACT"</span>, <span class="at">satv =</span> <span class="st">"SAT-V"</span>, <span class="at">satq =</span> <span class="st">"SAT-Q"</span>, <span class="at">sat =</span> <span class="st">"SAT"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">tab_options</span>()</span>
-<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- </span><span class="al">TODO</span><span class="co"> add information on published concordance tables. --&gt;</span></span>
-<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- https://www.act.org/content/dam/act/unsecured/documents/ACT-SAT-Concordance-Tables.pdf --&gt;</span></span>
-<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Our results won't be exact but maybe close enough. --&gt;</span></span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(ls)[<span class="sc">-</span><span class="dv">1</span>]) {</span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a>    ls[[i]] <span class="ot">&lt;-</span> ls[[i]][<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>  tab <span class="ot">&lt;-</span> <span class="fu">do.call</span>(cbind, ls)</span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"act"</span>, <span class="st">"satv"</span>, <span class="st">"satv_se"</span>, <span class="st">"satq"</span>, <span class="st">"satq_se"</span>, <span class="st">"sat"</span>, <span class="st">"sat_se"</span>)</span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>  tab <span class="sc">|&gt;</span> </span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>    fuj<span class="sc">::</span><span class="fu">flip</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">gt</span>(<span class="cn">NULL</span>, <span class="st">"ACT"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">fmt_integer</span>(<span class="fu">c</span>(act, satv, satq, sat)) <span class="sc">|&gt;</span> </span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">fmt_number</span>(tidyselect<span class="sc">::</span><span class="fu">ends_with</span>(<span class="st">"_se"</span>), <span class="at">decimals =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_merge</span>(<span class="fu">c</span>(satv, satv_se), <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_merge</span>(<span class="fu">c</span>(satq, satq_se), <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_merge</span>(<span class="fu">c</span>(sat,  sat_se),  <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_label</span>(<span class="at">act =</span> <span class="st">"ACT"</span>, <span class="at">satv =</span> <span class="st">"SAT-V"</span>, <span class="at">satq =</span> <span class="st">"SAT-Q"</span>, <span class="at">sat =</span> <span class="st">"SAT"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">tab_options</span>()</span>
+<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## Equivalent group design</span></span>
-<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a>The anchors we're using are the range of the scores in the current data set.</span>
+<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- </span><span class="al">TODO</span><span class="co"> add information on published concordance tables. --&gt;</span></span>
+<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- https://www.act.org/content/dam/act/unsecured/documents/ACT-SAT-Concordance-Tables.pdf --&gt;</span></span>
+<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Our results won't be exact but maybe close enough. --&gt;</span></span>
 <span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eg-design}</span></span>
-<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a>act_ft  <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>ACT, <span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>)</span>
-<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a>satv_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATV, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>)</span>
-<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a>satq_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATQ, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>)</span>
-<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a>sat_ft  <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATV <span class="sc">+</span> sat.act<span class="sc">$</span>SATQ, <span class="dv">400</span><span class="sc">:</span><span class="dv">1600</span>)</span>
-<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a>eq_equiperc_eg <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a>  equate<span class="sc">::</span><span class="fu">equate</span>(x, y, <span class="at">type =</span> <span class="st">"equipercentile"</span>, <span class="at">reps =</span> <span class="dv">201</span>)</span>
-<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## Equivalent group design</span></span>
+<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a>The anchors we're using are the range of the scores in the current data set.</span>
+<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eg-design}</span></span>
+<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a>act_ft  <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>ACT, <span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>)</span>
+<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a>satv_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATV, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>)</span>
+<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a>satq_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATQ, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>)</span>
+<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a>sat_ft  <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act<span class="sc">$</span>SATV <span class="sc">+</span> sat.act<span class="sc">$</span>SATQ, <span class="dv">400</span><span class="sc">:</span><span class="dv">1600</span>)</span>
 <span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a>eq_act_satv <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_eg</span>(act_ft, satv_ft)</span>
-<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a>eq_act_satq <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_eg</span>(act_ft, satq_ft)</span>
-<span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a>eq_act_sat  <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_eg</span>(act_ft, sat_ft)</span>
-<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eg-plot}</span></span>
-<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout: [[1,1,1,1],[1]]</span></span>
-<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-align: center</span></span>
-<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: screen-inset-shaded</span></span>
-<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_ft) </span>
-<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(satq_ft)</span>
-<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sat_ft)</span>
-<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(satv_ft)</span>
-<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a>  eq_act_satv,</span>
-<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a>  eq_act_satq,</span>
-<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a>  eq_act_sat,</span>
-<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a>  <span class="at">legendtext =</span> <span class="fu">c</span>(<span class="st">"SAT-V"</span>, <span class="st">"SAT-Q"</span>, <span class="st">"SAT"</span>),</span>
-<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"ACT"</span>,</span>
-<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a>  <span class="at">addident =</span> <span class="cn">FALSE</span></span>
-<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a>Generate a concordance table.</span>
-<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a>This table will allow us to match scores on the ACT to scores on the SAT.</span>
-<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eg-table}</span></span>
-<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: screen-inset-shaded</span></span>
-<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a><span class="fu">f_build_sat_act_gt</span>(eq_act_satv, eq_act_satq, eq_act_sat)</span>
-<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a><span class="fu">## Single group design</span></span>
-<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r sg-design}</span></span>
-<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a>act_satv_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act[, <span class="fu">c</span>(<span class="st">"ACT"</span>, <span class="st">"SATV"</span>)], <span class="fu">list</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>))</span>
-<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a>act_satq_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act[, <span class="fu">c</span>(<span class="st">"ACT"</span>, <span class="st">"SATQ"</span>)], <span class="fu">list</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>))</span>
-<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a>act_sat_ft  <span class="ot">&lt;-</span> <span class="fu">with</span>(sat.act, <span class="fu">freqtab</span>(<span class="fu">list</span>(ACT, SATV <span class="sc">+</span> SATQ), <span class="fu">list</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>, <span class="dv">400</span><span class="sc">:</span><span class="dv">1600</span>)))</span>
-<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-160"><a href="#cb10-160" aria-hidden="true" tabindex="-1"></a>eq_equiperc_sg <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb10-161"><a href="#cb10-161" aria-hidden="true" tabindex="-1"></a>  equate<span class="sc">::</span><span class="fu">equate</span>(x, <span class="at">type =</span> <span class="st">"equipercentile"</span>, <span class="at">boot =</span> <span class="cn">TRUE</span>, <span class="at">reps =</span> <span class="dv">201</span>)</span>
-<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a>eq_equiperc_eg <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a>  equate<span class="sc">::</span><span class="fu">equate</span>(x, y, <span class="at">type =</span> <span class="st">"equipercentile"</span>, <span class="at">reps =</span> <span class="dv">201</span>)</span>
+<span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a>eq_act_satv <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_eg</span>(act_ft, satv_ft)</span>
+<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a>eq_act_satq <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_eg</span>(act_ft, satq_ft)</span>
+<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a>eq_act_sat  <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_eg</span>(act_ft, sat_ft)</span>
+<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eg-plot}</span></span>
+<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout: [[1,1,1,1],[1]]</span></span>
+<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-align: center</span></span>
+<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: screen-inset-shaded</span></span>
+<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_ft) </span>
+<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(satq_ft)</span>
+<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sat_ft)</span>
+<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(satv_ft)</span>
+<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a>  eq_act_satv,</span>
+<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a>  eq_act_satq,</span>
+<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a>  eq_act_sat,</span>
+<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a>  <span class="at">legendtext =</span> <span class="fu">c</span>(<span class="st">"SAT-V"</span>, <span class="st">"SAT-Q"</span>, <span class="st">"SAT"</span>),</span>
+<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"ACT"</span>,</span>
+<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a>  <span class="at">addident =</span> <span class="cn">FALSE</span></span>
+<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a>Generate a concordance table.</span>
+<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a>This table will allow us to match scores on the ACT to scores on the SAT.</span>
+<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eg-table}</span></span>
+<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: screen-inset-shaded</span></span>
+<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a><span class="fu">f_build_sat_act_gt</span>(eq_act_satv, eq_act_satq, eq_act_sat)</span>
+<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a><span class="fu">## Single group design</span></span>
+<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a><span class="in">```{r sg-design}</span></span>
+<span id="cb10-160"><a href="#cb10-160" aria-hidden="true" tabindex="-1"></a>act_satv_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act[, <span class="fu">c</span>(<span class="st">"ACT"</span>, <span class="st">"SATV"</span>)], <span class="fu">list</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>))</span>
+<span id="cb10-161"><a href="#cb10-161" aria-hidden="true" tabindex="-1"></a>act_satq_ft <span class="ot">&lt;-</span> <span class="fu">freqtab</span>(sat.act[, <span class="fu">c</span>(<span class="st">"ACT"</span>, <span class="st">"SATQ"</span>)], <span class="fu">list</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>, <span class="dv">200</span><span class="sc">:</span><span class="dv">800</span>))</span>
+<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a>act_sat_ft  <span class="ot">&lt;-</span> <span class="fu">with</span>(sat.act, <span class="fu">freqtab</span>(<span class="fu">list</span>(ACT, SATV <span class="sc">+</span> SATQ), <span class="fu">list</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">36</span>, <span class="dv">400</span><span class="sc">:</span><span class="dv">1600</span>)))</span>
 <span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a>eq_act_satv_sg <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_sg</span>(act_satv_ft)</span>
-<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a>eq_act_satq_sg <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_sg</span>(act_satq_ft)</span>
-<span id="cb10-166"><a href="#cb10-166" aria-hidden="true" tabindex="-1"></a>eq_act_sat_sg  <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_sg</span>(act_sat_ft)</span>
-<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-170"><a href="#cb10-170" aria-hidden="true" tabindex="-1"></a><span class="in">```{r sg-plot}</span></span>
-<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout: [[1,1,1],[1]]</span></span>
-<span id="cb10-172"><a href="#cb10-172" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-align: center</span></span>
-<span id="cb10-173"><a href="#cb10-173" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: screen-inset-shaded</span></span>
-<span id="cb10-174"><a href="#cb10-174" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_satv_ft)</span>
-<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_satq_ft)</span>
-<span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_sat_ft)</span>
-<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a>  eq_act_satv_sg, </span>
-<span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a>  eq_act_satq_sg, </span>
-<span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a>  eq_act_sat_sg,</span>
-<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a>  <span class="at">legendtext =</span> <span class="fu">c</span>(<span class="st">"SAT-V"</span>, <span class="st">"SAT-Q"</span>, <span class="st">"SAT"</span>),</span>
-<span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"ACT"</span>,</span>
-<span id="cb10-184"><a href="#cb10-184" aria-hidden="true" tabindex="-1"></a>  <span class="at">addident =</span> <span class="cn">FALSE</span></span>
-<span id="cb10-185"><a href="#cb10-185" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a>We can construct the same concordance table as we did before.</span>
-<span id="cb10-189"><a href="#cb10-189" aria-hidden="true" tabindex="-1"></a>However, because we are using a single group design, we won't be reporting any standard error values.</span>
-<span id="cb10-190"><a href="#cb10-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-191"><a href="#cb10-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{r sg-table}</span></span>
-<span id="cb10-192"><a href="#cb10-192" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: screen-inset-shaded</span></span>
-<span id="cb10-193"><a href="#cb10-193" aria-hidden="true" tabindex="-1"></a><span class="fu">f_build_sat_act_gt</span>(eq_act_satv_sg, eq_act_satq_sg, eq_act_sat_sg)</span>
-<span id="cb10-194"><a href="#cb10-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a>eq_equiperc_sg <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a>  equate<span class="sc">::</span><span class="fu">equate</span>(x, <span class="at">type =</span> <span class="st">"equipercentile"</span>, <span class="at">boot =</span> <span class="cn">TRUE</span>, <span class="at">reps =</span> <span class="dv">201</span>)</span>
+<span id="cb10-166"><a href="#cb10-166" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a>eq_act_satv_sg <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_sg</span>(act_satv_ft)</span>
+<span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a>eq_act_satq_sg <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_sg</span>(act_satq_ft)</span>
+<span id="cb10-170"><a href="#cb10-170" aria-hidden="true" tabindex="-1"></a>eq_act_sat_sg  <span class="ot">&lt;-</span> <span class="fu">eq_equiperc_sg</span>(act_sat_ft)</span>
+<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-172"><a href="#cb10-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-173"><a href="#cb10-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-174"><a href="#cb10-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{r sg-plot}</span></span>
+<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout: [[1,1,1],[1]]</span></span>
+<span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-align: center</span></span>
+<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: screen-inset-shaded</span></span>
+<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_satv_ft)</span>
+<span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_satq_ft)</span>
+<span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(act_sat_ft)</span>
+<span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a>  eq_act_satv_sg, </span>
+<span id="cb10-184"><a href="#cb10-184" aria-hidden="true" tabindex="-1"></a>  eq_act_satq_sg, </span>
+<span id="cb10-185"><a href="#cb10-185" aria-hidden="true" tabindex="-1"></a>  eq_act_sat_sg,</span>
+<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a>  <span class="at">legendtext =</span> <span class="fu">c</span>(<span class="st">"SAT-V"</span>, <span class="st">"SAT-Q"</span>, <span class="st">"SAT"</span>),</span>
+<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"ACT"</span>,</span>
+<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a>  <span class="at">addident =</span> <span class="cn">FALSE</span></span>
+<span id="cb10-189"><a href="#cb10-189" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-190"><a href="#cb10-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-191"><a href="#cb10-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-192"><a href="#cb10-192" aria-hidden="true" tabindex="-1"></a>We can construct the same concordance table as we did before.</span>
+<span id="cb10-193"><a href="#cb10-193" aria-hidden="true" tabindex="-1"></a>However, because we are using a single group design, we won't be reporting any standard error values.</span>
+<span id="cb10-194"><a href="#cb10-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-195"><a href="#cb10-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{r sg-table}</span></span>
+<span id="cb10-196"><a href="#cb10-196" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: screen-inset-shaded</span></span>
+<span id="cb10-197"><a href="#cb10-197" aria-hidden="true" tabindex="-1"></a><span class="fu">f_build_sat_act_gt</span>(eq_act_satv_sg, eq_act_satq_sg, eq_act_sat_sg)</span>
+<span id="cb10-198"><a href="#cb10-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

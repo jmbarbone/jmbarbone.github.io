@@ -10,6 +10,7 @@ Something about equating.
 The `{gt}` package provides some great options for formatting clean tables.
 
 ```{r}
+set.seed(20220827)
 library(equate)
 library(gt)
 ```
