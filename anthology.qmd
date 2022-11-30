@@ -44,6 +44,13 @@ Irani, F., **Barbone, J. M.**, Beausoleil, J., & Gerald, L. B. (2017) [Is asthma
 
 ## Presentations
 
+### 2022
+
+<!-- TODO include IFDAQ ADPD 2022 -->
+<!-- Edgar, C. J., Amariglio, R., **Barbone, J. M.**, Chandler, J. M., Coons, S. J., Donohue, M. C., Lenderking, W. R., & Sperling, R (2022, December) [_Prelimary evidence for reliability and validity of the Interpersonal Functioning and Daily Activities Question (IFDAQ) in the A4/LEARN pre-randomization sample_]().  Slides presented at the Clinical Trials for Alzheimer's Disease, San Francisco, CA, USA. -->
+
+Edgar, C. J., Maruff, P., Harrison, J. E, **Barbone, J. M.**, Leventhal, R., & Alam, J. J. (April, 2022) [_Validity and reliability of a composite cognitive outcome measure for clinical trials in dementia with Lewy bodies_](https://www.cogstate.com/wp-content/uploads/2022/04/OO171-Validity-and-reliability-of-a-composite-cognitive-outcome-in-DLB_d273-Read-Only.pdf).  Slides and presented at the 16th International Conference on Alzheimer's & Parkinson's Diseases, Barcelona, Spain.
+
 ### 2018
 
 **Barbone, J. M.** (2018, December) [_Replication in Social Psychology_](https://jmbarbone.github.io/psy609/fdsp_presentation#1).  Slides presented for Advanced Social Psychology at West Chester University of Pennsylvania, PA, USA. [_**University presentation**_]
@@ -65,6 +72,10 @@ _Note_: the above presentation reported on results from a hypothetical study.
 Irani, F., **Barbone, J. M.**, & Beausoleil, J. (2015, August) [_The impact of asthma on cognitive functioning_](https://www.researchgate.net/publication/319271343_Abstract_The_impact_of_asthma_on_cognitive_functioning?_sg=OkDiZKP7cVjIQZqeuSpRGIltjSLEPsB0GT86QX1LeE7vXbi0zLvA-jgCOkRSmtg-XKT7J7ZKS5tjXQHXNwB1X5oaURb6rHz3MEyRPE5u.i60iCDy1C_D49Y4Am2iksn_71Vq1DCYX-h4-_RCwV5RVpACYNZEzfjhTUlPEyabNBRS5wAqm_BA5TvMgY4WTEw).  Slides presented at the American Psychological Association Convention, Toronto, Canada.
 
 ## Posters
+
+### 2022
+
+Wacker, S. & **Barbone, J. M.** (April, 2022) [_Rater perspectives on Applied Training of cognitive clinical outcome assessments, delivered by neuropsychology experts_](https://www.cogstate.com/wp-content/uploads/2022/08/Rater-Perspectives-on-Applied-Training-of-Cognitive-Clinical-Outcome-Assessments.pdf).  Poster presented at the 16th International Conference on Alzheimer's & Parkinson's Diseases, Barcelona, Spain.
 
 ### 2020
 
