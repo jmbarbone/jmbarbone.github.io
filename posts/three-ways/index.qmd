@@ -43,9 +43,7 @@ library(tidyverse)
 Let's create some random data to represent our subjects, our doses, and an arbitrary time metric.
 We're also going to make this harder by using the `difftime`.
 
-We're also going to grab some names using a function from the [`wakefield` package](https://github.com/trinker/wakefield) which you can use to create fake data, appropriately named. [^note]
-
-^note: I'm not too savvy with this package yet but would like to experiment more for building dummy data sets.
+We're also going to grab some names using a function from the [`wakefield` package](https://github.com/trinker/wakefield) which you can use to create fake data, appropriately named. ^[I'm not too savvy with this package yet but would like to experiment more for building dummy data sets.]
 
 ```{r generating the data} 
 subj <- sort(sample(wakefield::name(500), 1e4, TRUE))
