@@ -1,0 +1,162 @@
+---
+title: "`{scribe}` release"
+subtitle: "A package to support `Rscript` files"
+date: "2023-03-06"
+categories: ["R", "{scribe}"]
+draft: true
+---
+
+I'm excited to be finalizing release preparations of [`{scribe}`](https://jmbarbone.github.io/scribe/).
+This package supports writing your own **Rscript** files and executing them through a terminal.
+
+We'll start with a simple example.
+For most of these, I'll be using the direct **R** interface.
+However, this package is best used with a [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) script ^[I'm pretty sure this is pronounced like _sha-bang_ because it's a hash (`#`) and bang (`!`).  But I used to think _she-bang_, which conjures [The Stone Roses' _She Bangs the Drums_](https://www.youtube.com/watch?v=wD6Pq0bSMPo), a pleasant ear-worm.  I think it also works to just shout [_octothorpe_](https://en.wikipedia.org/wiki/Number_sign#Octothorp)!].
+
+Keep in mind that `command_args()` doesn't need an explicit input, and when used with **Rscript** will automatically capture command line arguments.
+
+```{r}
+library(scribe)
+ca <- command_args(string = "-a 1 -b 0")
+ca$add_argument("-a", default = 0L)
+ca$add_argument("-b", default = 0L)
+args <- ca$parse()
+args$a + args$b
+```
+
+```{r}
+ca$set_input(c("-a 10 -b 10"))
+args <- ca$parse()
+args$a + args$b
+```
+
+That's a little easy, so maybe we can make something a bit more interesting.
+
+First we'll make ourselves a little modeling function.
+This is not meant for completeness, but simply provides a few examples for creativity.
+
+```{r}
+my_model <- function(
+    data = c("penguins", "mtcars", "sat.act"), 
+    y, 
+    x = NA, 
+    family = "gaussian", 
+    correlation = FALSE
+  ) {
+  data <- match.arg(data)
+  
+  data <- switch(
+    data,
+    penguins = palmerpenguins::penguins,
+    mtcars = datasets::mtcars,
+    sat.act = transform(
+      psych::sat.act, 
+      gender = as.integer(gender == 1)
+    )
+  )
+  
+  if (isTRUE(is.na(x))) {
+    x <- setdiff(colnames(data), y)
+  }
+  
+  data <- data[, c(y, x)]
+  form <- stats::DF2formula(data)
+  mod <- stats::glm(form, data = data, family = family)
+  summary(mod, correlation = correlation)
+}
+```
+
+Now that we have that, we can set up the command args to parse what our string inputs are.
+
+```{r}
+# we'll pass arguments after
+ca <- command_args()
+ca$add_description("run a quick model")
+ca$add_argument(
+  "data",
+  default = "penguins",
+  info = "a dataset to view"
+)
+ca$add_argument("y", info = "value to predict")
+ca$add_argument("x", default = NA, info = "variables")
+ca$add_argument(
+  "--family",
+  default = "gaussian",
+  info = "error distribution, link function"
+)
+ca$add_argument(
+  "--correlation",
+  action = "flag",
+  info = "when set, returns the correlation matrix"
+)
+ca$add_example("my-model.R penguins body_mass_g")
+ca$add_example("my-model.R mtcars mpg --correlation")
+```
+
+There's a default _help_ arg added to the `scribeCommandArg` object.
+When `--help` is found in the command line arguments, the script will try to exit, returning only the help information.
+
+```{r}
+options(scribe.interactive = TRUE)
+ca$set_input("--help")
+ca$parse()
+```
+
+Let's simulate a few examples:
+
+```bash
+my-model.R penguins body_mass_g
+```
+
+```{r}
+ca$set_input(c("penguins", "body_mass_g"))
+do.call(my_model, ca$parse())
+```
+
+```bash
+my-mode.R mtcars mpg --correlation
+```
+
+```{r}
+ca$set_input(c("mtcars", "mpg", "--correlation"))
+do.call(my_model, ca$parse())
+```
+
+```bash
+my-model.R sat.act gender --family binomial --correlation
+```
+
+```{r}
+ca$set_input(c("sat.act", "gender", "--family", "binomial", "--correlation"))
+do.call(my_model, ca$parse())
+```
+
+If I needed this, maybe it would make sense to be able to read the data from a file path, then execute something like:
+
+```sh
+my-model.R data/example.csv response
+```
+
+For a more real example, I'll use a trimmed down version of a [`{pak}`](https://pak.r-lib.org/) [cli utiliy](https://github.com/jmbarbone/jmb/blob/main/bin/pak) I've been using a lot.
+I really like using python's [`pip`](https://pypi.org/project/pip/) and wanted to have something similar to **R**.
+[`{pak}`](https://pak.r-lib.org/) is fantastic and highly recommended.
+
+So, to make our own little command line utility, we just need to include small things and get going:
+
+```Rscript
+#!/usr/bin/env -S Rscript --vanilla
+
+library(scribe)
+ca <- command_args()
+ca$add_argument("pkg", action = "dots", default = "local::.")
+ca$add_argument("-d", "--dependencies, action = "list", default = TRUE)
+args <- ca$parse()
+do.call(pak::pak, args)
+```
+
+Now, I can install packages nicely in a terminal:
+
+```bash
+pak github::jmbarbone/mark -d
+pak dplyr dbplyr dtplyr
+```
