@@ -142,7 +142,7 @@ I really like using python's [`pip`](https://pypi.org/project/pip/) and wanted t
 
 So, to make our own little command line utility, we just need to include small things and get going:
 
-```Rscript
+```r
 #!/usr/bin/env -S Rscript --vanilla
 
 library(scribe)

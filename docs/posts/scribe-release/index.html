@@ -465,14 +465,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">my-model.R</span> data/example.csv response</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>For a more real example, I’ll use a trimmed down version of a <a href="https://pak.r-lib.org/"><code>{pak}</code></a> <a href="https://github.com/jmbarbone/jmb/blob/main/bin/pak">cli utiliy</a> I’ve been using a lot. I really like using python’s <a href="https://pypi.org/project/pip/"><code>pip</code></a> and wanted to have something similar to <strong>R</strong>. <a href="https://pak.r-lib.org/"><code>{pak}</code></a> is fantastic and highly recommended.</p>
 <p>So, to make our own little command line utility, we just need to include small things and get going:</p>
-<pre class="rscript"><code>#!/usr/bin/env -S Rscript --vanilla
-
-library(scribe)
-ca &lt;- command_args()
-ca$add_argument("pkg", action = "dots", default = "local::.")
-ca$add_argument("-d", "--dependencies, action = "list", default = TRUE)
-args &lt;- ca$parse()
-do.call(pak::pak, args)</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env -S Rscript --vanilla</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scribe)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>ca <span class="ot">&lt;-</span> <span class="fu">command_args</span>()</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"pkg"</span>, <span class="at">action =</span> <span class="st">"dots"</span>, <span class="at">default =</span> <span class="st">"local::."</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-d"</span>, <span class="st">"--dependencies, action = "</span>list<span class="st">", default = TRUE)</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="st">args &lt;- ca$parse()</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="st">do.call(pak::pak, args)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now, I can install packages nicely in a terminal:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pak</span> github::jmbarbone/mark <span class="at">-d</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pak</span> dplyr dbplyr dtplyr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1026,7 +1026,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-158"><a href="#cb15-158" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-159"><a href="#cb15-159" aria-hidden="true" tabindex="-1"></a>So, to make our own little command line utility, we just need to include small things and get going:</span>
 <span id="cb15-160"><a href="#cb15-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-161"><a href="#cb15-161" aria-hidden="true" tabindex="-1"></a><span class="in">```Rscript</span></span>
+<span id="cb15-161"><a href="#cb15-161" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
 <span id="cb15-162"><a href="#cb15-162" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env -S Rscript --vanilla</span></span>
 <span id="cb15-163"><a href="#cb15-163" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-164"><a href="#cb15-164" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scribe)</span>
