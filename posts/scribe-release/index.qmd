@@ -1,9 +1,8 @@
 ---
 title: "`{scribe}` release"
 subtitle: "A package to support `Rscript` files"
-date: "2023-03-06"
+date: "2023-03-13"
 categories: ["R", "{scribe}"]
-draft: true
 ---
 
 I'm excited to be finalizing release preparations of [`{scribe}`](https://jmbarbone.github.io/scribe/).

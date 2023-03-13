@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/scribe-release/index.html",
       "/posts/confidence-intervals/index.html",
       "/posts/quarto-update/index.html",
       "/posts/dplyr-select/index.html",
