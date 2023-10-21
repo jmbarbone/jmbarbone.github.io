@@ -1,0 +1,60 @@
+---
+title: "`{scribe} 0.3.0` release"
+subtitle: "A package to support `Rscript` files"
+date: "2023-10-21"
+categories: ["R", "{scribe}"]
+---
+
+After months of using my own `Rscript` utils with `{scribe}` I've failed to notice a now obvious error in my attempts to include type conversions.
+The original approach was a little too complicated and a too much for what would be needed in most cases.
+
+This update includes a breaking change for how conversion works in `{scribe}`.
+
+In the prior minor release, this would be valid:
+
+```{r}
+library(scribe)
+```
+
+
+```r
+ca <- command_args(string = "-a 1 -b 0")
+ca$add_argument("-a", convert = integer())
+ca$add_argument("-b", convert = character())
+args <- ca$parse()
+args$a + args$b
+#> a
+#> [1] 1
+#> 
+#> $b
+#> [1] "0"
+```
+
+However, there were issues with trying to use a default value and trying to use a conversion value.
+Instead, a new exported `scribe_convert()` is included to handle default and custom conversions.
+
+```{r}
+scribe_convert()
+```
+
+This defaults to returning `value_convert()` (which may be unexported in the future) and provides other options for `"none"`, and `"evaluate"`.
+The latter provides useful alternatives for including new values:
+
+```{r}
+a <- new_arg(convert = scribe_convert("evaluate"))
+a$convert("1:2")
+a$convert("data.frame(a = 1, b = 2)")
+```
+
+You still have the option for custom conversions, and use the methods of `scribe_value()` by just passing the method as a string.
+
+```{r}
+ca <- command_args(c("-a", 0, "-b", "2023-10-21", "-c", "list(2, 3)", "-d", 4.4, "-e", 5))
+ca$add_argument("-a", convert = "none")
+ca$add_argument("-b", convert = "default")
+ca$add_argument("-c", convert = "evaluate")
+ca$add_argument("-d", convert = as.integer)
+ca$add_argument("-e", convert = \(x) rep("value", x))
+str(ca$parse())
+```
+
