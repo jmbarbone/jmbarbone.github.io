@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-07-09">
+<meta name="dcterms.date" content="2023-10-21">
 
-<title>J M Barbone - Site update</title>
+<title>J M Barbone - {scribe} 0.3.0 release</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -176,10 +176,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Site update</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-            <p class="subtitle lead">Now with quarto!</p>
+      <div class="quarto-title-block"><div><h1 class="title"><code>{scribe} 0.3.0</code> release</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+            <p class="subtitle lead">A package to support <code>Rscript</code> files</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">meta</div>
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">{scribe}</div>
               </div>
                   </div>
   </div>
@@ -191,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 9, 2022</p>
+        <p class="date">October 21, 2023</p>
       </div>
     </div>
     
@@ -210,9 +211,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>I finally got around to updating this out-of-date site with some new information in my <a href="../../about.html">About</a> and <a href="../../anthology.html">Anthology</a>. Even more, I <a href="https://github.com/jmbarbone/jmbarbone.github.io/commit/33400d3a940971764393656e091b7faad6688e7d"><em>nuked</em></a> the whole thing and remade the website as a <a href="https://quarto.org/docs/websites/website-blog.html">quarto-blog</a>.</p>
-<p>I’ve started using <a href="https://quarto.org/"><code>{quarto}</code></a> for work reports and have been impressed with some of the functionality. While I’ve spend years with <a href="https://yihui.org/knitr/"><code>{knitr}</code></a> (thanks Yihui Xie), <code>{quarto}</code> feels like a refreshing <em>re-do</em> and feels a little easier to use in some cases. One particularly good feature is the <a href="https://quarto.org/docs/authoring/article-layout.html">article layout</a>, which feels particularly easy to use. There’s an example of this in the <a href="../../about.html">About</a> page where a large graphic is nicely displayed without too much effort. This has been very help.</p>
-<p>While <code>{quarto}</code> feels nice, it still feels a little <em>fresh</em> and it seems some functionality might be pending. I’ve already had to <a href="https://gist.github.com/jmbarbone/ea2a24b724c076ac27da44bfb1b7258e">write a quick wrapper</a> for an easier replacement to <a href="https://rmarkdown.rstudio.com/docs/reference/render.html"><code>rmarkdown::render()</code></a>.</p>
+<p>After months of using my own <code>Rscript</code> utils with <code>{scribe}</code> I’ve failed to notice a now obvious error in my attempts to include type conversions. The original approach was a little too complicated and a too much for what would be needed in most cases.</p>
+<p>This update includes a breaking change for how conversion works in <code>{scribe}</code>.</p>
+<p>In the prior minor release, this would be valid:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scribe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ca <span class="ot">&lt;-</span> <span class="fu">command_args</span>(<span class="at">string =</span> <span class="st">"-a 1 -b 0"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-a"</span>, <span class="at">convert =</span> <span class="fu">integer</span>())</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-b"</span>, <span class="at">convert =</span> <span class="fu">character</span>())</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>args <span class="ot">&lt;-</span> ca<span class="sc">$</span><span class="fu">parse</span>()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>args<span class="sc">$</span>a <span class="sc">+</span> args<span class="sc">$</span>b</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; a</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $b</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "0"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>However, there were issues with trying to use a default value and trying to use a conversion value. Instead, a new exported <code>scribe_convert()</code> is included to handle default and custom conversions.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scribe_convert</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; function (x, to = default_convert) </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; {</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     if (!is.character(x) || is.null(to)) {</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         return(x)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     }</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     if (is.factor(to)) {</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         return(factor(x, levels = levels(to), ordered = is.ordered(to)))</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     }</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     if (is.function(to)) {</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         to &lt;- match.fun(to)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         return(to(x))</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     }</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     mode(x) &lt;- mode(to)</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     storage.mode(x) &lt;- storage.mode(to)</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     attributes(x) &lt;- attributes(to)</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     class(x) &lt;- class(to)</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     x</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; }</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;bytecode: 0x5579b81e89a0&gt;</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;environment: namespace:scribe&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>This defaults to returning <code>value_convert()</code> (which may be unexported in the future) and provides other options for <code>"none"</code>, and <code>"evaluate"</code>. The latter provides useful alternatives for including new values:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">new_arg</span>(<span class="at">convert =</span> <span class="fu">scribe_convert</span>(<span class="st">"evaluate"</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>a<span class="sc">$</span><span class="fu">convert</span>(<span class="st">"1:2"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>a<span class="sc">$</span><span class="fu">convert</span>(<span class="st">"data.frame(a = 1, b = 2)"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   a b</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>You still have the option for custom conversions, and use the methods of <code>scribe_value()</code> by just passing the method as a string.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ca <span class="ot">&lt;-</span> <span class="fu">command_args</span>(<span class="fu">c</span>(<span class="st">"-a"</span>, <span class="dv">0</span>, <span class="st">"-b"</span>, <span class="st">"2023-10-21"</span>, <span class="st">"-c"</span>, <span class="st">"list(2, 3)"</span>, <span class="st">"-d"</span>, <span class="fl">4.4</span>, <span class="st">"-e"</span>, <span class="dv">5</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-a"</span>, <span class="at">convert =</span> <span class="st">"none"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-b"</span>, <span class="at">convert =</span> <span class="st">"default"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-c"</span>, <span class="at">convert =</span> <span class="st">"evaluate"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-d"</span>, <span class="at">convert =</span> as.integer)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-e"</span>, <span class="at">convert =</span> \(x) <span class="fu">rep</span>(<span class="st">"value"</span>, x))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ca<span class="sc">$</span><span class="fu">parse</span>())</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; List of 5</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ a: chr "0"</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ b: POSIXct[1:1], format: "2023-10-21"</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ c:List of 2</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ : num 2</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ : num 3</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ d: int 4</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ e: chr [1:5] "value" "value" "value" "value" ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 
 
 <!-- -->
@@ -804,24 +881,66 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Site update</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> Now with quarto!</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2022-07-09"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [meta]</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>I finally got around to updating this out-of-date site with some new information in my <span class="co">[</span><span class="ot">About</span><span class="co">](../../about.qmd)</span> and <span class="co">[</span><span class="ot">Anthology</span><span class="co">](../../anthology.qmd)</span>.</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Even more, I <span class="co">[</span><span class="ot">_nuked_</span><span class="co">](https://github.com/jmbarbone/jmbarbone.github.io/commit/33400d3a940971764393656e091b7faad6688e7d)</span> the whole thing and remade the website as a <span class="co">[</span><span class="ot">quarto-blog</span><span class="co">](https://quarto.org/docs/websites/website-blog.html)</span>.</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>I've started using <span class="co">[</span><span class="ot">`{quarto}`</span><span class="co">](https://quarto.org/)</span> for work reports and have been impressed with some of the functionality.</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>While I've spend years with <span class="co">[</span><span class="ot">`{knitr}`</span><span class="co">](https://yihui.org/knitr/)</span> (thanks Yihui Xie), <span class="in">`{quarto}`</span> feels like a refreshing _re-do_ and feels a little easier to use in some cases.</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>One particularly good feature is the <span class="co">[</span><span class="ot">article layout</span><span class="co">](https://quarto.org/docs/authoring/article-layout.html)</span>, which feels particularly easy to use.</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>There's an example of this in the <span class="co">[</span><span class="ot">About</span><span class="co">](../../about.qmd)</span> page where a large graphic is nicely displayed without too much effort.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>This has been very help.</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>While <span class="in">`{quarto}`</span> feels nice, it still feels a little _fresh_ and it seems some functionality might be pending.</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>I've already had to <span class="co">[</span><span class="ot">write a quick wrapper</span><span class="co">](https://gist.github.com/jmbarbone/ea2a24b724c076ac27da44bfb1b7258e)</span> for an easier replacement to <span class="co">[</span><span class="ot">`rmarkdown::render()`</span><span class="co">](https://rmarkdown.rstudio.com/docs/reference/render.html)</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "`{scribe} 0.3.0` release"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "A package to support `Rscript` files"</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2023-10-21"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> ["R", "{scribe}"]</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>After months of using my own <span class="in">`Rscript`</span> utils with <span class="in">`{scribe}`</span> I've failed to notice a now obvious error in my attempts to include type conversions.</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>The original approach was a little too complicated and a too much for what would be needed in most cases.</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>This update includes a breaking change for how conversion works in <span class="in">`{scribe}`</span>.</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>In the prior minor release, this would be valid:</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scribe)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>ca <span class="ot">&lt;-</span> <span class="fu">command_args</span>(<span class="at">string =</span> <span class="st">"-a 1 -b 0"</span>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-a"</span>, <span class="at">convert =</span> <span class="fu">integer</span>())</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-b"</span>, <span class="at">convert =</span> <span class="fu">character</span>())</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>args <span class="ot">&lt;-</span> ca<span class="sc">$</span><span class="fu">parse</span>()</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>args<span class="sc">$</span>a <span class="sc">+</span> args<span class="sc">$</span>b</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; a</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $b</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "0"</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>However, there were issues with trying to use a default value and trying to use a conversion value.</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>Instead, a new exported <span class="in">`scribe_convert()`</span> is included to handle default and custom conversions.</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="fu">scribe_convert</span>()</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>This defaults to returning <span class="in">`value_convert()`</span> (which may be unexported in the future) and provides other options for <span class="in">`"none"`</span>, and <span class="in">`"evaluate"`</span>.</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>The latter provides useful alternatives for including new values:</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">new_arg</span>(<span class="at">convert =</span> <span class="fu">scribe_convert</span>(<span class="st">"evaluate"</span>))</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>a<span class="sc">$</span><span class="fu">convert</span>(<span class="st">"1:2"</span>)</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>a<span class="sc">$</span><span class="fu">convert</span>(<span class="st">"data.frame(a = 1, b = 2)"</span>)</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>You still have the option for custom conversions, and use the methods of <span class="in">`scribe_value()`</span> by just passing the method as a string.</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>ca <span class="ot">&lt;-</span> <span class="fu">command_args</span>(<span class="fu">c</span>(<span class="st">"-a"</span>, <span class="dv">0</span>, <span class="st">"-b"</span>, <span class="st">"2023-10-21"</span>, <span class="st">"-c"</span>, <span class="st">"list(2, 3)"</span>, <span class="st">"-d"</span>, <span class="fl">4.4</span>, <span class="st">"-e"</span>, <span class="dv">5</span>))</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-a"</span>, <span class="at">convert =</span> <span class="st">"none"</span>)</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-b"</span>, <span class="at">convert =</span> <span class="st">"default"</span>)</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-c"</span>, <span class="at">convert =</span> <span class="st">"evaluate"</span>)</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-d"</span>, <span class="at">convert =</span> as.integer)</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>ca<span class="sc">$</span><span class="fu">add_argument</span>(<span class="st">"-e"</span>, <span class="at">convert =</span> \(x) <span class="fu">rep</span>(<span class="st">"value"</span>, x))</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ca<span class="sc">$</span><span class="fu">parse</span>())</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

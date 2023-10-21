@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-99.9.9">
+<meta name="generator" content="quarto-1.4.398">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,11 +18,12 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -47,48 +48,20 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -102,8 +75,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -130,7 +102,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -140,10 +118,12 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
@@ -155,62 +135,62 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">J M Barbone</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../../about.html" rel="" target=""><i class="bi bi-person-circle" role="img">
+    <a class="nav-link" href="../../about.html"> <i class="bi bi-person-circle" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jmbarbone" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/jmbarbone"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://fosstodon.org/@barbone" rel="" target=""><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://fosstodon.org/(barbone?)"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://linkedin.com/in/jmbarbone" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://linkedin.com/in/jmbarbone"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.researchgate.net/profile/Jordan-Barbone-2" rel="" target=""><i class="bi bi-folder" role="img">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Jordan-Barbone-2"> <i class="bi bi-folder" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=R6GyUVYAAAAJ&amp;hl=en&amp;oi=ao" rel="" target=""><i class="bi bi-google" role="img">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=R6GyUVYAAAAJ&amp;hl=en&amp;oi=ao"> <i class="bi bi-google" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../anthology.html" rel="" target=""><i class="bi bi-flower3" role="img">
+    <a class="nav-link" href="../../anthology.html"> <i class="bi bi-flower3" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jmbarbone/barbone-cv/blob/master/Barbone-CV.pdf" rel="" target=""><i class="bi bi-file-text" role="img">
+    <a class="nav-link" href="https://github.com/jmbarbone/barbone-cv/blob/master/Barbone-CV.pdf"> <i class="bi bi-file-text" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -253,6 +233,7 @@ div.csl-indent {
 
 
 
+
 <blockquote class="blockquote">
 <p>Note: I originally wrote this in February 2019. Also, don’t hate me for putting some links to Wikipedia, you were going to go there anyway. This isn’t a research paper.</p>
 </blockquote>
@@ -265,7 +246,7 @@ div.csl-indent {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="sheldon2014emotionally_figure1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><em>Figure 1</em>. Overestimation of emotional intelligence (left panel) and performance on the Mayer-Salovey-Caruso Emotional Intelligence Test (MSCEIT; right panel) as a function of actual performance on the MSCEIT</figcaption><p></p>
+<figcaption><em>Figure 1</em>. Overestimation of emotional intelligence (left panel) and performance on the Mayer-Salovey-Caruso Emotional Intelligence Test (MSCEIT; right panel) as a function of actual performance on the MSCEIT</figcaption>
 </figure>
 </div>
 <p>We’ll go through and understand why this can be misleading and how to replicate the Dunning-Kruger effect <strong>with random data</strong>. Yes, <em>random data</em>. Data that are random.</p>
@@ -631,14 +612,14 @@ div.csl-indent {
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-adams1979hitchhikers" class="csl-entry" role="doc-biblioentry">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-adams1979hitchhikers" class="csl-entry" role="listitem">
 Douglas, Adams. 1989. <em>The Hitchhiker’s Guide to the Galaxy</em>. New York: Harmony Books.
 </div>
-<div id="ref-nuhfer2016random" class="csl-entry" role="doc-biblioentry">
+<div id="ref-nuhfer2016random" class="csl-entry" role="listitem">
 Nuhfer, Edward, Christopher Cogan, Steven Fleisher, Eric Gaze, and Karl Wirth. 2016. <span>“Random Number Simulations Reveal How Random Noise Affects the Measurements and Graphical Portrayals of Self-Assessed Competency.”</span> <em>Numeracy: Advancing Education in Quantitative Literacy</em> 9 (1). <a href="https://doi.org/10.5038/1936-4660.9.1.4">https://doi.org/10.5038/1936-4660.9.1.4</a>.
 </div>
-<div id="ref-sheldon2014emotionally" class="csl-entry" role="doc-biblioentry">
+<div id="ref-sheldon2014emotionally" class="csl-entry" role="listitem">
 Sheldon, Oliver J, David Dunning, and Daniel R Ames. 2014. <span>“Emotionally Unskilled, Unaware, and Uninterested in Learning More: Reactions to Feedback about Deficits in Emotional Intelligence.”</span> <em>Journal of Applied Psychology</em> 99 (1): 125. <a href="https://doi.org/10.1037/a0034138">https://doi.org/10.1037/a0034138</a>.
 </div>
 </div></section></div></main> <!-- /main -->
@@ -683,6 +664,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -751,13 +759,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -784,9 +794,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -873,10 +897,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -886,8 +909,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -900,6 +932,128 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -941,8 +1095,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               div.style.position = 'absolute';
               parent.appendChild(div);
             }
-            div.style.top = top - 1 + "px";
-            div.style.height = height + "px";
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -952,8 +1107,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               const gutter = codeCell.querySelector('.code-annotation-gutter');
               gutter.appendChild(gutterDiv);
             }
-            gutterDiv.style.top = top - 1 + "px";
-            gutterDiv.style.height = height + "px";
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
           }
           selectedAnnoteEl = annoteEl;
         }
@@ -968,6 +1123,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1068,24 +1249,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>First, let's setup our <span class="in">`.Rmd`</span> file and choose a specific randomization seed so we can come back to our results <span class="co">[</span><span class="ot">@adams1979hitchhikers</span><span class="co">]</span>:</span>
 <span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup}</span></span>
-<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">dplyr.summarise.inform =</span> <span class="cn">FALSE</span>) <span class="co"># removes warning for `summarise()`</span></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="in">#| include: false</span></span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a><span class="in">options(dplyr.summarise.inform = FALSE) # removes warning for `summarise()`</span></span>
 <span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r packages}</span></span>
-<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a><span class="in">set.seed(42)</span></span>
 <span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">tidyverse.quiet =</span> <span class="cn">TRUE</span>) <span class="do">## silences warnings</span></span>
-<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mark)                   <span class="do">## percentile_rank() | github.com/jmbarbone/mark</span></span>
-<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)                  <span class="do">## tidying statistical outputs into tables</span></span>
-<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())</span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a><span class="in">options(tidyverse.quiet = TRUE) ## silences warnings</span></span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a><span class="in">library(mark)                   ## percentile_rank() | github.com/jmbarbone/mark</span></span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a><span class="in">library(broom)                  ## tidying statistical outputs into tables</span></span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a><span class="in">theme_set(theme_minimal())</span></span>
 <span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a><span class="in">```{r functions}</span></span>
-<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>f_nbins <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">n =</span> <span class="dv">6</span>) {</span>
-<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ntile</span>(x, n) <span class="sc">/</span> n</span>
-<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a><span class="in">f_nbins &lt;- function(x, n = 6) {</span></span>
+<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::ntile(x, n) / n</span></span>
+<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
 <span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a></span>
@@ -1102,48 +1283,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a>With this formula, our percentile ranks will always be 0 &lt; $PR_i$ &lt; 100.</span>
 <span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r random-data-1}</span></span>
-<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a>random_data <span class="ot">&lt;-</span> </span>
-<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
-<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">actual =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>),</span>
-<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
-<span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), percentile_rank))</span>
+<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a><span class="in">random_data &lt;- </span></span>
+<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a><span class="in">  tibble(</span></span>
+<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a><span class="in">    actual = rnorm(1000),</span></span>
+<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a><span class="in">    estimate = rnorm(1000)</span></span>
+<span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a><span class="in">  ) %&gt;% </span></span>
+<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a><span class="in">  mutate(across(everything(), percentile_rank))</span></span>
 <span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a>random_data</span>
+<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a><span class="in">random_data</span></span>
 <span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a>We also want to bin our data together just like in the article.</span>
 <span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-88"><a href="#cb13-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{r random-data-2}</span></span>
-<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a>bins <span class="ot">&lt;-</span> </span>
-<span id="cb13-90"><a href="#cb13-90" aria-hidden="true" tabindex="-1"></a>  random_data <span class="sc">%&gt;%</span> </span>
-<span id="cb13-91"><a href="#cb13-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb13-92"><a href="#cb13-92" aria-hidden="true" tabindex="-1"></a>    <span class="at">difference =</span> estimate <span class="sc">-</span> actual,</span>
-<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a>    <span class="at">bin =</span> <span class="fu">f_nbins</span>(actual, <span class="dv">5</span>)</span>
-<span id="cb13-94"><a href="#cb13-94" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(bin) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-96"><a href="#cb13-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb13-97"><a href="#cb13-97" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb13-98"><a href="#cb13-98" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(difference)</span>
-<span id="cb13-99"><a href="#cb13-99" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a><span class="in">bins &lt;- </span></span>
+<span id="cb13-90"><a href="#cb13-90" aria-hidden="true" tabindex="-1"></a><span class="in">  random_data %&gt;% </span></span>
+<span id="cb13-91"><a href="#cb13-91" aria-hidden="true" tabindex="-1"></a><span class="in">  mutate(</span></span>
+<span id="cb13-92"><a href="#cb13-92" aria-hidden="true" tabindex="-1"></a><span class="in">    difference = estimate - actual,</span></span>
+<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a><span class="in">    bin = f_nbins(actual, 5)</span></span>
+<span id="cb13-94"><a href="#cb13-94" aria-hidden="true" tabindex="-1"></a><span class="in">  ) %&gt;% </span></span>
+<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a><span class="in">  group_by(bin) %&gt;% </span></span>
+<span id="cb13-96"><a href="#cb13-96" aria-hidden="true" tabindex="-1"></a><span class="in">  summarise(</span></span>
+<span id="cb13-97"><a href="#cb13-97" aria-hidden="true" tabindex="-1"></a><span class="in">    n = n(),</span></span>
+<span id="cb13-98"><a href="#cb13-98" aria-hidden="true" tabindex="-1"></a><span class="in">    mean = mean(difference)</span></span>
+<span id="cb13-99"><a href="#cb13-99" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
 <span id="cb13-100"><a href="#cb13-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-101"><a href="#cb13-101" aria-hidden="true" tabindex="-1"></a>bins</span>
+<span id="cb13-101"><a href="#cb13-101" aria-hidden="true" tabindex="-1"></a><span class="in">bins</span></span>
 <span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a>Now we'll plot the data and take a look at this.</span>
 <span id="cb13-105"><a href="#cb13-105" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-106"><a href="#cb13-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{r random-plot}</span></span>
-<span id="cb13-107"><a href="#cb13-107" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(random_data, <span class="fu">aes</span>(<span class="at">x =</span> actual, <span class="at">y =</span> estimate <span class="sc">-</span> actual)) <span class="sc">+</span></span>
-<span id="cb13-108"><a href="#cb13-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb13-109"><a href="#cb13-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> <span class="st">"y ~ x"</span>, <span class="at">method =</span> lm, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb13-110"><a href="#cb13-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> bins, <span class="fu">aes</span>(<span class="at">x =</span> bin, <span class="at">y =</span> mean), <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb13-111"><a href="#cb13-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>( <span class="at">data =</span> bins, <span class="fu">aes</span>(<span class="at">x =</span> bin, <span class="at">y =</span> mean), <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb13-112"><a href="#cb13-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb13-113"><a href="#cb13-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb13-114"><a href="#cb13-114" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Independent random samples of 'Actual' and 'Estimate' performance"</span>,</span>
-<span id="cb13-115"><a href="#cb13-115" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"'Actual' performance (Percentile Rank)"</span>,</span>
-<span id="cb13-116"><a href="#cb13-116" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Percentile Overestimation</span><span class="sc">\n</span><span class="st">(estimate - actual)"</span></span>
-<span id="cb13-117"><a href="#cb13-117" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-107"><a href="#cb13-107" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(random_data, aes(x = actual, y = estimate - actual)) +</span></span>
+<span id="cb13-108"><a href="#cb13-108" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(alpha = .2) +</span></span>
+<span id="cb13-109"><a href="#cb13-109" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_smooth(formula = "y ~ x", method = lm, se = FALSE, col = "red") +</span></span>
+<span id="cb13-110"><a href="#cb13-110" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(data = bins, aes(x = bin, y = mean), col = "blue", shape = 1, size = 5) +</span></span>
+<span id="cb13-111"><a href="#cb13-111" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line( data = bins, aes(x = bin, y = mean), col = "blue", size = 1) +</span></span>
+<span id="cb13-112"><a href="#cb13-112" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_hline(yintercept = 0, linetype = 2) +</span></span>
+<span id="cb13-113"><a href="#cb13-113" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(</span></span>
+<span id="cb13-114"><a href="#cb13-114" aria-hidden="true" tabindex="-1"></a><span class="in">    title = "Independent random samples of 'Actual' and 'Estimate' performance",</span></span>
+<span id="cb13-115"><a href="#cb13-115" aria-hidden="true" tabindex="-1"></a><span class="in">    x = "'Actual' performance (Percentile Rank)",</span></span>
+<span id="cb13-116"><a href="#cb13-116" aria-hidden="true" tabindex="-1"></a><span class="in">    y = "Percentile Overestimation\n(estimate - actual)"</span></span>
+<span id="cb13-117"><a href="#cb13-117" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
 <span id="cb13-118"><a href="#cb13-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-119"><a href="#cb13-119" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-120"><a href="#cb13-120" aria-hidden="true" tabindex="-1"></a>Already we're seeing a trend very similar to that reported in the article.</span>
@@ -1153,20 +1334,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-124"><a href="#cb13-124" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-125"><a href="#cb13-125" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-126"><a href="#cb13-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{r cor testing}</span></span>
-<span id="cb13-127"><a href="#cb13-127" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb13-128"><a href="#cb13-128" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fl">1e3</span>) </span>
-<span id="cb13-129"><a href="#cb13-129" aria-hidden="true" tabindex="-1"></a>pr_x <span class="ot">&lt;-</span> <span class="fu">percent_rank</span>(x)</span>
-<span id="cb13-130"><a href="#cb13-130" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fl">1e3</span>)</span>
-<span id="cb13-131"><a href="#cb13-131" aria-hidden="true" tabindex="-1"></a>pr_y <span class="ot">&lt;-</span> <span class="fu">percent_rank</span>(y)</span>
+<span id="cb13-127"><a href="#cb13-127" aria-hidden="true" tabindex="-1"></a><span class="in">#| include: false</span></span>
+<span id="cb13-128"><a href="#cb13-128" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- rnorm(1e3) </span></span>
+<span id="cb13-129"><a href="#cb13-129" aria-hidden="true" tabindex="-1"></a><span class="in">pr_x &lt;- percent_rank(x)</span></span>
+<span id="cb13-130"><a href="#cb13-130" aria-hidden="true" tabindex="-1"></a><span class="in">y &lt;- rnorm(1e3)</span></span>
+<span id="cb13-131"><a href="#cb13-131" aria-hidden="true" tabindex="-1"></a><span class="in">pr_y &lt;- percent_rank(y)</span></span>
 <span id="cb13-132"><a href="#cb13-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-133"><a href="#cb13-133" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb13-134"><a href="#cb13-134" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y <span class="sc">-</span> x)</span>
-<span id="cb13-135"><a href="#cb13-135" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pr_x, pr_y <span class="sc">-</span> pr_x)</span>
-<span id="cb13-136"><a href="#cb13-136" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb13-133"><a href="#cb13-133" aria-hidden="true" tabindex="-1"></a><span class="in">par(mfrow = c(1, 2))</span></span>
+<span id="cb13-134"><a href="#cb13-134" aria-hidden="true" tabindex="-1"></a><span class="in">plot(x, y - x)</span></span>
+<span id="cb13-135"><a href="#cb13-135" aria-hidden="true" tabindex="-1"></a><span class="in">plot(pr_x, pr_y - pr_x)</span></span>
+<span id="cb13-136"><a href="#cb13-136" aria-hidden="true" tabindex="-1"></a><span class="in">par(mfrow = c(1, 1))</span></span>
 <span id="cb13-137"><a href="#cb13-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-138"><a href="#cb13-138" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y <span class="sc">-</span> x)</span>
-<span id="cb13-139"><a href="#cb13-139" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y <span class="sc">-</span> x, <span class="at">method =</span> <span class="st">"s"</span>, <span class="at">exact =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb13-140"><a href="#cb13-140" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(pr_x, pr_y <span class="sc">-</span> pr_x, <span class="at">method =</span> <span class="st">"s"</span>, <span class="at">exact =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-138"><a href="#cb13-138" aria-hidden="true" tabindex="-1"></a><span class="in">cor.test(x, y - x)</span></span>
+<span id="cb13-139"><a href="#cb13-139" aria-hidden="true" tabindex="-1"></a><span class="in">cor.test(x, y - x, method = "s", exact = FALSE)</span></span>
+<span id="cb13-140"><a href="#cb13-140" aria-hidden="true" tabindex="-1"></a><span class="in">cor.test(pr_x, pr_y - pr_x, method = "s", exact = FALSE)</span></span>
 <span id="cb13-141"><a href="#cb13-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-142"><a href="#cb13-142" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-143"><a href="#cb13-143" aria-hidden="true" tabindex="-1"></a></span>
@@ -1187,20 +1368,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-158"><a href="#cb13-158" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-159"><a href="#cb13-159" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-160"><a href="#cb13-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{r adj-random-1}</span></span>
-<span id="cb13-161"><a href="#cb13-161" aria-hidden="true" tabindex="-1"></a>adj_random <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb13-162"><a href="#cb13-162" aria-hidden="true" tabindex="-1"></a>  <span class="at">actual     =</span> <span class="fu">rnorm</span>(<span class="dv">161</span>, <span class="fl">42.2</span>, <span class="at">sd =</span> <span class="fl">25.1</span>) <span class="sc">/</span> <span class="dv">100</span>,</span>
-<span id="cb13-163"><a href="#cb13-163" aria-hidden="true" tabindex="-1"></a>  <span class="at">estimate   =</span> <span class="fu">rnorm</span>(<span class="dv">161</span>, <span class="fl">77.5</span>, <span class="at">sd =</span> <span class="fl">13.1</span>) <span class="sc">/</span> <span class="dv">100</span>,</span>
-<span id="cb13-164"><a href="#cb13-164" aria-hidden="true" tabindex="-1"></a>  <span class="at">difference =</span> actual <span class="sc">-</span> estimate,</span>
-<span id="cb13-165"><a href="#cb13-165" aria-hidden="true" tabindex="-1"></a>  <span class="at">bin        =</span> <span class="fu">f_nbins</span>(actual, <span class="dv">5</span>)</span>
-<span id="cb13-166"><a href="#cb13-166" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-161"><a href="#cb13-161" aria-hidden="true" tabindex="-1"></a><span class="in">adj_random &lt;- tibble(</span></span>
+<span id="cb13-162"><a href="#cb13-162" aria-hidden="true" tabindex="-1"></a><span class="in">  actual     = rnorm(161, 42.2, sd = 25.1) / 100,</span></span>
+<span id="cb13-163"><a href="#cb13-163" aria-hidden="true" tabindex="-1"></a><span class="in">  estimate   = rnorm(161, 77.5, sd = 13.1) / 100,</span></span>
+<span id="cb13-164"><a href="#cb13-164" aria-hidden="true" tabindex="-1"></a><span class="in">  difference = actual - estimate,</span></span>
+<span id="cb13-165"><a href="#cb13-165" aria-hidden="true" tabindex="-1"></a><span class="in">  bin        = f_nbins(actual, 5)</span></span>
+<span id="cb13-166"><a href="#cb13-166" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
 <span id="cb13-167"><a href="#cb13-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-168"><a href="#cb13-168" aria-hidden="true" tabindex="-1"></a>adj_bins <span class="ot">&lt;-</span> </span>
-<span id="cb13-169"><a href="#cb13-169" aria-hidden="true" tabindex="-1"></a>  adj_random  <span class="sc">%&gt;%</span> </span>
-<span id="cb13-170"><a href="#cb13-170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(bin) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-171"><a href="#cb13-171" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb13-172"><a href="#cb13-172" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb13-173"><a href="#cb13-173" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(difference)</span>
-<span id="cb13-174"><a href="#cb13-174" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-168"><a href="#cb13-168" aria-hidden="true" tabindex="-1"></a><span class="in">adj_bins &lt;- </span></span>
+<span id="cb13-169"><a href="#cb13-169" aria-hidden="true" tabindex="-1"></a><span class="in">  adj_random  %&gt;% </span></span>
+<span id="cb13-170"><a href="#cb13-170" aria-hidden="true" tabindex="-1"></a><span class="in">  group_by(bin) %&gt;% </span></span>
+<span id="cb13-171"><a href="#cb13-171" aria-hidden="true" tabindex="-1"></a><span class="in">  summarise(</span></span>
+<span id="cb13-172"><a href="#cb13-172" aria-hidden="true" tabindex="-1"></a><span class="in">    n = n(),</span></span>
+<span id="cb13-173"><a href="#cb13-173" aria-hidden="true" tabindex="-1"></a><span class="in">    mean = mean(difference)</span></span>
+<span id="cb13-174"><a href="#cb13-174" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
 <span id="cb13-175"><a href="#cb13-175" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-176"><a href="#cb13-176" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-177"><a href="#cb13-177" aria-hidden="true" tabindex="-1"></a>Let's also take a look at the correlations we have.</span>
@@ -1217,8 +1398,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-190"><a href="#cb13-190" aria-hidden="true" tabindex="-1"></a>Now we're going to run a correlation on the <span class="in">`actual`</span> scores and the difference between the <span class="in">`estimated`</span> and <span class="in">`actual`</span> performance. </span>
 <span id="cb13-191"><a href="#cb13-191" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-192"><a href="#cb13-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{r adj-random-3}</span></span>
-<span id="cb13-193"><a href="#cb13-193" aria-hidden="true" tabindex="-1"></a>cor_test_result <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="sc">~</span> actual <span class="sc">+</span> difference, <span class="at">data =</span> adj_random)</span>
-<span id="cb13-194"><a href="#cb13-194" aria-hidden="true" tabindex="-1"></a>cor_test_result</span>
+<span id="cb13-193"><a href="#cb13-193" aria-hidden="true" tabindex="-1"></a><span class="in">cor_test_result &lt;- cor.test(~ actual + difference, data = adj_random)</span></span>
+<span id="cb13-194"><a href="#cb13-194" aria-hidden="true" tabindex="-1"></a><span class="in">cor_test_result</span></span>
 <span id="cb13-195"><a href="#cb13-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-196"><a href="#cb13-196" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-197"><a href="#cb13-197" aria-hidden="true" tabindex="-1"></a>Now, look at that.</span>
@@ -1233,41 +1414,41 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-206"><a href="#cb13-206" aria-hidden="true" tabindex="-1"></a>Let's graph out our results with a little more care this time.</span>
 <span id="cb13-207"><a href="#cb13-207" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-208"><a href="#cb13-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{r adj-plot}</span></span>
-<span id="cb13-209"><a href="#cb13-209" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(adj_random, <span class="fu">aes</span>(<span class="at">x =</span> actual, <span class="at">y =</span> difference)) <span class="sc">+</span></span>
-<span id="cb13-210"><a href="#cb13-210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb13-211"><a href="#cb13-211" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb13-212"><a href="#cb13-212" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(</span>
-<span id="cb13-213"><a href="#cb13-213" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> <span class="st">"y ~ x"</span>,</span>
-<span id="cb13-214"><a href="#cb13-214" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb13-215"><a href="#cb13-215" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb13-216"><a href="#cb13-216" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">"red"</span></span>
-<span id="cb13-217"><a href="#cb13-217" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-218"><a href="#cb13-218" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb13-219"><a href="#cb13-219" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> adj_bins,</span>
-<span id="cb13-220"><a href="#cb13-220" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> bin, <span class="at">y =</span> mean),</span>
-<span id="cb13-221"><a href="#cb13-221" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">"blue"</span>,</span>
-<span id="cb13-222"><a href="#cb13-222" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="dv">1</span>,</span>
-<span id="cb13-223"><a href="#cb13-223" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">5</span></span>
-<span id="cb13-224"><a href="#cb13-224" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-225"><a href="#cb13-225" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
-<span id="cb13-226"><a href="#cb13-226" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> adj_bins,</span>
-<span id="cb13-227"><a href="#cb13-227" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> bin, <span class="at">y =</span> mean),</span>
-<span id="cb13-228"><a href="#cb13-228" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">"blue"</span>,</span>
-<span id="cb13-229"><a href="#cb13-229" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">1</span></span>
-<span id="cb13-230"><a href="#cb13-230" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-231"><a href="#cb13-231" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb13-232"><a href="#cb13-232" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Randomly generated differences in 'actual' vs 'estimated' performance"</span>,</span>
-<span id="cb13-233"><a href="#cb13-233" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Estimate: M = 75, SD = 15; Actual: M = 5, SD = 25"</span>,</span>
-<span id="cb13-234"><a href="#cb13-234" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Actual performance"</span>,</span>
-<span id="cb13-235"><a href="#cb13-235" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Estimated - Actual performance"</span></span>
-<span id="cb13-236"><a href="#cb13-236" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-237"><a href="#cb13-237" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
-<span id="cb13-238"><a href="#cb13-238" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">"text"</span>,</span>
-<span id="cb13-239"><a href="#cb13-239" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> glue<span class="sc">::</span><span class="fu">glue_data</span>(cor_test_result, <span class="st">"r = {round(estimate, 3)}, p = {format(p.value)}"</span>),</span>
-<span id="cb13-240"><a href="#cb13-240" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> .<span class="dv">65</span>,</span>
-<span id="cb13-241"><a href="#cb13-241" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> .<span class="dv">50</span>,</span>
-<span id="cb13-242"><a href="#cb13-242" aria-hidden="true" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="st">"left"</span></span>
-<span id="cb13-243"><a href="#cb13-243" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-209"><a href="#cb13-209" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(adj_random, aes(x = actual, y = difference)) +</span></span>
+<span id="cb13-210"><a href="#cb13-210" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_hline(yintercept = 0, linetype = 2) +</span></span>
+<span id="cb13-211"><a href="#cb13-211" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(alpha = .1) +</span></span>
+<span id="cb13-212"><a href="#cb13-212" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_smooth(</span></span>
+<span id="cb13-213"><a href="#cb13-213" aria-hidden="true" tabindex="-1"></a><span class="in">    formula = "y ~ x",</span></span>
+<span id="cb13-214"><a href="#cb13-214" aria-hidden="true" tabindex="-1"></a><span class="in">    method = "lm",</span></span>
+<span id="cb13-215"><a href="#cb13-215" aria-hidden="true" tabindex="-1"></a><span class="in">    se = FALSE,</span></span>
+<span id="cb13-216"><a href="#cb13-216" aria-hidden="true" tabindex="-1"></a><span class="in">    col = "red"</span></span>
+<span id="cb13-217"><a href="#cb13-217" aria-hidden="true" tabindex="-1"></a><span class="in">  ) +</span></span>
+<span id="cb13-218"><a href="#cb13-218" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(</span></span>
+<span id="cb13-219"><a href="#cb13-219" aria-hidden="true" tabindex="-1"></a><span class="in">    data = adj_bins,</span></span>
+<span id="cb13-220"><a href="#cb13-220" aria-hidden="true" tabindex="-1"></a><span class="in">    aes(x = bin, y = mean),</span></span>
+<span id="cb13-221"><a href="#cb13-221" aria-hidden="true" tabindex="-1"></a><span class="in">    col = "blue",</span></span>
+<span id="cb13-222"><a href="#cb13-222" aria-hidden="true" tabindex="-1"></a><span class="in">    shape = 1,</span></span>
+<span id="cb13-223"><a href="#cb13-223" aria-hidden="true" tabindex="-1"></a><span class="in">    size = 5</span></span>
+<span id="cb13-224"><a href="#cb13-224" aria-hidden="true" tabindex="-1"></a><span class="in">  ) +</span></span>
+<span id="cb13-225"><a href="#cb13-225" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line(</span></span>
+<span id="cb13-226"><a href="#cb13-226" aria-hidden="true" tabindex="-1"></a><span class="in">    data = adj_bins,</span></span>
+<span id="cb13-227"><a href="#cb13-227" aria-hidden="true" tabindex="-1"></a><span class="in">    aes(x = bin, y = mean),</span></span>
+<span id="cb13-228"><a href="#cb13-228" aria-hidden="true" tabindex="-1"></a><span class="in">    col = "blue",</span></span>
+<span id="cb13-229"><a href="#cb13-229" aria-hidden="true" tabindex="-1"></a><span class="in">    size = 1</span></span>
+<span id="cb13-230"><a href="#cb13-230" aria-hidden="true" tabindex="-1"></a><span class="in">  ) +</span></span>
+<span id="cb13-231"><a href="#cb13-231" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(</span></span>
+<span id="cb13-232"><a href="#cb13-232" aria-hidden="true" tabindex="-1"></a><span class="in">    title = "Randomly generated differences in 'actual' vs 'estimated' performance",</span></span>
+<span id="cb13-233"><a href="#cb13-233" aria-hidden="true" tabindex="-1"></a><span class="in">    subtitle = "Estimate: M = 75, SD = 15; Actual: M = 5, SD = 25",</span></span>
+<span id="cb13-234"><a href="#cb13-234" aria-hidden="true" tabindex="-1"></a><span class="in">    x = "Actual performance",</span></span>
+<span id="cb13-235"><a href="#cb13-235" aria-hidden="true" tabindex="-1"></a><span class="in">    y = "Estimated - Actual performance"</span></span>
+<span id="cb13-236"><a href="#cb13-236" aria-hidden="true" tabindex="-1"></a><span class="in">  ) +</span></span>
+<span id="cb13-237"><a href="#cb13-237" aria-hidden="true" tabindex="-1"></a><span class="in">  annotate(</span></span>
+<span id="cb13-238"><a href="#cb13-238" aria-hidden="true" tabindex="-1"></a><span class="in">    geom = "text",</span></span>
+<span id="cb13-239"><a href="#cb13-239" aria-hidden="true" tabindex="-1"></a><span class="in">    label = glue::glue_data(cor_test_result, "r = {round(estimate, 3)}, p = {format(p.value)}"),</span></span>
+<span id="cb13-240"><a href="#cb13-240" aria-hidden="true" tabindex="-1"></a><span class="in">    x = .65,</span></span>
+<span id="cb13-241"><a href="#cb13-241" aria-hidden="true" tabindex="-1"></a><span class="in">    y = .50,</span></span>
+<span id="cb13-242"><a href="#cb13-242" aria-hidden="true" tabindex="-1"></a><span class="in">    hjust = "left"</span></span>
+<span id="cb13-243"><a href="#cb13-243" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
 <span id="cb13-244"><a href="#cb13-244" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-245"><a href="#cb13-245" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-246"><a href="#cb13-246" aria-hidden="true" tabindex="-1"></a><span class="fu">## More random data</span></span>
@@ -1370,6 +1551,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+
 
 
 

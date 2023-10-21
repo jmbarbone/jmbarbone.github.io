@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-99.9.9">
+<meta name="generator" content="quarto-1.4.398">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -83,7 +83,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -93,7 +99,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -138,7 +145,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">J M Barbone</span>
     </a>
@@ -150,50 +157,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="./about.html" rel="" target=""><i class="bi bi-person-circle" role="img">
+    <a class="nav-link" href="./about.html"> <i class="bi bi-person-circle" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jmbarbone" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/jmbarbone"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://fosstodon.org/@barbone" rel="" target=""><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://fosstodon.org/@barbone"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://linkedin.com/in/jmbarbone" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://linkedin.com/in/jmbarbone"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.researchgate.net/profile/Jordan-Barbone-2" rel="" target=""><i class="bi bi-folder" role="img">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Jordan-Barbone-2"> <i class="bi bi-folder" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=R6GyUVYAAAAJ&amp;hl=en&amp;oi=ao" rel="" target=""><i class="bi bi-google" role="img">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=R6GyUVYAAAAJ&amp;hl=en&amp;oi=ao"> <i class="bi bi-google" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./anthology.html" rel="" target=""><i class="bi bi-flower3" role="img">
+    <a class="nav-link" href="./anthology.html"> <i class="bi bi-flower3" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jmbarbone/barbone-cv/blob/master/Barbone-CV.pdf" rel="" target=""><i class="bi bi-file-text" role="img">
+    <a class="nav-link" href="https://github.com/jmbarbone/barbone-cv/blob/master/Barbone-CV.pdf"> <i class="bi bi-file-text" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -206,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-page-left">
 
       
     
@@ -219,9 +226,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(5)</span></div><div class="category" data-category="datavis">datavis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="meta">meta <span class="quarto-category-count">(2)</span></div><div class="category" data-category="psychology">psychology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="statistics">statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{bench}">{bench} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{dplyr}">{dplyr} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{scribe}">{scribe} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{tidyselect}">{tidyselect} <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(6)</span></div><div class="category" data-category="datavis">datavis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="meta">meta <span class="quarto-category-count">(2)</span></div><div class="category" data-category="psychology">psychology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="statistics">statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{bench}">{bench} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{dplyr}">{dplyr} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="{scribe}">{scribe} <span class="quarto-category-count">(2)</span></div><div class="category" data-category="{tidyselect}">{tidyselect} <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
 
 
 
@@ -237,19 +245,19 @@ Hello, did you find some hidden content? This should allow me to link back to ma
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R,{scribe}" data-listing-date-sort="1678680000000" data-listing-file-modified-sort="1678723230506" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="0" data-categories="R,{scribe}" data-listing-date-sort="1697860800000" data-listing-file-modified-sort="1697911783474" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="178">
 <div class="thumbnail">
-<p><a href="./posts/scribe-release/index.html"> <div class="listing-item-img-placeholder" >&nbsp;</div> </a></p>
+<p><a href="./posts/scribe-0.3.0/index.html"></a></p><a href="./posts/scribe-0.3.0/index.html">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/scribe-0.3.0/index.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/scribe-release/index.html">
 <h3 class="no-anchor listing-title">
-<code>{scribe}</code> release
+<a href="./posts/scribe-0.3.0/index.html"><code>{scribe} 0.3.0</code> release</a>
 </h3>
 <div class="listing-subtitle">
-A package to support <code>Rscript</code> files
+<a href="./posts/scribe-0.3.0/index.html">A package to support <code>Rscript</code> files</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
@@ -258,11 +266,42 @@ R
 {scribe}
 </div>
 </div>
-<a href="./posts/scribe-release/index.html">
 <div class="listing-description">
-I’m excited to be finalizing release preparations of <code>{scribe}</code>. This package supports writing your own <strong>Rscript</strong> files and executing them through a terminal.
+<a href="./posts/scribe-0.3.0/index.html">After months of using my own <code>Rscript</code> utils with <code>{scribe}</code> I’ve failed to notice a now obvious error in my attempts to include type conversions. The original approach was a…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/scribe-0.3.0/index.html">
+<div class="listing-date">
+Oct 21, 2023
 </div>
 </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="R,{scribe}" data-listing-date-sort="1678680000000" data-listing-file-modified-sort="1689350136433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="553">
+<div class="thumbnail">
+<p><a href="./posts/scribe-release/index.html"></a></p><a href="./posts/scribe-release/index.html">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/scribe-release/index.html"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/scribe-release/index.html"><code>{scribe}</code> release</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/scribe-release/index.html">A package to support <code>Rscript</code> files</a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('{scribe}'); return false;">
+{scribe}
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/scribe-release/index.html">I’m excited to be finalizing release preparations of <code>{scribe}</code>. This package supports writing your own <strong>Rscript</strong> files and executing them through a terminal.</a>
+</div>
 </div>
 <div class="metadata">
 <a href="./posts/scribe-release/index.html">
@@ -272,19 +311,19 @@ Mar 13, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="R,statistics" data-listing-date-sort="1667275200000" data-listing-file-modified-sort="1667354674969" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="2" data-categories="R,statistics" data-listing-date-sort="1667275200000" data-listing-file-modified-sort="1689350136433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="670">
 <div class="thumbnail">
-<p><a href="./posts/confidence-intervals/index.html"> <div class="listing-item-img-placeholder" >&nbsp;</div> </a></p>
+<p><a href="./posts/confidence-intervals/index.html"></a></p><a href="./posts/confidence-intervals/index.html">
+<p class="card-img-top"><img src="posts/confidence-intervals/index_files/figure-html/plotting mean-1.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/confidence-intervals/index.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/confidence-intervals/index.html">
 <h3 class="no-anchor listing-title">
-Confidence intervals
+<a href="./posts/confidence-intervals/index.html">Confidence intervals</a>
 </h3>
 <div class="listing-subtitle">
-Mean estimate
+<a href="./posts/confidence-intervals/index.html">Mean estimate</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
@@ -293,11 +332,9 @@ R
 statistics
 </div>
 </div>
-<a href="./posts/confidence-intervals/index.html">
 <div class="listing-description">
-Confidence intervals (CIs) provide an estimation of a true value within a population, and some type of certainty…
+<a href="./posts/confidence-intervals/index.html">Confidence intervals (CIs) provide an estimation of a true value within a population, and some type of certainty around that value. The certainty that is constructed can be…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
 <a href="./posts/confidence-intervals/index.html">
@@ -307,29 +344,27 @@ Nov 1, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="meta" data-listing-date-sort="1657339200000" data-listing-file-modified-sort="1667338933023" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="3" data-categories="meta" data-listing-date-sort="1657339200000" data-listing-file-modified-sort="1689350136433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
 <div class="thumbnail">
-<p><a href="./posts/quarto-update/index.html"> <div class="listing-item-img-placeholder" >&nbsp;</div> </a></p>
+<p><a href="./posts/quarto-update/index.html"></a></p><a href="./posts/quarto-update/index.html">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/quarto-update/index.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/quarto-update/index.html">
 <h3 class="no-anchor listing-title">
-Site update
+<a href="./posts/quarto-update/index.html">Site update</a>
 </h3>
 <div class="listing-subtitle">
-Now with quarto!
+<a href="./posts/quarto-update/index.html">Now with quarto!</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('meta'); return false;">
 meta
 </div>
 </div>
-<a href="./posts/quarto-update/index.html">
 <div class="listing-description">
-I finally got around to updating this out-of-date site with some new information in my About and Anthology. Even more, I <em>nuked</em> the whole thing and remade the website as a quarto…
+<a href="./posts/quarto-update/index.html">I finally got around to updating this out-of-date site with some new information in my About and Anthology. Even more, I <em>nuked</em> the whole thing and remade the website as a qua…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
 <a href="./posts/quarto-update/index.html">
@@ -339,19 +374,19 @@ Jul 9, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="R,{dplyr},{tidyselect}" data-listing-date-sort="1600920000000" data-listing-file-modified-sort="1678083515795" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="quarto-post image-right" data-index="4" data-categories="R,{dplyr},{tidyselect}" data-listing-date-sort="1600920000000" data-listing-file-modified-sort="1689350136433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="967">
 <div class="thumbnail">
-<p><a href="./posts/dplyr-select/index.html"> <div class="listing-item-img-placeholder" >&nbsp;</div> </a></p>
+<p><a href="./posts/dplyr-select/index.html"></a></p><a href="./posts/dplyr-select/index.html">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/dplyr-select/index.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/dplyr-select/index.html">
 <h3 class="no-anchor listing-title">
-Selecting columns in <code>{dplyr}</code>
+<a href="./posts/dplyr-select/index.html">Selecting columns in <code>{dplyr}</code></a>
 </h3>
 <div class="listing-subtitle">
-Quick tips
+<a href="./posts/dplyr-select/index.html">Quick tips</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
@@ -363,11 +398,9 @@ R
 {tidyselect}
 </div>
 </div>
-<a href="./posts/dplyr-select/index.html">
 <div class="listing-description">
-One feature of report building that has always bothered me was adjusting column names in final so I could have…<code></code><code></code><code></code><code></code><code></code><code></code><code></code>
+<a href="./posts/dplyr-select/index.html">One feature of report building that has always bothered me was adjusting column names in final so I could have something prettier than a series of columns_with_underscores…<code></code><code></code><code></code><code></code><code></code><code></code><code></code></a>
 </div>
-</a>
 </div>
 <div class="metadata">
 <a href="./posts/dplyr-select/index.html">
@@ -377,19 +410,19 @@ Sep 24, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="R,{bench}" data-listing-date-sort="1596600000000" data-listing-file-modified-sort="1678084602778" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<div class="quarto-post image-right" data-index="5" data-categories="R,{bench}" data-listing-date-sort="1596600000000" data-listing-file-modified-sort="1689350136433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1149">
 <div class="thumbnail">
-<p><a href="./posts/three-ways/index.html"> <div class="listing-item-img-placeholder" >&nbsp;</div> </a></p>
+<p><a href="./posts/three-ways/index.html"></a></p><a href="./posts/three-ways/index.html">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/three-ways/index.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/three-ways/index.html">
 <h3 class="no-anchor listing-title">
-Solving one task with three equivalent solutions
+<a href="./posts/three-ways/index.html">Solving one task with three equivalent solutions</a>
 </h3>
 <div class="listing-subtitle">
-<code>for</code>, <code>do.call</code>, <code>vapply</code>
+<a href="./posts/three-ways/index.html"><code>for</code>, <code>do.call</code>, <code>vapply</code></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
@@ -398,11 +431,9 @@ R
 {bench}
 </div>
 </div>
-<a href="./posts/three-ways/index.html">
 <div class="listing-description">
-I can spend a lot of time trying in futility to optimize custom functions and code. I’ll take the time to rewrite the same thing in two or more ways and run some basic…
+<a href="./posts/three-ways/index.html">I can spend a lot of time trying in futility to optimize custom functions and code. I’ll take the time to rewrite the same thing in two or more ways and run some basic…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
 <a href="./posts/three-ways/index.html">
@@ -412,19 +443,19 @@ Aug 5, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="R,psychology,datavis" data-listing-date-sort="1588651200000" data-listing-file-modified-sort="1667351105525" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10">
+<div class="quarto-post image-right" data-index="6" data-categories="R,psychology,datavis" data-listing-date-sort="1588651200000" data-listing-file-modified-sort="1689350136433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1896">
 <div class="thumbnail">
-<p><a href="./posts/dunning-kruger/index.html"> <div class="listing-item-img-placeholder" >&nbsp;</div> </a></p>
+<p><a href="./posts/dunning-kruger/index.html"></a></p><a href="./posts/dunning-kruger/index.html">
+<p class="card-img-top"><img src="posts/dunning-kruger/sheldon2014emotionally_figure1.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/dunning-kruger/index.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/dunning-kruger/index.html">
 <h3 class="no-anchor listing-title">
-Dunning-Kruger effect
+<a href="./posts/dunning-kruger/index.html">Dunning-Kruger effect</a>
 </h3>
 <div class="listing-subtitle">
-A case of itself?
+<a href="./posts/dunning-kruger/index.html">A case of itself?</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
@@ -436,11 +467,9 @@ psychology
 datavis
 </div>
 </div>
-<a href="./posts/dunning-kruger/index.html">
 <div class="listing-description">
-Note: I originally wrote this in February 2019. Also, don’t hate me for putting some links to Wikipedia, you were going to go there anyway. This isn’t a research paper.
+<a href="./posts/dunning-kruger/index.html">Note: I originally wrote this in February 2019. Also, don’t hate me for putting some links to Wikipedia, you were going to go there anyway. This isn’t a research paper.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
 <a href="./posts/dunning-kruger/index.html">
@@ -450,29 +479,27 @@ May 5, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="meta" data-listing-date-sort="1587873600000" data-listing-file-modified-sort="1667338933023" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="7" data-categories="meta" data-listing-date-sort="1587873600000" data-listing-file-modified-sort="1689350136433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6">
 <div class="thumbnail">
-<p><a href="./posts/its-alive/index.html"> <div class="listing-item-img-placeholder" >&nbsp;</div> </a></p>
+<p><a href="./posts/its-alive/index.html"></a></p><a href="./posts/its-alive/index.html">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/its-alive/index.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/its-alive/index.html">
 <h3 class="no-anchor listing-title">
-It’s alive!
+<a href="./posts/its-alive/index.html">It’s alive!</a>
 </h3>
 <div class="listing-subtitle">
-First
+<a href="./posts/its-alive/index.html">First</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('meta'); return false;">
 meta
 </div>
 </div>
-<a href="./posts/its-alive/index.html">
 <div class="listing-description">
-First post. Just testing, right?
+<a href="./posts/its-alive/index.html">First post. Just testing, right?</a>
 </div>
-</a>
 </div>
 <div class="metadata">
 <a href="./posts/its-alive/index.html">
@@ -528,6 +555,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -596,13 +650,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -732,10 +788,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -745,8 +800,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -759,6 +823,128 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -802,6 +988,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -827,6 +1014,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -899,14 +1112,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> true</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p</span> <span class="er">hidden</span><span class="kw">&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>&lt;p hidden&gt;</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>Hello, did you find some hidden content?</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>This should allow me to link  back to mastodon to show that the profiles that are mine are me.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span> <span class="er">rel</span><span class="ot">=</span><span class="st">"me"</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://fosstodon.org/@barbone"</span><span class="kw">&gt;</span>Mastodon<span class="kw">&lt;/a&gt;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span> <span class="er">rel</span><span class="ot">=</span><span class="st">"me"</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://mastodon.online/@barbone"</span><span class="kw">&gt;</span>Mastodon<span class="kw">&lt;/a&gt;</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/p&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>&lt;a rel="me" href="https://fosstodon.org/@barbone"&gt;Mastodon&lt;/a&gt;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>&lt;a rel="me" href="https://mastodon.online/@barbone"&gt;Mastodon&lt;/a&gt;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>&lt;/p&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+
 
 
 

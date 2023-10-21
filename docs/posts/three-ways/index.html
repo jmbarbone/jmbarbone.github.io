@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-99.9.9">
+<meta name="generator" content="quarto-1.4.398">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,11 +18,12 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -111,7 +82,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -121,7 +98,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -135,62 +113,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">J M Barbone</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../../about.html" rel="" target=""><i class="bi bi-person-circle" role="img">
+    <a class="nav-link" href="../../about.html"> <i class="bi bi-person-circle" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jmbarbone" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/jmbarbone"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://fosstodon.org/@barbone" rel="" target=""><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://fosstodon.org/@barbone"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://linkedin.com/in/jmbarbone" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://linkedin.com/in/jmbarbone"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.researchgate.net/profile/Jordan-Barbone-2" rel="" target=""><i class="bi bi-folder" role="img">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Jordan-Barbone-2"> <i class="bi bi-folder" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=R6GyUVYAAAAJ&amp;hl=en&amp;oi=ao" rel="" target=""><i class="bi bi-google" role="img">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=R6GyUVYAAAAJ&amp;hl=en&amp;oi=ao"> <i class="bi bi-google" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../anthology.html" rel="" target=""><i class="bi bi-flower3" role="img">
+    <a class="nav-link" href="../../anthology.html"> <i class="bi bi-flower3" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jmbarbone/barbone-cv/blob/master/Barbone-CV.pdf" rel="" target=""><i class="bi bi-file-text" role="img">
+    <a class="nav-link" href="https://github.com/jmbarbone/barbone-cv/blob/master/Barbone-CV.pdf"> <i class="bi bi-file-text" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -234,6 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+
 <p>I can spend a lot of time trying in futility to optimize custom functions and code. I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences. Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems. I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose. However, subjects had doses adjusted through the study for optimization. Further, we also needed to count the dosing based on the lowest dose provided.</p>
 <blockquote class="blockquote">
 <p>For example, how long was Subject A on a &gt;= 10mg dose?</p>
@@ -250,8 +229,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 </div>
 <p>Let’s create some random data to represent our subjects, our doses, and an arbitrary time metric. We’re also going to make this harder by using the <code>difftime</code>.</p>
-<div class="page-columns page-full"><p>We’re also going to grab some names using a function from the <a href="https://github.com/trinker/wakefield"><code>wakefield</code> package</a> which you can use to create fake data, appropriately named. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;I’m not too savvy with this package yet but would like to experiment more for building dummy data sets.</p></li></div></div>
-<div class="cell">
+<p>We’re also going to grab some names using a function from the <a href="https://github.com/trinker/wakefield"><code>wakefield</code> package</a> which you can use to create fake data, appropriately named. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;I’m not too savvy with this package yet but would like to experiment more for building dummy data sets.</p></li></div><div class="cell">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>subj <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">sample</span>(wakefield<span class="sc">::</span><span class="fu">name</span>(<span class="dv">500</span>), <span class="fl">1e4</span>, <span class="cn">TRUE</span>))</span>
@@ -550,6 +529,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -616,13 +622,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -649,9 +657,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -738,10 +760,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -751,8 +772,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -765,6 +795,128 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -806,8 +958,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               div.style.position = 'absolute';
               parent.appendChild(div);
             }
-            div.style.top = top - 1 + "px";
-            div.style.height = height + "px";
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -817,8 +970,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               const gutter = codeCell.querySelector('.code-annotation-gutter');
               gutter.appendChild(gutterDiv);
             }
-            gutterDiv.style.top = top - 1 + "px";
-            gutterDiv.style.height = height + "px";
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
           }
           selectedAnnoteEl = annoteEl;
         }
@@ -833,6 +986,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -916,17 +1095,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>Because we will be grouping and summarising data in a data.frame, I really don't feel like going through the trouble of using <span class="in">`base`</span> solutions.</span>
 <span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup}</span></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>print_with_class_type <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  co <span class="ot">&lt;-</span> <span class="fu">capture.output</span>(x)</span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  cl <span class="ot">&lt;-</span> <span class="fu">class</span>(x)</span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  to <span class="ot">&lt;-</span> <span class="fu">typeof</span>(x)</span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"class  "</span>, cl, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>      <span class="st">"typeof "</span>, to,  <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>      co, <span class="at">sep =</span> <span class="st">""</span>)</span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">invisible</span>(x)</span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="in">#| include: false</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="in">set.seed(42)</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="in">print_with_class_type &lt;- function(x) {</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="in">  co &lt;- capture.output(x)</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="in">  cl &lt;- class(x)</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="in">  to &lt;- typeof(x)</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="in">  cat("class  ", cl, "\n",</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="in">      "typeof ", to,  "\n",</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="in">      co, sep = "")</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="in">  invisible(x)</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
 <span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
@@ -940,43 +1119,43 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>We're also going to grab some names using a function from the <span class="co">[</span><span class="ot">`wakefield` package</span><span class="co">](https://github.com/trinker/wakefield)</span> which you can use to create fake data, appropriately named. ^<span class="co">[</span><span class="ot">I'm not too savvy with this package yet but would like to experiment more for building dummy data sets.</span><span class="co">]</span></span>
 <span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{r generating the data} </span></span>
-<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>subj <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">sample</span>(wakefield<span class="sc">::</span><span class="fu">name</span>(<span class="dv">500</span>), <span class="fl">1e4</span>, <span class="cn">TRUE</span>))</span>
-<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>dose <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq.int</span>(<span class="dv">10</span>, <span class="dv">80</span>, <span class="dv">10</span>), <span class="fl">1e4</span>, <span class="cn">TRUE</span>)</span>
-<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="fu">as.difftime</span>(<span class="fu">runif</span>(<span class="fl">1e4</span>) <span class="sc">*</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">"days"</span>)</span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a><span class="in">subj &lt;- sort(sample(wakefield::name(500), 1e4, TRUE))</span></span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a><span class="in">dose &lt;- sample(seq.int(10, 80, 10), 1e4, TRUE)</span></span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a><span class="in">time &lt;- as.difftime(runif(1e4) * 100, units = "days")</span></span>
 <span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(subj, dose, time)</span>
-<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>df</span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a><span class="in">df &lt;- tibble(subj, dose, time)</span></span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a><span class="in">df</span></span>
 <span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>Finding the total sum of time at each dose is easy:</span>
 <span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{r time for each dose}</span></span>
-<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subj, dose) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">time =</span> <span class="fu">sum</span>(time), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">"dose"</span>,</span>
-<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_sort =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="st">"time"</span></span>
-<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="in">df %&gt;% </span></span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a><span class="in">  group_by(subj, dose) %&gt;% </span></span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a><span class="in">  summarise(time = sum(time), .groups = "drop") %&gt;% </span></span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a><span class="in">  pivot_wider(</span></span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a><span class="in">    names_from = "dose",</span></span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a><span class="in">    names_sort = TRUE,</span></span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a><span class="in">    values_from = "time"</span></span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
 <span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a>Oh, it looks like we have some missing values (see the first line where we are missing doses of <span class="in">`30`</span>, <span class="in">`50`</span>, and <span class="in">`70`</span> for <span class="in">`Aadhya`</span>.).</span>
 <span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a><span class="in">`tidyr::pivot_wider()`</span> allows us to fill in the missing values but like many <span class="in">`tidyverse`</span> functions, we'll have to be explicit with the type so as to not case any accidental issues.</span>
 <span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r time for each dose fill}</span></span>
-<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a>difftime0 <span class="ot">&lt;-</span> <span class="fu">as.difftime</span>(<span class="dv">0</span>, <span class="at">units =</span> <span class="st">"days"</span>)</span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a><span class="in">difftime0 &lt;- as.difftime(0, units = "days")</span></span>
 <span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subj, dose) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">time =</span> <span class="fu">sum</span>(time), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">"dose"</span>,</span>
-<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_sort =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="st">"time"</span>,</span>
-<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_fill =</span> difftime0</span>
-<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a>res</span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a><span class="in">res &lt;- df %&gt;% </span></span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a><span class="in">  group_by(subj, dose) %&gt;% </span></span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a><span class="in">  summarise(time = sum(time), .groups = "drop") %&gt;% </span></span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a><span class="in">  pivot_wider(</span></span>
+<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a><span class="in">    names_from = "dose",</span></span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a><span class="in">    names_sort = TRUE,</span></span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a><span class="in">    values_from = "time",</span></span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a><span class="in">    values_fill = difftime0</span></span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a><span class="in">res</span></span>
 <span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a>This is much more troublesome as we have to create single length <span class="in">`difftime`</span> vector.</span>
@@ -991,15 +1170,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a>We'll start with</span>
 <span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r for loop}</span></span>
-<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a>foo1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> y</span>
-<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(y)) {</span>
-<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a>    out[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(y[x <span class="sc">&gt;=</span> x[i]])</span>
-<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>  out</span>
-<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a><span class="in">foo1 &lt;- function(x, y) {</span></span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a><span class="in">  out &lt;- y</span></span>
+<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a><span class="in">  for (i in seq_along(y)) {</span></span>
+<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a><span class="in">    out[i] &lt;- sum(y[x &gt;= x[i]])</span></span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a><span class="in">  out</span></span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
 <span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution 2: Combining lapply</span></span>
@@ -1008,10 +1187,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a><span class="in">`lapply()`</span> retains the original classes and using the <span class="in">`do.call(c, ...)`</span> method will turn my list into a vector without removing the structure of the output</span>
 <span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lapply}</span></span>
-<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a>foo2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">lapply</span>(x, <span class="cf">function</span>(xx) <span class="fu">sum</span>(y[x <span class="sc">&gt;=</span> xx]))</span>
-<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do.call</span>(c, out)</span>
-<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a><span class="in">foo2 &lt;- function(x, y) {</span></span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a><span class="in">  out &lt;- lapply(x, function(xx) sum(y[x &gt;= xx]))</span></span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a><span class="in">  do.call(c, out)</span></span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
 <span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a>Let's see how this plays out.</span>
@@ -1037,22 +1216,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r vapply}</span></span>
-<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a>foo3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> y</span>
-<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>  out[] <span class="ot">&lt;-</span> <span class="fu">vapply</span>(x, <span class="cf">function</span>(xx) <span class="fu">sum</span>(y[x <span class="sc">&gt;=</span> xx]), y[<span class="dv">1</span>], <span class="at">USE.NAMES =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a>  out</span>
-<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a><span class="in">foo3 &lt;- function(x, y) {</span></span>
+<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a><span class="in">  out &lt;- y</span></span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a><span class="in">  out[] &lt;- vapply(x, function(xx) sum(y[x &gt;= xx]), y[1], USE.NAMES = FALSE)</span></span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a><span class="in">  out</span></span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
 <span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a>Let's take look just like before.</span>
 <span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a><span class="in">`vapply()`</span> will try to simplify the <span class="in">`FUN.VALUE`</span> but as long as we use a single vector from the original input we can safely assign it back into our mock subset without worrying about losing our classes.</span>
 <span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{r vapply example}</span></span>
-<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">vapply</span>(dose, <span class="cf">function</span>(xx) <span class="fu">sum</span>(time[dose <span class="sc">&gt;=</span> xx]), time[<span class="dv">1</span>]) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
-<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a><span class="fu">print_with_class_type</span>(x)</span>
+<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- vapply(dose, function(xx) sum(time[dose &gt;= xx]), time[1]) %&gt;% head()</span></span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a><span class="in">print_with_class_type(x)</span></span>
 <span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&lt;</span> <span class="sc">-</span><span class="fu">foo3</span>(dose, time) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
-<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a><span class="fu">print_with_class_type</span>(x)</span>
+<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt; -foo3(dose, time) %&gt;% head()</span></span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a><span class="in">print_with_class_type(x)</span></span>
 <span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a><span class="fu">## Benchmarks</span></span>
@@ -1065,12 +1244,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a>We'll also make certain that all of our outputs are the same with <span class="in">`check = TRUE`</span> (default) to make sure we didn't miss anything either.</span>
 <span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r benchmarking}</span></span>
-<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a>bench<span class="sc">::</span><span class="fu">mark</span>(</span>
-<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">foo1</span>(dose, time),</span>
-<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">foo2</span>(dose, time),</span>
-<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">3</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">foo3</span>(dose, time),</span>
-<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a>  <span class="at">check =</span> <span class="cn">TRUE</span></span>
-<span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a><span class="in">bench::mark(</span></span>
+<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a><span class="in">  `1` = foo1(dose, time),</span></span>
+<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a><span class="in">  `2` = foo2(dose, time),</span></span>
+<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a><span class="in">  `3` = foo3(dose, time),</span></span>
+<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a><span class="in">  check = TRUE</span></span>
+<span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
 <span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a>And, well, they all run about the same.</span>
@@ -1080,18 +1259,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a>We know we have some missing values in our data, so we're going to use the the <span class="in">`tidyr::complete()`</span> function to help with that.</span>
 <span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{r final output}</span></span>
-<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a>res</span>
+<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a><span class="in">res</span></span>
 <span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(subj, dose, <span class="at">fill =</span> <span class="fu">list</span>(<span class="at">time =</span> difftime0)) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subj, dose) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">time =</span> <span class="fu">sum</span>(time), <span class="at">.groups =</span> <span class="st">"drop_last"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">foo1</span>(dose, time)) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">"dose"</span>,</span>
-<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_sort =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="st">"time"</span></span>
-<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a><span class="in">df %&gt;% </span></span>
+<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a><span class="in">  complete(subj, dose, fill = list(time = difftime0)) %&gt;% </span></span>
+<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a><span class="in">  group_by(subj, dose) %&gt;% </span></span>
+<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a><span class="in">  summarise(time = sum(time), .groups = "drop_last") %&gt;%</span></span>
+<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a><span class="in">  mutate(time = foo1(dose, time)) %&gt;% </span></span>
+<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a><span class="in">  pivot_wider(</span></span>
+<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a><span class="in">    names_from = "dose",</span></span>
+<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a><span class="in">    names_sort = TRUE,</span></span>
+<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a><span class="in">    values_from = "time"</span></span>
+<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
 <span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a>And there you go.</span>
@@ -1104,6 +1283,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+
 
 
 
