@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.398">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -98,6 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -136,14 +137,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
@@ -245,18 +273,18 @@ Hello, did you find some hidden content? This should allow me to link back to ma
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R,{scribe}" data-listing-date-sort="1697860800000" data-listing-file-modified-sort="1697911783474" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="178">
+<div class="quarto-post image-right" data-index="0" data-categories="R,{scribe}" data-listing-date-sort="1697860800000" data-listing-file-modified-sort="1697911783474" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="202">
 <div class="thumbnail">
-<p><a href="./posts/scribe-0.3.0/index.html"></a></p><a href="./posts/scribe-0.3.0/index.html">
+<p><a href="./posts/scribe-0.3.0/index.html" class="no-external"></a></p><a href="./posts/scribe-0.3.0/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/scribe-0.3.0/index.html"></a></p>
+</a><p><a href="./posts/scribe-0.3.0/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/scribe-0.3.0/index.html"><code>{scribe} 0.3.0</code> release</a>
+<a href="./posts/scribe-0.3.0/index.html" class="no-external"><code>{scribe} 0.3.0</code> release</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/scribe-0.3.0/index.html">A package to support <code>Rscript</code> files</a>
+<a href="./posts/scribe-0.3.0/index.html" class="no-external">A package to support <code>Rscript</code> files</a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
@@ -267,11 +295,11 @@ R
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/scribe-0.3.0/index.html">After months of using my own <code>Rscript</code> utils with <code>{scribe}</code> I’ve failed to notice a now obvious error in my attempts to include type conversions. The original approach was a…</a>
+<a href="./posts/scribe-0.3.0/index.html" class="no-external">After months of using my own <code>Rscript</code> utils with <code>{scribe}</code> I’ve failed to notice a now obvious error in my attempts to include type conversions. The original approach was a…</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/scribe-0.3.0/index.html">
+<a href="./posts/scribe-0.3.0/index.html" class="no-external">
 <div class="listing-date">
 Oct 21, 2023
 </div>
@@ -280,16 +308,16 @@ Oct 21, 2023
 </div>
 <div class="quarto-post image-right" data-index="1" data-categories="R,{scribe}" data-listing-date-sort="1678680000000" data-listing-file-modified-sort="1689350136433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="553">
 <div class="thumbnail">
-<p><a href="./posts/scribe-release/index.html"></a></p><a href="./posts/scribe-release/index.html">
+<p><a href="./posts/scribe-release/index.html" class="no-external"></a></p><a href="./posts/scribe-release/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/scribe-release/index.html"></a></p>
+</a><p><a href="./posts/scribe-release/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/scribe-release/index.html"><code>{scribe}</code> release</a>
+<a href="./posts/scribe-release/index.html" class="no-external"><code>{scribe}</code> release</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/scribe-release/index.html">A package to support <code>Rscript</code> files</a>
+<a href="./posts/scribe-release/index.html" class="no-external">A package to support <code>Rscript</code> files</a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
@@ -300,11 +328,11 @@ R
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/scribe-release/index.html">I’m excited to be finalizing release preparations of <code>{scribe}</code>. This package supports writing your own <strong>Rscript</strong> files and executing them through a terminal.</a>
+<a href="./posts/scribe-release/index.html" class="no-external">I’m excited to be finalizing release preparations of <code>{scribe}</code>. This package supports writing your own <strong>Rscript</strong> files and executing them through a terminal.</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/scribe-release/index.html">
+<a href="./posts/scribe-release/index.html" class="no-external">
 <div class="listing-date">
 Mar 13, 2023
 </div>
@@ -313,16 +341,16 @@ Mar 13, 2023
 </div>
 <div class="quarto-post image-right" data-index="2" data-categories="R,statistics" data-listing-date-sort="1667275200000" data-listing-file-modified-sort="1689350136433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="670">
 <div class="thumbnail">
-<p><a href="./posts/confidence-intervals/index.html"></a></p><a href="./posts/confidence-intervals/index.html">
+<p><a href="./posts/confidence-intervals/index.html" class="no-external"></a></p><a href="./posts/confidence-intervals/index.html" class="no-external">
 <p class="card-img-top"><img src="posts/confidence-intervals/index_files/figure-html/plotting mean-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/confidence-intervals/index.html"></a></p>
+</a><p><a href="./posts/confidence-intervals/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/confidence-intervals/index.html">Confidence intervals</a>
+<a href="./posts/confidence-intervals/index.html" class="no-external">Confidence intervals</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/confidence-intervals/index.html">Mean estimate</a>
+<a href="./posts/confidence-intervals/index.html" class="no-external">Mean estimate</a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
@@ -333,11 +361,11 @@ statistics
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/confidence-intervals/index.html">Confidence intervals (CIs) provide an estimation of a true value within a population, and some type of certainty around that value. The certainty that is constructed can be…</a>
+<a href="./posts/confidence-intervals/index.html" class="no-external">Confidence intervals (CIs) provide an estimation of a true value within a population, and some type of certainty around that value. The certainty that is constructed can be…</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/confidence-intervals/index.html">
+<a href="./posts/confidence-intervals/index.html" class="no-external">
 <div class="listing-date">
 Nov 1, 2022
 </div>
@@ -346,16 +374,16 @@ Nov 1, 2022
 </div>
 <div class="quarto-post image-right" data-index="3" data-categories="meta" data-listing-date-sort="1657339200000" data-listing-file-modified-sort="1689350136433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
 <div class="thumbnail">
-<p><a href="./posts/quarto-update/index.html"></a></p><a href="./posts/quarto-update/index.html">
+<p><a href="./posts/quarto-update/index.html" class="no-external"></a></p><a href="./posts/quarto-update/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/quarto-update/index.html"></a></p>
+</a><p><a href="./posts/quarto-update/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/quarto-update/index.html">Site update</a>
+<a href="./posts/quarto-update/index.html" class="no-external">Site update</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/quarto-update/index.html">Now with quarto!</a>
+<a href="./posts/quarto-update/index.html" class="no-external">Now with quarto!</a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('meta'); return false;">
@@ -363,11 +391,11 @@ meta
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/quarto-update/index.html">I finally got around to updating this out-of-date site with some new information in my About and Anthology. Even more, I <em>nuked</em> the whole thing and remade the website as a qua…</a>
+<a href="./posts/quarto-update/index.html" class="no-external">I finally got around to updating this out-of-date site with some new information in my About and Anthology. Even more, I <em>nuked</em> the whole thing and remade the website as a qua…</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/quarto-update/index.html">
+<a href="./posts/quarto-update/index.html" class="no-external">
 <div class="listing-date">
 Jul 9, 2022
 </div>
@@ -376,16 +404,16 @@ Jul 9, 2022
 </div>
 <div class="quarto-post image-right" data-index="4" data-categories="R,{dplyr},{tidyselect}" data-listing-date-sort="1600920000000" data-listing-file-modified-sort="1689350136433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="967">
 <div class="thumbnail">
-<p><a href="./posts/dplyr-select/index.html"></a></p><a href="./posts/dplyr-select/index.html">
+<p><a href="./posts/dplyr-select/index.html" class="no-external"></a></p><a href="./posts/dplyr-select/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/dplyr-select/index.html"></a></p>
+</a><p><a href="./posts/dplyr-select/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/dplyr-select/index.html">Selecting columns in <code>{dplyr}</code></a>
+<a href="./posts/dplyr-select/index.html" class="no-external">Selecting columns in <code>{dplyr}</code></a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/dplyr-select/index.html">Quick tips</a>
+<a href="./posts/dplyr-select/index.html" class="no-external">Quick tips</a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
@@ -399,11 +427,11 @@ R
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/dplyr-select/index.html">One feature of report building that has always bothered me was adjusting column names in final so I could have something prettier than a series of columns_with_underscores…<code></code><code></code><code></code><code></code><code></code><code></code><code></code></a>
+<a href="./posts/dplyr-select/index.html" class="no-external">One feature of report building that has always bothered me was adjusting column names in final so I could have something prettier than a series of columns_with_underscores…<code></code><code></code><code></code><code></code><code></code><code></code><code></code></a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/dplyr-select/index.html">
+<a href="./posts/dplyr-select/index.html" class="no-external">
 <div class="listing-date">
 Sep 24, 2020
 </div>
@@ -412,16 +440,16 @@ Sep 24, 2020
 </div>
 <div class="quarto-post image-right" data-index="5" data-categories="R,{bench}" data-listing-date-sort="1596600000000" data-listing-file-modified-sort="1689350136433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1149">
 <div class="thumbnail">
-<p><a href="./posts/three-ways/index.html"></a></p><a href="./posts/three-ways/index.html">
+<p><a href="./posts/three-ways/index.html" class="no-external"></a></p><a href="./posts/three-ways/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/three-ways/index.html"></a></p>
+</a><p><a href="./posts/three-ways/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/three-ways/index.html">Solving one task with three equivalent solutions</a>
+<a href="./posts/three-ways/index.html" class="no-external">Solving one task with three equivalent solutions</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/three-ways/index.html"><code>for</code>, <code>do.call</code>, <code>vapply</code></a>
+<a href="./posts/three-ways/index.html" class="no-external"><code>for</code>, <code>do.call</code>, <code>vapply</code></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
@@ -432,11 +460,11 @@ R
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/three-ways/index.html">I can spend a lot of time trying in futility to optimize custom functions and code. I’ll take the time to rewrite the same thing in two or more ways and run some basic…</a>
+<a href="./posts/three-ways/index.html" class="no-external">I can spend a lot of time trying in futility to optimize custom functions and code. I’ll take the time to rewrite the same thing in two or more ways and run some basic…</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/three-ways/index.html">
+<a href="./posts/three-ways/index.html" class="no-external">
 <div class="listing-date">
 Aug 5, 2020
 </div>
@@ -445,16 +473,16 @@ Aug 5, 2020
 </div>
 <div class="quarto-post image-right" data-index="6" data-categories="R,psychology,datavis" data-listing-date-sort="1588651200000" data-listing-file-modified-sort="1689350136433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1896">
 <div class="thumbnail">
-<p><a href="./posts/dunning-kruger/index.html"></a></p><a href="./posts/dunning-kruger/index.html">
+<p><a href="./posts/dunning-kruger/index.html" class="no-external"></a></p><a href="./posts/dunning-kruger/index.html" class="no-external">
 <p class="card-img-top"><img src="posts/dunning-kruger/sheldon2014emotionally_figure1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/dunning-kruger/index.html"></a></p>
+</a><p><a href="./posts/dunning-kruger/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/dunning-kruger/index.html">Dunning-Kruger effect</a>
+<a href="./posts/dunning-kruger/index.html" class="no-external">Dunning-Kruger effect</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/dunning-kruger/index.html">A case of itself?</a>
+<a href="./posts/dunning-kruger/index.html" class="no-external">A case of itself?</a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
@@ -468,11 +496,11 @@ datavis
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/dunning-kruger/index.html">Note: I originally wrote this in February 2019. Also, don’t hate me for putting some links to Wikipedia, you were going to go there anyway. This isn’t a research paper.</a>
+<a href="./posts/dunning-kruger/index.html" class="no-external">Note: I originally wrote this in February 2019. Also, don’t hate me for putting some links to Wikipedia, you were going to go there anyway. This isn’t a research paper.</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/dunning-kruger/index.html">
+<a href="./posts/dunning-kruger/index.html" class="no-external">
 <div class="listing-date">
 May 5, 2020
 </div>
@@ -481,16 +509,16 @@ May 5, 2020
 </div>
 <div class="quarto-post image-right" data-index="7" data-categories="meta" data-listing-date-sort="1587873600000" data-listing-file-modified-sort="1689350136433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6">
 <div class="thumbnail">
-<p><a href="./posts/its-alive/index.html"></a></p><a href="./posts/its-alive/index.html">
+<p><a href="./posts/its-alive/index.html" class="no-external"></a></p><a href="./posts/its-alive/index.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/its-alive/index.html"></a></p>
+</a><p><a href="./posts/its-alive/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/its-alive/index.html">It’s alive!</a>
+<a href="./posts/its-alive/index.html" class="no-external">It’s alive!</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./posts/its-alive/index.html">First</a>
+<a href="./posts/its-alive/index.html" class="no-external">First</a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('meta'); return false;">
@@ -498,11 +526,11 @@ meta
 </div>
 </div>
 <div class="listing-description">
-<a href="./posts/its-alive/index.html">First post. Just testing, right?</a>
+<a href="./posts/its-alive/index.html" class="no-external">First post. Just testing, right?</a>
 </div>
 </div>
 <div class="metadata">
-<a href="./posts/its-alive/index.html">
+<a href="./posts/its-alive/index.html" class="no-external">
 <div class="listing-date">
 Apr 26, 2020
 </div>
@@ -788,6 +816,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -822,7 +868,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -837,38 +887,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -877,8 +917,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
