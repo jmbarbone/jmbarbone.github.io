@@ -41,7 +41,7 @@ my_model <- function(
     x = NA, 
     family = "gaussian", 
     correlation = FALSE
-  ) {
+) {
   data <- match.arg(data)
   
   data <- switch(
