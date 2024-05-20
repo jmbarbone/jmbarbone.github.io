@@ -1,8 +1,8 @@
 ---
 title: "wat? Character NAs"
 subtitle: "But it is documented"
-date: now
-categories: ["R", "{fuj}"]
+date: 2024-05-20
+categories: ["R", "{fuj}", "wat"]
 draft: true
 ---
 
@@ -62,7 +62,7 @@ as.character(list(NA))
 as.character(list(NA_character_))
 ```
 
-There it is: `list(NA)` turns into `"NA"`.
+There it is: `list(NA)` turns into `"NA"`. 
 _wat_?
 Well, these two help files provide the relevant information on what is happening here:
 
