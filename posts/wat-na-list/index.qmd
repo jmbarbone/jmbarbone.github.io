@@ -3,7 +3,7 @@ title: "wat? Character NAs"
 subtitle: "But it is documented"
 date: 2024-05-20
 categories: ["R", "{fuj}", "wat"]
-draft: true
+draft: false
 ---
 
 ::: {.callout-note}
