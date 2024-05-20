@@ -40,3 +40,5 @@ format:
 footnotes-hover: true
 reference-location: margin
 highlight-style: github
+execute: 
+  freeze: auto

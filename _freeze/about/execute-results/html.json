@@ -1,0 +1,17 @@
+{
+  "hash": "ed8142489054ace7cbf02eb64043cc64",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"About\"\nabout:\n  template: marquee\n  links:\n    - icon: mastodon\n      text: Fosstodon\n      href: https://fosstodon.org/@barbone\n    - icon: linkedin\n      text: LinkedIn\n      href: https://linkedin.com/in/jmbarbone\n    - icon: github\n      text: Github\n      href: https://github.com/jmbarbone\n---\n\n::: {.cell .column-screen-inset-shaded layout-align=\"center\"}\n::: {.cell-output-display}\n![](about_files/figure-html/unnamed-chunk-1-1.png){fig-align='center' width=1152}\n:::\n:::\n\n\nVisual above made with [Nathaniel Phillip's VisualResume](https://github.com/ndphillips/VisualResume).\n\nI am currently working as a Data Scientist at [Cogstate](https://cogstate.com) where I get to work with our Science and Data teams work with outcomes from computerized, cognitive assessments and other outcomes data (e.g., COA, ClinRO, PRO).\n\nI started learning R in my gradate statistics classes to avoid the future pains of having to use or only being familiar with SPSS.\nLearning R then launched me into a bigger role at Bracket (now [Signant Health](https://signanthealth.com/)) where I had the pleasure to work with our Clinical Science team to understand and interpret their data.\nThis gave us the opportunity to learn more about our technologies, approaches, and quality of reporting in the clinical trials we were assisting.\nHere I was a charter member of the Data Science team and have the pleasure of enhancing our trial monitoring products, training other Data Science programmers, and contributing to automation and reporting efforts of our Clinical Data Management team.\nI worked as the Principal Data Analyst for [Madrigal Pharmaceuticals](https://madrigalpharma.com/), helping our Research & Development team monitor our current trials and prepare summary reports.\nThis was a bit of a departure for me to work with more lab and imaging data and in an area I didn't have any experience: liver disease.\nDespite that, there were plenty of data I recognized: from clinical operations, data management, and even some interested PRO QoL data.\n\nI have a Masters of Art in Psychology and have spent my graduate and undergrad classes engaging in Neuropsychology and Cognitive topics.\nSome of these topics have included understanding how music affects our ability on tests of aptitude.\nThis, of course, was the basis of my Masters Thesis and hours of reading journal article after journal article.\nOf course I've also been very interested in immersing myself more into statistics, statistical programming, and special psychometric subjects.\nPlease browse the [Anthology page](https://jmbarbone.github.io/homepage/anthology) where I have tried to compile projects, papers, and presentations I've written in and out of class.\n\nAnd of course, here is my dog's IG [TheLabBuckley](https://www.instagram.com/thelabbuckley/).\nIt's mostly him sleeping.\n",
+    "supporting": [
+      "about_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
