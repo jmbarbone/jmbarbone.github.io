@@ -37,6 +37,7 @@ format:
     code-copy: true
     code-fold: show
     code-tools: true
+    highlight-style: atom-one
 footnotes-hover: true
 reference-location: margin
 highlight-style: github
