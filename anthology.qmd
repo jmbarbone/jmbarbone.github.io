@@ -10,11 +10,18 @@ format:
 Below you may find links to some academic and professional work I have completed.
 The decision to include papers and presentations from class was not to artificially expand this section but was made to demonstrate the quality of work I aim to put forth.
 
-| | |
-|:-|:-----|
-| **Copyright warning** | _Please note that some material may retain publisher's copyright and these materials have been made available for personal use._ |
+::: {.callout-important}
+## Copyrights
+Please note that some material may retain publisher's copyright and these materials have been made available for personal use.
+:::
 
+
+::: {.callout-note}
 _Italicized_ authors represent co-primary authorship.
+
+**Bolded** author is myself.
+:::
+
 
 ## Papers
 
@@ -47,6 +54,7 @@ Irani, F., **Barbone, J. M.**, Beausoleil, J., & Gerald, L. B. (2017) [Is asthma
 ### 2022
 
 <!-- TODO include IFDAQ ADPD 2022 -->
+
 <!-- Edgar, C. J., Amariglio, R., **Barbone, J. M.**, Chandler, J. M., Coons, S. J., Donohue, M. C., Lenderking, W. R., & Sperling, R (2022, December) [_Prelimary evidence for reliability and validity of the Interpersonal Functioning and Daily Activities Question (IFDAQ) in the A4/LEARN pre-randomization sample_]().  Slides presented at the Clinical Trials for Alzheimer's Disease, San Francisco, CA, USA. -->
 
 Edgar, C. J., Maruff, P., Harrison, J. E, **Barbone, J. M.**, Leventhal, R., & Alam, J. J. (April, 2022) [_Validity and reliability of a composite cognitive outcome measure for clinical trials in dementia with Lewy bodies_](https://www.cogstate.com/wp-content/uploads/2022/04/OO171-Validity-and-reliability-of-a-composite-cognitive-outcome-in-DLB_d273-Read-Only.pdf).  Slides and presented at the 16th International Conference on Alzheimer's & Parkinson's Diseases, Barcelona, Spain.
@@ -72,6 +80,28 @@ _Note_: the above presentation reported on results from a hypothetical study.
 Irani, F., **Barbone, J. M.**, & Beausoleil, J. (2015, August) [_The impact of asthma on cognitive functioning_](https://www.researchgate.net/publication/319271343_Abstract_The_impact_of_asthma_on_cognitive_functioning?_sg=OkDiZKP7cVjIQZqeuSpRGIltjSLEPsB0GT86QX1LeE7vXbi0zLvA-jgCOkRSmtg-XKT7J7ZKS5tjXQHXNwB1X5oaURb6rHz3MEyRPE5u.i60iCDy1C_D49Y4Am2iksn_71Vq1DCYX-h4-_RCwV5RVpACYNZEzfjhTUlPEyabNBRS5wAqm_BA5TvMgY4WTEw).  Slides presented at the American Psychological Association Convention, Toronto, Canada.
 
 ## Posters
+
+### 2024
+
+Tronchin, G., Kingery, L., Leventhal, R., Bartolic, E., Wacker, S., **Barbone, J. M.**, Wessels, A. M.
+(March, 2024)
+[_Central monitoring of rater performance and characteristics of efficacy assessments in the TRAILBLAZER-ALZ 2 study_](https://www.cogstate.com/wp-content/uploads/2024/05/ADPD-2024-Poster-Central-monitoring-of-rater-performance-and-characteristics-of-efficacy-assessments-in-the-TRAILBLAZER-ALZ-2-study-1.pdf).
+Poster presented at the International Conference on Alzheimer's and Parkinson's Diseases, Lisbon, Portugal, and online. 
+doi: 
+
+### 2023
+
+**Barbone, J. M.**, Khurshid, K., Edgar, C. J., & Maruff, P.
+(December, 2023)
+[_Equating the ADAS‐Cog and MMSE to Cogstate Brief Battery scores_](https://www.cogstate.com/wp-content/uploads/2023/07/Equating-the-ADAS-Cog-and-MMSE-to-Cogstate-Brief-Battery-scores.pdf).
+Poster presented at the Alzheimer's Association International Conference, Amsterdam, Netherlands, and online.
+doi: [10.1002/alz.077060](http://dx.doi.org/10.1002/alz.077060)
+
+
+Edgar, C. J., Lim, Y. Y., Stellman, G., Frederickson, A., **Barbone, J. M.**, Markowski, K., & Maruff, P.
+(December, 2023)
+[_Adaptation and Modification of Digital Cognitive Assessments for Smartphone-based and Unsupervised Conduct_](https://www.cogstate.com/wp-content/uploads/2023/07/Adaptation-and-Modification-of-Digital-Cognitive-Assessments-for-Smartphone-based-and-Unsupervised-Conduct.pdf).
+Poster presented at the Alzheimer's Association International Conference, Amsterdam, Netherlands, and online.
 
 ### 2022
 
