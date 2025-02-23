@@ -11,6 +11,8 @@ knitr:
 website:
   title: "J M Barbone"
   navbar:
+    background: "#808080"
+    search: true
     right:
       - icon: person-circle
         href: about.html
@@ -28,11 +30,15 @@ website:
         href: anthology.html
       - icon: file-text
         href: https://github.com/jmbarbone/barbone-cv/blob/master/Barbone-CV.pdf
+  repo-url: https://github.com/jmbarbone/jmbarbone.github.io
+  issue-url: https://github.com/jmbarbone/jmbarbone.github.io/issues
+  reader-mode: true
+  search: true
 format:
   html:
     theme:
-      light: flatly
-      dark: darkly
+      light: styles/light-theme.scss
+      dark: styles/dark-theme.scss
     css: styles.css
     code-copy: true
     code-fold: show
