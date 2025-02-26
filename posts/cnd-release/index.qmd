@@ -1,0 +1,149 @@
+---
+title: "{cnd} release"
+subtitle: A new package for conditions
+date: "2025-02-26"
+categories: ["R"]
+---
+
+[`{cnd}`](https://jmbarbone.github.io/cnd) is now on **CRAN**, and I'm pretty excited about this one.
+
+In [`{fuj}`](https://jmbarbone.github.io/fuj), I included [`new_condition()`](https://jmbarbone.github.io/fuj/reference/new_condition.html) which I used throughout [`{fuj}`](https://jmbarbone.github.io/fuj), and [`{mark}`](https://jmbarbone.github.io/mark).
+Now, after a little more experience using custom condition classes, I've taken a step back and redesigned the implementation to really _super charge_ usage.
+
+Load up [`{cnd}`](https://jmbarbone.github.io/cnd) and let's get started.
+
+```{r}
+library(cnd)
+```
+
+There are two big functions here that will get highlighted:
+
+[`condition()`](https://jmbarbone.github.io/cnd/reference/condition.html)  
+and  
+[`cnd()`](https://jmbarbone.github.io/cnd/reference/condition.html)
+
+
+`condition()` creates a new `cnd::condition_generator` object, which is basically a fancy function.
+These hold additional metadata, which we'll review in a bit, but know simply that we have to create a generator before creating a condition.
+
+In the simpliest example, we just need to define a class name.
+We create the generator, and return it.
+In the `print()`, we can see the class and the _type_ ("error") of our condition.
+
+```{r}
+cond_my_new_condition <- condition("my_new_condition", type = "error")
+cond_my_new_condition
+```
+
+When we call the generator, it returns the new condition.
+A default message is applied.
+
+```{r}
+cond_my_new_condition()
+```
+
+That condition can be passed into `stop()`, to singal the condition and print the message.
+
+```{r}
+#| error: true
+stop(cond_my_new_condition())
+```
+
+Now, let's look at a more complicated example.
+We're going to define a new condition generator, and call it within a function.
+
+```{r}
+#| error: true
+cond_numeric_error <- condition(
+  "numeric_error",
+  message = "parameters must be numeric",
+  type = "error",
+  package = "example"
+)
+
+cond_numeric_error
+
+summation <- function(x, y) {
+  if (!is.numeric(x) || !is.numeric(y)) {
+      stop(cond_numeric_error())
+  }
+  x + y
+}
+
+summation(1, 2)
+summation(1, "2")
+```
+
+With a small adjustment, we can also turn this into a "warning" instead, and throw some additional information.
+Because we're using a function, the `print()` for the `cnd::condition_generator` object gains a new **generator** output, which shows information about this function.
+
+```{r}
+cond_numeric_warning <- condition(
+  "numeric_warning",
+  message = function(x, y) {
+    x <- typeof(x)
+    y <- typeof(y)
+    types <- setdiff(c(x, y), c("double", "integer"))
+    c(
+      paste("parameters must be numeric, not:", toString(types)),
+      "A coercion attempt will be made"
+    )
+  },
+  type = "warning",
+  package = "example"
+)
+
+cond_numeric_warning
+
+summation <- function(x, y) {
+  if (!is.numeric(x) || !is.numeric(y)) {
+    print(sys.call())
+    warning(cond_numeric_warning(x, y))
+    x <- as.numeric(x)
+    y <- as.numeric(y)
+  }
+  x + y
+}
+
+summation(1, 2)
+summation(1, "2")
+summation(list(1), "2")
+```
+
+You can assign conditions to `function`, which stores them in the `"conditions"` attribute.
+This also updates the class of the object, which allows us to see which conditions has been assigned to the function.
+
+```{r}
+conditions(summation) <- cond_numeric_warning
+summation
+```
+
+Conditions do not need to be exported to be retrieved.
+When you see the name, you can use that as a character string within `cond()` to retrieve the object.
+
+```{r}
+cond("example:numeric_warning")
+```
+
+::: {callout-tip}
+`{cnd}` will try to use the `{cli}` package under the hood.
+In places where the condition names are printed, you should be able to _click_ on them, too, which will execute `cond()` and retrieve the condition.
+:::
+
+For more general searches, use `conditions()` and define some options.
+Below we will grab all `warning` conditions from `{cnd}`.
+
+```{r}
+conditions("cnd", type = "warning")
+```
+
+One of the most exciting features about `{cnd}` is the package documentation.
+It's now very easy to define new conditions, which signal warnings or errors, and provide users with more immediate knowledge.
+
+With our `summation()` function, we can generate `roxygen` friendly documentation 
+
+```{r}
+cat(cnd_section(summation))
+```
+
+For more information, see https://jmbarbone.github.io/cnd and https://github.com/jmbarbone/cnd.
