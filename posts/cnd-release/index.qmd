@@ -1,9 +1,8 @@
 ---
 title: "{cnd} release"
 subtitle: A new package for conditions
-date: "2025-02-23"
+date: "2025-02-26"
 categories: ["R"]
-draft: true
 ---
 
 [`{cnd}`](https://jmbarbone.github.io/cnd) is now on **CRAN**, and I'm pretty excited about this one.
