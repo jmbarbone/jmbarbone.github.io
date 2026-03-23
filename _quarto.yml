@@ -9,7 +9,7 @@ knitr:
     comment: "#>"
 
 website:
-  title: "J M Barbone"
+  title: "Jordan Mark Barbone"
   navbar:
     right:
       - icon: person-circle
@@ -30,9 +30,12 @@ website:
         href: https://github.com/jmbarbone/barbone-cv/blob/master/Barbone-CV.pdf
 format:
   html:
-    theme:
-      light: flatly
-      dark: darkly
+    # theme:
+    #   light: flatly
+    #   dark: darkly
+    theme: 
+      light: brand-light
+      dark: brand-dark
     css: styles.css
     code-copy: true
     code-fold: show
@@ -43,3 +46,7 @@ reference-location: margin
 highlight-style: github
 execute: 
   freeze: auto
+
+brand: 
+  light: _brand-earth.yml
+  dark: _brand-retro.yml

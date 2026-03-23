@@ -2,14 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2020-08-05">
 
-<title>Solving one task with three equivalent solutions – J M Barbone</title>
+<title>Solving one task with three equivalent solutions – Jordan Mark Barbone</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -22,8 +25,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -34,7 +38,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -65,17 +69,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a9a1004e11634ed07103b4f671e96efa.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-e61ef0ab113ec5ee1ab7875cd71d6084.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a9a1004e11634ed07103b4f671e96efa.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-92a75182817b14ebfb91dfc393fdbed1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8478ffe394191baceecad1f68cd35f44.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-92a75182817b14ebfb91dfc393fdbed1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,15 +115,181 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="https://quarto.org/quarto.png" alt="Quarto icon" class="navbar-logo light-content">
+    <img src="https://quarto.org/quarto.png" alt="Quarto icon" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">J M Barbone</span>
+    <span class="navbar-title">Jordan Mark Barbone</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -214,6 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+
 <p>I can spend a lot of time trying in futility to optimize custom functions and code. I’ll take the time to rewrite the same thing in two or more ways and run some basic benchmarks for performance differences. Most of the time I’m just exploring the simplest possible way to perform an action and what would be the most generalizable solution that could extend to other problems. I ran into an issue where I had to use a quick function to find the total amount of time a subject in a clinical trial was on a specific dose. However, subjects had doses adjusted through the study for optimization. Further, we also needed to count the dosing based on the lowest dose provided.</p>
 <blockquote class="blockquote">
 <p>For example, how long was Subject A on a &gt;= 10mg dose?</p>
@@ -225,8 +399,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">tidyverse.quiet =</span> <span class="cn">TRUE</span>) <span class="co"># Silences messages</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">tidyverse.quiet =</span> <span class="cn">TRUE</span>) <span class="co"># Silences messages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Let’s create some random data to represent our subjects, our doses, and an arbitrary time metric. We’re also going to make this harder by using the <code>difftime</code>.</p>
@@ -234,7 +408,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;I’m not too savvy with this package yet but would like to experiment more for building dummy data sets.</p></div></div><div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>subj <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">sample</span>(wakefield<span class="sc">::</span><span class="fu">name</span>(<span class="dv">500</span>), <span class="fl">1e4</span>, <span class="cn">TRUE</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>subj <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">sample</span>(wakefield<span class="sc">::</span><span class="fu">name</span>(<span class="dv">500</span>), <span class="fl">1e4</span>, <span class="cn">TRUE</span>))</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dose <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq.int</span>(<span class="dv">10</span>, <span class="dv">80</span>, <span class="dv">10</span>), <span class="fl">1e4</span>, <span class="cn">TRUE</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="fu">as.difftime</span>(<span class="fu">runif</span>(<span class="fl">1e4</span>) <span class="sc">*</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">"days"</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -253,14 +427,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 Aadhya     20 29.073014 days</span></span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 Aadhya     80  6.221622 days</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 Aaditri    50 54.387006 days</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 9,990 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 9,990 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Finding the total sum of time at each dose is easy:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subj, dose) <span class="sc">%&gt;%</span> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">time =</span> <span class="fu">sum</span>(time), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
@@ -281,14 +455,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 Abhinav 221.372920 days 108.87628 days 114.363… 280.… 136.… 100.…  97.…  95.…</span></span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 Abhiram  73.235939 days 182.81309 days 295.836… 107.…  96.… 137.… 123.…  68.…</span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 Abyade  107.638230 days 596.18206 days 168.711… 146.…  61.…  34.… 281.… 149.…</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 490 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 490 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Oh, it looks like we have some missing values (see the first line where we are missing doses of <code>30</code>, <code>50</code>, and <code>70</code> for <code>Aadhya</code>.). <code>tidyr::pivot_wider()</code> allows us to fill in the missing values but like many <code>tidyverse</code> functions, we’ll have to be explicit with the type so as to not case any accidental issues.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>difftime0 <span class="ot">&lt;-</span> <span class="fu">as.difftime</span>(<span class="dv">0</span>, <span class="at">units =</span> <span class="st">"days"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>difftime0 <span class="ot">&lt;-</span> <span class="fu">as.difftime</span>(<span class="dv">0</span>, <span class="at">units =</span> <span class="st">"days"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subj, dose) <span class="sc">%&gt;%</span> </span>
@@ -313,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 Abhinav 221.372920 days 108.87628 days 114.363… 280.… 136.… 100.…  97.…  95.…</span></span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 Abhiram  73.235939 days 182.81309 days 295.836… 107.…  96.… 137.… 123.…  68.…</span></span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 Abyade  107.638230 days 596.18206 days 168.711… 146.…  61.…  34.… 281.… 149.…</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 490 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 490 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>This is much more troublesome as we have to create single length <code>difftime</code> vector.</p>
@@ -324,7 +498,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>foo1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>foo1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> y</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(y)) {</span>
@@ -332,7 +506,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  out</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -342,17 +516,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>foo2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>foo2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">lapply</span>(x, <span class="cf">function</span>(xx) <span class="fu">sum</span>(y[x <span class="sc">&gt;=</span> xx]))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do.call</span>(c, out)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Let’s see how this plays out. If we use other methods, we lose the difftime class, which is noticeable as we don’t get our message of <code>Time differences in days</code> before our results.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">lapply</span>(dose, <span class="cf">function</span>(xx) <span class="fu">sum</span>(time[dose <span class="sc">&gt;=</span> xx])) <span class="sc">%&gt;%</span> <span class="fu">unlist</span>() <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">lapply</span>(dose, <span class="cf">function</span>(xx) <span class="fu">sum</span>(time[dose <span class="sc">&gt;=</span> xx])) <span class="sc">%&gt;%</span> <span class="fu">unlist</span>() <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print_with_class_type</span>(x)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; class  numeric</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; typeof double</span></span>
@@ -368,7 +542,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print_with_class_type</span>(x)</span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; class  difftime</span></span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; typeof double</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Time differences in days[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Time differences in days[1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -378,18 +552,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>foo3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>foo3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> y</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  out[] <span class="ot">&lt;-</span> <span class="fu">vapply</span>(x, <span class="cf">function</span>(xx) <span class="fu">sum</span>(y[x <span class="sc">&gt;=</span> xx]), y[<span class="dv">1</span>], <span class="at">USE.NAMES =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  out</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Let’s take look just like before. <code>vapply()</code> will try to simplify the <code>FUN.VALUE</code> but as long as we use a single vector from the original input we can safely assign it back into our mock subset without worrying about losing our classes.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">vapply</span>(dose, <span class="cf">function</span>(xx) <span class="fu">sum</span>(time[dose <span class="sc">&gt;=</span> xx]), time[<span class="dv">1</span>]) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">vapply</span>(dose, <span class="cf">function</span>(xx) <span class="fu">sum</span>(time[dose <span class="sc">&gt;=</span> xx]), time[<span class="dv">1</span>]) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print_with_class_type</span>(x)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; class  numeric</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; typeof double</span></span>
@@ -400,7 +574,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print_with_class_type</span>(x)</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; class  numeric</span></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; typeof double</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 501497.92 501497.92 312102.52  61765.11 312102.52 437797.16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -412,7 +586,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>bench<span class="sc">::</span><span class="fu">mark</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>bench<span class="sc">::</span><span class="fu">mark</span>(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">foo1</span>(dose, time),</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">foo2</span>(dose, time),</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">3</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">foo3</span>(dose, time),</span>
@@ -425,7 +599,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;</span></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1             3.01s    3.01s     0.332    2.96GB     35.2</span></span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2             1.84s    1.84s     0.545    2.22GB     30.0</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 3             1.91s    1.91s     0.524    2.21GB     24.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 3             1.91s    1.91s     0.524    2.21GB     24.1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>And, well, they all run about the same. That kind of just leaves us with the sinking feeling that all of this was futile and that <code>for</code> loops really aren’t that bad. In fact, the <code>for</code> loop solution may be the easiest to read and doesn’t use any tricks that someone reviewing your code may not understand at first.</p>
@@ -433,7 +607,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>res</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>res</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 500 × 9</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    subj    `10`            `20`           `30`     `40`  `50`  `60`  `70`  `80` </span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;   &lt;drtn&gt;          &lt;drtn&gt;         &lt;drtn&gt;   &lt;drt&gt; &lt;drt&gt; &lt;drt&gt; &lt;drt&gt; &lt;drt&gt;</span></span>
@@ -473,7 +647,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 Abhinav 1154.8195 days  933.4466 days  824.570… 710.… 429.… 292.… 192.…  95.…</span></span>
 <span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 Abhiram 1086.0283 days 1012.7924 days  829.979… 534.… 426.… 329.… 192.…  68.…</span></span>
 <span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 Abyade  1545.7654 days 1438.1272 days  841.945… 673.… 526.… 465.… 431.… 149.…</span></span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 490 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 490 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>And there you go. Three solutions, all the same.</p>
@@ -488,434 +662,307 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
       return false;
     }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
           } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
         }
-        return container.innerHTML
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -923,186 +970,162 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb12" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Solving one task with three equivalent solutions</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "`for`, `do.call`, `vapply`"</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2020-08-05"</span></span>
@@ -1126,17 +1149,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>Because we will be grouping and summarising data in a data.frame, I really don't feel like going through the trouble of using <span class="in">`base`</span> solutions.</span>
 <span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup}</span></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="in">#| include: false</span></span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="in">set.seed(42)</span></span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="in">print_with_class_type &lt;- function(x) {</span></span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="in">  co &lt;- capture.output(x)</span></span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="in">  cl &lt;- class(x)</span></span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="in">  to &lt;- typeof(x)</span></span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="in">  cat("class  ", cl, "\n",</span></span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="in">      "typeof ", to,  "\n",</span></span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="in">      co, sep = "")</span></span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="in">  invisible(x)</span></span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>print_with_class_type <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  co <span class="ot">&lt;-</span> <span class="fu">capture.output</span>(x)</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  cl <span class="ot">&lt;-</span> <span class="fu">class</span>(x)</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  to <span class="ot">&lt;-</span> <span class="fu">typeof</span>(x)</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"class  "</span>, cl, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>      <span class="st">"typeof "</span>, to,  <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>      co, <span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">invisible</span>(x)</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
@@ -1150,43 +1173,43 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>We're also going to grab some names using a function from the <span class="co">[</span><span class="ot">`wakefield` package</span><span class="co">](https://github.com/trinker/wakefield)</span> which you can use to create fake data, appropriately named. ^<span class="co">[</span><span class="ot">I'm not too savvy with this package yet but would like to experiment more for building dummy data sets.</span><span class="co">]</span></span>
 <span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{r generating the data} </span></span>
-<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a><span class="in">subj &lt;- sort(sample(wakefield::name(500), 1e4, TRUE))</span></span>
-<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a><span class="in">dose &lt;- sample(seq.int(10, 80, 10), 1e4, TRUE)</span></span>
-<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a><span class="in">time &lt;- as.difftime(runif(1e4) * 100, units = "days")</span></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>subj <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">sample</span>(wakefield<span class="sc">::</span><span class="fu">name</span>(<span class="dv">500</span>), <span class="fl">1e4</span>, <span class="cn">TRUE</span>))</span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>dose <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq.int</span>(<span class="dv">10</span>, <span class="dv">80</span>, <span class="dv">10</span>), <span class="fl">1e4</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="fu">as.difftime</span>(<span class="fu">runif</span>(<span class="fl">1e4</span>) <span class="sc">*</span> <span class="dv">100</span>, <span class="at">units =</span> <span class="st">"days"</span>)</span>
 <span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a><span class="in">df &lt;- tibble(subj, dose, time)</span></span>
-<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a><span class="in">df</span></span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(subj, dose, time)</span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>df</span>
 <span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>Finding the total sum of time at each dose is easy:</span>
 <span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{r time for each dose}</span></span>
-<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="in">df %&gt;% </span></span>
-<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a><span class="in">  group_by(subj, dose) %&gt;% </span></span>
-<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a><span class="in">  summarise(time = sum(time), .groups = "drop") %&gt;% </span></span>
-<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a><span class="in">  pivot_wider(</span></span>
-<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a><span class="in">    names_from = "dose",</span></span>
-<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a><span class="in">    names_sort = TRUE,</span></span>
-<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a><span class="in">    values_from = "time"</span></span>
-<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subj, dose) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">time =</span> <span class="fu">sum</span>(time), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">"dose"</span>,</span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_sort =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="st">"time"</span></span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a>Oh, it looks like we have some missing values (see the first line where we are missing doses of <span class="in">`30`</span>, <span class="in">`50`</span>, and <span class="in">`70`</span> for <span class="in">`Aadhya`</span>.).</span>
 <span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a><span class="in">`tidyr::pivot_wider()`</span> allows us to fill in the missing values but like many <span class="in">`tidyverse`</span> functions, we'll have to be explicit with the type so as to not case any accidental issues.</span>
 <span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r time for each dose fill}</span></span>
-<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a><span class="in">difftime0 &lt;- as.difftime(0, units = "days")</span></span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a>difftime0 <span class="ot">&lt;-</span> <span class="fu">as.difftime</span>(<span class="dv">0</span>, <span class="at">units =</span> <span class="st">"days"</span>)</span>
 <span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a><span class="in">res &lt;- df %&gt;% </span></span>
-<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a><span class="in">  group_by(subj, dose) %&gt;% </span></span>
-<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a><span class="in">  summarise(time = sum(time), .groups = "drop") %&gt;% </span></span>
-<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a><span class="in">  pivot_wider(</span></span>
-<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a><span class="in">    names_from = "dose",</span></span>
-<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a><span class="in">    names_sort = TRUE,</span></span>
-<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a><span class="in">    values_from = "time",</span></span>
-<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a><span class="in">    values_fill = difftime0</span></span>
-<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
-<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a><span class="in">res</span></span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subj, dose) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">time =</span> <span class="fu">sum</span>(time), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">"dose"</span>,</span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_sort =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="st">"time"</span>,</span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_fill =</span> difftime0</span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a>res</span>
 <span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a>This is much more troublesome as we have to create single length <span class="in">`difftime`</span> vector.</span>
@@ -1201,15 +1224,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a>We'll start with</span>
 <span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r for loop}</span></span>
-<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a><span class="in">foo1 &lt;- function(x, y) {</span></span>
-<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a><span class="in">  out &lt;- y</span></span>
-<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
-<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a><span class="in">  for (i in seq_along(y)) {</span></span>
-<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a><span class="in">    out[i] &lt;- sum(y[x &gt;= x[i]])</span></span>
-<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
-<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
-<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a><span class="in">  out</span></span>
-<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a>foo1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> y</span>
+<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(y)) {</span>
+<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a>    out[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(y[x <span class="sc">&gt;=</span> x[i]])</span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>  out</span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution 2: Combining lapply</span></span>
@@ -1218,10 +1241,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a><span class="in">`lapply()`</span> retains the original classes and using the <span class="in">`do.call(c, ...)`</span> method will turn my list into a vector without removing the structure of the output</span>
 <span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lapply}</span></span>
-<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a><span class="in">foo2 &lt;- function(x, y) {</span></span>
-<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a><span class="in">  out &lt;- lapply(x, function(xx) sum(y[x &gt;= xx]))</span></span>
-<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a><span class="in">  do.call(c, out)</span></span>
-<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a>foo2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">lapply</span>(x, <span class="cf">function</span>(xx) <span class="fu">sum</span>(y[x <span class="sc">&gt;=</span> xx]))</span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do.call</span>(c, out)</span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a>Let's see how this plays out.</span>
@@ -1247,22 +1270,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r vapply}</span></span>
-<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a><span class="in">foo3 &lt;- function(x, y) {</span></span>
-<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a><span class="in">  out &lt;- y</span></span>
-<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a><span class="in">  out[] &lt;- vapply(x, function(xx) sum(y[x &gt;= xx]), y[1], USE.NAMES = FALSE)</span></span>
-<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a><span class="in">  out</span></span>
-<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a>foo3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> y</span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>  out[] <span class="ot">&lt;-</span> <span class="fu">vapply</span>(x, <span class="cf">function</span>(xx) <span class="fu">sum</span>(y[x <span class="sc">&gt;=</span> xx]), y[<span class="dv">1</span>], <span class="at">USE.NAMES =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a>  out</span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a>Let's take look just like before.</span>
 <span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a><span class="in">`vapply()`</span> will try to simplify the <span class="in">`FUN.VALUE`</span> but as long as we use a single vector from the original input we can safely assign it back into our mock subset without worrying about losing our classes.</span>
 <span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{r vapply example}</span></span>
-<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- vapply(dose, function(xx) sum(time[dose &gt;= xx]), time[1]) %&gt;% head()</span></span>
-<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a><span class="in">print_with_class_type(x)</span></span>
+<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">vapply</span>(dose, <span class="cf">function</span>(xx) <span class="fu">sum</span>(time[dose <span class="sc">&gt;=</span> xx]), time[<span class="dv">1</span>]) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a><span class="fu">print_with_class_type</span>(x)</span>
 <span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt; -foo3(dose, time) %&gt;% head()</span></span>
-<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a><span class="in">print_with_class_type(x)</span></span>
+<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&lt;</span> <span class="sc">-</span><span class="fu">foo3</span>(dose, time) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a><span class="fu">print_with_class_type</span>(x)</span>
 <span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a><span class="fu">## Benchmarks</span></span>
@@ -1275,12 +1298,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a>We'll also make certain that all of our outputs are the same with <span class="in">`check = TRUE`</span> (default) to make sure we didn't miss anything either.</span>
 <span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r benchmarking}</span></span>
-<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a><span class="in">bench::mark(</span></span>
-<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a><span class="in">  `1` = foo1(dose, time),</span></span>
-<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a><span class="in">  `2` = foo2(dose, time),</span></span>
-<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a><span class="in">  `3` = foo3(dose, time),</span></span>
-<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a><span class="in">  check = TRUE</span></span>
-<span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a>bench<span class="sc">::</span><span class="fu">mark</span>(</span>
+<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">foo1</span>(dose, time),</span>
+<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">foo2</span>(dose, time),</span>
+<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">3</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">foo3</span>(dose, time),</span>
+<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a>  <span class="at">check =</span> <span class="cn">TRUE</span></span>
+<span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a>And, well, they all run about the same.</span>
@@ -1290,18 +1313,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a>We know we have some missing values in our data, so we're going to use the the <span class="in">`tidyr::complete()`</span> function to help with that.</span>
 <span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{r final output}</span></span>
-<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a><span class="in">res</span></span>
+<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a>res</span>
 <span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a><span class="in">df %&gt;% </span></span>
-<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a><span class="in">  complete(subj, dose, fill = list(time = difftime0)) %&gt;% </span></span>
-<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a><span class="in">  group_by(subj, dose) %&gt;% </span></span>
-<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a><span class="in">  summarise(time = sum(time), .groups = "drop_last") %&gt;%</span></span>
-<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a><span class="in">  mutate(time = foo1(dose, time)) %&gt;% </span></span>
-<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a><span class="in">  pivot_wider(</span></span>
-<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a><span class="in">    names_from = "dose",</span></span>
-<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a><span class="in">    names_sort = TRUE,</span></span>
-<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a><span class="in">    values_from = "time"</span></span>
-<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
+<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(subj, dose, <span class="at">fill =</span> <span class="fu">list</span>(<span class="at">time =</span> difftime0)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subj, dose) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">time =</span> <span class="fu">sum</span>(time), <span class="at">.groups =</span> <span class="st">"drop_last"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">foo1</span>(dose, time)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">"dose"</span>,</span>
+<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_sort =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="st">"time"</span></span>
+<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a>And there you go.</span>
@@ -1311,7 +1334,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a>Other times it's just results in a blog post.</span>
 <span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a>As long as your code is easy to read and not apparently slow, it's probably fine.</span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
