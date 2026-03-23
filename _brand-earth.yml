@@ -1,0 +1,82 @@
+meta:
+  name:
+    long: Jordan Mark Barbone 
+    short: jordan
+  link:
+    home: https://jmbarbone.github.io/
+    github: https://github.com/rstudio/bslib
+    bluesky: https://bsky.app/profile/barbone.bsky.social
+    linkedin: https://www.linkedin.com/in/jmbarbone
+  description: Natural, artisanal intelligence
+  founded: 1992
+
+color:
+  palette:
+    comet:        "#575d7a"  # base twilight / mid-grey-blue (existing comet)
+    comet-dark:   "#3c4058"  # deep shadow (text / headings)
+    comet-mid:    "#707694"  # mid-tone (panels / accents)
+    ocean-deep:   "#053f5e"  # deep ocean (primary accent / links)
+    ocean-mid:    "#2a87a0"  # coastal/shallows (secondary accent)
+    vegetation:   "#2f9e44"  # green (forests / life)
+    desert:       "#d2b48c"  # tan (drylands / highlights)
+    cloud:        "#fafafa"  # cloud/ice (page background)
+    rock:         "#6b6b6b"  # mountain/rock (code/inline punctuation)
+    ice:          "#e6f4ff"  # glacial tint (subtle highlights)
+    muted:        "#6f7387"  # UI muted text / surfaces
+    light-grey:   "#e6e6e6"  # neutral light
+    mid-grey:     "#b3b3b3"  # neutral mid
+    dark-grey:    "#2e2e2e"  # neutral dark
+    code-bg:      "#f3f4f6"  # code block background (light)
+    code-color:   "#05343a"  # code text (deep ocean/teal)
+    warn:         "#f39c12"  # warning (golden)
+    alert:        "#e74c3c"  # alert / error (red)
+  primary: comet
+  secondary: ocean-deep
+  tertiary: vegetation
+  foreground: comet-dark # text color
+  # background: cloud
+  background: code-bg # page color
+  link: ocean-deep
+  # link: vegetation
+  # accent: ocean-mid
+  success: vegetation
+  warning: warn
+  danger: alert
+  light: light-grey
+  dark: dark-grey
+
+typography:
+  fonts:
+    - family: Noto Sans
+      source: google
+    - family: Open Sans
+      source: google
+    - family: Jura
+      source: google
+    - family: Cascadia Code
+      source: google
+  base:
+    family: Open Sans
+    # color: foreground            # uses comet-dark
+  headings:
+    family: Jura
+    color: comet-dark            # strong, readable heading color
+  monospace:
+    family: Cascadia Code
+    color: code-color            # code text uses deep ocean/teal
+    background-color: code-bg
+  monospace-inline:
+    family: Cascadia Code
+    color: code-color
+    background-color: ice       # subtle glacial tint for inline code
+  monospace-block:
+    family: Cascadia Code
+    color: code-color
+    background-color: cloud
+  link:
+    color: ocean-deep
+    decoration: underline
+
+# brief guidance:
+# - Use 'ocean-deep' for primary CTAs/links, 'vegetation' for success/positive states,
+#   'desert' and 'ice' for subtle highlights and surface differentiation.
