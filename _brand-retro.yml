@@ -1,0 +1,96 @@
+meta:
+  name:
+    long: Jordan Mark Barbone
+    short: jordan
+  description: Neon‑chrome synthwave tuned to pink, yellow and cyan
+  link:
+    home: https://jmbarbone.github.io/
+    github: https://github.com/jmbarbone
+    bluesky: https://bsky.app/profile/barbone.bsky.social
+    linkedin: https://www.linkedin.com/in/jmbarbone
+  founded: 1992
+
+logo:
+  images:
+    site-logo:
+      path: https://quarto.org/quarto.png
+      alt: "Quarto icon"
+  small: site-logo
+
+color:
+  palette:
+    primary: "#1a0b1f"        # deep plum base (keeps contrast but not pure black)
+    primary-dark: "#0f0710"   # near-black depth
+    primary-light: "#6e2f7a"  # purple sheen for panels/headings
+    neon-cyan: "#00FFF6"      # electric cyan (links / glow)
+    neon-pink: "#FF2DA8"      # hot magenta (main accent)
+    neon-magenta: neon-pink
+    neon-yellow: "#FFD449"    # lightning yellow (secondary accent)
+    chrome: "#FFF8EE"         # warm chrome/highlight
+    gentle-white: "#FBFDFF"   # readable text color
+    card-dark: "#211026"      # card/panel (lighter than pure black)
+    muted: "#9a89a8"          # UI surfaces neutral
+  primary: primary
+  secondary: primary-light
+  danger: neon-pink
+  background: primary
+  foreground: gentle-white
+  link: neon-cyan
+  # accent: neon-pink # not a field
+
+typography:
+  fonts:
+    - family: Orbitron
+      source: google
+    - family: Roboto
+      source: google
+    - family: Electrolize
+      source: google
+    - family: Wavefont
+      source: google
+    - family: Doto
+      source: google
+    - family: Bruno Ace
+      source: google
+    - family: Syncopate
+      source: google
+    - family: Michroma
+      source: google
+    - family: Oxanium
+      source: google
+    - family: Montserrat
+      source: google
+    - family: Noto Sans
+      source: google
+    - family: Noto Mono
+      source: google
+    - family: Fira Code
+      source: google
+    - family: Google Sans Code
+      source: google
+  base:
+    family: Oxanium
+  headings:
+    family: Bruno Ace
+    color: neon-pink
+  monospace:
+    family: Fira Code
+    color: neon-cyan
+    background-color: card-dark
+  monospace-inline:
+    family: Google Sans Code
+    # size: 1.2em
+    color: neon-cyan
+    # weight: bold
+    background-color: card-dark
+  monospace-block:
+    family: Fira Code
+    color: neon-cyan
+    background-color: card-dark
+  link:
+    color: neon-magenta
+    decoration: underline
+    # background-color: none
+
+# extras: # not a field
+#   tone: "Pink, yellow, cyan — synthwave neon with warm chrome highlights"
