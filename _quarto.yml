@@ -28,6 +28,7 @@ website:
         href: anthology.html
       - icon: file-text
         href: https://github.com/jmbarbone/barbone-cv/blob/master/Barbone-CV.pdf
+  draft-mode: visible
 format:
   html:
     # theme:
