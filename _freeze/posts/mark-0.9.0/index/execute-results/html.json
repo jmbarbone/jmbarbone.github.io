@@ -1,0 +1,15 @@
+{
+  "hash": "4077244110e506050e5e81cebd32bf0d",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"`{mark} 0.9.0` release\"\nsubtitle: \"A package to support `Rscript` files\"\ndate: \"2023-10-21\"\ncategories: [\"R\", \"{scribe}\"]\n---\n\nAfter months of using my own `Rscript` utils with `{scribe}` I've failed to notice a now obvious error in my attempts to include type conversions.\nThe original approach was a little too complicated and a too much for what would be needed in most cases.\n\nThis update includes a breaking change for how conversion works in `{scribe}`.\n\nIn the prior minor release, this would be valid:\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(scribe)\n```\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

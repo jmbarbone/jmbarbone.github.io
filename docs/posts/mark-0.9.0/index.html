@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2023-10-21">
 
-<title>I wrote a few things – Jordan Mark Barbone</title>
+<title>{mark} 0.9.0 release – Jordan Mark Barbone</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -61,29 +62,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-a9a1004e11634ed07103b4f671e96efa.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-e61ef0ab113ec5ee1ab7875cd71d6084.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-a9a1004e11634ed07103b4f671e96efa.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-92a75182817b14ebfb91dfc393fdbed1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-8478ffe394191baceecad1f68cd35f44.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-92a75182817b14ebfb91dfc393fdbed1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a9a1004e11634ed07103b4f671e96efa.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-e61ef0ab113ec5ee1ab7875cd71d6084.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a9a1004e11634ed07103b4f671e96efa.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-92a75182817b14ebfb91dfc393fdbed1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8478ffe394191baceecad1f68cd35f44.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-92a75182817b14ebfb91dfc393fdbed1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -111,70 +110,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -343,11 +284,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="https://quarto.org/quarto.png" alt="Quarto icon" class="navbar-logo light-content">
     <img src="https://quarto.org/quarto.png" alt="Quarto icon" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Jordan Mark Barbone</span>
     </a>
   </div>
@@ -358,7 +299,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="./about.html"> <i class="bi bi-person-circle" role="img">
+    <a class="nav-link" href="../../about.html"> <i class="bi bi-person-circle" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -388,7 +329,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./anthology.html"> <i class="bi bi-flower3" role="img">
+    <a class="nav-link" href="../../anthology.html"> <i class="bi bi-flower3" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -408,368 +349,58 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <div class="quarto-title-block"><div><h1 class="title">I wrote a few things</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-                      </div>
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title"><code>{mark} 0.9.0</code> release</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+            <p class="subtitle lead">A package to support <code>Rscript</code> files</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">{scribe}</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 21, 2023</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(10)</span></div><div class="category" data-category="JTdCYmVuY2glN0Q=">{bench} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JTdCZHBseXIlN0Q=">{dplyr} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JTdCZnVqJTdE">{fuj} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JTdCc2NyaWJlJTdE">{scribe} <span class="quarto-category-count">(2)</span></div><div class="category" data-category="JTdCdGlkeXNlbGVjdCU3RA==">{tidyselect} <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YXZpcw==">datavis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWV0YQ==">meta <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cHN5Y2hvbG9neQ==">psychology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(8)</span></div><div class="category" data-category="c3RhdGlzdGljcw==">statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d2F0">wat <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
 
-<p hidden="">
-Hello, did you find some hidden content? This should allow me to link back to mastodon to show that the profiles that are mine are me. <a rel="me" href="https://fosstodon.org/@barbone">Mastodon</a> <a rel="me" href="https://mastodon.online/@barbone">Mastodon</a>
-</p>
-
+<p>After months of using my own <code>Rscript</code> utils with <code>{scribe}</code> I’ve failed to notice a now obvious error in my attempts to include type conversions. The original approach was a little too complicated and a too much for what would be needed in most cases.</p>
+<p>This update includes a breaking change for how conversion works in <code>{scribe}</code>.</p>
+<p>In the prior minor release, this would be valid:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scribe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 
 
 <!-- -->
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Ug==" data-listing-date-sort="1740546000000" data-listing-file-modified-sort="1740579002389" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
-<div class="thumbnail"><a href="./posts/cnd-release/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/cnd-release/index.html" class="no-external">{cnd} release</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/cnd-release/index.html" class="no-external">A new package for conditions</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/cnd-release/index.html" class="no-external">
-<code>{cnd}</code> is now on <strong>CRAN</strong>, and I’m pretty excited about this one.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/cnd-release/index.html" class="no-external">
-<div class="listing-date">
-Feb 26, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="UiUyQyU3QmZ1aiU3RCUyQ3dhdA==" data-listing-date-sort="1716177600000" data-listing-file-modified-sort="1726235189163" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="460">
-<div class="thumbnail"><a href="./posts/wat-na-list/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/wat-na-list/index.html" class="no-external">wat? Character NAs</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/wat-na-list/index.html" class="no-external">But it is documented</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('JTdCZnVqJTdE'); return false;">{fuj}</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('d2F0'); return false;">wat</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/wat-na-list/index.html" class="no-external">
-This interesting behavior was related to <code>{fuj} v0.2.0 lst()</code> behavior. An issue was created to track the fix: jmbarbone/fuj#60.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/wat-na-list/index.html" class="no-external">
-<div class="listing-date">
-May 20, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="UiUyQyU3QnNjcmliZSU3RA==" data-listing-date-sort="1697860800000" data-listing-file-modified-sort="1726235189163" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="202">
-<div class="thumbnail"><a href="./posts/scribe-0.3.0/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/scribe-0.3.0/index.html" class="no-external"><code>{scribe} 0.3.0</code> release</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/scribe-0.3.0/index.html" class="no-external">A package to support <code>Rscript</code> files</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('JTdCc2NyaWJlJTdE'); return false;">{scribe}</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/scribe-0.3.0/index.html" class="no-external">
-After months of using my own <code>Rscript</code> utils with <code>{scribe}</code> I’ve failed to notice a now obvious error in my attempts to include type conversions. The original approach was a…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/scribe-0.3.0/index.html" class="no-external">
-<div class="listing-date">
-Oct 21, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="UiUyQyU3QnNjcmliZSU3RA==" data-listing-date-sort="1678680000000" data-listing-file-modified-sort="1726235189163" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="551">
-<div class="thumbnail"><a href="./posts/scribe-release/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/scribe-release/index.html" class="no-external"><code>{scribe}</code> release</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/scribe-release/index.html" class="no-external">A package to support <code>Rscript</code> files</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('JTdCc2NyaWJlJTdE'); return false;">{scribe}</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/scribe-release/index.html" class="no-external">
-I’m excited to be finalizing release preparations of <code>{scribe}</code>. This package supports writing your own <strong>Rscript</strong> files and executing them through a terminal.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/scribe-release/index.html" class="no-external">
-<div class="listing-date">
-Mar 13, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="UiUyQ3N0YXRpc3RpY3M=" data-listing-date-sort="1667275200000" data-listing-file-modified-sort="1726235189160" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="670">
-<div class="thumbnail"><a href="./posts/confidence-intervals/index.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="posts/confidence-intervals/index_files/figure-html/plotting mean-1.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/confidence-intervals/index.html" class="no-external">Confidence intervals</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/confidence-intervals/index.html" class="no-external">Mean estimate</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/confidence-intervals/index.html" class="no-external">
-Confidence intervals (CIs) provide an estimation of a true value within a population, and some type of certainty around that value. The certainty that is constructed can be…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/confidence-intervals/index.html" class="no-external">
-<div class="listing-date">
-Nov 1, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="bWV0YQ==" data-listing-date-sort="1657339200000" data-listing-file-modified-sort="1726235189163" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
-<div class="thumbnail"><a href="./posts/quarto-update/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/quarto-update/index.html" class="no-external">Site update</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/quarto-update/index.html" class="no-external">Now with quarto!</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWV0YQ=='); return false;">meta</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/quarto-update/index.html" class="no-external">
-I finally got around to updating this out-of-date site with some new information in my About and Anthology. Even more, I <em>nuked</em> the whole thing and remade the website as a qua…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/quarto-update/index.html" class="no-external">
-<div class="listing-date">
-Jul 9, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="UiUyQyU3QmRwbHlyJTdEJTJDJTdCdGlkeXNlbGVjdCU3RA==" data-listing-date-sort="1600920000000" data-listing-file-modified-sort="1726235189161" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="967">
-<div class="thumbnail"><a href="./posts/dplyr-select/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/dplyr-select/index.html" class="no-external">Selecting columns in <code>{dplyr}</code></a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/dplyr-select/index.html" class="no-external">Quick tips</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('JTdCZHBseXIlN0Q='); return false;">{dplyr}</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('JTdCdGlkeXNlbGVjdCU3RA=='); return false;">{tidyselect}</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/dplyr-select/index.html" class="no-external">
-One feature of report building that has always bothered me was adjusting column names in final so I could have something prettier than a series of columns_with_underscores…<code></code><code></code><code></code><code></code><code></code><code></code><code></code>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/dplyr-select/index.html" class="no-external">
-<div class="listing-date">
-Sep 24, 2020
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="UiUyQyU3QmJlbmNoJTdE" data-listing-date-sort="1596600000000" data-listing-file-modified-sort="1726235189163" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1149">
-<div class="thumbnail"><a href="./posts/three-ways/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/three-ways/index.html" class="no-external">Solving one task with three equivalent solutions</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/three-ways/index.html" class="no-external"><code>for</code>, <code>do.call</code>, <code>vapply</code></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('JTdCYmVuY2glN0Q='); return false;">{bench}</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/three-ways/index.html" class="no-external">
-I can spend a lot of time trying in futility to optimize custom functions and code. I’ll take the time to rewrite the same thing in two or more ways and run some basic…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/three-ways/index.html" class="no-external">
-<div class="listing-date">
-Aug 5, 2020
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="UiUyQ3BzeWNob2xvZ3klMkNkYXRhdmlz" data-listing-date-sort="1588651200000" data-listing-file-modified-sort="1726235189161" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1896">
-<div class="thumbnail"><a href="./posts/dunning-kruger/index.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="posts/dunning-kruger/sheldon2014emotionally_figure1.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/dunning-kruger/index.html" class="no-external">Dunning-Kruger effect</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/dunning-kruger/index.html" class="no-external">A case of itself?</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHN5Y2hvbG9neQ=='); return false;">psychology</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YXZpcw=='); return false;">datavis</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/dunning-kruger/index.html" class="no-external">
-Note: I originally wrote this in February 2019. Also, don’t hate me for putting some links to Wikipedia, you were going to go there anyway. This isn’t a research paper.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/dunning-kruger/index.html" class="no-external">
-<div class="listing-date">
-May 5, 2020
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="bWV0YQ==" data-listing-date-sort="1587873600000" data-listing-file-modified-sort="1726235189163" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6">
-<div class="thumbnail"><a href="./posts/its-alive/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/its-alive/index.html" class="no-external">It’s alive!</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/its-alive/index.html" class="no-external">First</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWV0YQ=='); return false;">meta</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/its-alive/index.html" class="no-external">
-First post. Just testing, right?
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/its-alive/index.html" class="no-external">
-<div class="listing-date">
-Apr 26, 2020
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1234,25 +865,21 @@ Apr 26, 2020
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "I wrote a few things"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">  contents: posts</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  sort: "date desc"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  type: default</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  categories: true</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">  sort-ui: false</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">  filter-ui: false</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="an">page-layout:</span><span class="co"> full</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> true</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> hidden</span><span class="dt">&gt;</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>Hello, did you find some hidden content?</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>This should allow me to link  back to mastodon to show that the profiles that are mine are me.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> rel</span><span class="op">=</span><span class="st">"me"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://fosstodon.org/@barbone"</span><span class="dt">&gt;</span>Mastodon<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> rel</span><span class="op">=</span><span class="st">"me"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://mastodon.online/@barbone"</span><span class="dt">&gt;</span>Mastodon<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "`{mark} 0.9.0` release"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Updates from"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2023-10-21"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> ["R", "{scribe}"]</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>This minor release brings <span class="co">[</span><span class="ot">`{cnd}`</span><span class="co">](https://jmbarbone.github.io/cnd/)</span> into <span class="in">`{mark}`</span>.</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>Previously, conditions were handled with <span class="co">[</span><span class="ot">`{fuj}`</span><span class="co">](https://jmbarbone.github.io/fuj/)</span>, but <span class="in">`{cnd}`</span> is a more robust solution and <span class="in">`{mark}`</span> can become a sort of testing ground for <span class="in">`{cnd}`</span>.</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mark)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
