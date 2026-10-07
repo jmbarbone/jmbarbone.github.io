@@ -1,0 +1,90 @@
+---
+title: "`{cnd} 0.2.0` release"
+subtitle: "A package to support conditions"
+date: "2026-10-07"
+categories: ["R", "{cnd}"]
+draft: true
+---
+
+Finally on the second minor relase of `{cnd}`, which brings a few nice small features and a few _fixes_.
+This release was motivated by the soon inclusion of `{cnd}` in [`{mark}`](https://jmbarbone.github.io/mark/).
+
+```{r}
+library(cnd)
+```
+
+## Class name updates
+
+This release introduces a **breaking change** around how class names are generated when a package is included.
+
+Previously, package and class name were separate by a single colon `:`.
+
+    ```r
+    class(condition("foo", package = "bar")())[1L]
+    #> [1] "bar:foo"
+    ```
+
+Now, double colons are used:
+
+    ```r
+    class(condition("foo", package = "bar")())[1L]
+    #> [1] "bar::foo"
+    ```
+
+This also affects all conditions used within `{cnd}`, as well as other class names which contain the `cnd` prefix.
+
+## Defaults
+
+Like the concurrent updates in [`{fuj} v0.3.0`](https://jmbarbone.github.io/posts/fuj-0.3.0/), default classes are now included, without a `package` prefix.
+
+To repeat the example from `{fuj}`:
+
+```{r}
+some_letter <- function(x) {
+  if (!is.character(x)) {
+    stop(type_error("x must be a character"))
+  }
+  x
+}
+some_letter("a")
+try(some_letter(1))
+```
+
+But `{cnd}` contains some extra features.
+These default conditions can utilize default error formatting:
+
+```{r}
+some_letter <- function(x) {
+  if (!is.character(x)) {
+    stop(type_error(x = x, expected = character()))
+  }
+  x
+}
+try(some_letter(1))
+```
+
+## `name = ` over `class = `
+
+A small deprecation introduced will warn against using `condition(class = )`:
+
+```{r}
+condition(class = "foo")
+```
+
+Originally, this was to accommodate [`{S7}`](https://rconsortium.github.io/S7/)'s soon inclusion and handling of `:=`.
+
+Here's a simplified implimentation of how this might work:
+
+```{r}
+`:=` <- function(sym, val) {
+  sc <- sys.call()                         # lazily retrieve 'sym' and 'val' from call
+  sc[[1L]] <- quote(`<-`)                  # replace `:=` with `<-`
+  sc[[3L]]$name <- as.character(sc[[2L]])  # redirected to 'name' param
+  Exec(sc, parent.frame())                 # Exec() evaluates without including an additional stack
+}
+
+Foo := condition() # identical to `Foo <- condition(name = "Foo")`
+Foo
+```
+
+Perhaps a future update might include the _walrus_ operator in `{cnd}` and/or `{fuj}`, or it might be available through base **R**.
