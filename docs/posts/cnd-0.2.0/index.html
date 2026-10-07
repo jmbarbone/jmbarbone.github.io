@@ -110,7 +110,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<meta name="quarto:status" content="draft">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -281,7 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -959,91 +958,90 @@ class(condition("foo", package = "bar")())[1L]
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "A package to support conditions"</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2026-10-07"</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> ["R", "{cnd}"]</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="an">draft:</span><span class="co"> true</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>Finally on the second minor relase of <span class="in">`{cnd}`</span>, which brings a few nice small features and a few _fixes_.</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>This release was motivated by the soon inclusion of <span class="in">`{cnd}`</span> in <span class="co">[</span><span class="ot">`{mark}`</span><span class="co">](https://jmbarbone.github.io/mark/)</span>.</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cnd)</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Class name updates</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>This release introduces a **breaking change** around how class names are generated when a package is included.</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>Previously, package and class name were separate by a single colon <span class="in">`:`</span>.</span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="in">    ```r</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="in">    class(condition("foo", package = "bar")())[1L]</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="in">    #&gt; [1] "bar:foo"</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>Now, double colons are used:</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="in">    ```r</span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="in">    class(condition("foo", package = "bar")())[1L]</span></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="in">    #&gt; [1] "bar::foo"</span></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>This also affects all conditions used within <span class="in">`{cnd}`</span>, as well as other class names which contain the <span class="in">`cnd`</span> prefix.</span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Defaults</span></span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>Like the concurrent updates in <span class="co">[</span><span class="ot">`{fuj} v0.3.0`</span><span class="co">](https://jmbarbone.github.io/posts/fuj-0.3.0/)</span>, default classes are now included, without a <span class="in">`package`</span> prefix.</span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>To repeat the example from <span class="in">`{fuj}`</span>:</span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>some_letter <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.character</span>(x)) {</span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="fu">type_error</span>(<span class="st">"x must be a character"</span>))</span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>  x</span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="fu">some_letter</span>(<span class="st">"a"</span>)</span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">some_letter</span>(<span class="dv">1</span>))</span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>But <span class="in">`{cnd}`</span> contains some extra features.</span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>These default conditions can utilize default error formatting:</span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>some_letter <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.character</span>(x)) {</span>
-<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="fu">type_error</span>(<span class="at">x =</span> x, <span class="at">expected =</span> <span class="fu">character</span>()))</span>
-<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>  x</span>
-<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">some_letter</span>(<span class="dv">1</span>))</span>
-<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## `name = ` over `class = `</span></span>
-<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>A small deprecation introduced will warn against using <span class="in">`condition(class = )`</span>:</span>
-<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a><span class="fu">condition</span>(<span class="at">class =</span> <span class="st">"foo"</span>)</span>
-<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>Originally, this was to accommodate <span class="co">[</span><span class="ot">`{S7}`</span><span class="co">](https://rconsortium.github.io/S7/)</span>'s soon inclusion and handling of <span class="in">`:=`</span>.</span>
-<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>Here's a simplified implimentation of how this might work:</span>
-<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">:=</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="cf">function</span>(sym, val) {</span>
-<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>  sc <span class="ot">&lt;-</span> <span class="fu">sys.call</span>()                         <span class="co"># lazily retrieve 'sym' and 'val' from call</span></span>
-<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>  sc[[<span class="dv">1</span>L]] <span class="ot">&lt;-</span> <span class="fu">quote</span>(<span class="st">`</span><span class="at">&lt;-</span><span class="st">`</span>)                  <span class="co"># replace `:=` with `&lt;-`</span></span>
-<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>  sc[[<span class="dv">3</span>L]]<span class="sc">$</span>name <span class="ot">&lt;-</span> <span class="fu">as.character</span>(sc[[<span class="dv">2</span>L]])  <span class="co"># redirected to 'name' param</span></span>
-<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Exec</span>(sc, <span class="fu">parent.frame</span>())                 <span class="co"># Exec() evaluates without including an additional stack</span></span>
-<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a>Foo <span class="sc">:</span><span class="er">=</span> <span class="fu">condition</span>() <span class="co"># identical to `Foo &lt;- condition(name = "Foo")`</span></span>
-<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>Foo</span>
-<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a>Perhaps a future update might include the _walrus_ operator in <span class="in">`{cnd}`</span> and/or <span class="in">`{fuj}`</span>, or it might be available through base **R**.</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>Finally on the second minor relase of <span class="in">`{cnd}`</span>, which brings a few nice small features and a few _fixes_.</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>This release was motivated by the soon inclusion of <span class="in">`{cnd}`</span> in <span class="co">[</span><span class="ot">`{mark}`</span><span class="co">](https://jmbarbone.github.io/mark/)</span>.</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cnd)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Class name updates</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>This release introduces a **breaking change** around how class names are generated when a package is included.</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>Previously, package and class name were separate by a single colon <span class="in">`:`</span>.</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="in">    ```r</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="in">    class(condition("foo", package = "bar")())[1L]</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="in">    #&gt; [1] "bar:foo"</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>Now, double colons are used:</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="in">    ```r</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="in">    class(condition("foo", package = "bar")())[1L]</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="in">    #&gt; [1] "bar::foo"</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>This also affects all conditions used within <span class="in">`{cnd}`</span>, as well as other class names which contain the <span class="in">`cnd`</span> prefix.</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Defaults</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>Like the concurrent updates in <span class="co">[</span><span class="ot">`{fuj} v0.3.0`</span><span class="co">](https://jmbarbone.github.io/posts/fuj-0.3.0/)</span>, default classes are now included, without a <span class="in">`package`</span> prefix.</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>To repeat the example from <span class="in">`{fuj}`</span>:</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>some_letter <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.character</span>(x)) {</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="fu">type_error</span>(<span class="st">"x must be a character"</span>))</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>  x</span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="fu">some_letter</span>(<span class="st">"a"</span>)</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">some_letter</span>(<span class="dv">1</span>))</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>But <span class="in">`{cnd}`</span> contains some extra features.</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>These default conditions can utilize default error formatting:</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>some_letter <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.character</span>(x)) {</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="fu">type_error</span>(<span class="at">x =</span> x, <span class="at">expected =</span> <span class="fu">character</span>()))</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>  x</span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">some_letter</span>(<span class="dv">1</span>))</span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## `name = ` over `class = `</span></span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>A small deprecation introduced will warn against using <span class="in">`condition(class = )`</span>:</span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a><span class="fu">condition</span>(<span class="at">class =</span> <span class="st">"foo"</span>)</span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>Originally, this was to accommodate <span class="co">[</span><span class="ot">`{S7}`</span><span class="co">](https://rconsortium.github.io/S7/)</span>'s soon inclusion and handling of <span class="in">`:=`</span>.</span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>Here's a simplified implimentation of how this might work:</span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">:=</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="cf">function</span>(sym, val) {</span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a>  sc <span class="ot">&lt;-</span> <span class="fu">sys.call</span>()                         <span class="co"># lazily retrieve 'sym' and 'val' from call</span></span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>  sc[[<span class="dv">1</span>L]] <span class="ot">&lt;-</span> <span class="fu">quote</span>(<span class="st">`</span><span class="at">&lt;-</span><span class="st">`</span>)                  <span class="co"># replace `:=` with `&lt;-`</span></span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>  sc[[<span class="dv">3</span>L]]<span class="sc">$</span>name <span class="ot">&lt;-</span> <span class="fu">as.character</span>(sc[[<span class="dv">2</span>L]])  <span class="co"># redirected to 'name' param</span></span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Exec</span>(sc, <span class="fu">parent.frame</span>())                 <span class="co"># Exec() evaluates without including an additional stack</span></span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a>Foo <span class="sc">:</span><span class="er">=</span> <span class="fu">condition</span>() <span class="co"># identical to `Foo &lt;- condition(name = "Foo")`</span></span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a>Foo</span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a>Perhaps a future update might include the _walrus_ operator in <span class="in">`{cnd}`</span> and/or <span class="in">`{fuj}`</span>, or it might be available through base **R**.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

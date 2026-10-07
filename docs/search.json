@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "I wrote a few things",
     "section": "",
-    "text": "Hello, did you find some hidden content? This should allow me to link back to mastodon to show that the profiles that are mine are me. Mastodon Mastodon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n{cnd} release\n\n\nA new package for conditions\n\n\n\nR\n\n\n\n\n\n\n\n\n\nFeb 26, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nwat? Character NAs\n\n\nBut it is documented\n\n\n\nR\n\n{fuj}\n\nwat\n\n\n\n\n\n\n\n\n\nMay 20, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n{scribe} 0.3.0 release\n\n\nA package to support Rscript files\n\n\n\nR\n\n{scribe}\n\n\n\n\n\n\n\n\n\nOct 21, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n{scribe} release\n\n\nA package to support Rscript files\n\n\n\nR\n\n{scribe}\n\n\n\n\n\n\n\n\n\nMar 13, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nConfidence intervals\n\n\nMean estimate\n\n\n\nR\n\nstatistics\n\n\n\n\n\n\n\n\n\nNov 1, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nSite update\n\n\nNow with quarto!\n\n\n\nmeta\n\n\n\n\n\n\n\n\n\nJul 9, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nSelecting columns in {dplyr}\n\n\nQuick tips\n\n\n\nR\n\n{dplyr}\n\n{tidyselect}\n\n\n\n\n\n\n\n\n\nSep 24, 2020\n\n\n\n\n\n\n\n\n\n\n\n\nSolving one task with three equivalent solutions\n\n\nfor, do.call, vapply\n\n\n\nR\n\n{bench}\n\n\n\n\n\n\n\n\n\nAug 5, 2020\n\n\n\n\n\n\n\n\n\n\n\n\nDunning-Kruger effect\n\n\nA case of itself?\n\n\n\nR\n\npsychology\n\ndatavis\n\n\n\n\n\n\n\n\n\nMay 5, 2020\n\n\n\n\n\n\n\n\n\n\n\n\nIt’s alive!\n\n\nFirst\n\n\n\nmeta\n\n\n\n\n\n\n\n\n\nApr 26, 2020\n\n\n\n\n\nNo matching items"
+    "text": "Hello, did you find some hidden content? This should allow me to link back to mastodon to show that the profiles that are mine are me. Mastodon Mastodon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n{cnd} 0.2.0 release\n\n\nA package to support conditions\n\n\n\nR\n\n{cnd}\n\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n{cnd} release\n\n\nA new package for conditions\n\n\n\nR\n\n\n\n\n\n\n\n\n\nFeb 26, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nwat? Character NAs\n\n\nBut it is documented\n\n\n\nR\n\n{fuj}\n\nwat\n\n\n\n\n\n\n\n\n\nMay 20, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n{scribe} 0.3.0 release\n\n\nA package to support Rscript files\n\n\n\nR\n\n{scribe}\n\n\n\n\n\n\n\n\n\nOct 21, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n{scribe} release\n\n\nA package to support Rscript files\n\n\n\nR\n\n{scribe}\n\n\n\n\n\n\n\n\n\nMar 13, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nConfidence intervals\n\n\nMean estimate\n\n\n\nR\n\nstatistics\n\n\n\n\n\n\n\n\n\nNov 1, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nSite update\n\n\nNow with quarto!\n\n\n\nmeta\n\n\n\n\n\n\n\n\n\nJul 9, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nSelecting columns in {dplyr}\n\n\nQuick tips\n\n\n\nR\n\n{dplyr}\n\n{tidyselect}\n\n\n\n\n\n\n\n\n\nSep 24, 2020\n\n\n\n\n\n\n\n\n\n\n\n\nSolving one task with three equivalent solutions\n\n\nfor, do.call, vapply\n\n\n\nR\n\n{bench}\n\n\n\n\n\n\n\n\n\nAug 5, 2020\n\n\n\n\n\n\n\n\n\n\n\n\nDunning-Kruger effect\n\n\nA case of itself?\n\n\n\nR\n\npsychology\n\ndatavis\n\n\n\n\n\n\n\n\n\nMay 5, 2020\n\n\n\n\n\n\n\n\n\n\n\n\nIt’s alive!\n\n\nFirst\n\n\n\nmeta\n\n\n\n\n\n\n\n\n\nApr 26, 2020\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/scribe-release/index.html",
@@ -236,5 +236,33 @@
     "title": "{mark} 0.9.0 release",
     "section": "",
     "text": "After months of using my own Rscript utils with {scribe} I’ve failed to notice a now obvious error in my attempts to include type conversions. The original approach was a little too complicated and a too much for what would be needed in most cases.\nThis update includes a breaking change for how conversion works in {scribe}.\nIn the prior minor release, this would be valid:\n\n\nCode\nlibrary(scribe)"
+  },
+  {
+    "objectID": "posts/cnd-0.2.0/index.html",
+    "href": "posts/cnd-0.2.0/index.html",
+    "title": "{cnd} 0.2.0 release",
+    "section": "",
+    "text": "Finally on the second minor relase of {cnd}, which brings a few nice small features and a few fixes. This release was motivated by the soon inclusion of {cnd} in {mark}.\nCode\nlibrary(cnd)"
+  },
+  {
+    "objectID": "posts/cnd-0.2.0/index.html#class-name-updates",
+    "href": "posts/cnd-0.2.0/index.html#class-name-updates",
+    "title": "{cnd} 0.2.0 release",
+    "section": "Class name updates",
+    "text": "Class name updates\nThis release introduces a breaking change around how class names are generated when a package is included.\nPreviously, package and class name were separate by a single colon :.\n```r\nclass(condition(\"foo\", package = \"bar\")())[1L]\n#&gt; [1] \"bar:foo\"\n```\nNow, double colons are used:\n```r\nclass(condition(\"foo\", package = \"bar\")())[1L]\n#&gt; [1] \"bar::foo\"\n```\nThis also affects all conditions used within {cnd}, as well as other class names which contain the cnd prefix."
+  },
+  {
+    "objectID": "posts/cnd-0.2.0/index.html#defaults",
+    "href": "posts/cnd-0.2.0/index.html#defaults",
+    "title": "{cnd} 0.2.0 release",
+    "section": "Defaults",
+    "text": "Defaults\nLike the concurrent updates in {fuj} v0.3.0, default classes are now included, without a package prefix.\nTo repeat the example from {fuj}:\n\n\nCode\nsome_letter &lt;- function(x) {\n  if (!is.character(x)) {\n    stop(type_error(\"x must be a character\"))\n  }\n  x\n}\nsome_letter(\"a\")\n#&gt; [1] \"a\"\ntry(some_letter(1))\n#&gt; Error in some_letter() : &lt;type_error&gt;\n#&gt; x must be a character\n\n\nBut {cnd} contains some extra features. These default conditions can utilize default error formatting:\n\n\nCode\nsome_letter &lt;- function(x) {\n  if (!is.character(x)) {\n    stop(type_error(x = x, expected = character()))\n  }\n  x\n}\ntry(some_letter(1))\n#&gt; Error in some_letter() : &lt;type_error&gt;\n#&gt; Invalid type for `x`: got 'double', expected 'character'"
+  },
+  {
+    "objectID": "posts/cnd-0.2.0/index.html#name-over-class",
+    "href": "posts/cnd-0.2.0/index.html#name-over-class",
+    "title": "{cnd} 0.2.0 release",
+    "section": "name = over class =",
+    "text": "name = over class =\nA small deprecation introduced will warn against using condition(class = ):\n\n\nCode\ncondition(class = \"foo\")\n#&gt; Warning in condition(): &lt;deprecated_warning&gt;\n#&gt; `condition(class = )` is deprecated and will be removed in '0.3.0', use `condition(name = )` instead\n#&gt; cnd::condition_generator\n#&gt; foo/condition \n#&gt; \n#&gt; generator\n#&gt;   $ ... : &lt;symbol&gt;\n\n\nOriginally, this was to accommodate {S7}’s soon inclusion and handling of :=.\nHere’s a simplified implimentation of how this might work:\n\n\nCode\n`:=` &lt;- function(sym, val) {\n  sc &lt;- sys.call()                         # lazily retrieve 'sym' and 'val' from call\n  sc[[1L]] &lt;- quote(`&lt;-`)                  # replace `:=` with `&lt;-`\n  sc[[3L]]$name &lt;- as.character(sc[[2L]])  # redirected to 'name' param\n  Exec(sc, parent.frame())                 # Exec() evaluates without including an additional stack\n}\n\nFoo := condition() # identical to `Foo &lt;- condition(name = \"Foo\")`\nFoo\n#&gt; cnd::condition_generator\n#&gt; Foo/condition \n#&gt; \n#&gt; generator\n#&gt;   $ ... : &lt;symbol&gt;\n\n\nPerhaps a future update might include the walrus operator in {cnd} and/or {fuj}, or it might be available through base R."
   }
 ]

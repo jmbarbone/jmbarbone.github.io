@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/cnd-0.2.0/index.html",
       "/posts/cnd-release/index.html",
       "/posts/wat-na-list/index.html",
       "/posts/scribe-0.3.0/index.html",
