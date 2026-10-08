@@ -1,9 +1,8 @@
 ---
 title: "`{fuj} 0.3.0` release"
 subtitle: "Enhancements, mostly for me"
-date: "2026-10-03"
+date: "2026-10-08"
 categories: ["R", "{fuj}"]
-draft: true
 ---
 
 ```{r}
